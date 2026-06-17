@@ -3,7 +3,7 @@ title: "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuber
 author: "Vahhab Piranfar"
 date: "2026-06-17"
 categories: [Microbiology, Bioinformatics, Antibiotics]
-image: "../profile.jpg"
+image: "antibiotic-persistence.png"
 ---
 
 ::: {.paper-hero}
@@ -12,6 +12,10 @@ image: "../profile.jpg"
 <p><strong>Vahhab Piranfar</strong> · bioRxiv · 2025</p>
 <p class="paper-hero-doi">DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.637810</a></p>
 <a class="paper-hero-link" href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Read the paper</a>
+:::
+
+::: {.paper-cover}
+![](antibiotic-persistence.png){fig-alt="Poster for antibiotic persistence paper review"}
 :::
 
 This review looks at the preprint [Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in *Mycobacterium tuberculosis* and *Staphylococcus aureus*](https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1), which explores how two very different pathogens respond to antibiotics over time.

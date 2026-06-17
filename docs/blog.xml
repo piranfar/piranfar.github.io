@@ -35,6 +35,9 @@ DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.6378
 </p>
 <p><a class="paper-hero-link" href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Read the paper</a></p>
 </div>
+<div class="paper-cover">
+<p><img src="https://piranfar.github.io/posts/antibiotic-persistence.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+</div>
 <p>This review looks at the preprint <a href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in <em>Mycobacterium tuberculosis</em> and <em>Staphylococcus aureus</em></a>, which explores how two very different pathogens respond to antibiotics over time.</p>
 <blockquote class="blockquote">
 <p>This is a preprint, so the findings should be interpreted as an informed modeling study rather than final clinical evidence. Even so, the paper raises important questions about how we define and treat persistence.</p>
@@ -90,7 +93,7 @@ DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.6378
   <category>Antibiotics</category>
   <guid>https://piranfar.github.io/posts/antibiotic-persistence.html</guid>
   <pubDate>Wed, 17 Jun 2026 04:00:00 GMT</pubDate>
-  <media:content url="https://piranfar.github.io/profile.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://piranfar.github.io/posts/antibiotic-persistence.png" medium="image" type="image/png" height="180" width="144"/>
 </item>
 <item>
   <title>The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment</title>

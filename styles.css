@@ -291,6 +291,48 @@ main {
   color: var(--accent);
 }
 
+.paper-cover {
+  position: relative;
+  margin: 1.5rem 0 2rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -32px rgba(15, 23, 42, 0.85);
+  padding: 0;
+}
+
+.paper-cover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2));
+  z-index: 10;
+}
+
+.paper-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  aspect-ratio: auto;
+}
+
+.paper-cover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
 /* Project card styling */
 .g-col-md-6 {
   padding: 0.75rem;
