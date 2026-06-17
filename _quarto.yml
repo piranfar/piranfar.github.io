@@ -6,6 +6,7 @@ website:
   title: "Vahhab Piranfar"
   site-url: "https://piranfar.github.io"
   navbar:
+    background: light
     left:
       - href: index.qmd
         text: Home
@@ -18,12 +19,14 @@ website:
       - href: publications.qmd
         text: Publications
   page-footer:
-    left: "Copyright 2026, Vahhab Piranfar"
-    right: 
+    left: "© 2026 Vahhab Piranfar"
+    right:
       - icon: linkedin
         href: https://www.linkedin.com/in/vahhab-piranfar/
       - icon: google
         href: https://scholar.google.com/citations?user=G_m_E58AAAAJ
+      - icon: github
+        href: https://github.com/piranfar
     background: dark
 
 execute:
@@ -32,7 +35,10 @@ execute:
 
 format:
   html:
-    theme: sandstone
+    theme: cosmo
     toc: true
     code-fold: true
     code-summary: "Show the code"
+    include-in-header:
+      - text: |
+          <meta name="viewport" content="width=device-width, initial-scale=1">

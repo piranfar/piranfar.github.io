@@ -1,34 +1,63 @@
 ---
 title: "Vahhab Piranfar"
-subtitle: "Microbiologist | EB-1A Scholar | Molecular Biologist"
-about:
-  template: jolla
-  image: profile.jpg # حتما عکسی با این نام در پوشه اصلی داشته باش
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/vahhab-piranfar/
-    - icon: google
-      text: Scholar
-      href: https://scholar.google.com/citations?user=G_m_E58AAAAJ
-    - icon: github
-      text: Github
-      href: https://github.com/
+subtitle: "Microbiologist • Bioinformatician • Research Scientist"
 ---
 
-Welcome to my personal research hub. I am a **Molecular Microbiologist** recognized as an **EB-1A recipient** for my work in clinical diagnostics and pathogen research. 
+::: {.hero-panel}
+::: {.grid .align-items-center}
+::: {.g-col-12 .g-col-md-4}
+![](profile.jpg){.hero-photo fig-alt="Portrait of Vahhab Piranfar"}
+:::
 
-Based in **Jersey City, NJ**, I focus on bridging the gap between clinical microbiology and biological analysis. My work spans from investigating antimicrobial resistance in *Brucella* to modeling molecular interactions in drug-resistant pathogens.
+::: {.g-col-12 .g-col-md-8}
+## Researching pathogens, data, and disease mechanisms
 
-### Core Expertise:
-* **Medical Microbiology**: Over a decade of experience in pathogen isolation and molecular assays.
-* **Data Science**: Proficient in Python for interactive data visualization and statistical analysis.
-* **Bioinformatics**: Utilizing GROMACS and molecular dynamics for drug-resistance research.
-</br>
-</br>
-</br>
+I work at the intersection of **clinical microbiology**, **bioinformatics**, and **data-driven discovery**. My research focuses on antimicrobial resistance, molecular diagnostics, and computational approaches to understanding pathogen behavior.
 
-> ### Vision Statement
-> "In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable."
+<div class="hero-badges">
+<span class="hero-pill">🧬 Microbiology</span>
+<span class="hero-pill">💻 Bioinformatics</span>
+<span class="hero-pill">📊 Data Science</span>
+</div>
+
+[Explore my projects](projects.qmd){.btn .btn-light}  
+[Read my publications](publications.qmd){.btn .btn-outline-light}
+:::
+:::
+:::
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon"><i class="bi bi-bug"></i></span> Microbiology
+Clinical diagnostics, pathogen identification, and antimicrobial resistance research across hospital and translational settings.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon"><i class="bi bi-diagram-3"></i></span> Bioinformatics
+Computational modeling, molecular dynamics, and data analysis for understanding resistance, persistence, and host-pathogen interactions.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon"><i class="bi bi-globe2"></i></span> Research Communication
+Writing, public science communication, and collaborative work focused on making complex findings accessible and actionable.
+:::
+:::
+:::
+
+## Current focus
+
+Welcome to my personal research hub. I am a **Molecular Microbiologist** recognized as an **EB-1A recipient** for my work in clinical diagnostics and pathogen research.
+
+Based in **Jersey City, NJ**, I combine laboratory insight with computational analysis to study bacterial pathogens, resistance patterns, and molecular interactions.
+
+::: {.info-card}
+### Vision Statement
+> “In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”
 >
 > — **Vahhab Piranfar**
+:::

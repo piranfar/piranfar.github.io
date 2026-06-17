@@ -3,7 +3,13 @@ title: "Research & Discussion"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
   feed: true
+  image-height: 220px
+  page-size: 6
+  fields: [image, title, subtitle, categories, author, date]
+  sort-ui: true
+  filter-ui: true
+  max-items: 12
 ---

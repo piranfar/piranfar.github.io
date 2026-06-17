@@ -10,7 +10,88 @@
 <atom:link href="https://piranfar.github.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Sun, 01 Feb 2026 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 17 Jun 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://piranfar.github.io/posts/antibiotic-persistence.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="paper-hero">
+<div class="paper-hero-label">
+Featured Preprint
+</div>
+<h2 class="anchored">
+Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence
+</h2>
+<p>
+<strong>Vahhab Piranfar</strong> · bioRxiv · 2025
+</p>
+<p class="paper-hero-doi">
+DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.637810</a>
+</p>
+<p><a class="paper-hero-link" href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Read the paper</a></p>
+</div>
+<p>This review looks at the preprint <a href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in <em>Mycobacterium tuberculosis</em> and <em>Staphylococcus aureus</em></a>, which explores how two very different pathogens respond to antibiotics over time.</p>
+<blockquote class="blockquote">
+<p>This is a preprint, so the findings should be interpreted as an informed modeling study rather than final clinical evidence. Even so, the paper raises important questions about how we define and treat persistence.</p>
+</blockquote>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The study compares how <em>M. tuberculosis</em> and <em>S. aureus</em> survive antibiotic exposure using mathematical models and time-kill simulations. The main idea is that the two organisms do not rely on the same survival strategy:</p>
+<ul>
+<li><em>S. aureus</em> appears to show a more rapid tolerance pattern, with an initial strong decline followed by a slower phase of survival.</li>
+<li><em>M. tuberculosis</em> appears to maintain a much longer persistence window, consistent with prolonged survival under drug pressure.</li>
+</ul>
+<p>This distinction matters because it suggests that treatment failure may not always come from the same mechanism.</p>
+</section>
+<section id="why-it-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-matters">Why it matters</h2>
+<p>The paper is valuable because it forces us to separate three ideas that are often blurred together:</p>
+<ul>
+<li><strong>Resistance</strong>: genetic survival despite drug exposure.</li>
+<li><strong>Tolerance</strong>: temporary survival of a population under stress.</li>
+<li><strong>Persistence</strong>: survival of a small subpopulation that can remain viable over long periods.</li>
+</ul>
+<p>For microbiology and infectious disease research, this distinction is critical. A therapy that works for one bacterial survival strategy may fail if the pathogen is using another.</p>
+</section>
+<section id="key-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="key-interpretation">Key interpretation</h2>
+<p>What I find especially interesting is the contrast between the two pathogens.</p>
+<p>For <em>M. tuberculosis</em>, the model suggests a deeper and longer-lasting survival mechanism. That fits the well-known difficulty of tuberculosis treatment: the organism can persist for long periods and may require extended regimens.</p>
+<p>For <em>S. aureus</em>, the result suggests that early tolerance may be the dominant issue. In that case, the timing and structure of treatment may be especially important for preventing relapse.</p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>As with any modeling paper, the conclusions depend heavily on assumptions.</p>
+<p>Some limitations are worth noting:</p>
+<ul>
+<li>The study relies on simplified equations and simulations rather than full experimental heterogeneity.</li>
+<li>Real infections involve host immunity, biofilms, metabolic shifts, and variable drug penetration.</li>
+<li>The model may not fully capture the complexity of patient-specific bacterial behavior.</li>
+</ul>
+<p>These are not fatal weaknesses, but they mean the paper should be read as a framework for thinking, not as a final answer.</p>
+</section>
+<section id="final-take" class="level2">
+<h2 class="anchored" data-anchor-id="final-take">Final take</h2>
+<p>The most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.</p>
+<p>For me, the strongest takeaway is this:</p>
+<p><strong>The challenge is not only killing bacteria quickly, but understanding how they survive long enough to return.</strong></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Microbiology</category>
+  <category>Bioinformatics</category>
+  <category>Antibiotics</category>
+  <guid>https://piranfar.github.io/posts/antibiotic-persistence.html</guid>
+  <pubDate>Wed, 17 Jun 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://piranfar.github.io/profile.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment</title>
   <link>https://piranfar.github.io/posts/unemployment-paradox.html</link>

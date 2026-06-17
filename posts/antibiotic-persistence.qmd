@@ -1,0 +1,67 @@
+---
+title: "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections"
+author: "Vahhab Piranfar"
+date: "2026-06-17"
+categories: [Microbiology, Bioinformatics, Antibiotics]
+image: "../profile.jpg"
+---
+
+::: {.paper-hero}
+<div class="paper-hero-label">Featured Preprint</div>
+<h2>Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence</h2>
+<p><strong>Vahhab Piranfar</strong> · bioRxiv · 2025</p>
+<p class="paper-hero-doi">DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.637810</a></p>
+<a class="paper-hero-link" href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Read the paper</a>
+:::
+
+This review looks at the preprint [Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in *Mycobacterium tuberculosis* and *Staphylococcus aureus*](https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1), which explores how two very different pathogens respond to antibiotics over time.
+
+> This is a preprint, so the findings should be interpreted as an informed modeling study rather than final clinical evidence. Even so, the paper raises important questions about how we define and treat persistence.
+
+## Summary
+
+The study compares how *M. tuberculosis* and *S. aureus* survive antibiotic exposure using mathematical models and time-kill simulations. The main idea is that the two organisms do not rely on the same survival strategy:
+
+- *S. aureus* appears to show a more rapid tolerance pattern, with an initial strong decline followed by a slower phase of survival.
+- *M. tuberculosis* appears to maintain a much longer persistence window, consistent with prolonged survival under drug pressure.
+
+This distinction matters because it suggests that treatment failure may not always come from the same mechanism.
+
+## Why it matters
+
+The paper is valuable because it forces us to separate three ideas that are often blurred together:
+
+- **Resistance**: genetic survival despite drug exposure.
+- **Tolerance**: temporary survival of a population under stress.
+- **Persistence**: survival of a small subpopulation that can remain viable over long periods.
+
+For microbiology and infectious disease research, this distinction is critical. A therapy that works for one bacterial survival strategy may fail if the pathogen is using another.
+
+## Key interpretation
+
+What I find especially interesting is the contrast between the two pathogens.
+
+For *M. tuberculosis*, the model suggests a deeper and longer-lasting survival mechanism. That fits the well-known difficulty of tuberculosis treatment: the organism can persist for long periods and may require extended regimens.
+
+For *S. aureus*, the result suggests that early tolerance may be the dominant issue. In that case, the timing and structure of treatment may be especially important for preventing relapse.
+
+## Limitations
+
+As with any modeling paper, the conclusions depend heavily on assumptions.
+
+Some limitations are worth noting:
+
+- The study relies on simplified equations and simulations rather than full experimental heterogeneity.
+- Real infections involve host immunity, biofilms, metabolic shifts, and variable drug penetration.
+- The model may not fully capture the complexity of patient-specific bacterial behavior.
+
+These are not fatal weaknesses, but they mean the paper should be read as a framework for thinking, not as a final answer.
+
+## Final take
+
+The most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.
+
+For me, the strongest takeaway is this:
+
+**The challenge is not only killing bacteria quickly, but understanding how they survive long enough to return.**
+

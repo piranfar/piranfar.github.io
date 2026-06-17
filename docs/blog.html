@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7adefbea5effa697fc47a87f5c4ac001.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-867ec05194674b9d02258e23c81cfb12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-subtitle','listing-categories','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -101,6 +101,7 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -184,7 +185,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RWNvbm9taWNz">Economics <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="QW50aWJpb3RpY3M=">Antibiotics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QmlvaW5mb3JtYXRpY3M=">Bioinformatics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RWNvbm9taWNz">Economics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TWljcm9iaW9sb2d5">Microbiology <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -211,68 +212,116 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWNvbm9taWNzJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1769922000000" data-listing-file-modified-sort="1773005364000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="609">
-<div class="thumbnail"><a href="./posts/unemployment-paradox.html" class="no-external">
-
-<img loading="lazy" src="./poverty_trend.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/unemployment-paradox.html" class="no-external">The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment</a>
-</h3>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="TWljcm9iaW9sb2d5JTJDQmlvaW5mb3JtYXRpY3MlMkNBbnRpYmlvdGljcw==" data-listing-date-sort="1781668800000" data-listing-file-modified-sort="1781721582029" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="448">
+<a href="./posts/antibiotic-persistence.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./profile.jpg" class="thumbnail-image card-img" style="height: 220px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections
+</h5>
 <div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9taWNz'); return false;">Economics</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TWljcm9iaW9sb2d5'); return false;">Microbiology</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+<div class="listing-category" onclick="window.quartoListingCategory('QmlvaW5mb3JtYXRpY3M='); return false;">Bioinformatics</div>
 
-</div>
-<div class="delink listing-description"><a href="./posts/unemployment-paradox.html" class="no-external">
-If official unemployment is low, why does job hunting feel like a “war,” and why is poverty rising?.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/unemployment-paradox.html" class="no-external">
-<div class="listing-date">
-Feb 1, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="RWNvbm9taWNzJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1769835600000" data-listing-file-modified-sort="1773005364000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
-<div class="thumbnail"><a href="./posts/discuss.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/discuss.html" class="no-external">Long-term Labor Market Analysis (1995–2025)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9taWNz'); return false;">Economics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+<div class="listing-category" onclick="window.quartoListingCategory('QW50aWJpb3RpY3M='); return false;">Antibiotics</div>
 
 </div>
-<div class="delink listing-description"><a href="./posts/discuss.html" class="no-external">
-In December 2025, a significant gap persisted between official government statistics and the actual economic experience of many Americans. While the official U-3…<strong></strong><strong></strong>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/discuss.html" class="no-external">
-<div class="listing-date">
-Jan 31, 2026
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Vahhab Piranfar
 </div>
-</a>
+<div class="listing-date">
+Jun 17, 2026
 </div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="RWNvbm9taWNzJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1769922000000" data-listing-file-modified-sort="1773005364000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="609">
+<a href="./posts/unemployment-paradox.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./poverty_trend.jpg" class="thumbnail-image card-img" style="height: 220px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9taWNz'); return false;">Economics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Feb 1, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="RWNvbm9taWNzJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1769835600000" data-listing-file-modified-sort="1773005364000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
+<a href="./posts/discuss.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 220px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Long-term Labor Market Analysis (1995–2025)
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RWNvbm9taWNz'); return false;">Economics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
+
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Vahhab Piranfar
+</div>
+<div class="listing-date">
+Jan 31, 2026
+</div>
+</div>
+</div>
+</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
@@ -681,7 +730,7 @@ Vahhab Piranfar
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright 2026, Vahhab Piranfar</p>
+<p>© 2026 Vahhab Piranfar</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -697,6 +746,12 @@ Vahhab Piranfar
     <li class="nav-item compact">
     <a class="nav-link" href="https://scholar.google.com/citations?user=G_m_E58AAAAJ">
       <i class="bi bi-google" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/piranfar">
+      <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
