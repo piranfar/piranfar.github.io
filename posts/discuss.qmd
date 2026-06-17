@@ -1,0 +1,101 @@
+---
+title: "The True Rate of Unemployment (TRU) Analysis"
+author: "Vahhab Piranfar"
+date: "2026-01-31"
+categories: [Economics, Data Science]
+---
+
+### Measuring Real Economic Health
+
+In December 2025, a significant gap persisted between official government statistics and the actual economic experience of many Americans. While the official U-3 unemployment rate was reported at **4.4%**, the True Rate of Unemployment (TRU) indicated a much higher reality of **25.2%**.
+
+The following model represents the growth of job displacement:
+
+$$f(x) = \frac{L}{1 + e^{-k(x-x_0)}}$$
+
+### Interactive Comparison (2020–2025)
+
+```{python}
+import plotly.graph_objects as go
+
+months = ['2020 Peak', '2021 Avg', '2022 Avg', '2023 Avg', '2024 Avg', 'Dec 2025']
+tru = [32, 26, 24, 23.5, 24, 25.2]
+u3 = [14.8, 5.5, 3.6, 3.8, 4.0, 4.4]
+u6 = [22.9, 10, 7, 7.5, 7.8, 8.4]
+
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=months, y=tru, name='TRU (LISEP)', line=dict(color='red', width=4)))
+fig.add_trace(go.Scatter(x=months, y=u3, name='Official (U-3)', line=dict(color='blue', dash='dash')))
+fig.add_trace(go.Scatter(x=months, y=u6, name='Underemployment (U-6)', line=dict(color='green')))
+
+fig.update_layout(
+    title='Comparison of Unemployment Measures: TRU vs U-3 vs U-6',
+    xaxis_title='Time Period',
+    yaxis_title='Percentage (%)',
+    hovermode='x unified',
+    template='plotly_white'
+)
+fig.show()
+```
+
+
+### Long-term Historical Perspective (2000–2025)
+
+The following chart illustrates the long-term trends of official unemployment (U-3) and underemployment (U-6), contrasted with the True Rate of Unemployment (TRU) since its reporting became prominent in 2020.
+
+---
+title: "Long-term Labor Market Analysis (1995–2025)"
+author: "Nathan Piranfar"
+date: "2026-01-31"
+---
+
+### Comparing Official and True Unemployment Rates
+
+This analysis explores the deep disparity between the Bureau of Labor Statistics (BLS) metrics and the True Rate of Unemployment (TRU) provided by LISEP. The TRU accounts for workers who are unable to find full-time jobs that pay above the poverty line.
+
+#### Interactive Historical Trend (1995–2025)
+
+```{python}
+#| code-fold: true
+#| code-summary: "Click to see the Python code for this visualization"
+
+import plotly.graph_objects as go
+
+years = list(range(1995, 2026))
+u3 = [5.6, 5.4, 4.9, 4.5, 4.2, 4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2, 5.3, 4.9, 4.4, 3.9, 3.7, 8.1, 5.4, 3.6, 3.6, 4.1, 4.3]
+u6 = [10.1, 9.6, 8.9, 8.0, 7.5, 7.0, 8.0, 9.6, 10.0, 9.5, 8.5, 8.0, 8.3, 11.0, 16.5, 16.7, 16.2, 14.7, 13.8, 12.0, 10.4, 9.6, 8.5, 7.7, 7.0, 14.8, 9.7, 7.0, 7.0, 7.8, 8.0]
+tru = [31.5, 31.0, 30.5, 29.8, 29.0, 28.5, 27.8, 27.0, 26.5, 26.0, 25.8, 25.5, 25.2, 26.0, 32.0, 34.0, 33.5, 32.0, 30.0, 28.0, 26.5, 25.0, 24.0, 23.5, 23.0, 33.0, 26.0, 23.5, 23.5, 24.0, 25.0]
+
+import plotly.graph_objects as go
+
+years = list(range(1995, 2026))
+u3 = [5.6, 5.4, 4.9, 4.5, 4.2, 4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2, 5.3, 4.9, 4.4, 3.9, 3.7, 8.1, 5.4, 3.6, 3.6, 4.1, 4.3]
+u6 = [10.1, 9.6, 8.9, 8.0, 7.5, 7.0, 8.0, 9.6, 10.0, 9.5, 8.5, 8.0, 8.3, 11.0, 16.5, 16.7, 16.2, 14.7, 13.8, 12.0, 10.4, 9.6, 8.5, 7.7, 7.0, 14.8, 9.7, 7.0, 7.0, 7.8, 8.0]
+tru = [31.5, 31.0, 30.5, 29.8, 29.0, 28.5, 27.8, 27.0, 26.5, 26.0, 25.8, 25.5, 25.2, 26.0, 32.0, 34.0, 33.5, 32.0, 30.0, 28.0, 26.5, 25.0, 24.0, 23.5, 23.0, 33.0, 26.0, 23.5, 23.5, 24.0, 25.0]
+
+fig = go.Figure()
+
+# استفاده از متغیر صحیح (years) و کدهای رنگ معتبر
+fig.add_trace(go.Scatter(x=years, y=tru, name='True Rate (LISEP)', 
+                         line=dict(color='#F28E5B', width=4)))
+fig.add_trace(go.Scatter(x=years, y=u3, name='Official (U-3)', 
+                         line=dict(color='#2600fc', dash='dash')))
+fig.add_trace(go.Scatter(x=years, y=u6, name='Underemployment (U-6)', 
+                         line=dict(color='#17ec34'))) # کد رنگ اصلاح شد
+
+fig.update_layout(
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    hovermode='x unified',
+    font=dict(family="Arial, sans-serif", size=14, color="#1B263B"),
+    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+    margin=dict(l=50, r=50, t=100, b=50)
+)
+
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#F0F0F0', linecolor='#1B263B',
+                 tickmode='linear', tick0=1995, dtick=5)
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#F0F0F0', linecolor='#1B263B',
+                 ticksuffix='%', range=[0, 40])
+
+fig.show()
+```

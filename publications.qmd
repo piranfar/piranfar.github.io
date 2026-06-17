@@ -1,0 +1,60 @@
+---
+title: "Publications of Nathan Piranfar"
+---
+
+## Academic Profiles
+To view my full citation metrics and interactive links to each paper, please visit my official profiles:
+
+[![](https://img.shields.io/badge/LinkedIn-Profile-0077b5?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/vahhab-piranfar/)
+[![](https://img.shields.io/badge/Google_Scholar-Citations:_530-blue?logo=google-scholar&style=for-the-badge)](https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en) 
+[![](https://img.shields.io/badge/ORCID-0000_0002_0123_4567-green?logo=orcid&style=for-the-badge)](https://orcid.org/0000-0003-3653-5739)
+[![](https://img.shields.io/badge/ResearchGate-Profile-00ccbb?logo=researchgate&style=for-the-badge)](https://www.researchgate.net/profile/Vahhab-Piranfar)
+
+---
+
+## Selected Publications
+
+## Publications
+
+#### Featured Articles
+1. **Piranfar V.** Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in *Mycobacterium tuberculosis* and *Staphylococcus aureus*. *bioRxiv*. 2025.
+2. **Masoumi Zavaryani S, et al.** Identification of *Enterococci faecalis* & *E. faecium* pathogens via Tehran hospitals clinical samples. *Pars Journal of Medical Sciences*. 2022.
+3. **Karpians G, Piranfar V, et al.** Interleukin 6 (IL-6) in Patient with Covid-19 infection: The Cross-sectional Study. *JOGCR*. 2022.
+4. **Karpians G, Piranfar V, et al.** Leukocytes Parameters, CRP, and Ferritin in Iranian Patients with COVID-19 Infection. *IJMM*. 2021.
+5. **Zamani MM, et al.** Protective Effect of Selenium and Vitamin C on Liver and Kidney Toxicity of Cadmium. *Iranian Journal of Pathology*. 2021.
+6. **Danesh F, GhaviDel S, Piranfar V.** Coronavirus: Discover the Structure of Global Knowledge. *JAMBS*. 2020.
+7. **Mahboobi M, et al.** Genetic Diversity of ctxB Gene Among Strains of *Vibrio cholerae*. *Iranian Journal of Pathology*. 2020.
+8. **Masoumi Zavaryani S, et al.** Resistance Pattern in Clinical Enterococcus Isolates. *Iranian Journal of Pathology*. 2020.
+9. **Sajjadi N, et al.** Gene Polymorphism and Genetic Predisposition of HPV in Patients with Cervical Cancer. *Mod Med Lab J*. 2017.
+10. **Ramandi M, et al.** Dose-response effects of the CM11 as a short cationic antimicrobial peptide. *Current Chemical Biology*. 2017.
+
+::: {.callout-note collapse="true"}
+### Click to view Additional Research (Articles 11-33)
+
+11. **Mohseni K, et al.** Evaluation of ELISA, PCR, and serum agglutination tests for diagnosis of *Brucella*. *Iranian Journal of Pathology*. 2017.
+12. **Jazi FM, et al.** Real-time PCR and HRM analysis for detection of pathogenic species of *Brucella*. *LaboratoriumsMedizin*. 2017.
+13. **Sajjadi N, Piranfar V, et al.** Identification of streptomycin resistance gene among *Enterococcus spp.* *IJMM*. 2017.
+14. **Masoumi Zavaryani S, et al.** Evaluation of Antimicrobial Susceptibility in 2016. *Journal of Jahrom University of Medical Sciences*. 2016.
+15. **Mirnejad R, et al.** Identification of aminoglycoside resistance genes by Triplex PCR in *Enterococcus spp.* *Infez Med*. 2016.
+16. **Khazaei Z, et al.** Microarray-based long oligonucleotides probe designed for *Brucella Spp.* detection. *Electronic Physician*. 2016.
+17. **Mohammad Hasani S, et al.** Specific Detection of *Brucella* by PCR-ELISA and Multiplex-PCR. *Iranian Journal of Pathology*. 2016.
+18. **Irajian GR, et al.** Species-specific PCR for the diagnosis of brucella strains. *Iranian Journal of Pathology*. 2016.
+19. **Masoumi Zavaryani S, et al.** Phenotypic and genotypic methods for *E. faecalis*. *JJMUS*. 2016.
+20. **Akbarzadeh E, et al.** Simultaneous identification of pathogenic *Brucella* species by multiplex PCR. *SJKU*. 2015.
+21. **Piranfar V, et al.** Detection and discrimination of two *Brucella* species by multiplex real-time PCR and HRM. *IJBMS*. 2015.
+22. **Kachuei R, et al.** PCR-RFLP patterns for the differentiation of the *Fusarium* species. *Current Medical Mycology*. 2015.
+23. **Khataminejad MR, et al.** Antimicrobial Effect of Imipenem-Functionalized Fe2O3 Nanoparticles on *P. aeruginosa*. *IJB*. 2015.
+24. **Erfani M, et al.** Incidence and Antibiotic Susceptibility Pattern of *Staphylococcus spp.* in UTI. *CRB*. 2015.
+25. **Piranfar V, et al.** Incidence and antibiotic susceptibility pattern of bacterial pathogen causing UTI. *IJEP*. 2014.
+26. **Rasoulinezhad F, et al.** Effect of Selective Oropharyngeal Decontamination (SOD) on Colonization. *IJMM*. 2014.
+27. **Mirnejad R, et al.** Antimicrobial Effect of *Lactobacillus Casei* against MDR *Shigella*. *IRCMJ*. 2013.
+28. **Mirnejad R, et al.** Detection of *Brucella Abortus* and *Brucella Melitensis* from Human Blood Samples. *ZJRMS*. 2013.
+29. **Mirnejad R, Piranfar V, et al.** A duplex PCR for rapid and simultaneous detection of *Brucella spp.* *APJTM*. 2013.
+30. **Mirnejad R, et al.** Molecular typing of *Brucella melitensis* and *B. abortus* using PCR-RFLP. *JJM*. 2013.
+31. **Mirnejad R, et al.** Synergistic effect of silver nanoparticles with streptomycin on *Brucella abortus*. *JSUMS*. 2013.
+32. **Piranfar V, et al.** Antimicrobial Nature of *Lactobacillus Casei* against MDR *Shigella*. *IJMS*. 2012.
+33. **Piranfar V.** D3 – D5 dopamine receptors expression in paranoid schizophrenia patients. *JICS*. 2009.
+:::
+
+#### Published Books
+* **Metal Nanoparticles in Microbiology** [Persian]. ISBN: 8-228-504-964-978.

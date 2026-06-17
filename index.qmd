@@ -1,0 +1,34 @@
+---
+title: "Vahhab Piranfar"
+subtitle: "Microbiologist | EB-1A Scholar | Molecular Biologist"
+about:
+  template: jolla
+  image: profile.jpg # حتما عکسی با این نام در پوشه اصلی داشته باش
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/vahhab-piranfar/
+    - icon: google
+      text: Scholar
+      href: https://scholar.google.com/citations?user=G_m_E58AAAAJ
+    - icon: github
+      text: Github
+      href: https://github.com/
+---
+
+Welcome to my personal research hub. I am a **Molecular Microbiologist** recognized as an **EB-1A recipient** for my work in clinical diagnostics and pathogen research. 
+
+Based in **Jersey City, NJ**, I focus on bridging the gap between clinical microbiology and biological analysis. My work spans from investigating antimicrobial resistance in *Brucella* to modeling molecular interactions in drug-resistant pathogens.
+
+### Core Expertise:
+* **Medical Microbiology**: Over a decade of experience in pathogen isolation and molecular assays.
+* **Data Science**: Proficient in Python for interactive data visualization and statistical analysis.
+* **Bioinformatics**: Utilizing GROMACS and molecular dynamics for drug-resistance research.
+</br>
+</br>
+</br>
+
+> ### Vision Statement
+> "In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable."
+>
+> — **Vahhab Piranfar**

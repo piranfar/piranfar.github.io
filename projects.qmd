@@ -1,0 +1,45 @@
+---
+title: "Projects"
+---
+
+## Featured Projects
+
+:::{.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### [USCIS Case Tracker](https://piranfar.github.io/USCIS-Tracker/)
+Real-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.
+
+**Tech Stack**: Python, Data Visualization, Web Scraping
+**Status**: Active
+[View Project →](https://piranfar.github.io/USCIS-Tracker/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### [Upcoming Project]
+More projects coming soon...
+
+**Status**: In Development
+:::
+
+:::
+
+## Project Archive
+
+Below is a collection of my work spanning clinical microbiology research, bioinformatics, and data science applications.
+
+| Project | Category | Description |
+|---------|----------|-------------|
+| **USCIS Tracker** | Data Science | Automated USCIS case monitoring with real-time updates and analytics |
+| **Molecular Dynamics Studies** | Bioinformatics | GROMACS simulations of drug-resistant pathogen interactions |
+| **Clinical Diagnostics Pipeline** | Microbiology | Automated pathogen identification and reporting systems |
+
+---
+
+## Research & Publications
+
+For detailed information about my academic work and publications, please visit the [Publications page](/publications.html).
+
+## Let's Collaborate
+
+Interested in discussing a project or exploring collaboration opportunities? Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/vahhab-piranfar/) or check out my [GitHub profile](https://github.com/piranfar).

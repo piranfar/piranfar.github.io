@@ -1,0 +1,59 @@
+---
+title: "About Vahhab Piranfar"
+---
+
+## Professional Profile
+I am a researcher specializing in **Medical Microbiology** and **Molecular Biology**. Currently based in **Jersey City, New Jersey**, I focus on the intersection of antimicrobial resistance, host-pathogen interactions, and computational biology. I am an **EB-1A recipient** (Alien of Extraordinary Ability), recognized for my contributions to the field of microbiology.
+
+> ### Vision Statement
+> "In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable."
+>
+> — **Vahhab Piranfar**
+
+
+### Research Interests
+* **Pathogen Genomics**: Studying antimicrobial resistance mechanisms in *Brucella*, *Pseudomonas*, and *Staphylococcus*.
+* **Bioinformatics**: Applying computational modeling to explore antibiotic resistance and persistence in pathogens like *Mycobacterium tuberculosis*.
+* **Antimicrobial Innovation**: Investigating the synergistic effects of nanoparticles (e.g., Fe2O3) with existing drugs to combat multidrug-resistant (MDR) pathogens.
+
+---
+
+## Professional Journey
+
+::: {.panel-tabset}
+### Experience
+**CEO | Farname Inc.** 
+*Jan 2018 – Present*
+* Directing company strategy and financial planning. 
+
+**Laboratory Technician | Imam Khomeini Hospital** 
+*2019 – 2024*
+* Performed high-volume diagnostic testing including MALDI-TOF. 
+
+### Education
+**M.S. in Microbiology** 
+*Islamic Azad University | 2015*
+* Thesis on Fe2O3 nanoparticles and MDR pathogens. 
+
+### Academic & Professional Experience
+* **Laboratory Expertise**: Over a decade of experience in high-volume hospital laboratories (e.g., Imam Khomeini Hospital), performing advanced diagnostic testing, MALDI-TOF, and microbial identification.
+* **Editorial Leadership**: Serving on the editorial boards of several international journals, including the *Iranian Journal of Medical Microbiology* and the *Iranian Journal of Pathology*.
+* **Invention**: Co-inventor of a diagnostic kit for the rapid detection of *Brucella* from blood and serum samples.
+:::
+
+---
+
+
+### Technical Skills
+* **Molecular Assays**: PCR, Real-Time PCR, HRM Genotyping, and RFLP.
+* **Computational Tools**: Proficient in **GROMACS**, **VMD**, and **CLC Genomics Workbench** for molecular dynamics and phylogenetic analysis.
+* **Data Analysis**: Using **Python** and **SPSS** to derive insights from complex biological data.
+
+---
+
+### Selected Publications
+* **Piranfar V.** (2025). Comparative Modeling of Antibiotic Resistance in *Mycobacterium tuberculosis*. *bioRxiv*.
+* **Mirnejad R, Piranfar V, et al.** (2013). A duplex PCR for rapid detection of *Brucella* in human blood. *Asian Pacific Journal of Tropical Medicine*.
+* **Book**: *Metal Nanoparticles in Microbiology*.
+
+

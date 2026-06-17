@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Vahhab Piranfar"
+  site-url: "https://piranfar.github.io"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: projects.qmd
+        text: Projects
+      - href: blog.qmd
+        text: Discuss & Review
+      - href: about.qmd
+        text: About
+      - href: publications.qmd
+        text: Publications
+  page-footer:
+    left: "Copyright 2026, Vahhab Piranfar"
+    right: 
+      - icon: linkedin
+        href: https://www.linkedin.com/in/vahhab-piranfar/
+      - icon: google
+        href: https://scholar.google.com/citations?user=G_m_E58AAAAJ
+    background: dark
+
+execute:
+  enabled: true
+  freeze: auto
+
+format:
+  html:
+    theme: sandstone
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
