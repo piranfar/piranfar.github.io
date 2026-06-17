@@ -3,6 +3,7 @@ title: "The True Rate of Unemployment (TRU) Analysis"
 author: "Vahhab Piranfar"
 date: "2026-01-31"
 categories: [Economics, Data Science]
+image: "discuss.png"
 ---
 
 ### Measuring Real Economic Health
