@@ -2,7 +2,7 @@
 title: "The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment"
 date: "2026-02-01"
 categories: [Economics, Data Science]
-image: "../poverty_trend.jpg"
+image: "unemployment-paradox.jpg"
 ---
 
 ### The Big Question
