@@ -6,6 +6,10 @@ categories: [Economics, Data Science]
 image: "discuss.png"
 ---
 
+::: {.paper-cover}
+![](discuss.png){fig-alt="Poster for antibiotic persistence paper review"}
+:::
+
 ### Measuring Real Economic Health
 
 In December 2025, a significant gap persisted between official government statistics and the actual economic experience of many Americans. While the official U-3 unemployment rate was reported at **4.4%**, the True Rate of Unemployment (TRU) indicated a much higher reality of **25.2%**.
