@@ -81,21 +81,28 @@
     "href": "GITHUB_PAGES.html",
     "title": "GitHub Pages",
     "section": "",
-    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThe default address for your GitHub Pages site is usually in the format:\nhttps://&lt;username&gt;.github.io/&lt;repository-name&gt;/\nFor example, if your GitHub username is piranfar and the repository is MyPersonalSite, your site will be available at: https://piranfar.github.io/MyPersonalSite/\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, so the public address is:\nhttps://piranfar.github.io\nThe Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
   },
   {
     "objectID": "GITHUB_PAGES.html#address",
     "href": "GITHUB_PAGES.html#address",
     "title": "GitHub Pages",
     "section": "",
-    "text": "The default address for your GitHub Pages site is usually in the format:\nhttps://&lt;username&gt;.github.io/&lt;repository-name&gt;/\nFor example, if your GitHub username is piranfar and the repository is MyPersonalSite, your site will be available at: https://piranfar.github.io/MyPersonalSite/"
+    "text": "This repository is configured as the GitHub user site for piranfar, so the public address is:\nhttps://piranfar.github.io\nThe Quarto source files live at the repository root and render into the docs directory."
   },
   {
     "objectID": "GITHUB_PAGES.html#features",
     "href": "GITHUB_PAGES.html#features",
     "title": "GitHub Pages",
     "section": "",
-    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#deployment",
+    "href": "GITHUB_PAGES.html#deployment",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
   },
   {
     "objectID": "posts/discuss.html",

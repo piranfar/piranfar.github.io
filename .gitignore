@@ -2,6 +2,7 @@
 _freeze/
 _site/
 .quarto/
+.tools/
 
 # IDE
 .vscode/
