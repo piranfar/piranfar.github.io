@@ -1,0 +1,84 @@
+---
+title: "Vahhab Piranfar"
+subtitle: "Microbiologist · Bioinformatician · Research Scientist"
+include-in-header: gtm-head.html
+include-before-body: gtm-body.html
+---
+
+::: {.hero-panel}
+::: {.grid .align-items-center}
+::: {.g-col-12 .g-col-md-4}
+![](profile.jpg){.hero-photo fig-alt="Portrait of Vahhab Piranfar"}
+:::
+
+::: {.g-col-12 .g-col-md-8}
+<span class="hero-eyebrow">Molecular Microbiologist · EB-1A Recipient</span>
+
+## Researching pathogens, data, and disease mechanisms
+
+<p class="hero-body">I work at the intersection of <strong>clinical microbiology</strong>, <strong>bioinformatics</strong>, and <strong>data-driven discovery</strong>. My research focuses on antimicrobial resistance, molecular diagnostics, and computational approaches to understanding pathogen behavior.</p>
+
+<div class="hero-badges">
+<span class="hero-pill">🧬 Microbiology</span>
+<span class="hero-pill">💻 Bioinformatics</span>
+<span class="hero-pill">📊 Data Science</span>
+<span class="hero-pill">🔬 Clinical Diagnostics</span>
+</div>
+
+[Explore my projects](projects.qmd){.btn .btn-light}  [Read my publications](publications.qmd){.btn .btn-outline-light}
+
+<div class="hero-stats">
+<div>
+<span class="hero-stat-number">33+</span>
+<span class="hero-stat-label">Publications</span>
+</div>
+<div>
+<span class="hero-stat-number">650+</span>
+<span class="hero-stat-label">Citations</span>
+</div>
+<div>
+<span class="hero-stat-number">15+</span>
+<span class="hero-stat-label">Yrs Experience</span>
+</div>
+<div>
+<span class="hero-stat-number">EB-1A</span>
+<span class="hero-stat-label">Recognition</span>
+</div>
+</div>
+:::
+:::
+:::
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon"><i class="bi bi-bug"></i></span> Microbiology
+Clinical diagnostics, pathogen identification, and antimicrobial resistance research across hospital and translational settings — from bench to insight.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon"><i class="bi bi-diagram-3"></i></span> Bioinformatics
+Computational modeling, molecular dynamics, and data analysis for understanding resistance, persistence, and host-pathogen interactions at scale.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon"><i class="bi bi-globe2"></i></span> Research Communication
+Scientific writing and public communication focused on making complex findings accessible, actionable, and impactful for researchers and clinicians alike.
+:::
+:::
+:::
+
+## Current focus
+
+Welcome to my personal research hub. I am a **Molecular Microbiologist** recognized as an **EB-1A recipient** for my contributions to clinical diagnostics and pathogen research. Based in **Jersey City, NJ**, I combine laboratory insight with computational analysis to study bacterial pathogens, resistance patterns, and molecular interactions.
+
+::: {.info-card}
+### Vision Statement
+> "In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable."
+>
+> — **Vahhab Piranfar**
+:::

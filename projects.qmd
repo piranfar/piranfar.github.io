@@ -1,0 +1,109 @@
+---
+title: "Projects"
+---
+
+## Featured Projects
+
+:::{.grid}
+
+::: {.g-col-12}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### [AI Bacteriology Hub](projects/ai-bacteriology-hub.qmd)
+
+A production-grade full-stack research platform combining a curated bacteriology knowledge base, an **AI Research Layer** for interactive AMR reasoning, and **manifest-driven Python lab tools** executed inside a Docker sandbox. Features a server-side AI proxy, streaming SSE responses, an AI Orchestrator for automated lab app upgrades, and deployment on Google Cloud Run.
+
+<div class="project-tags">
+<span class="project-tag">Django + DRF</span>
+<span class="project-tag">React 18</span>
+<span class="project-tag">AI Research Layer</span>
+<span class="project-tag">Docker Sandbox</span>
+<span class="project-tag">Google Cloud Run</span>
+<span class="project-tag">AMR</span>
+</div>
+
+[Deep Dive →](projects/ai-bacteriology-hub.qmd){.project-link}  [Live Site →](https://ai-bacteriology.vahhabpiranfar.com/){.project-link}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### [USCIS Case Tracker](https://piranfar.github.io/USCIS-Tracker/)
+
+Real-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.
+
+<div class="project-tags">
+<span class="project-tag">Python</span>
+<span class="project-tag">Data Visualization</span>
+<span class="project-tag">Web Scraping</span>
+</div>
+
+[View Project →](https://piranfar.github.io/USCIS-Tracker/){.project-link}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### [Crossref Reference Formatter](https://piranfar.github.io/Crossref-Reference-Formatter/)
+
+Paste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.
+
+<div class="project-tags">
+<span class="project-tag">JavaScript</span>
+<span class="project-tag">Crossref API</span>
+<span class="project-tag">Citation Formatting</span>
+</div>
+
+[View Project →](https://piranfar.github.io/Crossref-Reference-Formatter/){.project-link}
+:::
+:::
+
+::: {.g-col-12}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### [FluentBridge AI](https://github.com/piranfar/english-learning)
+
+Local-first AI English tutor for Persian-speaking learners preparing for academic English and TOEFL. Two-stage learning journey with grammar lessons, reading/listening/writing/speaking coaches, shadowing, SRS vocabulary, and a Mistake Clinic — powered by a provider-agnostic AI layer (Ollama, OpenAI, Anthropic).
+
+<div class="project-tags">
+<span class="project-tag">Django + DRF</span>
+<span class="project-tag">React 19</span>
+<span class="project-tag">Vite</span>
+<span class="project-tag">Ollama</span>
+<span class="project-tag">TOEFL Prep</span>
+</div>
+
+[View on GitHub →](https://github.com/piranfar/english-learning){.project-link}
+:::
+:::
+
+:::
+
+## Project Archive
+
+A collection of work spanning clinical microbiology research, bioinformatics, and data science applications.
+
+| Project | Category | Description |
+|---------|----------|-------------|
+| **[AI Bacteriology Hub](projects/ai-bacteriology-hub.qmd)** | AI / Full-Stack | Full-stack computational microbiology platform with AI Research Layer, manifest-driven lab tools, and Docker sandboxed execution |
+| **USCIS Tracker** | Data Science | Automated USCIS case monitoring with real-time updates and analytics |
+| **Crossref Reference Formatter** | Research Tools | Vancouver-style citation export from Crossref metadata |
+| **[FluentBridge AI](https://github.com/piranfar/english-learning)** | AI / Full-Stack | Local-first AI English tutor for TOEFL and academic English with multi-skill coaches and provider-agnostic AI |
+| **Molecular Dynamics Studies** | Bioinformatics | GROMACS simulations of drug-resistant pathogen interactions |
+| **Clinical Diagnostics Pipeline** | Microbiology | Automated pathogen identification and reporting systems |
+
+---
+
+## Research & Publications
+
+For detailed information about my academic work and publications, visit the [Publications page](publications.qmd).
+
+## Let's Collaborate
+
+Interested in discussing a project or exploring collaboration opportunities? Reach out via [LinkedIn](https://www.linkedin.com/in/vahhab-piranfar/) or check out my [GitHub profile](https://github.com/piranfar).

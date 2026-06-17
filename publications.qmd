@@ -1,0 +1,268 @@
+---
+title: "Publications"
+---
+
+## Academic Profiles
+
+<div class="academic-profiles">
+<a href="https://www.linkedin.com/in/vahhab-piranfar/" class="profile-badge linkedin">
+  <i class="bi bi-linkedin"></i> LinkedIn
+</a>
+<a href="https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en" class="profile-badge scholar">
+  <i class="bi bi-mortarboard-fill"></i> Google Scholar · 650+ citations
+</a>
+<a href="https://orcid.org/0000-0003-3653-5739" class="profile-badge orcid">
+  <i class="bi bi-person-badge-fill"></i> ORCID
+</a>
+<a href="https://www.researchgate.net/profile/Vahhab-Piranfar" class="profile-badge researchgate">
+  <i class="bi bi-journal-text"></i> ResearchGate
+</a>
+</div>
+
+## Selected Publications
+
+### Featured Articles
+
+::: {.pub-card}
+<div class="pub-number">01 · bioRxiv 2025</div>
+<div class="pub-title">Comparative modeling of antibiotic resistance, tolerance, and persistence in <em>Mycobacterium tuberculosis</em> and <em>Staphylococcus aureus</em></div>
+<div class="pub-authors"><strong>Piranfar V.</strong></div>
+<div class="pub-journal">bioRxiv · 2025 · <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.637810</a></div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">02 · Pars J Med Sci 2022</div>
+<div class="pub-title">Identification of <em>Enterococcus faecalis</em> and <em>E. faecium</em> pathogens in Tehran hospital clinical samples</div>
+<div class="pub-authors">Masoumi Zavaryani S, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Pars Journal of Medical Sciences · 2022</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">03 · JOGCR 2022</div>
+<div class="pub-title">Interleukin 6 (IL-6) in patients with COVID-19 infection: a cross-sectional study</div>
+<div class="pub-authors">Karpians G, <strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Journal of Obstetrics, Gynecology and Cancer Research · 2022</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">04 · IJMM 2021</div>
+<div class="pub-title">Leukocyte parameters, CRP, and ferritin in Iranian patients with COVID-19 infection</div>
+<div class="pub-authors">Karpians G, <strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Iranian Journal of Medical Microbiology · 2021</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">05 · Iranian J Pathol 2021</div>
+<div class="pub-title">Protective effect of selenium and vitamin C on liver and kidney toxicity of cadmium</div>
+<div class="pub-authors">Zamani MM, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Pathology · 2021</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">06 · JAMBS 2020</div>
+<div class="pub-title">Coronavirus: discovering the structure of global knowledge</div>
+<div class="pub-authors">Danesh F, GhaviDel S, <strong>Piranfar V.</strong></div>
+<div class="pub-journal">Journal of Applied Mathematics and Biosciences · 2020</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">07 · Iranian J Pathol 2020</div>
+<div class="pub-title">Genetic diversity of the ctxB gene among strains of <em>Vibrio cholerae</em></div>
+<div class="pub-authors">Mahboobi M, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Pathology · 2020</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">08 · Iranian J Pathol 2020</div>
+<div class="pub-title">Resistance pattern in clinical <em>Enterococcus</em> isolates</div>
+<div class="pub-authors">Masoumi Zavaryani S, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Pathology · 2020</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">09 · Mod Med Lab J 2017</div>
+<div class="pub-title">Gene polymorphism and genetic predisposition of HPV in patients with cervical cancer</div>
+<div class="pub-authors">Sajjadi N, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Modern Medical Laboratory Journal · 2017</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">10 · Curr Chem Biol 2017</div>
+<div class="pub-title">Dose-response effects of CM11 as a short cationic antimicrobial peptide</div>
+<div class="pub-authors">Ramandi M, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Current Chemical Biology · 2017</div>
+:::
+
+::: {.callout-note collapse="true"}
+### Additional Research (Articles 11–33)
+
+::: {.pub-card}
+<div class="pub-number">11 · Iranian J Pathol 2017</div>
+<div class="pub-title">Evaluation of ELISA, PCR, and serum agglutination tests for diagnosis of <em>Brucella</em></div>
+<div class="pub-authors">Mohseni K, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Pathology · 2017</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">12 · LaboratoriumsMedizin 2017</div>
+<div class="pub-title">Real-time PCR and HRM analysis for detection of pathogenic species of <em>Brucella</em></div>
+<div class="pub-authors">Jazi FM, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">LaboratoriumsMedizin · 2017</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">13 · IJMM 2017</div>
+<div class="pub-title">Identification of streptomycin resistance genes among <em>Enterococcus</em> spp.</div>
+<div class="pub-authors">Sajjadi N, <strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Iranian Journal of Medical Microbiology · 2017</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">14 · JJUMS 2016</div>
+<div class="pub-title">Evaluation of antimicrobial susceptibility in 2016</div>
+<div class="pub-authors">Masoumi Zavaryani S, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Journal of Jahrom University of Medical Sciences · 2016</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">15 · Infez Med 2016</div>
+<div class="pub-title">Identification of aminoglycoside resistance genes by triplex PCR in <em>Enterococcus</em> spp.</div>
+<div class="pub-authors">Mirnejad R, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Infezioni in Medicina · 2016</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">16 · Electronic Physician 2016</div>
+<div class="pub-title">Microarray-based long oligonucleotide probe designed for <em>Brucella</em> spp. detection</div>
+<div class="pub-authors">Khazaei Z, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Electronic Physician · 2016</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">17 · Iranian J Pathol 2016</div>
+<div class="pub-title">Specific detection of <em>Brucella</em> by PCR-ELISA and multiplex PCR</div>
+<div class="pub-authors">Mohammad Hasani S, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Pathology · 2016</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">18 · Iranian J Pathol 2016</div>
+<div class="pub-title">Species-specific PCR for diagnosis of <em>Brucella</em> strains</div>
+<div class="pub-authors">Irajian GR, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Pathology · 2016</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">19 · JJMUS 2016</div>
+<div class="pub-title">Phenotypic and genotypic methods for <em>E. faecalis</em></div>
+<div class="pub-authors">Masoumi Zavaryani S, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">JJMUS · 2016</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">20 · SJKU 2015</div>
+<div class="pub-title">Simultaneous identification of pathogenic <em>Brucella</em> species by multiplex PCR</div>
+<div class="pub-authors">Akbarzadeh E, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Scientific Journal of Kurdistan University of Medical Sciences · 2015</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">21 · IJBMS 2015</div>
+<div class="pub-title">Detection and discrimination of two <em>Brucella</em> species by multiplex real-time PCR and HRM</div>
+<div class="pub-authors"><strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Iranian Journal of Basic Medical Sciences · 2015</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">22 · Curr Med Mycol 2015</div>
+<div class="pub-title">PCR-RFLP patterns for the differentiation of <em>Fusarium</em> species</div>
+<div class="pub-authors">Kachuei R, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Current Medical Mycology · 2015</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">23 · IJB 2015</div>
+<div class="pub-title">Antimicrobial effect of imipenem-functionalized Fe₂O₃ nanoparticles on <em>P. aeruginosa</em></div>
+<div class="pub-authors">Khataminejad MR, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Biotechnology · 2015</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">24 · CRB 2015</div>
+<div class="pub-title">Incidence and antibiotic susceptibility of <em>Staphylococcus</em> spp. in UTI</div>
+<div class="pub-authors">Erfani M, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Cell Research and Biotechnology · 2015</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">25 · IJEP 2014</div>
+<div class="pub-title">Incidence and antibiotic susceptibility of bacterial pathogens causing UTI</div>
+<div class="pub-authors"><strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Iranian Journal of Epidemiology · 2014</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">26 · IJMM 2014</div>
+<div class="pub-title">Effect of selective oropharyngeal decontamination on colonization</div>
+<div class="pub-authors">Rasoulinezhad F, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Journal of Medical Microbiology · 2014</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">27 · IRCMJ 2013</div>
+<div class="pub-title">Antimicrobial effect of <em>Lactobacillus casei</em> against MDR <em>Shigella</em></div>
+<div class="pub-authors">Mirnejad R, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Iranian Red Crescent Medical Journal · 2013</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">28 · ZJRMS 2013</div>
+<div class="pub-title">Detection of <em>Brucella abortus</em> and <em>Brucella melitensis</em> from human blood samples</div>
+<div class="pub-authors">Mirnejad R, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Zahedan Journal of Research in Medical Sciences · 2013</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">29 · APJTM 2013</div>
+<div class="pub-title">A duplex PCR for rapid and simultaneous detection of <em>Brucella</em> spp. in human blood</div>
+<div class="pub-authors">Mirnejad R, <strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Asian Pacific Journal of Tropical Medicine · 2013</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">30 · JJM 2013</div>
+<div class="pub-title">Molecular typing of <em>Brucella melitensis</em> and <em>B. abortus</em> using PCR-RFLP</div>
+<div class="pub-authors">Mirnejad R, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Jundishapur Journal of Microbiology · 2013</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">31 · JSUMS 2013</div>
+<div class="pub-title">Synergistic effect of silver nanoparticles with streptomycin on <em>Brucella abortus</em></div>
+<div class="pub-authors">Mirnejad R, et al. (incl. <strong>Piranfar V.</strong>)</div>
+<div class="pub-journal">Journal of Semnan University of Medical Sciences · 2013</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">32 · IJMS 2012</div>
+<div class="pub-title">Antimicrobial nature of <em>Lactobacillus casei</em> against MDR <em>Shigella</em></div>
+<div class="pub-authors"><strong>Piranfar V.</strong>, et al.</div>
+<div class="pub-journal">Iranian Journal of Medical Sciences · 2012</div>
+:::
+
+::: {.pub-card}
+<div class="pub-number">33 · JICS 2009</div>
+<div class="pub-title">D3–D5 dopamine receptor expression in paranoid schizophrenia patients</div>
+<div class="pub-authors"><strong>Piranfar V.</strong></div>
+<div class="pub-journal">Journal of Iranian Chemical Society · 2009</div>
+:::
+:::
+
+### Published Books
+
+::: {.pub-card}
+<div class="pub-number">Book · Persian</div>
+<div class="pub-title">Metal Nanoparticles in Microbiology</div>
+<div class="pub-authors"><strong>Piranfar V.</strong></div>
+<div class="pub-journal">ISBN: 978-964-504-228-8</div>
+:::

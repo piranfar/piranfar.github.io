@@ -1,0 +1,1421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Vahhab Piranfar</title>
+<link>https://vahhabpiranfar.com/blog.html</link>
+<atom:link href="https://vahhabpiranfar.com/blog.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Wed, 17 Jun 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/posts/antibiotic-persistence.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="paper-hero">
+<div class="paper-hero-label">
+Featured Preprint
+</div>
+<h2 class="anchored">
+Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence
+</h2>
+<p>
+<strong>Vahhab Piranfar</strong> · bioRxiv · 2025
+</p>
+<p class="paper-hero-doi">
+DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.637810</a>
+</p>
+<p><a class="paper-hero-link" href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Read the paper</a></p>
+</div>
+<div class="paper-cover">
+<p><img src="https://vahhabpiranfar.com/posts/antibiotic-persistence.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+</div>
+<p>This review looks at the preprint <a href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in <em>Mycobacterium tuberculosis</em> and <em>Staphylococcus aureus</em></a>, which explores how two very different pathogens respond to antibiotics over time.</p>
+<blockquote class="blockquote">
+<p>This is a preprint, so the findings should be interpreted as an informed modeling study rather than final clinical evidence. Even so, the paper raises important questions about how we define and treat persistence.</p>
+</blockquote>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The study compares how <em>M. tuberculosis</em> and <em>S. aureus</em> survive antibiotic exposure using mathematical models and time-kill simulations. The main idea is that the two organisms do not rely on the same survival strategy:</p>
+<ul>
+<li><em>S. aureus</em> appears to show a more rapid tolerance pattern, with an initial strong decline followed by a slower phase of survival.</li>
+<li><em>M. tuberculosis</em> appears to maintain a much longer persistence window, consistent with prolonged survival under drug pressure.</li>
+</ul>
+<p>This distinction matters because it suggests that treatment failure may not always come from the same mechanism.</p>
+</section>
+<section id="why-it-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-matters">Why it matters</h2>
+<p>The paper is valuable because it forces us to separate three ideas that are often blurred together:</p>
+<ul>
+<li><strong>Resistance</strong>: genetic survival despite drug exposure.</li>
+<li><strong>Tolerance</strong>: temporary survival of a population under stress.</li>
+<li><strong>Persistence</strong>: survival of a small subpopulation that can remain viable over long periods.</li>
+</ul>
+<p>For microbiology and infectious disease research, this distinction is critical. A therapy that works for one bacterial survival strategy may fail if the pathogen is using another.</p>
+</section>
+<section id="key-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="key-interpretation">Key interpretation</h2>
+<p>What I find especially interesting is the contrast between the two pathogens.</p>
+<p>For <em>M. tuberculosis</em>, the model suggests a deeper and longer-lasting survival mechanism. That fits the well-known difficulty of tuberculosis treatment: the organism can persist for long periods and may require extended regimens.</p>
+<p>For <em>S. aureus</em>, the result suggests that early tolerance may be the dominant issue. In that case, the timing and structure of treatment may be especially important for preventing relapse.</p>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>As with any modeling paper, the conclusions depend heavily on assumptions.</p>
+<p>Some limitations are worth noting:</p>
+<ul>
+<li>The study relies on simplified equations and simulations rather than full experimental heterogeneity.</li>
+<li>Real infections involve host immunity, biofilms, metabolic shifts, and variable drug penetration.</li>
+<li>The model may not fully capture the complexity of patient-specific bacterial behavior.</li>
+</ul>
+<p>These are not fatal weaknesses, but they mean the paper should be read as a framework for thinking, not as a final answer.</p>
+</section>
+<section id="final-take" class="level2">
+<h2 class="anchored" data-anchor-id="final-take">Final take</h2>
+<p>The most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.</p>
+<p>For me, the strongest takeaway is this:</p>
+<p><strong>The challenge is not only killing bacteria quickly, but understanding how they survive long enough to return.</strong></p>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Create lightbox modal if it doesn't exist
+  let modal = document.getElementById('lightbox-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'lightbox-modal';
+    modal.className = 'lightbox-modal';
+    modal.innerHTML = `
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close image">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  // Get elements
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  // Make images in .paper-cover clickable
+  const paperImages = document.querySelectorAll('.paper-cover img');
+  paperImages.forEach(img => {
+    img.addEventListener('click', function() {
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt;
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close lightbox
+  function closeLightbox() {
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // Close on outside click
+  lightboxModal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeLightbox();
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+});
+</script>
+
+
+</section>
+
+ ]]></description>
+  <category>Microbiology</category>
+  <category>Bioinformatics</category>
+  <category>Antibiotics</category>
+  <guid>https://vahhabpiranfar.com/posts/antibiotic-persistence.html</guid>
+  <pubDate>Wed, 17 Jun 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://vahhabpiranfar.com/posts/antibiotic-persistence.png" medium="image" type="image/png" height="180" width="144"/>
+</item>
+<item>
+  <title>The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment</title>
+  <link>https://vahhabpiranfar.com/posts/unemployment-paradox.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="paper-cover">
+<p><img src="https://vahhabpiranfar.com/posts/unemployment-paradox.jpg" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+</div>
+<section id="the-big-question" class="level3">
+<h3 class="anchored" data-anchor-id="the-big-question">The Big Question</h3>
+<p>If official unemployment is low, why does job hunting feel like a “war,” and why is poverty rising?.</p>
+</section>
+<section id="the-quality-vs.-quantity-gap" class="level3">
+<h3 class="anchored" data-anchor-id="the-quality-vs.-quantity-gap">1. The “Quality” vs.&nbsp;“Quantity” Gap</h3>
+<p>As we saw in our TRU analysis, the government counts you as “employed” even if you work 1 hour a week at a low-wage job. *<strong>The Competition</strong>: Population growth and automation mean there are more people for “high-quality” jobs, while “low-quality” jobs (that don’t pay a living wage) make up a larger portion of the market.</p>
+</section>
+<section id="poverty-and-the-cost-of-living" class="level3">
+<h3 class="anchored" data-anchor-id="poverty-and-the-cost-of-living">2. Poverty and the Cost of Living</h3>
+<p>To answer your question about poverty, we need to look at the <strong>Supplemental Poverty Measure (SPM)</strong>. While the economy grows, the “Real Wage” for many has stagnated.</p>
+</section>
+<section id="why-the-competition-is-fierce" class="level3">
+<h3 class="anchored" data-anchor-id="why-the-competition-is-fierce">3. Why the Competition is Fierce</h3>
+<p>Degree Inflation: Jobs that used to require a high school diploma now require a Master’s. Automation: Entry-level positions are being replaced by AI, making the “first step” on the career ladder much harder to reach.</p>
+</section>
+<section id="the-gap-between-headlines-and-reality" class="level3">
+<h3 class="anchored" data-anchor-id="the-gap-between-headlines-and-reality">4. The Gap Between Headlines and Reality</h3>
+<p>While official statistics often paint a rosy picture of the economy, many in <strong>Jersey City</strong> and across the US feel a growing disconnect. To understand why, we must compare the <strong>Official Poverty Measure (OPM)</strong> with the <strong>Supplemental Poverty Measure (SPM)</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The gap between the red (SPM) and blue (OPM) lines represents the millions of Americans who are technically ‘not poor’ by 1960s standards, but struggle to survive in 2026.</p>
+</div>
+</div>
+<p>The SPM is a more “real-world” metric because it accounts for: * <strong>Government Benefits</strong>: SNAP, stimulus checks, and tax credits. * <strong>Necessary Expenses</strong>: Costs of housing, medical bills, and taxes.</p>
+<section id="interactive-analysis-opm-vs.-spm-20092024" class="level4">
+<h4 class="anchored" data-anchor-id="interactive-analysis-opm-vs.-spm-20092024">5. Interactive Analysis: OPM vs.&nbsp;SPM (2009–2024)</h4>
+<blockquote class="blockquote">
+<p>“The Supplemental Poverty Measure (SPM) tells the story that the official rate misses: the rising cost of staying afloat in a modern economy.”</p>
+</blockquote>
+<div id="e1076fff" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Click to see the Python code for this interactive chart</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> plotly.graph_objects <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> go</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Data points based on US Census Bureau historical series</span></span>
+<span id="cb1-4">years <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2009</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2010</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2011</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2012</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2013</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2014</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2015</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2016</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2017</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2018</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2020</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2021</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2022</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2023</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2024</span>]</span>
+<span id="cb1-5">opm <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.6</span>]</span>
+<span id="cb1-6">spm <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.9</span>]</span>
+<span id="cb1-7"></span>
+<span id="cb1-8">fig <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> go.Figure()</span>
+<span id="cb1-9"></span>
+<span id="cb1-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Official Poverty Rate</span></span>
+<span id="cb1-11">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>years, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>opm, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Official Measure (OPM)'</span>,</span>
+<span id="cb1-12">                         line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#1B263B'</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, dash<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dot'</span>)))</span>
+<span id="cb1-13"></span>
+<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Supplemental Poverty Measure</span></span>
+<span id="cb1-15">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>years, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>spm, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Supplemental Measure (SPM)'</span>,</span>
+<span id="cb1-16">                         line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#e74c3c'</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)))</span>
+<span id="cb1-17"></span>
+<span id="cb1-18">fig.update_layout(</span>
+<span id="cb1-19">    title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'U.S. Poverty Trends: Official vs. Supplemental Realities'</span>,</span>
+<span id="cb1-20">    xaxis_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Year'</span>,</span>
+<span id="cb1-21">    yaxis_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Percentage of Population (%)'</span>,</span>
+<span id="cb1-22">    plot_bgcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>,</span>
+<span id="cb1-23">    hovermode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x unified'</span>,</span>
+<span id="cb1-24">    legend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(orientation<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"h"</span>, yanchor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.02</span>, xanchor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"right"</span>, x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-25">)</span>
+<span id="cb1-26"></span>
+<span id="cb1-27">fig.update_xaxes(showgrid<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, gridcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#F0F0F0'</span>)</span>
+<span id="cb1-28">fig.update_yaxes(showgrid<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, gridcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#F0F0F0'</span>, ticksuffix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'%'</span>)</span>
+<span id="cb1-29"></span>
+<span id="cb1-30">fig.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="bf385123-505e-48db-94a6-766183bc5af4" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("bf385123-505e-48db-94a6-766183bc5af4")) {                    Plotly.newPlot(                        "bf385123-505e-48db-94a6-766183bc5af4",                        [{"line":{"color":"#1B263B","dash":"dot","width":2},"name":"Official Measure (OPM)","x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[14.3,15.1,15.0,15.0,14.5,14.8,13.5,12.7,12.3,11.8,10.5,11.4,11.6,11.5,11.1,10.6],"type":"scatter"},{"line":{"color":"#e74c3c","width":4},"name":"Supplemental Measure (SPM)","x":[2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[15.1,15.3,16.1,16.0,15.5,15.3,14.3,13.9,13.9,12.8,11.8,9.1,7.8,12.4,12.9,12.9],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"title":{"text":"U.S. Poverty Trends: Official vs. Supplemental Realities"},"xaxis":{"title":{"text":"Year"},"showgrid":true,"gridcolor":"#F0F0F0"},"yaxis":{"title":{"text":"Percentage of Population (%)"},"showgrid":true,"gridcolor":"#F0F0F0","ticksuffix":"%"},"plot_bgcolor":"white","hovermode":"x unified"},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('bf385123-505e-48db-94a6-766183bc5af4');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+</section>
+<section id="why-does-it-feel-harder" class="level3">
+<h3 class="anchored" data-anchor-id="why-does-it-feel-harder">6. Why Does It Feel Harder?</h3>
+<p>Look closely at the red line (SPM) between 2021 and 2022.</p>
+<p>The Pandemic Effect: In 2021, the poverty rate hit a record low of 7.8% due to massive government stimulus and expanded child tax credits.</p>
+<p>The “Cliff”: In 2022, as those programs expired and inflation surged, the SPM jumped back to 12.4%, and stayed high at 12.9% through 2024.</p>
+<p>This “jump” in the red line is why we feel poverty is rising, even though the Official (dotted) line says things are stable or improving.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>We aren’t necessarily becoming “lazier”; the bar for survival has moved higher. Our TRU data proves that while people are “working,” they aren’t necessarily “earning enough to live”. The rising cost of living, degree inflation, and automation are making it harder to find quality employment that pays a living wage.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Economics</category>
+  <category>Data Science</category>
+  <guid>https://vahhabpiranfar.com/posts/unemployment-paradox.html</guid>
+  <pubDate>Sun, 01 Feb 2026 05:00:00 GMT</pubDate>
+  <media:content url="https://vahhabpiranfar.com/posts/unemployment-paradox.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>The True Rate of Unemployment (TRU) Analysis</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/posts/discuss.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="paper-cover">
+<p><img src="https://vahhabpiranfar.com/posts/discuss.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+</div>
+<section id="measuring-real-economic-health" class="level3">
+<h3 class="anchored" data-anchor-id="measuring-real-economic-health">Measuring Real Economic Health</h3>
+<p>In December 2025, a significant gap persisted between official government statistics and the actual economic experience of many Americans. While the official U-3 unemployment rate was reported at <strong>4.4%</strong>, the True Rate of Unemployment (TRU) indicated a much higher reality of <strong>25.2%</strong>.</p>
+<p>The following model represents the growth of job displacement:</p>
+<p><img src="https://latex.codecogs.com/png.latex?f(x)%20=%20%5Cfrac%7BL%7D%7B1%20+%20e%5E%7B-k(x-x_0)%7D%7D"></p>
+</section>
+<section id="interactive-comparison-20202025" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-comparison-20202025">Interactive Comparison (2020–2025)</h3>
+<div id="a0c05613" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> plotly.graph_objects <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> go</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">months <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2020 Peak'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2021 Avg'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2022 Avg'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2023 Avg'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'2024 Avg'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Dec 2025'</span>]</span>
+<span id="cb1-4">tru <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.2</span>]</span>
+<span id="cb1-5">u3 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.4</span>]</span>
+<span id="cb1-6">u6 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22.9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.4</span>]</span>
+<span id="cb1-7"></span>
+<span id="cb1-8">fig <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> go.Figure()</span>
+<span id="cb1-9">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>months, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>tru, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'TRU (LISEP)'</span>, line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'red'</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)))</span>
+<span id="cb1-10">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>months, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>u3, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Official (U-3)'</span>, line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'blue'</span>, dash<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dash'</span>)))</span>
+<span id="cb1-11">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>months, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>u6, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Underemployment (U-6)'</span>, line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'green'</span>)))</span>
+<span id="cb1-12"></span>
+<span id="cb1-13">fig.update_layout(</span>
+<span id="cb1-14">    title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Comparison of Unemployment Measures: TRU vs U-3 vs U-6'</span>,</span>
+<span id="cb1-15">    xaxis_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Time Period'</span>,</span>
+<span id="cb1-16">    yaxis_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Percentage (%)'</span>,</span>
+<span id="cb1-17">    hovermode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x unified'</span>,</span>
+<span id="cb1-18">    template<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'plotly_white'</span></span>
+<span id="cb1-19">)</span>
+<span id="cb1-20">fig.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="a7504003-ed65-4711-baa2-dc8132d2ffbf" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("a7504003-ed65-4711-baa2-dc8132d2ffbf")) {                    Plotly.newPlot(                        "a7504003-ed65-4711-baa2-dc8132d2ffbf",                        [{"line":{"color":"red","width":4},"name":"TRU (LISEP)","x":["2020 Peak","2021 Avg","2022 Avg","2023 Avg","2024 Avg","Dec 2025"],"y":[32,26,24,23.5,24,25.2],"type":"scatter"},{"line":{"color":"blue","dash":"dash"},"name":"Official (U-3)","x":["2020 Peak","2021 Avg","2022 Avg","2023 Avg","2024 Avg","Dec 2025"],"y":[14.8,5.5,3.6,3.8,4.0,4.4],"type":"scatter"},{"line":{"color":"green"},"name":"Underemployment (U-6)","x":["2020 Peak","2021 Avg","2022 Avg","2023 Avg","2024 Avg","Dec 2025"],"y":[22.9,10,7,7.5,7.8,8.4],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"title":{"text":"Comparison of Unemployment Measures: TRU vs U-3 vs U-6"},"xaxis":{"title":{"text":"Time Period"}},"yaxis":{"title":{"text":"Percentage (%)"}},"hovermode":"x unified"},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('a7504003-ed65-4711-baa2-dc8132d2ffbf');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+</section>
+<section id="long-term-historical-perspective-20002025" class="level3">
+<h3 class="anchored" data-anchor-id="long-term-historical-perspective-20002025">Long-term Historical Perspective (2000–2025)</h3>
+<p>The following chart illustrates the long-term trends of official unemployment (U-3) and underemployment (U-6), contrasted with the True Rate of Unemployment (TRU) since its reporting became prominent in 2020.</p>
+<hr>
+<p>title: “Long-term Labor Market Analysis (1995–2025)” author: “Nathan Piranfar” date: “2026-01-31” —</p>
+</section>
+<section id="comparing-official-and-true-unemployment-rates" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-official-and-true-unemployment-rates">Comparing Official and True Unemployment Rates</h3>
+<p>This analysis explores the deep disparity between the Bureau of Labor Statistics (BLS) metrics and the True Rate of Unemployment (TRU) provided by LISEP. The TRU accounts for workers who are unable to find full-time jobs that pay above the poverty line.</p>
+<section id="interactive-historical-trend-19952025" class="level4">
+<h4 class="anchored" data-anchor-id="interactive-historical-trend-19952025">Interactive Historical Trend (1995–2025)</h4>
+<div id="030e7f50" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Click to see the Python code for this visualization</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> plotly.graph_objects <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> go</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">years <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2026</span>))</span>
+<span id="cb2-4">u3 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.3</span>]</span>
+<span id="cb2-5">u6 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>]</span>
+<span id="cb2-6">tru <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">31.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">31.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">29.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">29.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">27.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">27.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">34.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">33.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">33.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.0</span>]</span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> plotly.graph_objects <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> go</span>
+<span id="cb2-9"></span>
+<span id="cb2-10">years <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1995</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2026</span>))</span>
+<span id="cb2-11">u3 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.3</span>]</span>
+<span id="cb2-12">u6 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.4</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>]</span>
+<span id="cb2-13">tru <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">31.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">31.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">29.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">29.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">27.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">27.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">34.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">33.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">33.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">26.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25.0</span>]</span>
+<span id="cb2-14"></span>
+<span id="cb2-15">fig <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> go.Figure()</span>
+<span id="cb2-16"></span>
+<span id="cb2-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># استفاده از متغیر صحیح (years) و کدهای رنگ معتبر</span></span>
+<span id="cb2-18">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>years, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>tru, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'True Rate (LISEP)'</span>, </span>
+<span id="cb2-19">                         line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#F28E5B'</span>, width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)))</span>
+<span id="cb2-20">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>years, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>u3, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Official (U-3)'</span>, </span>
+<span id="cb2-21">                         line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#2600fc'</span>, dash<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dash'</span>)))</span>
+<span id="cb2-22">fig.add_trace(go.Scatter(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>years, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>u6, name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Underemployment (U-6)'</span>, </span>
+<span id="cb2-23">                         line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#17ec34'</span>))) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># کد رنگ اصلاح شد</span></span>
+<span id="cb2-24"></span>
+<span id="cb2-25">fig.update_layout(</span>
+<span id="cb2-26">    plot_bgcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>,</span>
+<span id="cb2-27">    paper_bgcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'white'</span>,</span>
+<span id="cb2-28">    hovermode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'x unified'</span>,</span>
+<span id="cb2-29">    font<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(family<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Arial, sans-serif"</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#1B263B"</span>),</span>
+<span id="cb2-30">    legend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(orientation<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"h"</span>, yanchor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottom"</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.02</span>, xanchor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"right"</span>, x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),</span>
+<span id="cb2-31">    margin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">dict</span>(l<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, r<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, t<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, b<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>)</span>
+<span id="cb2-32">)</span>
+<span id="cb2-33"></span>
+<span id="cb2-34">fig.update_xaxes(showgrid<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, gridwidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, gridcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#F0F0F0'</span>, linecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#1B263B'</span>,</span>
+<span id="cb2-35">                 tickmode<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'linear'</span>, tick0<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1995</span>, dtick<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span>
+<span id="cb2-36">fig.update_yaxes(showgrid<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, gridwidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, gridcolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#F0F0F0'</span>, linecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#1B263B'</span>,</span>
+<span id="cb2-37">                 ticksuffix<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'%'</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span>])</span>
+<span id="cb2-38"></span>
+<span id="cb2-39">fig.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.1.min.js" integrity="sha256-4rD3fugVb/nVJYUv5Ky3v+fYXoouHaBSP20WIJuEiWg=" crossorigin="anonymous"></script>                <div id="49f51f25-4574-4352-b1ee-77b53d63a988" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("49f51f25-4574-4352-b1ee-77b53d63a988")) {                    Plotly.newPlot(                        "49f51f25-4574-4352-b1ee-77b53d63a988",                        [{"line":{"color":"#F28E5B","width":4},"name":"True Rate (LISEP)","x":[1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"y":[31.5,31.0,30.5,29.8,29.0,28.5,27.8,27.0,26.5,26.0,25.8,25.5,25.2,26.0,32.0,34.0,33.5,32.0,30.0,28.0,26.5,25.0,24.0,23.5,23.0,33.0,26.0,23.5,23.5,24.0,25.0],"type":"scatter"},{"line":{"color":"#2600fc","dash":"dash"},"name":"Official (U-3)","x":[1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"y":[5.6,5.4,4.9,4.5,4.2,4.0,4.7,5.8,6.0,5.5,5.1,4.6,4.6,5.8,9.3,9.6,8.9,8.1,7.4,6.2,5.3,4.9,4.4,3.9,3.7,8.1,5.4,3.6,3.6,4.1,4.3],"type":"scatter"},{"line":{"color":"#17ec34"},"name":"Underemployment (U-6)","x":[1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],"y":[10.1,9.6,8.9,8.0,7.5,7.0,8.0,9.6,10.0,9.5,8.5,8.0,8.3,11.0,16.5,16.7,16.2,14.7,13.8,12.0,10.4,9.6,8.5,7.7,7.0,14.8,9.7,7.0,7.0,7.8,8.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"font":{"family":"Arial, sans-serif","size":14,"color":"#1B263B"},"legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1},"margin":{"l":50,"r":50,"t":100,"b":50},"plot_bgcolor":"white","paper_bgcolor":"white","hovermode":"x unified","xaxis":{"showgrid":true,"gridwidth":1,"gridcolor":"#F0F0F0","linecolor":"#1B263B","tickmode":"linear","tick0":1995,"dtick":5},"yaxis":{"showgrid":true,"gridwidth":1,"gridcolor":"#F0F0F0","linecolor":"#1B263B","ticksuffix":"%","range":[0,40]}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('49f51f25-4574-4352-b1ee-77b53d63a988');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Economics</category>
+  <category>Data Science</category>
+  <guid>https://vahhabpiranfar.com/posts/discuss.html</guid>
+  <pubDate>Sat, 31 Jan 2026 05:00:00 GMT</pubDate>
+  <media:content url="https://vahhabpiranfar.com/posts/discuss.png" medium="image" type="image/png" height="216" width="144"/>
+</item>
+</channel>
+</rss>
