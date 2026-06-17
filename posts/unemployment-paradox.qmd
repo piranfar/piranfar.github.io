@@ -5,6 +5,10 @@ categories: [Economics, Data Science]
 image: "unemployment-paradox.jpg"
 ---
 
+::: {.paper-cover}
+![](unemployment-paradox.jpg){fig-alt="Poster for antibiotic persistence paper review"}
+:::
+
 ### The Big Question
  If official unemployment is low, why does job hunting feel like a "war," and why is poverty rising?.
 
