@@ -83,6 +83,62 @@ DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.6378
 <p>The most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.</p>
 <p>For me, the strongest takeaway is this:</p>
 <p><strong>The challenge is not only killing bacteria quickly, but understanding how they survive long enough to return.</strong></p>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Create lightbox modal if it doesn't exist
+  let modal = document.getElementById('lightbox-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'lightbox-modal';
+    modal.className = 'lightbox-modal';
+    modal.innerHTML = `
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close image">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  // Get elements
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  // Make images in .paper-cover clickable
+  const paperImages = document.querySelectorAll('.paper-cover img');
+  paperImages.forEach(img => {
+    img.addEventListener('click', function() {
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt;
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close lightbox
+  function closeLightbox() {
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // Close on outside click
+  lightboxModal.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeLightbox();
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+});
+</script>
 
 
 </section>
