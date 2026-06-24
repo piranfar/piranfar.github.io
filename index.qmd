@@ -1,6 +1,8 @@
 ---
 title: "Vahhab Piranfar"
 subtitle: "Microbiologist • Bioinformatician • Research Scientist"
+include-in-header: gtm-head.html
+include-before-body: gtm-body.html
 ---
 
 ::: {.hero-panel}
