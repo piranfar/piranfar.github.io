@@ -16,10 +16,12 @@ Real-time immigration case status monitoring and analytics system. Track USCIS c
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-### [Upcoming Project]
-More projects coming soon...
+### [Crossref Reference Formatter](https://piranfar.github.io/Crossref-Reference-Formatter/)
+Paste Crossref references and export Vancouver-style linked references. Convert bibliographic metadata into formatted citations with rich text, Word, and HTML export options.
 
-**Status**: In Development
+**Tech Stack**: JavaScript, Crossref API, Citation Formatting
+**Status**: Active
+[View Project →](https://piranfar.github.io/Crossref-Reference-Formatter/)
 :::
 
 :::
@@ -31,6 +33,7 @@ Below is a collection of my work spanning clinical microbiology research, bioinf
 | Project | Category | Description |
 |---------|----------|-------------|
 | **USCIS Tracker** | Data Science | Automated USCIS case monitoring with real-time updates and analytics |
+| **Crossref Reference Formatter** | Research Tools | Paste Crossref references and export Vancouver-style linked references |
 | **Molecular Dynamics Studies** | Bioinformatics | GROMACS simulations of drug-resistant pathogen interactions |
 | **Clinical Diagnostics Pipeline** | Microbiology | Automated pathogen identification and reporting systems |
 
