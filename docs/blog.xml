@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Vahhab Piranfar</title>
-<link>https://piranfar.github.io/blog.html</link>
-<atom:link href="https://piranfar.github.io/blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://vahhabpiranfar.com/blog.html</link>
+<atom:link href="https://vahhabpiranfar.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.38</generator>
 <lastBuildDate>Wed, 17 Jun 2026 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://piranfar.github.io/posts/antibiotic-persistence.html</link>
+  <link>https://vahhabpiranfar.com/posts/antibiotic-persistence.html</link>
   <description><![CDATA[ 
 
 
@@ -36,7 +36,7 @@ DOI: <a href="https://doi.org/10.1101/2025.02.12.637810">10.1101/2025.02.12.6378
 <p><a class="paper-hero-link" href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Read the paper</a></p>
 </div>
 <div class="paper-cover">
-<p><img src="https://piranfar.github.io/posts/antibiotic-persistence.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+<p><img src="https://vahhabpiranfar.com/posts/antibiotic-persistence.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
 </div>
 <p>This review looks at the preprint <a href="https://www.biorxiv.org/content/10.1101/2025.02.12.637810v1">Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in <em>Mycobacterium tuberculosis</em> and <em>Staphylococcus aureus</em></a>, which explores how two very different pathogens respond to antibiotics over time.</p>
 <blockquote class="blockquote">
@@ -147,20 +147,20 @@ document.addEventListener('DOMContentLoaded', function() {
   <category>Microbiology</category>
   <category>Bioinformatics</category>
   <category>Antibiotics</category>
-  <guid>https://piranfar.github.io/posts/antibiotic-persistence.html</guid>
+  <guid>https://vahhabpiranfar.com/posts/antibiotic-persistence.html</guid>
   <pubDate>Wed, 17 Jun 2026 04:00:00 GMT</pubDate>
-  <media:content url="https://piranfar.github.io/posts/antibiotic-persistence.png" medium="image" type="image/png" height="180" width="144"/>
+  <media:content url="https://vahhabpiranfar.com/posts/antibiotic-persistence.png" medium="image" type="image/png" height="180" width="144"/>
 </item>
 <item>
   <title>The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment</title>
-  <link>https://piranfar.github.io/posts/unemployment-paradox.html</link>
+  <link>https://vahhabpiranfar.com/posts/unemployment-paradox.html</link>
   <description><![CDATA[ 
 
 
 
 
 <div class="paper-cover">
-<p><img src="https://piranfar.github.io/posts/unemployment-paradox.jpg" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+<p><img src="https://vahhabpiranfar.com/posts/unemployment-paradox.jpg" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
 </div>
 <section id="the-big-question" class="level3">
 <h3 class="anchored" data-anchor-id="the-big-question">The Big Question</h3>
@@ -504,21 +504,21 @@ if (outputEl) {{
  ]]></description>
   <category>Economics</category>
   <category>Data Science</category>
-  <guid>https://piranfar.github.io/posts/unemployment-paradox.html</guid>
+  <guid>https://vahhabpiranfar.com/posts/unemployment-paradox.html</guid>
   <pubDate>Sun, 01 Feb 2026 05:00:00 GMT</pubDate>
-  <media:content url="https://piranfar.github.io/posts/unemployment-paradox.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vahhabpiranfar.com/posts/unemployment-paradox.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>The True Rate of Unemployment (TRU) Analysis</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://piranfar.github.io/posts/discuss.html</link>
+  <link>https://vahhabpiranfar.com/posts/discuss.html</link>
   <description><![CDATA[ 
 
 
 
 
 <div class="paper-cover">
-<p><img src="https://piranfar.github.io/posts/discuss.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
+<p><img src="https://vahhabpiranfar.com/posts/discuss.png" class="img-fluid" alt="Poster for antibiotic persistence paper review"></p>
 </div>
 <section id="measuring-real-economic-health" class="level3">
 <h3 class="anchored" data-anchor-id="measuring-real-economic-health">Measuring Real Economic Health</h3>
@@ -1413,9 +1413,9 @@ if (outputEl) {{
  ]]></description>
   <category>Economics</category>
   <category>Data Science</category>
-  <guid>https://piranfar.github.io/posts/discuss.html</guid>
+  <guid>https://vahhabpiranfar.com/posts/discuss.html</guid>
   <pubDate>Sat, 31 Jan 2026 05:00:00 GMT</pubDate>
-  <media:content url="https://piranfar.github.io/posts/discuss.png" medium="image" type="image/png" height="216" width="144"/>
+  <media:content url="https://vahhabpiranfar.com/posts/discuss.png" medium="image" type="image/png" height="216" width="144"/>
 </item>
 </channel>
 </rss>

@@ -4,11 +4,11 @@ GitHub Pages is a feature provided by GitHub that allows you to host static webs
 
 ## Address
 
-This repository is configured as the GitHub user site for `piranfar`, so the public address is:
+This repository is configured as the GitHub user site for `piranfar`, published at the custom domain:
 
-`https://piranfar.github.io`
+`https://vahhabpiranfar.com`
 
-The Quarto source files live at the repository root and render into the `docs` directory.
+The site is also reachable via `https://piranfar.github.io`. The Quarto source files live at the repository root and render into the `docs` directory.
 
 ## Features
 - **Easy to Use**: You can create a GitHub Pages site directly from your repository in a few simple steps.

@@ -1,0 +1,469 @@
+---
+title: "AI Bacteriology Hub"
+subtitle: "Full-stack computational microbiology platform with AI reasoning, manifest-driven lab tools, and sandboxed Python execution"
+toc: true
+toc-depth: 3
+---
+
+::: {.hero-panel}
+::: {.grid .align-items-center}
+::: {.g-col-12 .g-col-md-8}
+<span class="hero-eyebrow">Full-Stack Research Platform · Active</span>
+
+## AI Bacteriology Hub
+
+<p class="hero-body">A production-grade research and portfolio platform combining a curated bacteriology knowledge base, an <strong>AI Research Layer</strong> for interactive microbiology reasoning, and <strong>manifest-driven lab applications</strong> that execute Python tools inside a Docker sandbox — all deployed on Google Cloud Run.</p>
+
+<div class="hero-badges">
+<span class="hero-pill">🧬 Antimicrobial Resistance</span>
+<span class="hero-pill">🤖 AI Research Layer</span>
+<span class="hero-pill">🐍 Python Lab Tools</span>
+<span class="hero-pill">🐳 Docker Sandbox</span>
+<span class="hero-pill">⚛️ React + Django</span>
+<span class="hero-pill">☁️ Cloud Run</span>
+</div>
+
+[Visit Live Site →](https://ai-bacteriology.vahhabpiranfar.com/){.btn .btn-light}  [View Overview Tab →](https://ai-bacteriology.vahhabpiranfar.com/?tab=overview){.btn .btn-outline-light}
+
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="stats-row" style="grid-template-columns: 1fr 1fr; margin-top: 0.5rem;">
+<div class="stat-box">
+<span class="stat-number">3</span>
+<span class="stat-label">Core Layers</span>
+</div>
+<div class="stat-box">
+<span class="stat-number">5+</span>
+<span class="stat-label">Lab Apps</span>
+</div>
+<div class="stat-box">
+<span class="stat-number">20s</span>
+<span class="stat-label">Sandbox Timeout</span>
+</div>
+<div class="stat-box">
+<span class="stat-number">GCR</span>
+<span class="stat-label">Deployed On</span>
+</div>
+</div>
+:::
+:::
+:::
+
+---
+
+## What is the AI Bacteriology Hub?
+
+The AI Bacteriology Hub is a **full-stack scientific platform** I built to demonstrate and apply computational bacteriology workflows. It is not a single tool — it is an integrated environment with three cooperating layers:
+
+1. **Scientific knowledge base** — curated articles on AMR, diagnostics, and computational microbiology published through a rich CMS
+2. **AI Research Layer** — a server-side AI proxy that enables safe, interactive scientific reasoning directly in the browser, without exposing API keys
+3. **Manifest-driven lab applications** — a plugin-like system where Python tools packaged as ZIP files are registered, auto-form-built, and executed inside an isolated Docker container
+
+The platform covers workflows in antimicrobial resistance (AMR), bacterial diagnostics, strain typing, drug-discovery concepts, microscopy analysis, and computational microbiology education.
+
+::: {.info-card}
+### Research & Education Only
+> This platform is not clinically validated and must not be used for diagnosis, prescribing, or patient care decisions. AI-assisted outputs require qualified human review.
+:::
+
+---
+
+## Architecture
+
+The system is a clean three-tier design: a React SPA on the frontend, Django + DRF on the backend, and a Docker container for sandboxed code execution.
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Browser (React SPA)                                         │
+│  Vite dev server (port 5173)  or  Django :8000 (prod build)  │
+└───────────────────────┬──────────────────────────────────────┘
+                        │  /api/*   /admin   /static
+                        ▼
+┌──────────────────────────────────────────────────────────────┐
+│  Django 4.2 + Django REST Framework                          │
+│  • Articles, tags, search, auth, site config                  │
+│  • AI Research Layer proxy (server-side key management)       │
+│  • Lab app registry + sandboxed run endpoint                  │
+└──────────────┬───────────────────────────┬───────────────────┘
+               │                           │
+               ▼                           ▼
+       ┌───────────────┐           ┌───────────────┐
+       │  SQLite /     │           │  Docker       │
+       │  PostgreSQL   │           │  Sandbox      │
+       └───────────────┘           └───────────────┘
+```
+
+**In development**, Django runs on port 8000 and Vite on port 5173 — Vite proxies all `/api/*`, `/admin`, and `/static` requests to Django.
+
+**In production** on Google Cloud Run, Django serves the built React SPA from `/` and all API routes from the same origin — one container, one URL, no CORS complexity.
+
+---
+
+## The Three Layers Explained
+
+### Layer 1 — Scientific Knowledge Base
+
+A Django-powered CMS lets me publish and manage articles on computational bacteriology directly through Django Admin with CKEditor rich text, tags, section filters, and code snippets. Articles are exposed publicly at `/articles/{slug}/` with PDF export support and full-text search via the REST API.
+
+This layer exists because knowledge without context is just data. Every lab tool in the platform links back to the underlying science through the article system.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">📝</span> Rich Content
+CKEditor-5 integration inside Django Admin allows complex article authoring: code blocks, equations, tables, and tagged sections.
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🔍</span> Full-Text Search
+REST API endpoint `GET /api/posts/search/?q=` enables filtered full-text search across all published articles.
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🏷️</span> Taxonomy
+Tags and sections organize content across AMR, diagnostics, strain typing, molecular dynamics, and more.
+:::
+:::
+:::
+
+---
+
+### Layer 2 — AI Research Layer
+
+The AI Research Layer is the heart of the platform for interactive scientific work. It is a **server-side AI proxy** that sits between the browser and the AI provider — the API key never reaches the client. The frontend sends requests to `/api/ai/generate/` and receives streamed responses via SSE (Server-Sent Events), while all authentication, rate limiting, and key management happen on the server.
+
+::: {.info-card}
+### Design Principle
+> The AI layer is deliberately **provider-agnostic**. The gateway at `/api/ai/generate/` abstracts away the underlying model provider, and legacy Gemini-compatible routes are retained so that old integrations keep working without changes.
+:::
+
+#### Built-in AI Sub-applications
+
+These are two native tools built directly into the platform — no ZIP upload required:
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### AMR Simulator (`simulator`)
+
+An AI-powered reasoning engine for antimicrobial resistance scenarios. Given a pathogen and antibiotic combination, it draws on the AI model's understanding of resistance mechanisms, MIC values, efflux pumps, beta-lactamase activity, and clinical breakpoints to simulate and explain likely resistance outcomes.
+
+This is the flagship tool for demonstrating how large language models can support (not replace) AMR reasoning in a structured, scientific context.
+
+<div class="project-tags">
+<span class="project-tag">AMR Reasoning</span>
+<span class="project-tag">Streaming AI</span>
+<span class="project-tag">Scientific Prompting</span>
+</div>
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### AI Protocol Drafter (`protocol_ai`)
+
+A drafting assistant for scientific standard operating procedures (SOPs) and research abstracts. Input a workflow description or experimental goal, and the tool produces a structured, publication-ready draft in the relevant format.
+
+Responses stream token-by-token to the browser via SSE, giving the experience of watching the protocol assemble in real time.
+
+<div class="project-tags">
+<span class="project-tag">SOP Drafting</span>
+<span class="project-tag">Abstract Writing</span>
+<span class="project-tag">SSE Streaming</span>
+</div>
+:::
+:::
+:::
+
+#### AI Layer Access Control
+
+The AI Research Layer is gated at multiple levels — all conditions must be true simultaneously before a generation request is accepted:
+
+| Condition | Where configured |
+|-----------|-----------------|
+| Site mode is `platform` (not `weblog`) | Django Admin → Site configuration |
+| AI features are enabled | Django Admin → Site configuration |
+| A server-side API key is stored | Admin UI or `GEMINI_API_KEY` env variable |
+| User is authenticated | Session-based auth |
+
+This architecture means the platform can operate in **weblog mode** — hiding all AI and lab features entirely for portfolio-only public viewing — without any code changes.
+
+---
+
+### Layer 3 — Manifest-Driven Lab Applications
+
+This is the most architecturally interesting part of the platform. The lab application system is a **plugin-like runtime** where Python tools are packaged as ZIP files, registered through Django Admin, and instantly become interactive, form-driven tools in the React SPA — with no frontend code changes required.
+
+#### How It Works
+
+A lab tool is just a Python package with a `manifest.json` that declares its inputs, outputs, metadata, and behavior. Upload the ZIP, enable the app, and the React frontend reads the manifest and **automatically generates the form** — input fields, type validation, preset selectors, example loaders, and output renderers all build themselves from the JSON declaration.
+
+```
+my-tool/
+├── manifest.json          ← declares inputs, outputs, slug, description
+├── main.py                ← must expose run(inputs) → dict
+├── validation_contract.json   ← optional input validation rules
+├── examples.json          ← optional sample inputs for quick testing
+├── presets.json           ← optional named parameter combinations
+└── README.md              ← optional Markdown documentation (shown in UI)
+```
+
+**Minimal Python entrypoint:**
+
+```python
+def run(inputs):
+    sequence = inputs.get("sequence", "")
+    clean = "".join(sequence.split()).upper()
+    gc = clean.count("G") + clean.count("C")
+    length = len(clean)
+    return {
+        "length": length,
+        "gc_percent": round(100 * gc / length, 2) if length else 0,
+    }
+```
+
+**Minimal manifest declaration:**
+
+```json
+{
+  "name": "GC Content Checker",
+  "slug": "gc-content-checker",
+  "description": "Calculates sequence length and GC percentage.",
+  "entrypoint": "main:run",
+  "inputs": [
+    { "id": "sequence", "label": "DNA Sequence", "type": "textarea", "required": true }
+  ],
+  "outputs": [
+    { "id": "length", "label": "Length (bp)", "type": "number" },
+    { "id": "gc_percent", "label": "GC Content (%)", "type": "number" }
+  ]
+}
+```
+
+The platform supports input types `text`, `textarea`, and `file` (read as text), and output types `number`, `text`, `html`, `svg`, and coordinated chart visualizations — all rendered automatically by the React frontend.
+
+#### Supported Lab App Types
+
+| Type | Behavior |
+|------|----------|
+| **Python API Tool** | Executes in Docker sandbox via `POST /api/lab-apps/{slug}/run/` |
+| **Background Job** | Same sandbox path today; async worker planned for cloud |
+| **Frontend Only** | Manifest preview in the browser only; no server execution |
+| **External Link** | Opens an external resource URL from the app card |
+
+#### Per-App Access Control
+
+Each app can independently require a signed-in account for execution, while remaining publicly visible to anyone:
+
+- Anonymous visitors can **view** the app card, manifest UI, examples, presets, and README documentation
+- Anonymous visitors **cannot execute** the app (`can_run: false` in API response)
+- Signed-in **active** users (approved by admin) may execute, subject to global throttling
+
+This lets me gate compute costs while keeping the lab catalog publicly browsable.
+
+---
+
+## The Auto-AI Upgrade System (Orchestrator)
+
+One of the most novel architectural features is the **AI Orchestrator** — an internal pipeline for AI-driven self-improvement of the platform's lab applications.
+
+### What It Does
+
+The Orchestrator is a staff-accessible system (`POST /api/orchestrator/proposals/trigger/`) that triggers an **AI change proposal pipeline**. The pipeline analyzes existing lab apps, identifies opportunities for improvement or new tool variants, and generates versioned code proposals. These proposals go through an **admin review workflow** before any code is applied.
+
+Key components visible in the admin:
+
+| Admin Section | Purpose |
+|---------------|---------|
+| **AI change proposals** | AI-generated suggestions for lab app improvements |
+| **Code versions** | Versioned snapshots of proposed or applied changes |
+| **Review workflow** | Human-in-the-loop approval before any proposal is applied |
+
+### Why This Matters
+
+Most platforms require a developer to manually update each tool. The Orchestrator inverts this: the AI proposes what should change and generates the code, while the scientist (or admin) reviews and approves. Combined with the manifest-driven architecture, this creates a workflow where:
+
+1. The Orchestrator proposes an upgraded `main.py` or `manifest.json`
+2. A human reviews the diff in Django Admin
+3. On approval, the new ZIP is applied and the tool auto-upgrades in place
+4. The React frontend reflects the new manifest without any frontend deployment
+
+The manifest-driven runtime is what makes auto-upgrade safe — the frontend never has hardcoded assumptions about any specific tool, so any manifest change is immediately reflected.
+
+::: {.info-card}
+### Architecture Insight
+> The combination of manifest-driven UI generation + AI change proposal pipeline means the platform can **grow its own lab tool library** with minimal manual intervention, while the human review step ensures scientific accuracy and safety are never bypassed.
+:::
+
+---
+
+## Docker Sandbox — Secure Code Execution
+
+Every Python lab tool executes inside a **hardened Docker container** with strict resource limits. This is what makes it safe to run user-accessible scientific code on a public web service.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### <span class="feature-icon">🔒</span> Complete Isolation
+No network access, non-root user, dropped Linux capabilities. The sandbox cannot make outbound connections or access the host filesystem.
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">⏱️</span> Resource Caps
+20-second default timeout. Configurable memory, CPU, and PID limits prevent runaway computation from impacting the platform.
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">📦</span> Size Limits
+Input payload and stdout sizes are bounded. Public demo mode applies even stricter limits to control surface area on the live deployment.
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🚫</span> Production Disabled
+On the public Cloud Run service, `LAB_EXECUTION_ENABLED=False` — sandbox execution is off by default. This is a deliberate architectural decision: untrusted code execution belongs on a separate hardened worker, not the public web container.
+:::
+:::
+:::
+
+---
+
+## Technology Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Backend** | Django 4.2, Django REST Framework |
+| **Frontend** | React 18, Vite 5, Tailwind CSS |
+| **Admin / Content** | Django Admin, django-ckeditor-5 |
+| **AI Integration** | Server-side proxy / AI Gateway (Gemini provider) |
+| **Lab Execution** | Docker-sandboxed Python packages |
+| **Local Database** | SQLite |
+| **Production Database** | PostgreSQL (Cloud SQL) |
+| **Static Files** | WhiteNoise + built Vite assets |
+| **Deployment** | Google Cloud Run |
+| **Secrets** | Google Secret Manager |
+| **Media (optional)** | Google Cloud Storage |
+
+---
+
+## Security Architecture
+
+Security is layered at every level — from the network edge to the execution environment:
+
+| Control | Description |
+|---------|-------------|
+| **Server-side AI keys** | API keys stored in Django Admin with optional Fernet encryption; never sent to the browser |
+| **Rate limiting** | Separate throttle scopes for auth (5/min login), AI generation (10/hr), lab execution (10/hr), and anonymous API (60/min) |
+| **Sandbox isolation** | Docker with no network, non-root user, capability drops, memory/CPU/PID caps |
+| **Site mode gating** | `weblog` mode disables AI and lab features globally without code changes |
+| **Input/output limits** | Configurable max payload and stdout sizes; demo mode stricter limits |
+| **Security logging** | Blocked requests logged at `hub.security` without storing request bodies (no PII leakage) |
+| **Neutral password reset** | API always returns same response whether email exists or not (no enumeration) |
+| **HTTPS + cookies** | Secure-only cookies and CSRF-trusted origins enforced in production settings |
+
+---
+
+## Deployment on Google Cloud Run
+
+The production architecture uses managed Google Cloud services throughout:
+
+| Component | Service | Role |
+|-----------|---------|------|
+| Django API + built SPA | Cloud Run | HTTPS, gunicorn, WhiteNoise static files |
+| Database | Cloud SQL (PostgreSQL) | Persistent relational data |
+| Secrets | Secret Manager | `DJANGO_SECRET_KEY`, API keys, DB credentials |
+| Media (optional) | Cloud Storage | Uploaded files and lab ZIPs |
+| Lab sandbox (future) | Separate hardened worker | Never run arbitrary code on the public web container |
+
+The `Dockerfile` is a multi-stage build: Node.js builds the React SPA, then the Python/gunicorn image copies the built assets into `hub/static/dist/` and serves everything from a single container. No separate frontend hosting, no CDN configuration required.
+
+---
+
+## Frontend Navigation
+
+The SPA uses URL query parameters as the routing source of truth, supporting full browser Back/Forward navigation:
+
+| URL | Destination |
+|-----|-------------|
+| `/` | Default (Ecosystem overview) |
+| `/?tab=overview` | Platform overview |
+| `/?tab=lab` | Research & AI Lab |
+| `/?tab=lab&tool=fasta-skew-analyzer` | Specific registered lab app |
+| `/?tab=lab&tool=simulator` | Built-in AMR Simulator |
+| `/?tab=ai-research-layer` | AI Research Layer |
+| `/?tab=articles` | Articles index |
+| `/?tab=articles&article={slug}` | Article reader |
+
+---
+
+## What This Project Demonstrates
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🏗️</span> Full-Stack Architecture
+Django REST API + React SPA + Docker — designed for real-world deployment with PostgreSQL, Cloud Storage, and Secret Manager on GCP.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🤖</span> AI Systems Design
+Server-side AI proxy, streaming SSE responses, provider-agnostic gateway, encrypted key storage, and an AI-driven self-improvement pipeline.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🔌</span> Plugin Architecture
+Manifest-driven runtime that auto-builds forms and output renderers from JSON — no frontend changes needed to add new lab tools.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🔐</span> Security-First
+Rate limiting, sandboxed execution, encrypted secrets, security logging, neutral API responses, and a clearly documented threat model.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">🧬 </span> Domain Expertise
+The tools, articles, and AI prompts reflect deep knowledge of AMR mechanisms, molecular diagnostics, FASTA sequence analysis, and computational microbiology workflows.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.feature-card}
+### <span class="feature-icon">📋</span> Ops Readiness
+Admin-managed configuration, weblog fallback mode, health endpoints, management commands for seeding, and a documented path to Cloud Run production deployment.
+:::
+:::
+:::
+
+---
+
+## Explore the Platform
+
+[Visit the AI Bacteriology Hub →](https://ai-bacteriology.vahhabpiranfar.com/){.project-link}
+
+[Platform Overview Tab →](https://ai-bacteriology.vahhabpiranfar.com/?tab=overview){.project-link}
+
+[AMR Simulator →](https://ai-bacteriology.vahhabpiranfar.com/?tab=lab&tool=simulator){.project-link}
+
+[AI Research Layer →](https://ai-bacteriology.vahhabpiranfar.com/?tab=ai-research-layer){.project-link}
+
+[Articles →](https://ai-bacteriology.vahhabpiranfar.com/?tab=articles){.project-link}
+
+---
+
+*For my published research on antimicrobial resistance and computational microbiology, see the [Publications page](../publications.qmd).*

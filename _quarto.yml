@@ -1,10 +1,12 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - CNAME
 
 website:
   title: "Vahhab Piranfar"
-  site-url: "https://piranfar.github.io"
+  site-url: "https://vahhabpiranfar.com"
   navbar:
     background: light
     left:
@@ -19,12 +21,12 @@ website:
       - href: publications.qmd
         text: Publications
   page-footer:
-    left: "© 2026 Vahhab Piranfar"
+    left: "© 2026 Vahhab Piranfar — Molecular Microbiologist & Bioinformatician"
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/vahhab-piranfar/
       - icon: google
-        href: https://scholar.google.com/citations?user=G_m_E58AAAAJ
+        href: https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en
       - icon: github
         href: https://github.com/piranfar
     background: dark
@@ -36,9 +38,13 @@ execute:
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     code-fold: true
     code-summary: "Show the code"
     include-in-header:
       - text: |
           <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">

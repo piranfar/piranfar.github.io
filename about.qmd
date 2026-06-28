@@ -2,56 +2,86 @@
 title: "About"
 ---
 
-## Professional profile
+## Professional Profile
 
 I am a researcher specializing in **medical microbiology**, **molecular biology**, and **computational analysis**. Based in **Jersey City, New Jersey**, I focus on antimicrobial resistance, host-pathogen interactions, and translational research that connects laboratory work with data-driven insight.
 
 ::: {.info-card}
-### Vision statement
-> “In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”
+### Vision Statement
+> "In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable."
 >
 > — **Vahhab Piranfar**
 :::
 
-### Research interests
+## Research Interests
 
-- **Pathogen genomics**: studying resistance mechanisms in *Brucella*, *Pseudomonas*, and *Staphylococcus*.
-- **Bioinformatics**: using computational modeling to examine persistence, resistance, and molecular interactions.
-- **Antimicrobial innovation**: exploring how nanoparticles and combination therapies may improve treatment strategies.
+- **Pathogen genomics** — studying resistance mechanisms in *Brucella*, *Pseudomonas*, and *Staphylococcus*.
+- **Bioinformatics** — computational modeling to examine persistence, resistance, and molecular interactions.
+- **Antimicrobial innovation** — exploring nanoparticle and combination therapies to improve treatment strategies.
 
-## Professional journey
+## Professional Journey
 
 ::: {.panel-tabset}
 ### Experience
-**CEO | Farname Inc.**  
-*Jan 2018 – Present*  
-Directing strategy, scientific collaboration, and research-focused initiatives.
 
-**Laboratory Technician | Imam Khomeini Hospital**  
-*2019 – 2024*  
-Performed high-volume diagnostic testing, including MALDI-TOF and microbial identification.
+**CEO · Farname Inc.**
+*January 2018 – Present*
+Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.
+
+---
+
+**Laboratory Technician · Imam Khomeini Hospital**
+*2019 – 2024*
+Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.
 
 ### Education
-**M.S. in Microbiology**  
-*Islamic Azad University | 2015*  
-Thesis work focused on nanoparticle-based antimicrobial strategies.
+
+**M.S. in Microbiology**
+*Islamic Azad University · 2015*
+Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.
 
 ### Strengths
-- Over a decade of laboratory experience in clinical microbiology.
-- Editorial and scientific communication experience across international journals.
-- Co-inventor of a diagnostic assay for rapid *Brucella* detection.
+
+- Over a decade of laboratory experience in clinical and research microbiology.
+- Scientific communication and editorial experience across peer-reviewed international journals.
+- Co-inventor of a diagnostic assay for rapid *Brucella* detection from human blood.
+- EB-1A recognized expertise in molecular diagnostics and pathogen genomics.
 :::
 
-## Technical skills
+## Technical Skills
 
-- **Molecular assays**: PCR, real-time PCR, HRM genotyping, and RFLP.
-- **Computational tools**: GROMACS, VMD, and CLC Genomics Workbench.
-- **Data analysis**: Python and SPSS for research interpretation and visualization.
+**Molecular Assays**
 
-## Selected publications
+<div class="skills-grid">
+<span class="skill-pill">PCR</span>
+<span class="skill-pill">Real-time PCR</span>
+<span class="skill-pill">HRM Genotyping</span>
+<span class="skill-pill">RFLP</span>
+<span class="skill-pill">Multiplex PCR</span>
+<span class="skill-pill">MALDI-TOF</span>
+<span class="skill-pill">ELISA</span>
+</div>
+
+**Computational Tools**
+
+<div class="skills-grid">
+<span class="skill-pill">GROMACS</span>
+<span class="skill-pill">VMD</span>
+<span class="skill-pill">CLC Genomics Workbench</span>
+<span class="skill-pill">Molecular Dynamics</span>
+</div>
+
+**Data Analysis & Programming**
+
+<div class="skills-grid">
+<span class="skill-pill">Python</span>
+<span class="skill-pill">SPSS</span>
+<span class="skill-pill">Data Visualization</span>
+<span class="skill-pill">Bioinformatics Pipelines</span>
+</div>
+
+## Selected Publications
 
 - **Piranfar V.** (2025). Comparative modeling of antibiotic resistance in *Mycobacterium tuberculosis*. *bioRxiv*.
 - **Mirnejad R, Piranfar V, et al.** (2013). A duplex PCR for rapid detection of *Brucella* in human blood. *Asian Pacific Journal of Tropical Medicine*.
-- **Book**: *Metal Nanoparticles in Microbiology*.
-
-
+- **Book**: *Metal Nanoparticles in Microbiology* (Persian). ISBN: 978-964-504-228-8.
