@@ -1,24 +1,339 @@
 [
   {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
+    "objectID": "SECURITY.html",
+    "href": "SECURITY.html",
+    "title": "Security Policy",
     "section": "",
-    "text": "LinkedIn    Google Scholar · 650+ citations    ORCID    ResearchGate"
+    "text": "This repository contains a static personal website.\nIf you find a security issue, broken configuration, exposed private information, or suspicious behavior related to this website, please report it privately.\nContact:\nVahhab Piranfar\nEmail: vahab.p@gmail.com\nPlease do not open a public issue for sensitive security concerns. ’@ | Set-Content -Encoding UTF8 SECURITY.md\n\n\nUse this section to tell people about which versions of your project are currently being supported with security updates.\n\n\n\nVersion\nSupported\n\n\n\n\n5.1.x\n:white_check_mark:\n\n\n5.0.x\n:x:\n\n\n4.0.x\n:white_check_mark:\n\n\n&lt; 4.0\n:x:\n\n\n\n\n\n\nUse this section to tell people how to report a vulnerability.\nTell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc."
   },
   {
-    "objectID": "publications.html#academic-profiles",
-    "href": "publications.html#academic-profiles",
-    "title": "Publications",
+    "objectID": "SECURITY.html#supported-versions",
+    "href": "SECURITY.html#supported-versions",
+    "title": "Security Policy",
     "section": "",
-    "text": "LinkedIn    Google Scholar · 650+ citations    ORCID    ResearchGate"
+    "text": "Use this section to tell people about which versions of your project are currently being supported with security updates.\n\n\n\nVersion\nSupported\n\n\n\n\n5.1.x\n:white_check_mark:\n\n\n5.0.x\n:x:\n\n\n4.0.x\n:white_check_mark:\n\n\n&lt; 4.0\n:x:"
   },
   {
-    "objectID": "publications.html#selected-publications",
-    "href": "publications.html#selected-publications",
-    "title": "Publications",
+    "objectID": "SECURITY.html#reporting-a-vulnerability",
+    "href": "SECURITY.html#reporting-a-vulnerability",
+    "title": "Security Policy",
+    "section": "",
+    "text": "Use this section to tell people how to report a vulnerability.\nTell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Active\n\n\n\nA production-grade full-stack research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools executed inside a Docker sandbox. Features a server-side AI proxy, streaming SSE responses, an AI Orchestrator for automated lab app upgrades, and deployment on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox Google Cloud Run AMR\n\nDeep Dive → Live Site →\n\n\n\n\n\n\nActive\n\n\n\nReal-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.\n\nPython Data Visualization Web Scraping\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nPaste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.\n\nJavaScript Crossref API Citation Formatting\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nLocal-first AI English tutor for Persian-speaking learners preparing for academic English and TOEFL. Two-stage learning journey with grammar lessons, reading/listening/writing/speaking coaches, shadowing, SRS vocabulary, and a Mistake Clinic — powered by a provider-agnostic AI layer (Ollama, OpenAI, Anthropic).\n\nDjango + DRF React 19 Vite Ollama TOEFL Prep\n\nView on GitHub →"
+  },
+  {
+    "objectID": "projects.html#featured-projects",
+    "href": "projects.html#featured-projects",
+    "title": "Projects",
+    "section": "",
+    "text": "Active\n\n\n\nA production-grade full-stack research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools executed inside a Docker sandbox. Features a server-side AI proxy, streaming SSE responses, an AI Orchestrator for automated lab app upgrades, and deployment on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox Google Cloud Run AMR\n\nDeep Dive → Live Site →\n\n\n\n\n\n\nActive\n\n\n\nReal-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.\n\nPython Data Visualization Web Scraping\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nPaste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.\n\nJavaScript Crossref API Citation Formatting\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nLocal-first AI English tutor for Persian-speaking learners preparing for academic English and TOEFL. Two-stage learning journey with grammar lessons, reading/listening/writing/speaking coaches, shadowing, SRS vocabulary, and a Mistake Clinic — powered by a provider-agnostic AI layer (Ollama, OpenAI, Anthropic).\n\nDjango + DRF React 19 Vite Ollama TOEFL Prep\n\nView on GitHub →"
+  },
+  {
+    "objectID": "projects.html#project-archive",
+    "href": "projects.html#project-archive",
+    "title": "Projects",
+    "section": "Project Archive",
+    "text": "Project Archive\nA collection of work spanning clinical microbiology research, bioinformatics, and data science applications.\n\n\n\nProject\nCategory\nDescription\n\n\n\n\nAI Bacteriology Hub\nAI / Full-Stack\nFull-stack computational microbiology platform with AI Research Layer, manifest-driven lab tools, and Docker sandboxed execution\n\n\nUSCIS Tracker\nData Science\nAutomated USCIS case monitoring with real-time updates and analytics\n\n\nCrossref Reference Formatter\nResearch Tools\nVancouver-style citation export from Crossref metadata\n\n\nFluentBridge AI\nAI / Full-Stack\nLocal-first AI English tutor for TOEFL and academic English with multi-skill coaches and provider-agnostic AI\n\n\nMolecular Dynamics Studies\nBioinformatics\nGROMACS simulations of drug-resistant pathogen interactions\n\n\nClinical Diagnostics Pipeline\nMicrobiology\nAutomated pathogen identification and reporting systems"
+  },
+  {
+    "objectID": "projects.html#research-publications",
+    "href": "projects.html#research-publications",
+    "title": "Projects",
+    "section": "Research & Publications",
+    "text": "Research & Publications\nFor detailed information about my academic work and publications, visit the Publications page."
+  },
+  {
+    "objectID": "projects.html#lets-collaborate",
+    "href": "projects.html#lets-collaborate",
+    "title": "Projects",
+    "section": "Let’s Collaborate",
+    "text": "Let’s Collaborate\nInterested in discussing a project or exploring collaboration opportunities? Reach out via LinkedIn or check out my GitHub profile."
+  },
+  {
+    "objectID": "posts/unemployment-paradox.html#conclusion",
+    "href": "posts/unemployment-paradox.html#conclusion",
+    "title": "The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment",
+    "section": "Conclusion",
+    "text": "Conclusion\nWe aren’t necessarily becoming “lazier”; the bar for survival has moved higher. Our TRU data proves that while people are “working,” they aren’t necessarily “earning enough to live”. The rising cost of living, degree inflation, and automation are making it harder to find quality employment that pays a living wage."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html",
+    "href": "posts/caz-avi-evidence-reconstruction.html",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "",
+    "text": "Published PK/PD evidence can be reused more transparently when provenance, missingness, transformation pathways, and scenario compatibility are preserved."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html#project-summary",
+    "href": "posts/caz-avi-evidence-reconstruction.html#project-summary",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "Project summary",
+    "text": "Project summary\nThis project presents a methodological pilot for converting fragmented antimicrobial pharmacokinetic/pharmacodynamic (PK/PD) evidence into simulation-ready components. The pilot target was ceftazidime-avibactam, a beta-lactam/beta-lactamase inhibitor combination used in difficult-to-treat Gram-negative infections.\nThe central problem is that published antimicrobial PK/PD evidence is often scientifically valuable but not immediately reusable. A paper may report clearance equations but not MIC weights, another may report trough concentrations but not a complete simulation model, and another may provide target-site or in vitro pharmacodynamic information that is useful but not directly compatible with the clinical scenario of interest.\nRather than treating each publication as either fully included or excluded, the project used a component-level evidence-composite approach. Each source was decomposed into reusable scientific components such as clearance relationships, interindividual variability, protein binding or unbound fraction, PK/PD target definitions, MIC distributions, calibration anchors, and uncertainty inputs. Each component was then assigned a provenance label, a transformation label, and a review state. This made it possible to distinguish directly reported values from inherited, donor-derived, model-inferred, user-specified, or scenario-generated values. Missing data were not silently filled; they were retained as explicit evidence gaps unless a compatible donor component was used with clear labeling."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html#why-the-workflow-was-needed",
+    "href": "posts/caz-avi-evidence-reconstruction.html#why-the-workflow-was-needed",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "Why the workflow was needed",
+    "text": "Why the workflow was needed\nThe project was motivated by a practical limitation in pharmacometric evidence reuse. Automated extraction can identify numerical values, but it cannot decide whether a value is directly observed, inherited from a prior model, transformed from another parameter, compatible with a target population, or appropriate for a new simulation scenario.\nThis problem is especially important for ceftazidime-avibactam because the two components cannot be collapsed into a single exposure metric. Ceftazidime provides the antibacterial beta-lactam exposure, whereas avibactam protects ceftazidime from susceptible beta-lactamases. A regimen may appear adequate for ceftazidime while avibactam exposure remains limiting. For that reason, the workflow modeled ceftazidime and avibactam separately and evaluated them jointly.\nThe evidence base included six source packages spanning critically ill continuous-infusion PK/PD modeling, continuous venovenous hemodiafiltration, extracorporeal membrane oxygenation, healthy-volunteer plasma and cerebrospinal fluid pharmacokinetics, MIC surveillance, and in vitro inoculum-effect PK/PD. These sources were scientifically complementary but not interchangeable. The workflow therefore assessed scenario compatibility at the component level. CVVHDF, ECMO, CSF, and in vitro evidence were retained as anchors or donor evidence where appropriate, but they were not silently pooled into the primary ICU non-RRT simulation scenario."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html#what-was-simulated",
+    "href": "posts/caz-avi-evidence-reconstruction.html#what-was-simulated",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "What was simulated",
+    "text": "What was simulated\nThe primary scenario was critically ill adults without renal replacement therapy receiving continuous-infusion ceftazidime-avibactam. The Monte Carlo simulation included 100,000 virtual subjects distributed across five European Kidney Function Consortium renal-function classes. The workflow reconstructed component-specific clearance, applied correlated lognormal interindividual variability, and calculated steady-state free concentrations for each component. Ceftazidime target attainment was evaluated using a free steady-state concentration to MIC ratio of at least 4, while avibactam target attainment was evaluated relative to a fixed 4 mg/L threshold. Joint target attainment required both targets to be achieved at the same time.\nThe simulation outputs included probability of target attainment, MIC-weighted cumulative fraction of response, toxicity-oriented exposure screening, calibration against published component-level benchmarks, convergence analysis, multi-seed reproducibility, global sensitivity analysis, and probabilistic sensitivity analysis. The calibration framework included 72 comparison rows, of which 69 passed predefined criteria, 3 required targeted review, and none failed. The convergence analysis showed that 50,000 virtual subjects were stable for summary-level interpretation, while 100,000 subjects were retained for final outputs."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html#main-methodological-findings",
+    "href": "posts/caz-avi-evidence-reconstruction.html#main-methodological-findings",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "Main methodological findings",
+    "text": "Main methodological findings\nThe most important result was not a dosing recommendation. The main result was methodological: incomplete antimicrobial pharmacometric publications can be converted into reproducible, simulation-ready evidence components when provenance, missingness, transformation pathways, and scenario compatibility are explicitly preserved.\nThe project also showed that point estimates alone are not enough for interpreting ceftazidime-avibactam performance. Under probabilistic stress testing, no regimen-distribution pair met the predefined criterion for full robustness. Seven pairs were conditionally robust and thirteen were fragile, emphasizing the importance of reporting uncertainty alongside baseline PTA or CFR values.\nA second major finding was that avibactam-related assumptions were dominant drivers of joint target attainment uncertainty. Avibactam clearance, avibactam interindividual variability, and avibactam unbound fraction ranked above most ceftazidime-related inputs in the sensitivity analysis. This supports the decision to preserve ceftazidime and avibactam as separate components throughout the workflow. It also illustrates why a combination antibiotic should not be simplified into one aggregate exposure measure when the pharmacology of each component affects the final joint PK/PD interpretation."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html#boundaries-and-interpretation",
+    "href": "posts/caz-avi-evidence-reconstruction.html#boundaries-and-interpretation",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "Boundaries and interpretation",
+    "text": "Boundaries and interpretation\nThis project should be interpreted as a reproducibility and evidence-reconstruction framework, not as a clinical dosing guideline. It did not fit a new population PK model, did not enroll patients, did not access identifiable patient data, and was not designed as a systematic review or meta-analysis. The outputs are conditional on the selected source packages, scenario definitions, MIC distributions, target policies, and toxicity-screening assumptions. Clinical dosing decisions require patient-specific assessment, local microbiology, therapeutic drug monitoring where available, institutional guidance, and prospective validation.\nThe broader value of the project is that it provides a practical framework for secondary use of published antimicrobial pharmacometric evidence. Many antimicrobial PK/PD publications are incomplete from the perspective of simulation reuse, but they still contain valuable components. By preserving provenance and missingness rather than hiding them, the workflow makes evidence reconstruction more transparent, auditable, and reproducible. The same approach could be extended to other antimicrobial combinations, extracorporeal-support settings, or resistance-suppression questions where published evidence is fragmented across multiple study designs."
+  },
+  {
+    "objectID": "posts/caz-avi-evidence-reconstruction.html#closing",
+    "href": "posts/caz-avi-evidence-reconstruction.html#closing",
+    "title": "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation",
+    "section": "Closing",
+    "text": "Closing\nIn summary, this project demonstrates a provenance-aware evidence-composite workflow for transforming fragmented ceftazidime-avibactam PK/PD publications into transparent, simulation-ready components. The pilot connects antimicrobial pharmacology, evidence curation, reproducible computation, and uncertainty analysis. Its main contribution is not a specific regimen choice, but a structured way to make incomplete pharmacometric evidence reusable without losing scientific context.\n\n\n\n\n\n\nNoteKey highlights\n\n\n\n\n100,000 virtual subjects across five EKFC renal-function classes\nCeftazidime and avibactam modeled separately and evaluated jointly\n69 of 72 calibration comparison rows met predefined pass criteria\nAvibactam clearance, variability, and unbound fraction were dominant uncertainty drivers\nThe framework is a methodological proof of concept, not a clinical dosing recommendation"
+  },
+  {
+    "objectID": "index.html#researching-pathogens-data-and-disease-mechanisms",
+    "href": "index.html#researching-pathogens-data-and-disease-mechanisms",
+    "title": "Vahhab Piranfar",
+    "section": "Researching pathogens, data, and disease mechanisms",
+    "text": "Researching pathogens, data, and disease mechanisms\n\nI work at the intersection of clinical microbiology, bioinformatics, and data-driven discovery. My research focuses on antimicrobial resistance, molecular diagnostics, and computational approaches to understanding pathogen behavior.\n\n\n🧬 Microbiology 💻 Bioinformatics 📊 Data Science 🔬 Clinical Diagnostics\n\nExplore my projects Read my publications\n\n\n33+ Publications\n\n\n650+ Citations\n\n\n15+ Yrs Experience\n\n\nEB-1A Recognition"
+  },
+  {
+    "objectID": "index.html#current-focus",
+    "href": "index.html#current-focus",
+    "title": "Vahhab Piranfar",
+    "section": "Current focus",
+    "text": "Current focus\nWelcome to my personal research hub. I am a Molecular Microbiologist recognized as an EB-1A recipient for my contributions to clinical diagnostics and pathogen research. Based in Jersey City, NJ, I combine laboratory insight with computational analysis to study bacterial pathogens, resistance patterns, and molecular interactions.\n\nVision Statement\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Vahhab Piranfar",
+    "section": "",
+    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#acceptable-contributions",
+    "href": "CONTRIBUTING.html#acceptable-contributions",
+    "title": "Vahhab Piranfar",
+    "section": "Acceptable contributions",
+    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#not-acceptable",
+    "href": "CONTRIBUTING.html#not-acceptable",
+    "title": "Vahhab Piranfar",
+    "section": "Not acceptable",
+    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#how-to-contribute",
+    "href": "CONTRIBUTING.html#how-to-contribute",
+    "title": "Vahhab Piranfar",
+    "section": "How to contribute",
+    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Research & Discussion",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\nA provenance-aware methodological pilot converting fragmented antimicrobial PK/PD evidence into simulation-ready components.\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\n\nVahhab Piranfar\n\n\nJul 10, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\n\nVahhab Piranfar\n\n\nJun 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\n\n\n\n\nFeb 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nLong-term Labor Market Analysis (1995–2025)\n\n\n\nEconomics\n\nData Science\n\n\n\n\nVahhab Piranfar\n\n\nJan 31, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am a researcher specializing in medical microbiology, molecular biology, and computational analysis. Based in Jersey City, New Jersey, I focus on antimicrobial resistance, host-pathogen interactions, and translational research that connects laboratory work with data-driven insight.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "about.html#professional-profile",
+    "href": "about.html#professional-profile",
+    "title": "About",
+    "section": "",
+    "text": "I am a researcher specializing in medical microbiology, molecular biology, and computational analysis. Based in Jersey City, New Jersey, I focus on antimicrobial resistance, host-pathogen interactions, and translational research that connects laboratory work with data-driven insight.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "about.html#research-interests",
+    "href": "about.html#research-interests",
+    "title": "About",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nPathogen genomics — studying resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nBioinformatics — computational modeling to examine persistence, resistance, and molecular interactions.\nAntimicrobial innovation — exploring nanoparticle and combination therapies to improve treatment strategies."
+  },
+  {
+    "objectID": "about.html#professional-journey",
+    "href": "about.html#professional-journey",
+    "title": "About",
+    "section": "Professional Journey",
+    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nPython SPSS Data Visualization Bioinformatics Pipelines"
+  },
+  {
+    "objectID": "about.html#selected-publications",
+    "href": "about.html#selected-publications",
+    "title": "About",
     "section": "Selected Publications",
-    "text": "Selected Publications\n\nFeatured Articles\n\n\n01 · bioRxiv 2025\n\n\nComparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus\n\n\nPiranfar V.\n\n\nbioRxiv · 2025 · 10.1101/2025.02.12.637810\n\n\n\n\n02 · Pars J Med Sci 2022\n\n\nIdentification of Enterococcus faecalis and E. faecium pathogens in Tehran hospital clinical samples\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nPars Journal of Medical Sciences · 2022\n\n\n\n\n03 · JOGCR 2022\n\n\nInterleukin 6 (IL-6) in patients with COVID-19 infection: a cross-sectional study\n\n\nKarpians G, Piranfar V., et al.\n\n\nJournal of Obstetrics, Gynecology and Cancer Research · 2022\n\n\n\n\n04 · IJMM 2021\n\n\nLeukocyte parameters, CRP, and ferritin in Iranian patients with COVID-19 infection\n\n\nKarpians G, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2021\n\n\n\n\n05 · Iranian J Pathol 2021\n\n\nProtective effect of selenium and vitamin C on liver and kidney toxicity of cadmium\n\n\nZamani MM, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2021\n\n\n\n\n06 · JAMBS 2020\n\n\nCoronavirus: discovering the structure of global knowledge\n\n\nDanesh F, GhaviDel S, Piranfar V.\n\n\nJournal of Applied Mathematics and Biosciences · 2020\n\n\n\n\n07 · Iranian J Pathol 2020\n\n\nGenetic diversity of the ctxB gene among strains of Vibrio cholerae\n\n\nMahboobi M, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n08 · Iranian J Pathol 2020\n\n\nResistance pattern in clinical Enterococcus isolates\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n09 · Mod Med Lab J 2017\n\n\nGene polymorphism and genetic predisposition of HPV in patients with cervical cancer\n\n\nSajjadi N, et al. (incl. Piranfar V.)\n\n\nModern Medical Laboratory Journal · 2017\n\n\n\n\n10 · Curr Chem Biol 2017\n\n\nDose-response effects of CM11 as a short cationic antimicrobial peptide\n\n\nRamandi M, et al. (incl. Piranfar V.)\n\n\nCurrent Chemical Biology · 2017\n\n\n\n\n\n\n\n\nNoteAdditional Research (Articles 11–33)\n\n\n\n\n\n\n\n11 · Iranian J Pathol 2017\n\n\nEvaluation of ELISA, PCR, and serum agglutination tests for diagnosis of Brucella\n\n\nMohseni K, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2017\n\n\n\n\n12 · LaboratoriumsMedizin 2017\n\n\nReal-time PCR and HRM analysis for detection of pathogenic species of Brucella\n\n\nJazi FM, et al. (incl. Piranfar V.)\n\n\nLaboratoriumsMedizin · 2017\n\n\n\n\n13 · IJMM 2017\n\n\nIdentification of streptomycin resistance genes among Enterococcus spp.\n\n\nSajjadi N, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2017\n\n\n\n\n14 · JJUMS 2016\n\n\nEvaluation of antimicrobial susceptibility in 2016\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJournal of Jahrom University of Medical Sciences · 2016\n\n\n\n\n15 · Infez Med 2016\n\n\nIdentification of aminoglycoside resistance genes by triplex PCR in Enterococcus spp.\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nInfezioni in Medicina · 2016\n\n\n\n\n16 · Electronic Physician 2016\n\n\nMicroarray-based long oligonucleotide probe designed for Brucella spp. detection\n\n\nKhazaei Z, et al. (incl. Piranfar V.)\n\n\nElectronic Physician · 2016\n\n\n\n\n17 · Iranian J Pathol 2016\n\n\nSpecific detection of Brucella by PCR-ELISA and multiplex PCR\n\n\nMohammad Hasani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n18 · Iranian J Pathol 2016\n\n\nSpecies-specific PCR for diagnosis of Brucella strains\n\n\nIrajian GR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n19 · JJMUS 2016\n\n\nPhenotypic and genotypic methods for E. faecalis\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJJMUS · 2016\n\n\n\n\n20 · SJKU 2015\n\n\nSimultaneous identification of pathogenic Brucella species by multiplex PCR\n\n\nAkbarzadeh E, et al. (incl. Piranfar V.)\n\n\nScientific Journal of Kurdistan University of Medical Sciences · 2015\n\n\n\n\n21 · IJBMS 2015\n\n\nDetection and discrimination of two Brucella species by multiplex real-time PCR and HRM\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Basic Medical Sciences · 2015\n\n\n\n\n22 · Curr Med Mycol 2015\n\n\nPCR-RFLP patterns for the differentiation of Fusarium species\n\n\nKachuei R, et al. (incl. Piranfar V.)\n\n\nCurrent Medical Mycology · 2015\n\n\n\n\n23 · IJB 2015\n\n\nAntimicrobial effect of imipenem-functionalized Fe₂O₃ nanoparticles on P. aeruginosa\n\n\nKhataminejad MR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Biotechnology · 2015\n\n\n\n\n24 · CRB 2015\n\n\nIncidence and antibiotic susceptibility of Staphylococcus spp. in UTI\n\n\nErfani M, et al. (incl. Piranfar V.)\n\n\nCell Research and Biotechnology · 2015\n\n\n\n\n25 · IJEP 2014\n\n\nIncidence and antibiotic susceptibility of bacterial pathogens causing UTI\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Epidemiology · 2014\n\n\n\n\n26 · IJMM 2014\n\n\nEffect of selective oropharyngeal decontamination on colonization\n\n\nRasoulinezhad F, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Medical Microbiology · 2014\n\n\n\n\n27 · IRCMJ 2013\n\n\nAntimicrobial effect of Lactobacillus casei against MDR Shigella\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nIranian Red Crescent Medical Journal · 2013\n\n\n\n\n28 · ZJRMS 2013\n\n\nDetection of Brucella abortus and Brucella melitensis from human blood samples\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nZahedan Journal of Research in Medical Sciences · 2013\n\n\n\n\n29 · APJTM 2013\n\n\nA duplex PCR for rapid and simultaneous detection of Brucella spp. in human blood\n\n\nMirnejad R, Piranfar V., et al.\n\n\nAsian Pacific Journal of Tropical Medicine · 2013\n\n\n\n\n30 · JJM 2013\n\n\nMolecular typing of Brucella melitensis and B. abortus using PCR-RFLP\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJundishapur Journal of Microbiology · 2013\n\n\n\n\n31 · JSUMS 2013\n\n\nSynergistic effect of silver nanoparticles with streptomycin on Brucella abortus\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJournal of Semnan University of Medical Sciences · 2013\n\n\n\n\n32 · IJMS 2012\n\n\nAntimicrobial nature of Lactobacillus casei against MDR Shigella\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Medical Sciences · 2012\n\n\n\n\n33 · JICS 2009\n\n\nD3–D5 dopamine receptor expression in paranoid schizophrenia patients\n\n\nPiranfar V.\n\n\nJournal of Iranian Chemical Society · 2009\n\n\n\n\n\n\n\nPublished Books\n\n\nBook · Persian\n\n\nMetal Nanoparticles in Microbiology\n\n\nPiranfar V.\n\n\nISBN: 978-964-504-228-8"
+    "text": "Selected Publications\n\nPiranfar V. (2025). Comparative modeling of antibiotic resistance in Mycobacterium tuberculosis. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html",
+    "href": "CODE_OF_CONDUCT.html",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "We as members, contributors, and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity, or sexual orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, respectful, inclusive, and professional environment.\n\n\n\nExamples of behavior that contributes to a positive environment include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility, apologizing to those affected by mistakes, and learning from the experience\nFocusing on what is best for the project and its users\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical address or email address, without their explicit permission\nMisrepresenting the author, projects, publications, affiliations, or academic work presented in this repository\nOther conduct which could reasonably be considered inappropriate in a professional setting\n\n\n\n\nThe project maintainer is responsible for clarifying and enforcing the standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior deemed inappropriate, threatening, offensive, or harmful.\nThe project maintainer has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, pull requests, and other contributions that are not aligned with this Code of Conduct. Reasons for moderation decisions may be communicated when appropriate.\n\n\n\nThis Code of Conduct applies within all project spaces, including issues, pull requests, discussions, wiki pages, and other repository-related communication channels.\nIt also applies when an individual is officially representing the project in public spaces. Examples include using an official project email address, posting through an official social media account, or acting as an appointed representative at an online or offline event.\n\n\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer responsible for enforcement at:\nvahab.p@gmail.com\nAll complaints will be reviewed and investigated promptly and fairly.\nThe project maintainer is obligated to respect the privacy and security of the reporter of any incident.\n\n\n\nThe project maintainer will follow these Community Impact Guidelines in determining the consequences for any action deemed to violate this Code of Conduct.\n\n\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the project community.\nConsequence: A private, written warning from the project maintainer, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n\n\n\nCommunity Impact: A violation through a single incident or a series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with the project maintainer, for a specified period of time. This includes avoiding interactions in project spaces as well as external channels such as social media. Violating these terms may lead to a temporary or permanent ban.\n\n\n\nCommunity Impact: A serious violation of project standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any form of interaction or public communication with the project for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with the project maintainer, is allowed during this period. Violating these terms may lead to a permanent ban.\n\n\n\nCommunity Impact: Demonstrating a pattern of violation of project standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any form of public interaction within the project.\n\n\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#our-pledge",
+    "href": "CODE_OF_CONDUCT.html#our-pledge",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "We as members, contributors, and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity, or sexual orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, respectful, inclusive, and professional environment."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#our-standards",
+    "href": "CODE_OF_CONDUCT.html#our-standards",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "Examples of behavior that contributes to a positive environment include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility, apologizing to those affected by mistakes, and learning from the experience\nFocusing on what is best for the project and its users\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical address or email address, without their explicit permission\nMisrepresenting the author, projects, publications, affiliations, or academic work presented in this repository\nOther conduct which could reasonably be considered inappropriate in a professional setting"
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#enforcement-responsibilities",
+    "href": "CODE_OF_CONDUCT.html#enforcement-responsibilities",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "The project maintainer is responsible for clarifying and enforcing the standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior deemed inappropriate, threatening, offensive, or harmful.\nThe project maintainer has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, pull requests, and other contributions that are not aligned with this Code of Conduct. Reasons for moderation decisions may be communicated when appropriate."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#scope",
+    "href": "CODE_OF_CONDUCT.html#scope",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "This Code of Conduct applies within all project spaces, including issues, pull requests, discussions, wiki pages, and other repository-related communication channels.\nIt also applies when an individual is officially representing the project in public spaces. Examples include using an official project email address, posting through an official social media account, or acting as an appointed representative at an online or offline event."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#enforcement",
+    "href": "CODE_OF_CONDUCT.html#enforcement",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer responsible for enforcement at:\nvahab.p@gmail.com\nAll complaints will be reviewed and investigated promptly and fairly.\nThe project maintainer is obligated to respect the privacy and security of the reporter of any incident."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#enforcement-guidelines",
+    "href": "CODE_OF_CONDUCT.html#enforcement-guidelines",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "The project maintainer will follow these Community Impact Guidelines in determining the consequences for any action deemed to violate this Code of Conduct.\n\n\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the project community.\nConsequence: A private, written warning from the project maintainer, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n\n\n\nCommunity Impact: A violation through a single incident or a series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with the project maintainer, for a specified period of time. This includes avoiding interactions in project spaces as well as external channels such as social media. Violating these terms may lead to a temporary or permanent ban.\n\n\n\nCommunity Impact: A serious violation of project standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any form of interaction or public communication with the project for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with the project maintainer, is allowed during this period. Violating these terms may lead to a permanent ban.\n\n\n\nCommunity Impact: Demonstrating a pattern of violation of project standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any form of public interaction within the project."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#attribution",
+    "href": "CODE_OF_CONDUCT.html#attribution",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
+  },
+  {
+    "objectID": "GITHUB_PAGES.html",
+    "href": "GITHUB_PAGES.html",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#address",
+    "href": "GITHUB_PAGES.html#address",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#features",
+    "href": "GITHUB_PAGES.html#features",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#deployment",
+    "href": "GITHUB_PAGES.html#deployment",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+  },
+  {
+    "objectID": "posts/antibiotic-persistence.html",
+    "href": "posts/antibiotic-persistence.html",
+    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
+    "section": "",
+    "text": "Featured Preprint\n\n\n\nVahhab Piranfar · bioRxiv · 2025\n\n\nDOI: 10.1101/2025.02.12.637810\n\nRead the paper\nThis review looks at the preprint Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in Mycobacterium tuberculosis and Staphylococcus aureus, which explores how two very different pathogens respond to antibiotics over time."
+  },
+  {
+    "objectID": "posts/antibiotic-persistence.html#summary",
+    "href": "posts/antibiotic-persistence.html#summary",
+    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
+    "section": "Summary",
+    "text": "Summary\nThe study compares how M. tuberculosis and S. aureus survive antibiotic exposure using mathematical models and time-kill simulations. The main idea is that the two organisms do not rely on the same survival strategy:\n\nS. aureus appears to show a more rapid tolerance pattern, with an initial strong decline followed by a slower phase of survival.\nM. tuberculosis appears to maintain a much longer persistence window, consistent with prolonged survival under drug pressure.\n\nThis distinction matters because it suggests that treatment failure may not always come from the same mechanism."
+  },
+  {
+    "objectID": "posts/antibiotic-persistence.html#why-it-matters",
+    "href": "posts/antibiotic-persistence.html#why-it-matters",
+    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
+    "section": "Why it matters",
+    "text": "Why it matters\nThe paper is valuable because it forces us to separate three ideas that are often blurred together:\n\nResistance: genetic survival despite drug exposure.\nTolerance: temporary survival of a population under stress.\nPersistence: survival of a small subpopulation that can remain viable over long periods.\n\nFor microbiology and infectious disease research, this distinction is critical. A therapy that works for one bacterial survival strategy may fail if the pathogen is using another."
+  },
+  {
+    "objectID": "posts/antibiotic-persistence.html#key-interpretation",
+    "href": "posts/antibiotic-persistence.html#key-interpretation",
+    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
+    "section": "Key interpretation",
+    "text": "Key interpretation\nWhat I find especially interesting is the contrast between the two pathogens.\nFor M. tuberculosis, the model suggests a deeper and longer-lasting survival mechanism. That fits the well-known difficulty of tuberculosis treatment: the organism can persist for long periods and may require extended regimens.\nFor S. aureus, the result suggests that early tolerance may be the dominant issue. In that case, the timing and structure of treatment may be especially important for preventing relapse."
+  },
+  {
+    "objectID": "posts/antibiotic-persistence.html#limitations",
+    "href": "posts/antibiotic-persistence.html#limitations",
+    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
+    "section": "Limitations",
+    "text": "Limitations\nAs with any modeling paper, the conclusions depend heavily on assumptions.\nSome limitations are worth noting:\n\nThe study relies on simplified equations and simulations rather than full experimental heterogeneity.\nReal infections involve host immunity, biofilms, metabolic shifts, and variable drug penetration.\nThe model may not fully capture the complexity of patient-specific bacterial behavior.\n\nThese are not fatal weaknesses, but they mean the paper should be read as a framework for thinking, not as a final answer."
+  },
+  {
+    "objectID": "posts/antibiotic-persistence.html#final-take",
+    "href": "posts/antibiotic-persistence.html#final-take",
+    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
+    "section": "Final take",
+    "text": "Final take\nThe most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.\nFor me, the strongest takeaway is this:\nThe challenge is not only killing bacteria quickly, but understanding how they survive long enough to return."
+  },
+  {
+    "objectID": "posts/discuss.html",
+    "href": "posts/discuss.html",
+    "title": "The True Rate of Unemployment (TRU) Analysis",
+    "section": "",
+    "text": "Measuring Real Economic Health\nIn December 2025, a significant gap persisted between official government statistics and the actual economic experience of many Americans. While the official U-3 unemployment rate was reported at 4.4%, the True Rate of Unemployment (TRU) indicated a much higher reality of 25.2%.\nThe following model represents the growth of job displacement:\n\\[f(x) = \\frac{L}{1 + e^{-k(x-x_0)}}\\]\n\n\nInteractive Comparison (2020–2025)\n\n\nShow the code\nimport plotly.graph_objects as go\n\nmonths = ['2020 Peak', '2021 Avg', '2022 Avg', '2023 Avg', '2024 Avg', 'Dec 2025']\ntru = [32, 26, 24, 23.5, 24, 25.2]\nu3 = [14.8, 5.5, 3.6, 3.8, 4.0, 4.4]\nu6 = [22.9, 10, 7, 7.5, 7.8, 8.4]\n\nfig = go.Figure()\nfig.add_trace(go.Scatter(x=months, y=tru, name='TRU (LISEP)', line=dict(color='red', width=4)))\nfig.add_trace(go.Scatter(x=months, y=u3, name='Official (U-3)', line=dict(color='blue', dash='dash')))\nfig.add_trace(go.Scatter(x=months, y=u6, name='Underemployment (U-6)', line=dict(color='green')))\n\nfig.update_layout(\n    title='Comparison of Unemployment Measures: TRU vs U-3 vs U-6',\n    xaxis_title='Time Period',\n    yaxis_title='Percentage (%)',\n    hovermode='x unified',\n    template='plotly_white'\n)\nfig.show()\n\n\n                            \n                                            \n\n\n\n\nLong-term Historical Perspective (2000–2025)\nThe following chart illustrates the long-term trends of official unemployment (U-3) and underemployment (U-6), contrasted with the True Rate of Unemployment (TRU) since its reporting became prominent in 2020.\n\ntitle: “Long-term Labor Market Analysis (1995–2025)” author: “Nathan Piranfar” date: “2026-01-31” —\n\n\nComparing Official and True Unemployment Rates\nThis analysis explores the deep disparity between the Bureau of Labor Statistics (BLS) metrics and the True Rate of Unemployment (TRU) provided by LISEP. The TRU accounts for workers who are unable to find full-time jobs that pay above the poverty line.\n\nInteractive Historical Trend (1995–2025)\n\n\nClick to see the Python code for this visualization\nimport plotly.graph_objects as go\n\nyears = list(range(1995, 2026))\nu3 = [5.6, 5.4, 4.9, 4.5, 4.2, 4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2, 5.3, 4.9, 4.4, 3.9, 3.7, 8.1, 5.4, 3.6, 3.6, 4.1, 4.3]\nu6 = [10.1, 9.6, 8.9, 8.0, 7.5, 7.0, 8.0, 9.6, 10.0, 9.5, 8.5, 8.0, 8.3, 11.0, 16.5, 16.7, 16.2, 14.7, 13.8, 12.0, 10.4, 9.6, 8.5, 7.7, 7.0, 14.8, 9.7, 7.0, 7.0, 7.8, 8.0]\ntru = [31.5, 31.0, 30.5, 29.8, 29.0, 28.5, 27.8, 27.0, 26.5, 26.0, 25.8, 25.5, 25.2, 26.0, 32.0, 34.0, 33.5, 32.0, 30.0, 28.0, 26.5, 25.0, 24.0, 23.5, 23.0, 33.0, 26.0, 23.5, 23.5, 24.0, 25.0]\n\nimport plotly.graph_objects as go\n\nyears = list(range(1995, 2026))\nu3 = [5.6, 5.4, 4.9, 4.5, 4.2, 4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2, 5.3, 4.9, 4.4, 3.9, 3.7, 8.1, 5.4, 3.6, 3.6, 4.1, 4.3]\nu6 = [10.1, 9.6, 8.9, 8.0, 7.5, 7.0, 8.0, 9.6, 10.0, 9.5, 8.5, 8.0, 8.3, 11.0, 16.5, 16.7, 16.2, 14.7, 13.8, 12.0, 10.4, 9.6, 8.5, 7.7, 7.0, 14.8, 9.7, 7.0, 7.0, 7.8, 8.0]\ntru = [31.5, 31.0, 30.5, 29.8, 29.0, 28.5, 27.8, 27.0, 26.5, 26.0, 25.8, 25.5, 25.2, 26.0, 32.0, 34.0, 33.5, 32.0, 30.0, 28.0, 26.5, 25.0, 24.0, 23.5, 23.0, 33.0, 26.0, 23.5, 23.5, 24.0, 25.0]\n\nfig = go.Figure()\n\n# استفاده از متغیر صحیح (years) و کدهای رنگ معتبر\nfig.add_trace(go.Scatter(x=years, y=tru, name='True Rate (LISEP)', \n                         line=dict(color='#F28E5B', width=4)))\nfig.add_trace(go.Scatter(x=years, y=u3, name='Official (U-3)', \n                         line=dict(color='#2600fc', dash='dash')))\nfig.add_trace(go.Scatter(x=years, y=u6, name='Underemployment (U-6)', \n                         line=dict(color='#17ec34'))) # کد رنگ اصلاح شد\n\nfig.update_layout(\n    plot_bgcolor='white',\n    paper_bgcolor='white',\n    hovermode='x unified',\n    font=dict(family=\"Arial, sans-serif\", size=14, color=\"#1B263B\"),\n    legend=dict(orientation=\"h\", yanchor=\"bottom\", y=1.02, xanchor=\"right\", x=1),\n    margin=dict(l=50, r=50, t=100, b=50)\n)\n\nfig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#F0F0F0', linecolor='#1B263B',\n                 tickmode='linear', tick0=1995, dtick=5)\nfig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#F0F0F0', linecolor='#1B263B',\n                 ticksuffix='%', range=[0, 40])\n\nfig.show()"
   },
   {
     "objectID": "projects/ai-bacteriology-hub.html",
@@ -112,185 +427,24 @@
     "text": "Explore the Platform\nVisit the AI Bacteriology Hub →\nPlatform Overview Tab →\nAMR Simulator →\nAI Research Layer →\nArticles →\n\nFor my published research on antimicrobial resistance and computational microbiology, see the Publications page."
   },
   {
-    "objectID": "posts/discuss.html",
-    "href": "posts/discuss.html",
-    "title": "The True Rate of Unemployment (TRU) Analysis",
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
     "section": "",
-    "text": "Measuring Real Economic Health\nIn December 2025, a significant gap persisted between official government statistics and the actual economic experience of many Americans. While the official U-3 unemployment rate was reported at 4.4%, the True Rate of Unemployment (TRU) indicated a much higher reality of 25.2%.\nThe following model represents the growth of job displacement:\n\\[f(x) = \\frac{L}{1 + e^{-k(x-x_0)}}\\]\n\n\nInteractive Comparison (2020–2025)\n\n\nShow the code\nimport plotly.graph_objects as go\n\nmonths = ['2020 Peak', '2021 Avg', '2022 Avg', '2023 Avg', '2024 Avg', 'Dec 2025']\ntru = [32, 26, 24, 23.5, 24, 25.2]\nu3 = [14.8, 5.5, 3.6, 3.8, 4.0, 4.4]\nu6 = [22.9, 10, 7, 7.5, 7.8, 8.4]\n\nfig = go.Figure()\nfig.add_trace(go.Scatter(x=months, y=tru, name='TRU (LISEP)', line=dict(color='red', width=4)))\nfig.add_trace(go.Scatter(x=months, y=u3, name='Official (U-3)', line=dict(color='blue', dash='dash')))\nfig.add_trace(go.Scatter(x=months, y=u6, name='Underemployment (U-6)', line=dict(color='green')))\n\nfig.update_layout(\n    title='Comparison of Unemployment Measures: TRU vs U-3 vs U-6',\n    xaxis_title='Time Period',\n    yaxis_title='Percentage (%)',\n    hovermode='x unified',\n    template='plotly_white'\n)\nfig.show()\n\n\n                            \n                                            \n\n\n\n\nLong-term Historical Perspective (2000–2025)\nThe following chart illustrates the long-term trends of official unemployment (U-3) and underemployment (U-6), contrasted with the True Rate of Unemployment (TRU) since its reporting became prominent in 2020.\n\ntitle: “Long-term Labor Market Analysis (1995–2025)” author: “Nathan Piranfar” date: “2026-01-31” —\n\n\nComparing Official and True Unemployment Rates\nThis analysis explores the deep disparity between the Bureau of Labor Statistics (BLS) metrics and the True Rate of Unemployment (TRU) provided by LISEP. The TRU accounts for workers who are unable to find full-time jobs that pay above the poverty line.\n\nInteractive Historical Trend (1995–2025)\n\n\nClick to see the Python code for this visualization\nimport plotly.graph_objects as go\n\nyears = list(range(1995, 2026))\nu3 = [5.6, 5.4, 4.9, 4.5, 4.2, 4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2, 5.3, 4.9, 4.4, 3.9, 3.7, 8.1, 5.4, 3.6, 3.6, 4.1, 4.3]\nu6 = [10.1, 9.6, 8.9, 8.0, 7.5, 7.0, 8.0, 9.6, 10.0, 9.5, 8.5, 8.0, 8.3, 11.0, 16.5, 16.7, 16.2, 14.7, 13.8, 12.0, 10.4, 9.6, 8.5, 7.7, 7.0, 14.8, 9.7, 7.0, 7.0, 7.8, 8.0]\ntru = [31.5, 31.0, 30.5, 29.8, 29.0, 28.5, 27.8, 27.0, 26.5, 26.0, 25.8, 25.5, 25.2, 26.0, 32.0, 34.0, 33.5, 32.0, 30.0, 28.0, 26.5, 25.0, 24.0, 23.5, 23.0, 33.0, 26.0, 23.5, 23.5, 24.0, 25.0]\n\nimport plotly.graph_objects as go\n\nyears = list(range(1995, 2026))\nu3 = [5.6, 5.4, 4.9, 4.5, 4.2, 4.0, 4.7, 5.8, 6.0, 5.5, 5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2, 5.3, 4.9, 4.4, 3.9, 3.7, 8.1, 5.4, 3.6, 3.6, 4.1, 4.3]\nu6 = [10.1, 9.6, 8.9, 8.0, 7.5, 7.0, 8.0, 9.6, 10.0, 9.5, 8.5, 8.0, 8.3, 11.0, 16.5, 16.7, 16.2, 14.7, 13.8, 12.0, 10.4, 9.6, 8.5, 7.7, 7.0, 14.8, 9.7, 7.0, 7.0, 7.8, 8.0]\ntru = [31.5, 31.0, 30.5, 29.8, 29.0, 28.5, 27.8, 27.0, 26.5, 26.0, 25.8, 25.5, 25.2, 26.0, 32.0, 34.0, 33.5, 32.0, 30.0, 28.0, 26.5, 25.0, 24.0, 23.5, 23.0, 33.0, 26.0, 23.5, 23.5, 24.0, 25.0]\n\nfig = go.Figure()\n\n# استفاده از متغیر صحیح (years) و کدهای رنگ معتبر\nfig.add_trace(go.Scatter(x=years, y=tru, name='True Rate (LISEP)', \n                         line=dict(color='#F28E5B', width=4)))\nfig.add_trace(go.Scatter(x=years, y=u3, name='Official (U-3)', \n                         line=dict(color='#2600fc', dash='dash')))\nfig.add_trace(go.Scatter(x=years, y=u6, name='Underemployment (U-6)', \n                         line=dict(color='#17ec34'))) # کد رنگ اصلاح شد\n\nfig.update_layout(\n    plot_bgcolor='white',\n    paper_bgcolor='white',\n    hovermode='x unified',\n    font=dict(family=\"Arial, sans-serif\", size=14, color=\"#1B263B\"),\n    legend=dict(orientation=\"h\", yanchor=\"bottom\", y=1.02, xanchor=\"right\", x=1),\n    margin=dict(l=50, r=50, t=100, b=50)\n)\n\nfig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#F0F0F0', linecolor='#1B263B',\n                 tickmode='linear', tick0=1995, dtick=5)\nfig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#F0F0F0', linecolor='#1B263B',\n                 ticksuffix='%', range=[0, 40])\n\nfig.show()"
+    "text": "LinkedIn    Google Scholar · 650+ citations    ORCID    ResearchGate"
   },
   {
-    "objectID": "index.html#researching-pathogens-data-and-disease-mechanisms",
-    "href": "index.html#researching-pathogens-data-and-disease-mechanisms",
-    "title": "Vahhab Piranfar",
-    "section": "Researching pathogens, data, and disease mechanisms",
-    "text": "Researching pathogens, data, and disease mechanisms\n\nI work at the intersection of clinical microbiology, bioinformatics, and data-driven discovery. My research focuses on antimicrobial resistance, molecular diagnostics, and computational approaches to understanding pathogen behavior.\n\n\n🧬 Microbiology 💻 Bioinformatics 📊 Data Science 🔬 Clinical Diagnostics\n\nExplore my projects Read my publications\n\n\n33+ Publications\n\n\n650+ Citations\n\n\n15+ Yrs Experience\n\n\nEB-1A Recognition"
-  },
-  {
-    "objectID": "index.html#current-focus",
-    "href": "index.html#current-focus",
-    "title": "Vahhab Piranfar",
-    "section": "Current focus",
-    "text": "Current focus\nWelcome to my personal research hub. I am a Molecular Microbiologist recognized as an EB-1A recipient for my contributions to clinical diagnostics and pathogen research. Based in Jersey City, NJ, I combine laboratory insight with computational analysis to study bacterial pathogens, resistance patterns, and molecular interactions.\n\nVision Statement\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Research & Discussion",
+    "objectID": "publications.html#academic-profiles",
+    "href": "publications.html#academic-profiles",
+    "title": "Publications",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\n\nVahhab Piranfar\n\n\nJun 17, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\n\n\n\n\nFeb 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nLong-term Labor Market Analysis (1995–2025)\n\n\n\nEconomics\n\nData Science\n\n\n\n\nVahhab Piranfar\n\n\nJan 31, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "LinkedIn    Google Scholar · 650+ citations    ORCID    ResearchGate"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I am a researcher specializing in medical microbiology, molecular biology, and computational analysis. Based in Jersey City, New Jersey, I focus on antimicrobial resistance, host-pathogen interactions, and translational research that connects laboratory work with data-driven insight.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "about.html#professional-profile",
-    "href": "about.html#professional-profile",
-    "title": "About",
-    "section": "",
-    "text": "I am a researcher specializing in medical microbiology, molecular biology, and computational analysis. Based in Jersey City, New Jersey, I focus on antimicrobial resistance, host-pathogen interactions, and translational research that connects laboratory work with data-driven insight.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "about.html#research-interests",
-    "href": "about.html#research-interests",
-    "title": "About",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nPathogen genomics — studying resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nBioinformatics — computational modeling to examine persistence, resistance, and molecular interactions.\nAntimicrobial innovation — exploring nanoparticle and combination therapies to improve treatment strategies."
-  },
-  {
-    "objectID": "about.html#professional-journey",
-    "href": "about.html#professional-journey",
-    "title": "About",
-    "section": "Professional Journey",
-    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
-  },
-  {
-    "objectID": "about.html#technical-skills",
-    "href": "about.html#technical-skills",
-    "title": "About",
-    "section": "Technical Skills",
-    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nPython SPSS Data Visualization Bioinformatics Pipelines"
-  },
-  {
-    "objectID": "about.html#selected-publications",
-    "href": "about.html#selected-publications",
-    "title": "About",
+    "objectID": "publications.html#selected-publications",
+    "href": "publications.html#selected-publications",
+    "title": "Publications",
     "section": "Selected Publications",
-    "text": "Selected Publications\n\nPiranfar V. (2025). Comparative modeling of antibiotic resistance in Mycobacterium tuberculosis. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html",
-    "href": "GITHUB_PAGES.html",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html#address",
-    "href": "GITHUB_PAGES.html#address",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html#features",
-    "href": "GITHUB_PAGES.html#features",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html#deployment",
-    "href": "GITHUB_PAGES.html#deployment",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
-  },
-  {
-    "objectID": "posts/antibiotic-persistence.html",
-    "href": "posts/antibiotic-persistence.html",
-    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
-    "section": "",
-    "text": "Featured Preprint\n\n\n\nVahhab Piranfar · bioRxiv · 2025\n\n\nDOI: 10.1101/2025.02.12.637810\n\nRead the paper\nThis review looks at the preprint Comparative Modeling of Antibiotic Resistance, Tolerance, and Persistence in Mycobacterium tuberculosis and Staphylococcus aureus, which explores how two very different pathogens respond to antibiotics over time."
-  },
-  {
-    "objectID": "posts/antibiotic-persistence.html#summary",
-    "href": "posts/antibiotic-persistence.html#summary",
-    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
-    "section": "Summary",
-    "text": "Summary\nThe study compares how M. tuberculosis and S. aureus survive antibiotic exposure using mathematical models and time-kill simulations. The main idea is that the two organisms do not rely on the same survival strategy:\n\nS. aureus appears to show a more rapid tolerance pattern, with an initial strong decline followed by a slower phase of survival.\nM. tuberculosis appears to maintain a much longer persistence window, consistent with prolonged survival under drug pressure.\n\nThis distinction matters because it suggests that treatment failure may not always come from the same mechanism."
-  },
-  {
-    "objectID": "posts/antibiotic-persistence.html#why-it-matters",
-    "href": "posts/antibiotic-persistence.html#why-it-matters",
-    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
-    "section": "Why it matters",
-    "text": "Why it matters\nThe paper is valuable because it forces us to separate three ideas that are often blurred together:\n\nResistance: genetic survival despite drug exposure.\nTolerance: temporary survival of a population under stress.\nPersistence: survival of a small subpopulation that can remain viable over long periods.\n\nFor microbiology and infectious disease research, this distinction is critical. A therapy that works for one bacterial survival strategy may fail if the pathogen is using another."
-  },
-  {
-    "objectID": "posts/antibiotic-persistence.html#key-interpretation",
-    "href": "posts/antibiotic-persistence.html#key-interpretation",
-    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
-    "section": "Key interpretation",
-    "text": "Key interpretation\nWhat I find especially interesting is the contrast between the two pathogens.\nFor M. tuberculosis, the model suggests a deeper and longer-lasting survival mechanism. That fits the well-known difficulty of tuberculosis treatment: the organism can persist for long periods and may require extended regimens.\nFor S. aureus, the result suggests that early tolerance may be the dominant issue. In that case, the timing and structure of treatment may be especially important for preventing relapse."
-  },
-  {
-    "objectID": "posts/antibiotic-persistence.html#limitations",
-    "href": "posts/antibiotic-persistence.html#limitations",
-    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
-    "section": "Limitations",
-    "text": "Limitations\nAs with any modeling paper, the conclusions depend heavily on assumptions.\nSome limitations are worth noting:\n\nThe study relies on simplified equations and simulations rather than full experimental heterogeneity.\nReal infections involve host immunity, biofilms, metabolic shifts, and variable drug penetration.\nThe model may not fully capture the complexity of patient-specific bacterial behavior.\n\nThese are not fatal weaknesses, but they mean the paper should be read as a framework for thinking, not as a final answer."
-  },
-  {
-    "objectID": "posts/antibiotic-persistence.html#final-take",
-    "href": "posts/antibiotic-persistence.html#final-take",
-    "title": "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections",
-    "section": "Final take",
-    "text": "Final take\nThe most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.\nFor me, the strongest takeaway is this:\nThe challenge is not only killing bacteria quickly, but understanding how they survive long enough to return."
-  },
-  {
-    "objectID": "posts/unemployment-paradox.html#conclusion",
-    "href": "posts/unemployment-paradox.html#conclusion",
-    "title": "The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment",
-    "section": "Conclusion",
-    "text": "Conclusion\nWe aren’t necessarily becoming “lazier”; the bar for survival has moved higher. Our TRU data proves that while people are “working,” they aren’t necessarily “earning enough to live”. The rising cost of living, degree inflation, and automation are making it harder to find quality employment that pays a living wage."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Active\n\n\n\nA production-grade full-stack research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools executed inside a Docker sandbox. Features a server-side AI proxy, streaming SSE responses, an AI Orchestrator for automated lab app upgrades, and deployment on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox Google Cloud Run AMR\n\nDeep Dive → Live Site →\n\n\n\n\n\n\nActive\n\n\n\nReal-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.\n\nPython Data Visualization Web Scraping\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nPaste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.\n\nJavaScript Crossref API Citation Formatting\n\nView Project →"
-  },
-  {
-    "objectID": "projects.html#featured-projects",
-    "href": "projects.html#featured-projects",
-    "title": "Projects",
-    "section": "",
-    "text": "Active\n\n\n\nA production-grade full-stack research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools executed inside a Docker sandbox. Features a server-side AI proxy, streaming SSE responses, an AI Orchestrator for automated lab app upgrades, and deployment on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox Google Cloud Run AMR\n\nDeep Dive → Live Site →\n\n\n\n\n\n\nActive\n\n\n\nReal-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.\n\nPython Data Visualization Web Scraping\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nPaste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.\n\nJavaScript Crossref API Citation Formatting\n\nView Project →"
-  },
-  {
-    "objectID": "projects.html#project-archive",
-    "href": "projects.html#project-archive",
-    "title": "Projects",
-    "section": "Project Archive",
-    "text": "Project Archive\nA collection of work spanning clinical microbiology research, bioinformatics, and data science applications.\n\n\n\nProject\nCategory\nDescription\n\n\n\n\nAI Bacteriology Hub\nAI / Full-Stack\nFull-stack computational microbiology platform with AI Research Layer, manifest-driven lab tools, and Docker sandboxed execution\n\n\nUSCIS Tracker\nData Science\nAutomated USCIS case monitoring with real-time updates and analytics\n\n\nCrossref Reference Formatter\nResearch Tools\nVancouver-style citation export from Crossref metadata\n\n\nMolecular Dynamics Studies\nBioinformatics\nGROMACS simulations of drug-resistant pathogen interactions\n\n\nClinical Diagnostics Pipeline\nMicrobiology\nAutomated pathogen identification and reporting systems"
-  },
-  {
-    "objectID": "projects.html#research-publications",
-    "href": "projects.html#research-publications",
-    "title": "Projects",
-    "section": "Research & Publications",
-    "text": "Research & Publications\nFor detailed information about my academic work and publications, visit the Publications page."
-  },
-  {
-    "objectID": "projects.html#lets-collaborate",
-    "href": "projects.html#lets-collaborate",
-    "title": "Projects",
-    "section": "Let’s Collaborate",
-    "text": "Let’s Collaborate\nInterested in discussing a project or exploring collaboration opportunities? Reach out via LinkedIn or check out my GitHub profile."
+    "text": "Selected Publications\n\nFeatured Articles\n\n\n01 · bioRxiv 2025\n\n\nComparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus\n\n\nPiranfar V.\n\n\nbioRxiv · 2025 · 10.1101/2025.02.12.637810\n\n\n\n\n02 · Pars J Med Sci 2022\n\n\nIdentification of Enterococcus faecalis and E. faecium pathogens in Tehran hospital clinical samples\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nPars Journal of Medical Sciences · 2022\n\n\n\n\n03 · JOGCR 2022\n\n\nInterleukin 6 (IL-6) in patients with COVID-19 infection: a cross-sectional study\n\n\nKarpians G, Piranfar V., et al.\n\n\nJournal of Obstetrics, Gynecology and Cancer Research · 2022\n\n\n\n\n04 · IJMM 2021\n\n\nLeukocyte parameters, CRP, and ferritin in Iranian patients with COVID-19 infection\n\n\nKarpians G, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2021\n\n\n\n\n05 · Iranian J Pathol 2021\n\n\nProtective effect of selenium and vitamin C on liver and kidney toxicity of cadmium\n\n\nZamani MM, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2021\n\n\n\n\n06 · JAMBS 2020\n\n\nCoronavirus: discovering the structure of global knowledge\n\n\nDanesh F, GhaviDel S, Piranfar V.\n\n\nJournal of Applied Mathematics and Biosciences · 2020\n\n\n\n\n07 · Iranian J Pathol 2020\n\n\nGenetic diversity of the ctxB gene among strains of Vibrio cholerae\n\n\nMahboobi M, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n08 · Iranian J Pathol 2020\n\n\nResistance pattern in clinical Enterococcus isolates\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n09 · Mod Med Lab J 2017\n\n\nGene polymorphism and genetic predisposition of HPV in patients with cervical cancer\n\n\nSajjadi N, et al. (incl. Piranfar V.)\n\n\nModern Medical Laboratory Journal · 2017\n\n\n\n\n10 · Curr Chem Biol 2017\n\n\nDose-response effects of CM11 as a short cationic antimicrobial peptide\n\n\nRamandi M, et al. (incl. Piranfar V.)\n\n\nCurrent Chemical Biology · 2017\n\n\n\n\n\n\n\n\nNoteAdditional Research (Articles 11–33)\n\n\n\n\n\n\n\n11 · Iranian J Pathol 2017\n\n\nEvaluation of ELISA, PCR, and serum agglutination tests for diagnosis of Brucella\n\n\nMohseni K, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2017\n\n\n\n\n12 · LaboratoriumsMedizin 2017\n\n\nReal-time PCR and HRM analysis for detection of pathogenic species of Brucella\n\n\nJazi FM, et al. (incl. Piranfar V.)\n\n\nLaboratoriumsMedizin · 2017\n\n\n\n\n13 · IJMM 2017\n\n\nIdentification of streptomycin resistance genes among Enterococcus spp.\n\n\nSajjadi N, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2017\n\n\n\n\n14 · JJUMS 2016\n\n\nEvaluation of antimicrobial susceptibility in 2016\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJournal of Jahrom University of Medical Sciences · 2016\n\n\n\n\n15 · Infez Med 2016\n\n\nIdentification of aminoglycoside resistance genes by triplex PCR in Enterococcus spp.\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nInfezioni in Medicina · 2016\n\n\n\n\n16 · Electronic Physician 2016\n\n\nMicroarray-based long oligonucleotide probe designed for Brucella spp. detection\n\n\nKhazaei Z, et al. (incl. Piranfar V.)\n\n\nElectronic Physician · 2016\n\n\n\n\n17 · Iranian J Pathol 2016\n\n\nSpecific detection of Brucella by PCR-ELISA and multiplex PCR\n\n\nMohammad Hasani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n18 · Iranian J Pathol 2016\n\n\nSpecies-specific PCR for diagnosis of Brucella strains\n\n\nIrajian GR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n19 · JJMUS 2016\n\n\nPhenotypic and genotypic methods for E. faecalis\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJJMUS · 2016\n\n\n\n\n20 · SJKU 2015\n\n\nSimultaneous identification of pathogenic Brucella species by multiplex PCR\n\n\nAkbarzadeh E, et al. (incl. Piranfar V.)\n\n\nScientific Journal of Kurdistan University of Medical Sciences · 2015\n\n\n\n\n21 · IJBMS 2015\n\n\nDetection and discrimination of two Brucella species by multiplex real-time PCR and HRM\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Basic Medical Sciences · 2015\n\n\n\n\n22 · Curr Med Mycol 2015\n\n\nPCR-RFLP patterns for the differentiation of Fusarium species\n\n\nKachuei R, et al. (incl. Piranfar V.)\n\n\nCurrent Medical Mycology · 2015\n\n\n\n\n23 · IJB 2015\n\n\nAntimicrobial effect of imipenem-functionalized Fe₂O₃ nanoparticles on P. aeruginosa\n\n\nKhataminejad MR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Biotechnology · 2015\n\n\n\n\n24 · CRB 2015\n\n\nIncidence and antibiotic susceptibility of Staphylococcus spp. in UTI\n\n\nErfani M, et al. (incl. Piranfar V.)\n\n\nCell Research and Biotechnology · 2015\n\n\n\n\n25 · IJEP 2014\n\n\nIncidence and antibiotic susceptibility of bacterial pathogens causing UTI\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Epidemiology · 2014\n\n\n\n\n26 · IJMM 2014\n\n\nEffect of selective oropharyngeal decontamination on colonization\n\n\nRasoulinezhad F, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Medical Microbiology · 2014\n\n\n\n\n27 · IRCMJ 2013\n\n\nAntimicrobial effect of Lactobacillus casei against MDR Shigella\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nIranian Red Crescent Medical Journal · 2013\n\n\n\n\n28 · ZJRMS 2013\n\n\nDetection of Brucella abortus and Brucella melitensis from human blood samples\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nZahedan Journal of Research in Medical Sciences · 2013\n\n\n\n\n29 · APJTM 2013\n\n\nA duplex PCR for rapid and simultaneous detection of Brucella spp. in human blood\n\n\nMirnejad R, Piranfar V., et al.\n\n\nAsian Pacific Journal of Tropical Medicine · 2013\n\n\n\n\n30 · JJM 2013\n\n\nMolecular typing of Brucella melitensis and B. abortus using PCR-RFLP\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJundishapur Journal of Microbiology · 2013\n\n\n\n\n31 · JSUMS 2013\n\n\nSynergistic effect of silver nanoparticles with streptomycin on Brucella abortus\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJournal of Semnan University of Medical Sciences · 2013\n\n\n\n\n32 · IJMS 2012\n\n\nAntimicrobial nature of Lactobacillus casei against MDR Shigella\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Medical Sciences · 2012\n\n\n\n\n33 · JICS 2009\n\n\nD3–D5 dopamine receptor expression in paranoid schizophrenia patients\n\n\nPiranfar V.\n\n\nJournal of Iranian Chemical Society · 2009\n\n\n\n\n\n\n\nPublished Books\n\n\nBook · Persian\n\n\nMetal Nanoparticles in Microbiology\n\n\nPiranfar V.\n\n\nISBN: 978-964-504-228-8"
   }
 ]

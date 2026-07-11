@@ -63,6 +63,26 @@ Paste Crossref references and export Vancouver-style linked citations. Converts 
 :::
 :::
 
+::: {.g-col-12}
+::: {.project-card}
+<div class="project-status">Active</div>
+
+### [FluentBridge AI](https://github.com/piranfar/english-learning)
+
+Local-first AI English tutor for Persian-speaking learners preparing for academic English and TOEFL. Two-stage learning journey with grammar lessons, reading/listening/writing/speaking coaches, shadowing, SRS vocabulary, and a Mistake Clinic — powered by a provider-agnostic AI layer (Ollama, OpenAI, Anthropic).
+
+<div class="project-tags">
+<span class="project-tag">Django + DRF</span>
+<span class="project-tag">React 19</span>
+<span class="project-tag">Vite</span>
+<span class="project-tag">Ollama</span>
+<span class="project-tag">TOEFL Prep</span>
+</div>
+
+[View on GitHub →](https://github.com/piranfar/english-learning){.project-link}
+:::
+:::
+
 :::
 
 ## Project Archive
@@ -74,6 +94,7 @@ A collection of work spanning clinical microbiology research, bioinformatics, an
 | **[AI Bacteriology Hub](projects/ai-bacteriology-hub.qmd)** | AI / Full-Stack | Full-stack computational microbiology platform with AI Research Layer, manifest-driven lab tools, and Docker sandboxed execution |
 | **USCIS Tracker** | Data Science | Automated USCIS case monitoring with real-time updates and analytics |
 | **Crossref Reference Formatter** | Research Tools | Vancouver-style citation export from Crossref metadata |
+| **[FluentBridge AI](https://github.com/piranfar/english-learning)** | AI / Full-Stack | Local-first AI English tutor for TOEFL and academic English with multi-skill coaches and provider-agnostic AI |
 | **Molecular Dynamics Studies** | Bioinformatics | GROMACS simulations of drug-resistant pathogen interactions |
 | **Clinical Diagnostics Pipeline** | Microbiology | Automated pathogen identification and reporting systems |
 
