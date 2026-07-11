@@ -1,5 +1,6 @@
 ---
 title: "Paper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections"
+description: "A review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus."
 author: "Vahhab Piranfar"
 date: "2026-06-17"
 categories: [Microbiology, Bioinformatics, Antibiotics]

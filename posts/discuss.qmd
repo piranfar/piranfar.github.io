@@ -1,5 +1,6 @@
 ---
 title: "The True Rate of Unemployment (TRU) Analysis"
+description: "Comparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures."
 author: "Vahhab Piranfar"
 date: "2026-01-31"
 categories: [Economics, Data Science]
@@ -48,11 +49,7 @@ fig.show()
 
 The following chart illustrates the long-term trends of official unemployment (U-3) and underemployment (U-6), contrasted with the True Rate of Unemployment (TRU) since its reporting became prominent in 2020.
 
----
-title: "Long-term Labor Market Analysis (1995–2025)"
-author: "Nathan Piranfar"
-date: "2026-01-31"
----
+### Long-term Labor Market Analysis (1995–2025)
 
 ### Comparing Official and True Unemployment Rates
 

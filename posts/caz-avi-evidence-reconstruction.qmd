@@ -1,6 +1,7 @@
 ---
 title: "Component-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation"
 subtitle: "A provenance-aware methodological pilot converting fragmented antimicrobial PK/PD evidence into simulation-ready components."
+description: "A methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components."
 author: "Vahhab Piranfar"
 date: "2026-07-10"
 categories: [Microbiology, Antibiotics, Data Science, Bioinformatics]

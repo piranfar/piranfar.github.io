@@ -1,5 +1,6 @@
 ---
 title: "The Prosperity Paradox: Why It Feels Harder Despite Low Unemployment"
+description: "Why job hunting feels harder and poverty rises even when official unemployment looks low."
 date: "2026-02-01"
 categories: [Economics, Data Science]
 image: "unemployment-paradox.jpg"
