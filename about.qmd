@@ -1,10 +1,12 @@
 ---
 title: "About"
+description: "Vahhab Piranfar is a molecular microbiologist and computational researcher focused on antimicrobial resistance, bacterial modeling, antibiotic PK/PD, antimicrobial pharmacometrics, and reproducible research."
+keywords: "antimicrobial resistance, bacterial modeling, antibiotic PK/PD, antimicrobial pharmacometrics, Monte Carlo simulation, virtual populations, clinical microbiology, reproducible research"
 ---
 
 ## Professional Profile
 
-I am a researcher specializing in **medical microbiology**, **molecular biology**, and **computational analysis**. Based in **Jersey City, New Jersey**, I focus on antimicrobial resistance, host-pathogen interactions, and translational research that connects laboratory work with data-driven insight.
+I am a researcher specializing in **medical and clinical microbiology**, **antimicrobial resistance**, and **antibiotic PK/PD modeling**. Based in **Jersey City, New Jersey**, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in **molecular biology** and **bioinformatics**, which I apply to translational research that connects the bench with reproducible, data-driven models.
 
 ::: {.info-card}
 ### Vision Statement
@@ -15,9 +17,11 @@ I am a researcher specializing in **medical microbiology**, **molecular biology*
 
 ## Research Interests
 
-- **Pathogen genomics** — studying resistance mechanisms in *Brucella*, *Pseudomonas*, and *Staphylococcus*.
-- **Bioinformatics** — computational modeling to examine persistence, resistance, and molecular interactions.
-- **Antimicrobial innovation** — exploring nanoparticle and combination therapies to improve treatment strategies.
+- **Antimicrobial resistance and bacterial adaptation** — mechanisms of resistance and adaptation across clinical pathogens.
+- **Antibiotic PK/PD and pharmacometric simulation** — modeling antibiotic exposure, target attainment, and treatment response.
+- **Bacterial growth, killing, persistence, and resistance modeling** — quantitative description of bacterial dynamics under drug pressure.
+- **Molecular diagnostics and pathogen genomics** — resistance mechanisms in *Brucella*, *Pseudomonas*, and *Staphylococcus*.
+- **Reproducible evidence-composite modeling** — provenance-aware synthesis of fragmented evidence into simulation-ready components.
 
 ## Professional Journey
 
@@ -62,6 +66,17 @@ Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy
 <span class="skill-pill">ELISA</span>
 </div>
 
+**Modeling & Simulation**
+
+<div class="skills-grid">
+<span class="skill-pill">Monte Carlo Simulation</span>
+<span class="skill-pill">PK/PD Modeling</span>
+<span class="skill-pill">Pharmacometric Modeling</span>
+<span class="skill-pill">Virtual Population Generation</span>
+<span class="skill-pill">Sensitivity Analysis</span>
+<span class="skill-pill">Provenance-Aware Data Modeling</span>
+</div>
+
 **Computational Tools**
 
 <div class="skills-grid">
@@ -74,7 +89,7 @@ Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy
 **Data Analysis & Programming**
 
 <div class="skills-grid">
-<span class="skill-pill">Python</span>
+<span class="skill-pill">Scientific Python</span>
 <span class="skill-pill">SPSS</span>
 <span class="skill-pill">Data Visualization</span>
 <span class="skill-pill">Bioinformatics Pipelines</span>

@@ -1,6 +1,9 @@
 ---
 title: "Vahhab Piranfar"
-subtitle: "Microbiologist · Bioinformatician · Research Scientist"
+pagetitle: "Vahhab Piranfar | Antimicrobial Resistance and Antibiotic PK/PD Modeling"
+subtitle: "Microbiologist · Antimicrobial Resistance Researcher · Computational Modeler"
+description: "Vahhab Piranfar is a molecular microbiologist and computational researcher working on antimicrobial resistance, bacterial modeling, antibiotic PK/PD simulation, pharmacometrics, and reproducible evidence synthesis."
+keywords: "antimicrobial resistance, bacterial modeling, antibiotic PK/PD, antimicrobial pharmacometrics, Monte Carlo simulation, virtual populations, clinical microbiology, reproducible research"
 include-in-header: gtm-head.html
 include-before-body: gtm-body.html
 ---
@@ -14,15 +17,15 @@ include-before-body: gtm-body.html
 ::: {.g-col-12 .g-col-md-8}
 <span class="hero-eyebrow">Molecular Microbiologist · EB-1A Recipient</span>
 
-## Researching pathogens, data, and disease mechanisms
+## Modeling bacterial pathogens, antibiotic exposure, and antimicrobial resistance
 
-<p class="hero-body">I work at the intersection of <strong>clinical microbiology</strong>, <strong>bioinformatics</strong>, and <strong>data-driven discovery</strong>. My research focuses on antimicrobial resistance, molecular diagnostics, and computational approaches to understanding pathogen behavior.</p>
+<p class="hero-body">I work at the intersection of <strong>clinical microbiology</strong>, <strong>antimicrobial resistance</strong>, and <strong>computational modeling</strong>. My research combines bacterial evidence, antibiotic PK/PD, virtual populations, and reproducible simulation to investigate pathogen behavior, treatment response, and resistance.</p>
 
 <div class="hero-badges">
-<span class="hero-pill">🧬 Microbiology</span>
-<span class="hero-pill">💻 Bioinformatics</span>
-<span class="hero-pill">📊 Data Science</span>
-<span class="hero-pill">🔬 Clinical Diagnostics</span>
+<span class="hero-pill">🦠 Antimicrobial Resistance</span>
+<span class="hero-pill">📈 Bacterial Modeling</span>
+<span class="hero-pill">💊 Antibiotic PK/PD</span>
+<span class="hero-pill">🔬 Clinical Microbiology</span>
 </div>
 
 [Explore my projects](projects.qmd){.btn .btn-light}  [Read my publications](publications.qmd){.btn .btn-outline-light}
@@ -52,33 +55,33 @@ include-before-body: gtm-body.html
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-bug"></i></span> Microbiology
-Clinical diagnostics, pathogen identification, and antimicrobial resistance research across hospital and translational settings — from bench to insight.
+### <span class="feature-icon"><i class="bi bi-bug"></i></span> Clinical Microbiology
+Pathogen detection, molecular diagnostics, antimicrobial susceptibility, and resistance research across clinical and translational settings.
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-diagram-3"></i></span> Bioinformatics
-Computational modeling, molecular dynamics, and data analysis for understanding resistance, persistence, and host-pathogen interactions at scale.
+### <span class="feature-icon"><i class="bi bi-diagram-3"></i></span> Antibiotic & Bacterial Modeling
+PK/PD simulation, virtual populations, bacterial-response modeling, and quantitative analysis of antibiotic exposure and target attainment.
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-globe2"></i></span> Research Communication
-Scientific writing and public communication focused on making complex findings accessible, actionable, and impactful for researchers and clinicians alike.
+### <span class="feature-icon"><i class="bi bi-globe2"></i></span> Reproducible Research Systems
+Provenance-aware evidence synthesis, scientific software, simulation workflows, and transparent computational research packages.
 :::
 :::
 :::
 
 ## Current focus
 
-Welcome to my personal research hub. I am a **Molecular Microbiologist** recognized as an **EB-1A recipient** for my contributions to clinical diagnostics and pathogen research. Based in **Jersey City, NJ**, I combine laboratory insight with computational analysis to study bacterial pathogens, resistance patterns, and molecular interactions.
+I am a molecular microbiologist and computational researcher working on antimicrobial resistance, bacterial pathogens, and antibiotic PK/PD modeling. Based in **Jersey City, New Jersey**, I combine clinical laboratory experience with pharmacometric simulation, bioinformatics, molecular modeling, and provenance-aware evidence synthesis. My current research focuses on converting fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty.
 
 ::: {.info-card}
 ### Vision Statement
-> "In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable."
+> "The microscope remains essential, but it is no longer our only lens. By combining microbiology with computational modeling, we can study how bacterial pathogens, antibiotic exposure, and resistance interact across scales."
 >
 > — **Vahhab Piranfar**
 :::

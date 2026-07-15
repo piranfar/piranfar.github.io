@@ -1,10 +1,36 @@
 ---
 title: "Projects"
+description: "Research and software projects spanning antimicrobial resistance, antibiotic PK/PD, antimicrobial pharmacometrics, Monte Carlo simulation, virtual populations, bacterial modeling, clinical microbiology, and reproducible research."
+keywords: "antimicrobial resistance, bacterial modeling, antibiotic PK/PD, antimicrobial pharmacometrics, Monte Carlo simulation, virtual populations, clinical microbiology, reproducible research"
 ---
 
 ## Featured Projects
 
 :::{.grid}
+
+::: {.g-col-12}
+::: {.project-card}
+<div class="project-status">Active Research · Manuscript Under Submission</div>
+
+### [Ceftazidime–Avibactam Evidence-Composite PK/PD Modeling](projects/caz-avi-evidence-composite-pkpd.qmd)
+
+A provenance-aware computational framework for converting fragmented ceftazidime–avibactam evidence into simulation-ready pharmacometric components. The project integrates component-specific clearance models, renal-function covariates, correlated variability, virtual populations, joint PK/PD targets, PTA, CFR, toxicity screening, calibration, convergence analysis, and probabilistic sensitivity analysis.
+
+<div class="project-tags">
+<span class="project-tag">Antibiotic PK/PD</span>
+<span class="project-tag">Antimicrobial Resistance</span>
+<span class="project-tag">Pharmacometrics</span>
+<span class="project-tag">Monte Carlo Simulation</span>
+<span class="project-tag">Virtual Populations</span>
+<span class="project-tag">Reproducible Research</span>
+<span class="project-tag">Python</span>
+</div>
+
+[Deep Dive →](projects/caz-avi-evidence-composite-pkpd.qmd){.project-link}  [View Repository →](https://github.com/piranfar/caz-avi-evidence-composite-pkpd){.project-link}
+
+<p class="project-note"><em>Methodological research framework; not a clinical dosing or decision-support tool.</em></p>
+:::
+:::
 
 ::: {.g-col-12}
 ::: {.project-card}
@@ -31,24 +57,6 @@ A production-grade full-stack research platform combining a curated bacteriology
 ::: {.project-card}
 <div class="project-status">Active</div>
 
-### [USCIS Case Tracker](https://piranfar.github.io/USCIS-Tracker/)
-
-Real-time immigration case status monitoring and analytics system. Track USCIS case progression with automated data collection, visualization dashboards, and historical trend analysis.
-
-<div class="project-tags">
-<span class="project-tag">Python</span>
-<span class="project-tag">Data Visualization</span>
-<span class="project-tag">Web Scraping</span>
-</div>
-
-[View Project →](https://piranfar.github.io/USCIS-Tracker/){.project-link}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-6}
-::: {.project-card}
-<div class="project-status">Active</div>
-
 ### [Crossref Reference Formatter](https://piranfar.github.io/Crossref-Reference-Formatter/)
 
 Paste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.
@@ -63,7 +71,7 @@ Paste Crossref references and export Vancouver-style linked citations. Converts 
 :::
 :::
 
-::: {.g-col-12}
+::: {.g-col-12 .g-col-md-6}
 ::: {.project-card}
 <div class="project-status">Active</div>
 
@@ -91,6 +99,7 @@ A collection of work spanning clinical microbiology research, bioinformatics, an
 
 | Project | Category | Description |
 |---------|----------|-------------|
+| **[Ceftazidime–Avibactam Evidence-Composite PK/PD Modeling](projects/caz-avi-evidence-composite-pkpd.qmd)** | Antimicrobial Pharmacometrics | Provenance-aware Monte Carlo PK/PD framework for joint ceftazidime and avibactam target attainment, PTA, CFR, calibration, and uncertainty analysis |
 | **[AI Bacteriology Hub](projects/ai-bacteriology-hub.qmd)** | AI / Full-Stack | Full-stack computational microbiology platform with AI Research Layer, manifest-driven lab tools, and Docker sandboxed execution |
 | **USCIS Tracker** | Data Science | Automated USCIS case monitoring with real-time updates and analytics |
 | **Crossref Reference Formatter** | Research Tools | Vancouver-style citation export from Crossref metadata |

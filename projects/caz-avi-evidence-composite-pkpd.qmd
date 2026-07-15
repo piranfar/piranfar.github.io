@@ -1,0 +1,188 @@
+---
+title: "Ceftazidime–Avibactam Evidence-Composite PK/PD Modeling"
+subtitle: "A provenance-aware methodological pilot for reconstructing fragmented antimicrobial evidence into simulation-ready components"
+description: "A provenance-first methodology for converting fragmented ceftazidime–avibactam PK/PD evidence into traceable, simulation-ready components for antimicrobial pharmacometrics."
+keywords: "antimicrobial resistance, antibiotic PK/PD, antimicrobial pharmacometrics, Monte Carlo simulation, virtual populations, ceftazidime, avibactam, reproducible research"
+toc: true
+toc-depth: 3
+---
+
+::: {.hero-panel}
+::: {.grid .align-items-center}
+::: {.g-col-12 .g-col-md-8}
+<span class="hero-eyebrow">Antimicrobial Pharmacometrics · Active Research</span>
+
+## Ceftazidime–Avibactam Evidence-Composite PK/PD Modeling
+
+<p class="hero-body">A provenance-first methodology for converting fragmented <strong>ceftazidime–avibactam</strong> pharmacokinetic and pharmacodynamic evidence into traceable, simulation-ready components — extracting compatible evidence at the <strong>component level</strong> and recording its origin, transformation, uncertainty, and review state.</p>
+
+<div class="hero-badges">
+<span class="hero-pill">💊 Antibiotic PK/PD</span>
+<span class="hero-pill">🦠 Antimicrobial Resistance</span>
+<span class="hero-pill">📊 Pharmacometrics</span>
+<span class="hero-pill">🎲 Monte Carlo Simulation</span>
+<span class="hero-pill">👥 Virtual Populations</span>
+<span class="hero-pill">🔁 Reproducible Research</span>
+</div>
+
+[View Repository →](https://github.com/piranfar/caz-avi-evidence-composite-pkpd){.btn .btn-light}  [← Back to Projects](../projects.qmd){.btn .btn-outline-light}
+
+:::
+::: {.g-col-12 .g-col-md-4}
+<div class="stats-row" style="grid-template-columns: 1fr 1fr; margin-top: 0.5rem;">
+<div class="stat-box">
+<span class="stat-number">2</span>
+<span class="stat-label">PK Components</span>
+</div>
+<div class="stat-box">
+<span class="stat-number">100k</span>
+<span class="stat-label">Virtual Subjects</span>
+</div>
+<div class="stat-box">
+<span class="stat-number">PTA</span>
+<span class="stat-label">+ CFR Analysis</span>
+</div>
+<div class="stat-box">
+<span class="stat-number">PSA</span>
+<span class="stat-label">Uncertainty</span>
+</div>
+</div>
+:::
+:::
+:::
+
+::: {.info-card}
+### Status
+> **Active research · Associated manuscript under journal submission**
+:::
+
+---
+
+## Project Overview
+
+This project develops a provenance-first methodology for converting fragmented ceftazidime–avibactam pharmacokinetic and pharmacodynamic evidence into traceable, simulation-ready components. Rather than treating each publication as wholly usable or unusable, the workflow extracts compatible evidence at the component level and records its origin, transformation, uncertainty, and review state.
+
+---
+
+## Scientific Problem
+
+Published antimicrobial PK/PD evidence is often scientifically valuable but not directly reusable. One source may report clearance equations without MIC weights, another may report trough concentrations without a complete simulation model, and another may provide in vitro or target-site pharmacodynamic information that is useful but incompatible with the clinical scenario of interest.
+
+Ceftazidime–avibactam is a particularly demanding case because the two agents cannot be collapsed into a single exposure metric. Ceftazidime supplies the antibacterial beta-lactam exposure, while avibactam protects ceftazidime from susceptible beta-lactamases. A regimen may appear adequate for ceftazidime while avibactam exposure remains limiting, so the two components must be modeled separately and evaluated jointly.
+
+---
+
+## Evidence-Composite Approach
+
+Instead of an all-or-nothing include/exclude decision, each source is decomposed into reusable scientific components — clearance relationships, interindividual variability, protein binding or unbound fraction, PK/PD target definitions, MIC distributions, calibration anchors, and uncertainty inputs.
+
+Each component carries:
+
+- a **provenance label** distinguishing directly reported values from inherited, donor-derived, model-inferred, user-specified, or scenario-generated values;
+- a **transformation label** recording any derivation applied to the original value;
+- a **review state** capturing scientific audit status.
+
+Missing data are not silently imputed. They are retained as explicit evidence gaps unless a compatible donor component is substituted with clear labeling.
+
+---
+
+## Primary Simulation Scenario
+
+The primary scenario models **critically ill adults without renal replacement therapy receiving continuous-infusion ceftazidime–avibactam.** This population is clinically important, exposure-sensitive, and well suited to demonstrating why component-level provenance and joint PK/PD evaluation matter.
+
+---
+
+## Modeling Components
+
+The framework integrates the following analytical components:
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### <span class="feature-icon">💊</span> Component-Specific PK
+Separate ceftazidime and avibactam clearance models with renal-function-dependent exposure and correlated interindividual variability.
+:::
+:::
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### <span class="feature-icon">👥</span> Virtual Population
+A 100,000-subject virtual population propagates correlated variability through both component models.
+:::
+:::
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### <span class="feature-icon">🎯</span> Joint Target Attainment
+Joint PK/PD target attainment, probability of target attainment (PTA) across MIC values, and MIC-weighted cumulative fraction of response (CFR).
+:::
+:::
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### <span class="feature-icon">⚠️</span> Toxicity Screening
+Toxicity-oriented exposure screening to flag regimens whose exposure profiles warrant caution.
+:::
+:::
+:::
+
+**Full component list:**
+
+- separate ceftazidime and avibactam clearance models
+- renal-function-dependent exposure
+- correlated interindividual variability
+- 100,000-subject virtual population
+- joint PK/PD target attainment
+- PTA across MIC values
+- MIC-weighted CFR
+- toxicity-oriented exposure screening
+- calibration against published benchmarks
+- convergence and multi-seed reproducibility
+- global sensitivity analysis
+- probabilistic sensitivity analysis
+
+---
+
+## Validation and Uncertainty
+
+Model behavior is checked against external evidence and stress-tested for stability:
+
+- **Calibration** against published benchmarks to confirm that simulated exposures are consistent with reported data.
+- **Convergence and multi-seed reproducibility** to confirm that results are stable across random seeds and sufficient sample sizes.
+- **Global sensitivity analysis** to identify which inputs drive target-attainment outcomes.
+- **Probabilistic sensitivity analysis** to propagate parameter uncertainty into the reported outcomes.
+
+---
+
+## Reproducibility
+
+::: {.info-card}
+### Reproducibility Statement
+> The public repository contains model configuration, provenance controls, deterministic tests, scientific audit documentation, and reproducibility materials associated with the methodological manuscript.
+:::
+
+---
+
+## Clinical Boundaries
+
+::: {.info-card}
+### Scope and Limitations
+> **This project is a methodological research framework. It is not a clinical dosing tool, treatment recommendation, or validated decision-support system.**
+:::
+
+---
+
+## Repository
+
+The complete framework — configuration, provenance controls, tests, and documentation — is available on GitHub.
+
+[View Repository →](https://github.com/piranfar/caz-avi-evidence-composite-pkpd){.project-link}
+
+[← Back to Projects](../projects.qmd){.project-link}
+
+---
+
+## Citation Status
+
+The associated manuscript is currently **under submission**. This page will be updated with citation details once a formal reference is available. Please treat all materials as a methodological research framework rather than peer-reviewed, published findings.
+
+---
+
+*For related work in antimicrobial resistance and computational microbiology, see the [Publications page](../publications.qmd).*

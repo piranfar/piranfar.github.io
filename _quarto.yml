@@ -21,7 +21,7 @@ website:
       - href: publications.qmd
         text: Publications
   page-footer:
-    left: "© 2026 Vahhab Piranfar — Molecular Microbiologist & Bioinformatician"
+    left: "© 2026 Vahhab Piranfar — Molecular Microbiologist · Antimicrobial Resistance & Computational Modeling"
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/vahhab-piranfar/
