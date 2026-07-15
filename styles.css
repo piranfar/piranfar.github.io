@@ -1533,3 +1533,191 @@ blockquote {
     font-size: 0.78rem;
   }
 }
+
+/* =============================================
+   HERO SCIENCE MOTIF (PK/PD background)
+   ============================================= */
+.hero-panel > .hero-science {
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  transform: translateY(-50%);
+  width: min(54%, 560px);
+  height: 90%;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.hero-photo {
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.55),
+              0 0 0 6px rgba(20, 184, 166, 0.12);
+}
+
+@media (max-width: 768px) {
+  .hero-panel > .hero-science {
+    opacity: 0.28;
+    width: 78%;
+    right: -8%;
+  }
+}
+
+/* =============================================
+   SIGNATURE PK/PD VISUALIZATION BAND
+   ============================================= */
+.signature-viz {
+  background: linear-gradient(135deg,
+    rgba(13, 148, 136, 0.05) 0%,
+    rgba(249, 115, 22, 0.035) 100%);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin: 2.5rem 0 3rem;
+  box-shadow: var(--shadow);
+}
+
+.signature-viz .viz-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.signature-viz .viz-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+
+.signature-viz .viz-lead {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+.viz-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.viz-key {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.83rem;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.viz-swatch {
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.viz-swatch-curve {
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
+}
+
+.viz-swatch-mic {
+  width: 20px;
+  height: 0;
+  border-top: 2.5px dashed var(--accent);
+}
+
+.viz-swatch-area {
+  width: 18px;
+  height: 12px;
+  border-radius: 3px;
+  background: rgba(20, 184, 166, 0.28);
+}
+
+.viz-swatch-bug {
+  width: 16px;
+  height: 7px;
+  border-radius: 4px;
+  background: var(--primary-dark);
+  transform: rotate(-18deg);
+}
+
+.viz-figure {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.viz-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Entrance animations */
+.viz-curve {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: vizDraw 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s forwards;
+}
+
+.viz-area,
+.viz-cmax {
+  opacity: 0;
+  animation: vizFadeIn 0.9s ease 1.5s forwards;
+}
+
+.viz-bug {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: vizFadeIn 0.6s ease 1.8s forwards;
+}
+
+.viz-bug-clear {
+  animation: vizFadeClear 0.7s ease 2.2s forwards;
+}
+
+@keyframes vizDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes vizFadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes vizFadeClear {
+  to { opacity: 0.4; }
+}
+
+@media (max-width: 768px) {
+  .signature-viz {
+    padding: 1.5rem 1.35rem;
+  }
+  .signature-viz .viz-title {
+    font-size: 1.2rem;
+  }
+  .viz-figure {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viz-curve { stroke-dashoffset: 0; animation: none; }
+  .viz-area,
+  .viz-cmax,
+  .viz-bug { opacity: 1; animation: none; }
+  .viz-bug-clear { opacity: 0.4; }
+}
