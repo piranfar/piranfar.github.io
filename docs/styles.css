@@ -561,6 +561,28 @@ main > h2 {
   display: block;
 }
 
+/* Stat boxes shown inside the dark hero panel sit in a narrow column,
+   so keep columns shrinkable and tighten spacing to prevent overflow. */
+.hero-panel .stats-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0.5rem 0 0;
+}
+
+.hero-panel .stat-box {
+  padding: 1rem 0.65rem;
+  min-width: 0;
+}
+
+.hero-panel .stat-box .stat-number {
+  font-size: 1.6rem;
+}
+
+.hero-panel .stat-box .stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+
 /* =============================================
    BLOG INDEX — WEBLOG FEED
    ============================================= */

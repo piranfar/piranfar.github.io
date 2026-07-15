@@ -29,18 +29,18 @@ toc-depth: 3
 
 :::
 ::: {.g-col-12 .g-col-md-4}
-<div class="stats-row" style="grid-template-columns: 1fr 1fr; margin-top: 0.5rem;">
+<div class="stats-row hero-stats-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 0.5rem 0 0;">
 <div class="stat-box">
 <span class="stat-number">2</span>
-<span class="stat-label">PK Components</span>
+<span class="stat-label">PK Models</span>
 </div>
 <div class="stat-box">
 <span class="stat-number">100k</span>
-<span class="stat-label">Virtual Subjects</span>
+<span class="stat-label">Subjects</span>
 </div>
 <div class="stat-box">
 <span class="stat-number">PTA</span>
-<span class="stat-label">+ CFR Analysis</span>
+<span class="stat-label">&amp; CFR</span>
 </div>
 <div class="stat-box">
 <span class="stat-number">PSA</span>
