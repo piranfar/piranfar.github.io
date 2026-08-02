@@ -431,7 +431,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Active Research · Manuscript Under Submission\n\n\n\nA provenance-aware computational framework for converting fragmented ceftazidime–avibactam evidence into simulation-ready pharmacometric components. The project integrates component-specific clearance models, renal-function covariates, correlated variability, virtual populations, joint PK/PD targets, PTA, CFR, toxicity screening, calibration, convergence analysis, and probabilistic sensitivity analysis.\n\nAntibiotic PK/PD Antimicrobial Resistance Pharmacometrics Monte Carlo Simulation Virtual Populations Reproducible Research Python\n\nDeep Dive → View Repository →\n\nMethodological research framework; not a clinical dosing or decision-support tool.\n\n\n\n\n\n\n\nActive\n\n\n\nA production-grade full-stack research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools executed inside a Docker sandbox. Features a server-side AI proxy, streaming SSE responses, an AI Orchestrator for automated lab app upgrades, and deployment on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox Google Cloud Run AMR\n\nDeep Dive → Live Site →\n\n\n\n\n\n\nActive\n\n\n\nPaste Crossref references and export Vancouver-style linked citations. Converts bibliographic metadata into formatted citations with rich text, Word, and HTML export options.\n\nJavaScript Crossref API Citation Formatting\n\nView Project →\n\n\n\n\n\n\nActive\n\n\n\nLocal-first AI English tutor for Persian-speaking learners preparing for academic English and TOEFL. Two-stage learning journey with grammar lessons, reading/listening/writing/speaking coaches, shadowing, SRS vocabulary, and a Mistake Clinic — powered by a provider-agnostic AI layer (Ollama, OpenAI, Anthropic).\n\nDjango + DRF React 19 Vite Ollama TOEFL Prep\n\nView on GitHub →"
+    "text": "Research · Software · Knowledge Systems\n\nSelected work across antimicrobial resistance, antibiotic PK/PD modeling, computational microbiology platforms, and research tools — from simulation frameworks to live products."
   },
   {
     "objectID": "projects.html#featured-projects",
@@ -530,5 +530,33 @@
     "title": "Security Policy",
     "section": "",
     "text": "Use this section to tell people how to report a vulnerability.\nTell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc."
+  },
+  {
+    "objectID": "projects.html#research-spotlight",
+    "href": "projects.html#research-spotlight",
+    "title": "Projects",
+    "section": "Research Spotlight",
+    "text": "Research Spotlight\n\n\n\nActive Research · Under Submission Antimicrobial Pharmacometrics\n\n\nCeftazidime–Avibactam Evidence-Composite PK/PD Modeling\nA provenance-aware Monte Carlo framework that turns fragmented ceftazidime–avibactam evidence into simulation-ready PK/PD components — virtual populations, joint targets, PTA/CFR, calibration, and uncertainty analysis.\n\nAntibiotic PK/PD AMR Monte Carlo Virtual Populations Python\n\n\nDeep Dive → Repository →\n\n\nMethodological research framework — not a clinical dosing or decision-support tool.\n\n\n\n\n\nActive AI · Full-Stack Platform\n\n\nAI Bacteriology Hub\nA production-grade research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools running inside a Docker sandbox on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox AMR\n\n\nDeep Dive → Live Site →"
+  },
+  {
+    "objectID": "projects.html#platforms-tools",
+    "href": "projects.html#platforms-tools",
+    "title": "Projects",
+    "section": "Platforms & Tools",
+    "text": "Platforms & Tools\n\n\n\n\nActive Knowledge Base\n\n\nMicrobiology Encyclopedia\nGraph-linked medical microbiology notes — organisms, lab methods, clinical maps, AMR, bioinformatics, and AI — organized through Maps of Content and published with Quartz.\n\nMedical Microbiology AMR Quartz Obsidian\n\n\nExplore Encyclopedia →\n\n\n\n\n\n\n\nActive AI · Education\n\n\nFluentBridge AI\nLocal-first AI English tutor for Persian-speaking learners — grammar, reading, listening, writing, speaking, shadowing, and a Mistake Clinic with a provider-agnostic AI layer.\n\nDjango + DRF React 19 Ollama TOEFL Prep\n\n\nView on GitHub →\n\n\n\n\n\n\n\nActive Research Tools\n\n\nCrossref Reference Formatter\nPaste Crossref references and export Vancouver-style linked citations as rich text, Word, or HTML.\n\nJavaScript Crossref API Citations\n\n\nView Project →\n\n\n\n\n\n\n\nArchived Data Science\n\n\nUSCIS Case Tracker\nAutomated USCIS case monitoring with real-time status updates, dashboards, and historical trend analysis.\n\nPython Data Visualization\n\n\nView Project →"
+  },
+  {
+    "objectID": "projects.html#earlier-work",
+    "href": "projects.html#earlier-work",
+    "title": "Projects",
+    "section": "Earlier Work",
+    "text": "Earlier Work\n\n  \n    Molecular Dynamics Studies\n    Bioinformatics\n    GROMACS simulations of drug-resistant pathogen interactions\n  \n  \n    Clinical Diagnostics Pipeline\n    Microbiology\n    Automated pathogen identification and reporting systems"
+  },
+  {
+    "objectID": "projects.html#collaborate",
+    "href": "projects.html#collaborate",
+    "title": "Projects",
+    "section": "Collaborate",
+    "text": "Collaborate\n\nInterested in antimicrobial resistance modeling, computational microbiology platforms, or research software? Reach out on LinkedIn or see more on GitHub.\nPublications →"
   }
 ]
