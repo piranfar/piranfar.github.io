@@ -10,7 +10,7 @@ Academic portfolio and research hub for **Vahhab Piranfar**, Molecular Microbiol
 
 A custom-designed academic website built with [Quarto](https://quarto.org/) and hosted on GitHub Pages. The site showcases research publications, active software projects, scientific blog posts, and professional background — with a fully custom design system on top of the Cosmo theme.
 
-Featured projects include the [AI Bacteriology Hub](https://vahhabpiranfar.com/projects/ai-bacteriology-hub.html) — a full-stack computational microbiology platform with an AI Research Layer, manifest-driven lab tools, and Docker-sandboxed Python execution — as well as tools for [USCIS case tracking](https://piranfar.github.io/USCIS-Tracker/) and [Crossref citation formatting](https://piranfar.github.io/Crossref-Reference-Formatter/).
+Featured projects include the [AI Bacteriology Hub](https://vahhabpiranfar.com/projects/ai-bacteriology-hub.html) — a full-stack computational microbiology platform with an AI Research Layer, manifest-driven lab tools, and Docker-sandboxed Python execution — the [Microbiology Encyclopedia](https://vahhabpiranfar.com/Microbiology_Encyclopedia/), a graph-linked medical microbiology knowledge base, and tools for [USCIS case tracking](https://piranfar.github.io/USCIS-Tracker/) and [Crossref citation formatting](https://piranfar.github.io/Crossref-Reference-Formatter/).
 
 ---
 
@@ -52,6 +52,14 @@ Key capabilities:
 Stack: Django 4.2 · Django REST Framework · React 18 · Vite 5 · Tailwind CSS · Docker · PostgreSQL · Google Cloud Run
 
 Live: [ai-bacteriology.vahhabpiranfar.com](https://ai-bacteriology.vahhabpiranfar.com/) · Deep-dive: [vahhabpiranfar.com/projects/ai-bacteriology-hub.html](https://vahhabpiranfar.com/projects/ai-bacteriology-hub.html)
+
+---
+
+### [Microbiology Encyclopedia](https://vahhabpiranfar.com/Microbiology_Encyclopedia/)
+
+Personal medical-microbiology knowledge base linking concepts, organisms, lab methods, clinical maps, AMR, bioinformatics, and AI notes into one searchable graph. Organized with Maps of Content (MOCs) and published with Quartz.
+
+Stack: Quartz · Obsidian · Markdown knowledge graph
 
 ---
 
