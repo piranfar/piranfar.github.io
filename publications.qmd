@@ -22,6 +22,13 @@ title: "Publications"
 ## Under Publishing
 
 ::: {.pub-card}
+<div class="pub-number">SSRN · Under Review</div>
+<div class="pub-title"><a href="https://ssrn.com/abstract=7533152">Rifampicin tolerance classification is bounded by assay detection floor among clinical <em>Mycobacterium tuberculosis</em> isolates</a></div>
+<div class="pub-authors"><strong>Piranfar V.</strong></div>
+<div class="pub-journal">SSRN · 2026 · <a href="https://doi.org/10.2139/ssrn.7533152">10.2139/ssrn.7533152</a></div>
+:::
+
+::: {.pub-card}
 <div class="pub-number">Research Square · Under Review</div>
 <div class="pub-title"><a href="https://www.researchsquare.com/article/rs-10713786/v1">Implications of Ceftazidime-Avibactam Clearance Correlation for Target Selection and Single-Analyte Therapeutic Drug Monitoring During Continuous Infusion: A Pharmacometric Simulation and Individual Patient Data Analysis</a></div>
 <div class="pub-authors"><strong>Piranfar V.</strong></div>
