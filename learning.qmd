@@ -40,7 +40,7 @@ MIC and indices, PTA/CFR, free drug, infusion mode, joint BL/BLI targets, proven
 
 ### Bacterial genetics for modelers
 
-Chromosome versus plasmid resistance and HGT-driven MIC ecology, as annotations on the phenotype layer PK/PD actually uses.
+Chromosome versus plasmid resistance, HGT-driven MIC ecology, and short-read plasmid detection versus reconstruction for AMR genomics.
 :::
 
 :::

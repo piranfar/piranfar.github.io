@@ -45,6 +45,7 @@ Secondary track (Bacterial genetics for modelers):
 
 - Chromosome vs plasmid resistance — https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html
 - Horizontal gene transfer and MIC ecology — https://vahhabpiranfar.com/learning/09-hgt-and-mic-ecology.html
+- Plasmid detection versus reconstruction from short reads — https://vahhabpiranfar.com/learning/14-plasmid-detection-vs-reconstruction.html
 
 ## Selected research (sole author unless noted)
 

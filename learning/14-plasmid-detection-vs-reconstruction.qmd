@@ -1,0 +1,116 @@
+---
+title: "Plasmid detection versus reconstruction from short reads"
+description: "What Teixeira et al. teach about finding plasmid contigs, binning them into whole plasmids, and why database bias and assembly breaks still limit AMR genomics."
+author: "Vahhab Piranfar"
+date: "2026-10-21"
+categories: [Learning, Bacterial Genetics]
+---
+
+If you care about mobile antimicrobial resistance, you eventually meet a practical genomics problem: the plasmid is real, the short-read assembly is broken into pieces, and the software has to guess which pieces belong together. A 2025 *Briefings in Bioinformatics* benchmark by Teixeira and colleagues puts that problem under a bright light across many species, not only *E. coli* ([doi:10.1093/bib/bbaf589](https://doi.org/10.1093/bib/bbaf589)).
+
+This lesson turns their main ideas into teaching language you can reuse when reading plasmid papers or choosing a tool for a short-read project.
+
+::: {.callout-note}
+## Scope
+Educational walkthrough of concepts from Teixeira et al., *Brief Bioinform* 2025;26(6):bbaf589. Not a substitute for reading the paper or a software manual.
+:::
+
+## Two jobs that people often mash together
+
+**Plasmid detection** asks: is this contig from a plasmid or from the chromosome?
+
+**Plasmid reconstruction** (contig binning) asks: which plasmid contigs belong to the *same* plasmid molecule?
+
+Detection can look strong while reconstruction still fails. That split is the first concept worth keeping separate in your notes.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Short-read contigs classified then binned into plasmids">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <rect x="40" y="60" width="70" height="28" rx="6" fill="#CBD5E1"/>
+  <rect x="40" y="100" width="70" height="28" rx="6" fill="#CBD5E1"/>
+  <rect x="40" y="140" width="70" height="28" rx="6" fill="#CBD5E1"/>
+  <rect x="40" y="180" width="70" height="28" rx="6" fill="#CBD5E1"/>
+  <text x="75" y="40" text-anchor="middle" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">contigs</text>
+  <path d="M120,130 H180" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="180" y="70" width="150" height="120" rx="12" fill="#fff" stroke="#0D9488" stroke-width="2"/>
+  <text x="255" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">detection</text>
+  <text x="255" y="148" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">plasmid or chromosome?</text>
+  <path d="M330,130 H390" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="390" y="55" width="200" height="70" rx="12" fill="#0B1628"/>
+  <text x="490" y="95" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">reconstruction</text>
+  <rect x="390" y="145" width="90" height="50" rx="10" fill="rgba(13,148,136,0.2)" stroke="#0D9488"/>
+  <text x="435" y="175" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid A</text>
+  <rect x="500" y="145" width="90" height="50" rx="10" fill="rgba(249,115,22,0.2)" stroke="#F97316"/>
+  <text x="545" y="175" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid B</text>
+  <text x="320" y="250" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Finding plasmid pieces is not the same as assembling the circle.</text>
+</svg>
+</div>
+```
+
+<details class="learn-think">
+<summary>Why short reads make this hard</summary>
+Repeats and insertion sequences shared with the chromosome or other plasmids break assemblies. Mosaic plasmids also drift away from database references. Long reads help, but most public assemblies are still short-read only, so the problem remains central for AMR surveillance.
+</details>
+
+## What the benchmark actually compared
+
+The authors built hybrid long-plus-short assemblies as ground truth for 250 genomes spanning Enterobacterales and *Enterococcus*, then fed short-read-only assemblies into tools. That design matters: without an independent truth set, tool rankings become circular.
+
+They scored **detection** with precision, recall, and F1. They scored **reconstruction** with clustering metrics: homogeneity (bin purity), completeness (whether a plasmid was split), and normalized mutual information (NMI).
+
+Top detection performers in their hands included **Plasmer**, **PlasmidEC**, **PlaScope**, and **gplas2**. For reconstruction, **gplas2** led, yet fewer than half of plasmids were perfectly reconstructed. That single sentence should calm anyone who treats a binning output as finished biology.
+
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="detect">Detection lesson</button>
+    <button type="button" data-panel="recon">Reconstruction lesson</button>
+    <button type="button" data-panel="amr">AMR angle</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="detect">
+    <p>Database representation and contig length/contiguity drove detection quality. Enterobacterales plasmids, better mirrored in PLSDB-style resources, were easier to spot than many novel enterococcal plasmids.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="recon">
+    <p>Assembly fragmentation and having more plasmids made binning harder. Even the best tool left many plasmids incomplete or contaminated. Contiguity is not a luxury setting; it is part of the scientific result.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="amr">
+    <p>ARG-carrying plasmids were often more fragmented and harder to reconstruct. Some detection tools also struggled more with ARG contigs, partly because mobile elements around resistance genes break assemblies into short pieces.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
+
+## The teaching point for modelers and microbiologists
+
+This paper sits next to our earlier genetics notes for a reason. In [chromosome versus plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd) and [HGT and MIC ecology](09-hgt-and-mic-ecology.qmd), plasmids change how fast MIC ecology can move. Teixeira et al. add the bioinformatics warning: if your short-read pipeline cannot reliably say which ARG sits on which plasmid, your downstream story about mobility is partly invented.
+
+A practical habit after reading their results:
+
+1. Report whether you did detection only or full reconstruction.  
+2. Say how contiguous the assembly was.  
+3. Note whether the taxon is well represented in plasmid databases.  
+4. Treat perfect plasmid circles from short reads as uncommon, especially for large ARG plasmids.  
+5. Prefer hybrid or long-read confirmation when a specific plasmid linkage is the claim that matters.
+
+## How to talk about tools without hero worship
+
+Different tools use databases, marker genes, machine learning, or assembly-graph topology. The benchmark shows several strategies can detect well. Reconstruction remains the harder hill. Choosing one fashionable package is less important than matching the tool to your taxon, your assembly quality, and whether your scientific question needs contig labels or true plasmid bins.
+
+## Takeaway
+
+Detection asks "plasmid or not?" Reconstruction asks "which pieces are one plasmid?" Database bias and broken assemblies still decide much of the outcome. For AMR work, that means plasmid claims from short-read drafts need humility, especially when resistance genes ride fragmented mobile DNA.
+
+Source: Teixeira M, et al. Circling in on plasmids. *Briefings in Bioinformatics* 2025;26(6):bbaf589. [https://doi.org/10.1093/bib/bbaf589](https://doi.org/10.1093/bib/bbaf589)

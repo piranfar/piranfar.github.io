@@ -196,6 +196,713 @@
     "text": "Final take\nThe most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.\nFor me, the strongest takeaway is this:\nThe challenge is not only killing bacteria quickly, but understanding how they survive long enough to return."
   },
   {
+    "objectID": "learning/14-plasmid-detection-vs-reconstruction.html",
+    "href": "learning/14-plasmid-detection-vs-reconstruction.html",
+    "title": "Plasmid detection versus reconstruction from short reads",
+    "section": "",
+    "text": "If you care about mobile antimicrobial resistance, you eventually meet a practical genomics problem: the plasmid is real, the short-read assembly is broken into pieces, and the software has to guess which pieces belong together. A 2025 Briefings in Bioinformatics benchmark by Teixeira and colleagues puts that problem under a bright light across many species, not only E. coli (doi:10.1093/bib/bbaf589).\nThis lesson turns their main ideas into teaching language you can reuse when reading plasmid papers or choosing a tool for a short-read project."
+  },
+  {
+    "objectID": "learning/14-plasmid-detection-vs-reconstruction.html#two-jobs-that-people-often-mash-together",
+    "href": "learning/14-plasmid-detection-vs-reconstruction.html#two-jobs-that-people-often-mash-together",
+    "title": "Plasmid detection versus reconstruction from short reads",
+    "section": "Two jobs that people often mash together",
+    "text": "Two jobs that people often mash together\nPlasmid detection asks: is this contig from a plasmid or from the chromosome?\nPlasmid reconstruction (contig binning) asks: which plasmid contigs belong to the same plasmid molecule?\nDetection can look strong while reconstruction still fails. That split is the first concept worth keeping separate in your notes.\n\n\n  \n  \n  \n  \n  \n  contigs\n  \n  \n  detection\n  plasmid or chromosome?\n  \n  \n  reconstruction\n  \n  plasmid A\n  \n  plasmid B\n  Finding plasmid pieces is not the same as assembling the circle.\n\n\n\n\nWhy short reads make this hard\n\nRepeats and insertion sequences shared with the chromosome or other plasmids break assemblies. Mosaic plasmids also drift away from database references. Long reads help, but most public assemblies are still short-read only, so the problem remains central for AMR surveillance."
+  },
+  {
+    "objectID": "learning/14-plasmid-detection-vs-reconstruction.html#what-the-benchmark-actually-compared",
+    "href": "learning/14-plasmid-detection-vs-reconstruction.html#what-the-benchmark-actually-compared",
+    "title": "Plasmid detection versus reconstruction from short reads",
+    "section": "What the benchmark actually compared",
+    "text": "What the benchmark actually compared\nThe authors built hybrid long-plus-short assemblies as ground truth for 250 genomes spanning Enterobacterales and Enterococcus, then fed short-read-only assemblies into tools. That design matters: without an independent truth set, tool rankings become circular.\nThey scored detection with precision, recall, and F1. They scored reconstruction with clustering metrics: homogeneity (bin purity), completeness (whether a plasmid was split), and normalized mutual information (NMI).\nTop detection performers in their hands included Plasmer, PlasmidEC, PlaScope, and gplas2. For reconstruction, gplas2 led, yet fewer than half of plasmids were perfectly reconstructed. That single sentence should calm anyone who treats a binning output as finished biology.\n\n  \n    Detection lesson\n    Reconstruction lesson\n    AMR angle\n  \n  \n    Database representation and contig length/contiguity drove detection quality. Enterobacterales plasmids, better mirrored in PLSDB-style resources, were easier to spot than many novel enterococcal plasmids.\n  \n  \n    Assembly fragmentation and having more plasmids made binning harder. Even the best tool left many plasmids incomplete or contaminated. Contiguity is not a luxury setting; it is part of the scientific result.\n  \n  \n    ARG-carrying plasmids were often more fragmented and harder to reconstruct. Some detection tools also struggled more with ARG contigs, partly because mobile elements around resistance genes break assemblies into short pieces."
+  },
+  {
+    "objectID": "learning/14-plasmid-detection-vs-reconstruction.html#the-teaching-point-for-modelers-and-microbiologists",
+    "href": "learning/14-plasmid-detection-vs-reconstruction.html#the-teaching-point-for-modelers-and-microbiologists",
+    "title": "Plasmid detection versus reconstruction from short reads",
+    "section": "The teaching point for modelers and microbiologists",
+    "text": "The teaching point for modelers and microbiologists\nThis paper sits next to our earlier genetics notes for a reason. In chromosome versus plasmid resistance and HGT and MIC ecology, plasmids change how fast MIC ecology can move. Teixeira et al. add the bioinformatics warning: if your short-read pipeline cannot reliably say which ARG sits on which plasmid, your downstream story about mobility is partly invented.\nA practical habit after reading their results:\n\nReport whether you did detection only or full reconstruction.\n\nSay how contiguous the assembly was.\n\nNote whether the taxon is well represented in plasmid databases.\n\nTreat perfect plasmid circles from short reads as uncommon, especially for large ARG plasmids.\n\nPrefer hybrid or long-read confirmation when a specific plasmid linkage is the claim that matters."
+  },
+  {
+    "objectID": "learning/14-plasmid-detection-vs-reconstruction.html#how-to-talk-about-tools-without-hero-worship",
+    "href": "learning/14-plasmid-detection-vs-reconstruction.html#how-to-talk-about-tools-without-hero-worship",
+    "title": "Plasmid detection versus reconstruction from short reads",
+    "section": "How to talk about tools without hero worship",
+    "text": "How to talk about tools without hero worship\nDifferent tools use databases, marker genes, machine learning, or assembly-graph topology. The benchmark shows several strategies can detect well. Reconstruction remains the harder hill. Choosing one fashionable package is less important than matching the tool to your taxon, your assembly quality, and whether your scientific question needs contig labels or true plasmid bins."
+  },
+  {
+    "objectID": "learning/14-plasmid-detection-vs-reconstruction.html#takeaway",
+    "href": "learning/14-plasmid-detection-vs-reconstruction.html#takeaway",
+    "title": "Plasmid detection versus reconstruction from short reads",
+    "section": "Takeaway",
+    "text": "Takeaway\nDetection asks “plasmid or not?” Reconstruction asks “which pieces are one plasmid?” Database bias and broken assemblies still decide much of the outcome. For AMR work, that means plasmid claims from short-read drafts need humility, especially when resistance genes ride fragmented mobile DNA.\nSource: Teixeira M, et al. Circling in on plasmids. Briefings in Bioinformatics 2025;26(6):bbaf589. https://doi.org/10.1093/bib/bbaf589"
+  },
+  {
+    "objectID": "learning/12-inoculum-effect.html",
+    "href": "learning/12-inoculum-effect.html",
+    "title": "Inoculum effect: when bacterial density changes the drug story",
+    "section": "",
+    "text": "Lab MIC work usually starts with a standardized inoculum. Infections do not always politely match that density. In some drug-bug pairs, a denser starting population makes the antibiotic look less effective. That pattern is called the inoculum effect.\nFor modelers, the point is not to memorize every organism that shows it. The point is to stop treating “the MIC” as independent from bacterial burden when the literature says otherwise."
+  },
+  {
+    "objectID": "learning/12-inoculum-effect.html#what-people-mean-by-inoculum-effect",
+    "href": "learning/12-inoculum-effect.html#what-people-mean-by-inoculum-effect",
+    "title": "Inoculum effect: when bacterial density changes the drug story",
+    "section": "What people mean by inoculum effect",
+    "text": "What people mean by inoculum effect\nIn plain terms: the same drug may need a higher concentration, or may kill more slowly, when the starting bacterial count is much higher. Enzymes can be more abundant. Binding or local drug depletion can matter more. Quorum-related physiology can change. The assay MIC at standard inoculum can then understate the challenge of a high-burden infection.\nThat does not mean every PTA grid is wrong. It means a high-inoculum pneumonia, endocarditis vegetation, or undrained focus may deserve a harsher PD scenario than a bloodstream model with lower density.\n\n\nA modeling translation\n\nInoculum effect can appear as a higher effective MIC, a shifted PD curve, or slower kill parameters at high CFU. Pick the representation that matches your data, and label the inoculum assumption.\n\n\n\n  \n  \n  \n  \n  \n  standard inoculum\n  high inoculum\n  Drug exposure\n  Effect\n\nSame drug, denser start, harder climb to the same effect."
+  },
+  {
+    "objectID": "learning/12-inoculum-effect.html#where-this-collides-with-pta-habits",
+    "href": "learning/12-inoculum-effect.html#where-this-collides-with-pta-habits",
+    "title": "Inoculum effect: when bacterial density changes the drug story",
+    "section": "Where this collides with PTA habits",
+    "text": "Where this collides with PTA habits\nClassic PTA uses an MIC distribution from standard testing. If your clinical question is a high-burden site with a known inoculum effect for that class, a second scenario with worsened PD inputs is more honest than a single optimistic curve.\nThis also connects to tolerance and persistence. High density can change early kill even when categorical susceptibility looks unchanged. Keep the mechanism language careful: inoculum effect is not automatically “resistance,” though both can raise the practical exposure need.\n\n  \n    Ignore inoculum\n    Scenario it\n  \n  \n    Acceptable when literature for that drug-bug pair shows little inoculum dependence, or when you clearly limit the claim to standard-assay MIC targets.\n  \n  \n    Run a base MIC/PTA case, then a high-inoculum case with cited PD worsening. Compare both. Do not average them into one unexplained hybrid."
+  },
+  {
+    "objectID": "learning/12-inoculum-effect.html#practical-reporting",
+    "href": "learning/12-inoculum-effect.html#practical-reporting",
+    "title": "Inoculum effect: when bacterial density changes the drug story",
+    "section": "Practical reporting",
+    "text": "Practical reporting\nState the inoculum assumed by your PD target. If you borrowed in vitro high-inoculum data, mark them as donor evidence and check scenario compatibility. High-inoculum lab conditions are not automatically the same as an ICU pneumonia densitiy, but they are often closer to the worry you are trying to name."
+  },
+  {
+    "objectID": "learning/12-inoculum-effect.html#how-to-keep-the-wording-clean",
+    "href": "learning/12-inoculum-effect.html#how-to-keep-the-wording-clean",
+    "title": "Inoculum effect: when bacterial density changes the drug story",
+    "section": "How to keep the wording clean",
+    "text": "How to keep the wording clean\nSay “high-inoculum scenario” when you worsened PD inputs based on cited in vitro density effects. Do not say “resistant” unless genetics or MIC category actually changed. Do not say “persistent” unless you modeled a refractory subpopulation. Inoculum effect can interact with those ideas, but the labels should stay separate so collaborators know which lever you moved.\nIf the literature for your drug-bug pair is thin, it is better to list inoculum as an unquantified limitation than to invent a severity factor with no source. Empty honesty beats decorative precision."
+  },
+  {
+    "objectID": "learning/12-inoculum-effect.html#takeaway",
+    "href": "learning/12-inoculum-effect.html#takeaway",
+    "title": "Inoculum effect: when bacterial density changes the drug story",
+    "section": "Takeaway",
+    "text": "Takeaway\nBacterial density can change the pharmacodynamic hill the drug must climb. When the literature flags an inoculum effect, put density into the scenario list beside MIC, binding, and renal function. Otherwise your clean PTA may describe a lighter fight than the infection.\nPrevious: Renal function and eGFR strata · Next: CAZ-AVI mini case."
+  },
+  {
+    "objectID": "learning/10-effect-site-vs-plasma.html",
+    "href": "learning/10-effect-site-vs-plasma.html",
+    "title": "Effect site versus plasma: where the bug actually lives",
+    "section": "",
+    "text": "Most antibiotic PK models begin in plasma because plasma is what we can sample often. Many infections, though, are not happening in a blood vial. Pneumonia asks about lung concentrations. Meningitis asks about CSF. Abscesses and bone infections have their own stubborn geography.\nThis lesson is about the gap between what we measure and where the bacteria sit, and how to keep that gap from becoming an invisible leap of faith."
+  },
+  {
+    "objectID": "learning/10-effect-site-vs-plasma.html#plasma-is-a-proxy-sometimes-a-good-one",
+    "href": "learning/10-effect-site-vs-plasma.html#plasma-is-a-proxy-sometimes-a-good-one",
+    "title": "Effect site versus plasma: where the bug actually lives",
+    "section": "Plasma is a proxy, sometimes a good one",
+    "text": "Plasma is a proxy, sometimes a good one\nIf free plasma exposure tracks free exposure at the effect site closely enough for your question, plasma-based PTA can be a fair first tool. If the site is protected, poorly perfused, or governed by transporters, plasma can flatter the regimen.\nA simple mental split helps:\n\nPlasma-centric question: given systemic PK, how often do we clear a plasma free-drug target?\nSite-aware question: given systemic PK plus a site model or site observations, how often does the effect-site exposure clear the relevant target?\n\nThose are different claims. Both can be useful. They should not share one sentence in the abstract as if they were identical.\n\n\nA sentence worth refusing\n\n“Plasma fT&gt;MIC was high, therefore lung exposure was adequate.” That “therefore” needs evidence about penetration, timing, and free fraction at the site.\n\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  plasma\n  effect site\n  Time\n\nA site curve can be lower, delayed, or both. Plasma success does not automatically copy over."
+  },
+  {
+    "objectID": "learning/10-effect-site-vs-plasma.html#common-site-stories-modelers-meet",
+    "href": "learning/10-effect-site-vs-plasma.html#common-site-stories-modelers-meet",
+    "title": "Effect site versus plasma: where the bug actually lives",
+    "section": "Common site stories modelers meet",
+    "text": "Common site stories modelers meet\nEpithelial lining fluid (ELF) for pneumonia work: ratios to plasma vary by drug and sampling time.\nCSF for meningitis: barrier and inflammation change penetration.\nTissue or abscess: averages may hide necrotic cores where drug arrives late.\nIn each case you need either direct site observations, a justified transfer model, or an honest plasma-only limitation statement.\n\n  \n    Plasma-only model\n    Plasma plus site ratio\n    Site observations\n  \n  \n    Defensible when you clearly claim a plasma free-drug endpoint. Weak when the abstract quietly upgrades that claim into site adequacy.\n  \n  \n    Apply a published penetration ratio or time-varying factor, cite it, and sensitivity-test lower ratios. Keep free/total bookkeeping intact at the site if data allow.\n  \n  \n    Best case: measured site concentrations with timing. Still watch assay method, inflammation state, and whether samples represent the infected subcompartment."
+  },
+  {
+    "objectID": "learning/10-effect-site-vs-plasma.html#how-to-write-this-without-hand-waving",
+    "href": "learning/10-effect-site-vs-plasma.html#how-to-write-this-without-hand-waving",
+    "title": "Effect site versus plasma: where the bug actually lives",
+    "section": "How to write this without hand-waving",
+    "text": "How to write this without hand-waving\nIn methods, name the compartment your target refers to. In limitations, say what you did not model. If donor ELF or CSF data come from a different population than your primary PK, treat them with the same provenance care you would use for a borrowed clearance equation."
+  },
+  {
+    "objectID": "learning/10-effect-site-vs-plasma.html#two-abstracts-only-one-is-honest",
+    "href": "learning/10-effect-site-vs-plasma.html#two-abstracts-only-one-is-honest",
+    "title": "Effect site versus plasma: where the bug actually lives",
+    "section": "Two abstracts, only one is honest",
+    "text": "Two abstracts, only one is honest\nHonest: “We evaluated free plasma target attainment for regimen X in a virtual ICU population. Site-of-infection concentrations were not modeled.”\nOverstated: “We showed regimen X provides adequate lung exposure,” after only plasma PTA.\nThe first abstract can still be scientifically valuable. The second asks readers to invent a penetration model you never wrote down. If you do have ELF or CSF data, bring them in with dates, methods, and sensitivity to lower penetration. If you do not, keep the claim inside plasma and sleep better.\nTiming matters too. A site-to-plasma ratio from a late sampling window may not describe early therapy. If your PTA question includes the first hours, a single steady ratio can be the wrong proxy."
+  },
+  {
+    "objectID": "learning/10-effect-site-vs-plasma.html#takeaway",
+    "href": "learning/10-effect-site-vs-plasma.html#takeaway",
+    "title": "Effect site versus plasma: where the bug actually lives",
+    "section": "Takeaway",
+    "text": "Takeaway\nBacteria live at an effect site. Plasma is often the ladder we climb to estimate that site, not the destination itself. Keep the proxy relationship visible, or your PTA will answer a cleaner question than the infection deserves.\nPrevious: HGT and MIC ecology · Next: Renal function and eGFR strata."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html",
+    "href": "learning/08-uncertainty-and-provenance.html",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "",
+    "text": "A smooth PTA curve can look like certainty. Often it is a stack of borrowed numbers wearing a clean plot. The scientific job is not only to compute a probability. It is to show which assumptions, from which sources, under which scenario rules, produced that probability.\nThis lesson is about evidence hygiene. It is the difference between a reusable simulation and a one-off slide."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#label-every-input-like-it-might-be-audited",
+    "href": "learning/08-uncertainty-and-provenance.html#label-every-input-like-it-might-be-audited",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Label every input like it might be audited",
+    "text": "Label every input like it might be audited\nUseful labels look boring. That is why they work.\n\n\n\nLabel\nMeaning\n\n\n\n\nDirectly reported\nUsed as published for this purpose\n\n\nTransformed\nUnit change, free/total conversion, algebra\n\n\nDonor / inherited\nBorrowed from a related but non-identical source\n\n\nAssumed\nFilled so the model can run; must stay visible\n\n\nScenario-generated\nCreated by the simulation design itself\n\n\n\nMissing data should stay missing until a compatible donor is justified. Silent median fills create false completeness.\n\n\nA practical test\n\nIf a coauthor asks “where did this fu come from?” and you need five minutes to remember, the provenance trail is already too weak for a methods section."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#uncertainty-comes-in-layers",
+    "href": "learning/08-uncertainty-and-provenance.html#uncertainty-comes-in-layers",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Uncertainty comes in layers",
+    "text": "Uncertainty comes in layers\n\nParameter uncertainty: IIV, residual error, covariate effects.\n\nStructural uncertainty: compartment choice, infusion constraints, correlation.\n\nEvidence uncertainty: wrong population, wrong matrix, stale MIC ecology.\n\nDecision-rule uncertainty: which threshold counts as “enough.”\n\nMonte Carlo on layer 1 alone can look precise while layer 3 quietly dominates.\n\n\n  \n  \n  PTA / CFR output\n  \n  parameter variability\n  \n  structure and scenario choices\n  \n  evidence provenance and MIC ecology\n\nPretty sampling does not repair a shaky evidence base.\n\n\n  \n    Minimum report\n    Stronger report\n  \n  \n    Source list for CL, V, fu, targets, MIC weights. Free/total notes. Population statement. Seed and N. One sensitivity check on the most fragile input.\n  \n  \n    Everything in the minimum set, plus scenario compatibility notes for donor evidence, correlation assumptions, convergence checks, and alternative MIC priors with dates."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#compatibility-is-a-scientific-decision",
+    "href": "learning/08-uncertainty-and-provenance.html#compatibility-is-a-scientific-decision",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Compatibility is a scientific decision",
+    "text": "Compatibility is a scientific decision\nICU continuous-infusion parameters are not automatically interchangeable with healthy-volunteer bolus data, CSF studies, or in vitro kill curves. Those sources can still help as donors or anchors. They should not be pooled as if they were one population. Write the compatibility rule in human language: what was allowed to enter the primary scenario, and what stayed outside with a label."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#what-good-provenance-feels-like-in-a-meeting",
+    "href": "learning/08-uncertainty-and-provenance.html#what-good-provenance-feels-like-in-a-meeting",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "What good provenance feels like in a meeting",
+    "text": "What good provenance feels like in a meeting\nSomeone asks why ICU PTA used a clearance relationship from a continuous-infusion critically ill study and an MIC table from a regional surveillance year. You can answer in one breath: primary PK from source A for scenario match, MIC weights from source B dated to that year, fu transformed from total using source C, inhibitor threshold from source D with a compatibility note. No scavenger hunt through forgotten spreadsheets.\nIf you cannot give that breath-length answer, stop polishing the figure and rebuild the input table first. Most “mysterious” PTA sensitivity traces back to one unlabeled donor.\nKeep a one-page input ledger beside the code: parameter, value or distribution, source, transformation, scenario role. It is unglamorous. It is also what makes the project reusable six months later."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#takeaway",
+    "href": "learning/08-uncertainty-and-provenance.html#takeaway",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Takeaway",
+    "text": "Takeaway\nReproducible PK/PD is less about fancier random draws and more about refusing to launder uncertain evidence into false certainty. If the trail of sources is clear, other people can challenge your result productively. That is a feature.\nPrevious: Joint targets for BL/BLI pairs · Next: HGT and MIC ecology · Then: Effect site versus plasma."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html",
+    "title": "Intermittent vs continuous infusion for beta-lactams",
+    "section": "",
+    "text": "For many beta-lactams the index that matters most is time above a threshold. That makes how you deliver the dose part of the pharmacology, not a nursing footnote.\nGive the same daily amount as short intermittent infusions and you get peaks and troughs. Stretch the infusion and the troughs rise. Run it continuously and the profile can settle toward a steady free concentration. The MIC line does not move. The geometry around it does."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#same-daily-dose-different-shape",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#same-daily-dose-different-shape",
+    "title": "Intermittent vs continuous infusion for beta-lactams",
+    "section": "Same daily dose, different shape",
+    "text": "Same daily dose, different shape\nHold clearance, volume, fu, and MIC fixed. Change only the input rate.\n\nIntermittent short infusion: oscillating free levels. Success depends on how long each cycle stays above MIC.\n\nExtended infusion: softer peaks, higher troughs.\n\nContinuous infusion: approach to steady state. Many analyses then ask whether steady free concentration stays above MIC, or above a multiple of MIC.\n\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  intermittent\n  continuous Css\n  Time\n\nInfusion mode changes which parts of the day sit above the MIC line.\n\n\n\nWhy loading doses appear in continuous regimens\n\nIf you start continuous infusion with no load, early concentrations climb slowly. A PTA that only looks at later steady state can miss early undershoot. If your clinical question includes the first hours, model the load."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#what-the-simulator-must-keep-honest",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#what-the-simulator-must-keep-honest",
+    "title": "Intermittent vs continuous infusion for beta-lactams",
+    "section": "What the simulator must keep honest",
+    "text": "What the simulator must keep honest\n\nLoading dose status.\n\nRenal function strata, because steady concentration moves with clearance.\n\nAdministration constraints that your scenario ignores (stability, line access). Label them.\n\nTarget form: percent fT&gt;MIC versus a Css/MIC ratio rule. They are related ideas with different bookkeeping.\n\n\n  \n    Compare fairly\n    Common trap\n  \n  \n    Freeze the virtual population and MIC grid. Change only the dosing input. Plot PTA on the same MIC axis. Report early and steady periods if loading differs.\n  \n  \n    Changing infusion mode and also silently changing daily dose, population, or target definition. Then attributing the whole PTA jump to \"continuous infusion magic.\""
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#a-classroom-example-without-fake-precision",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#a-classroom-example-without-fake-precision",
+    "title": "Intermittent vs continuous infusion for beta-lactams",
+    "section": "A classroom example without fake precision",
+    "text": "A classroom example without fake precision\nSuppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#how-to-talk-about-this-without-overselling",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#how-to-talk-about-this-without-overselling",
+    "title": "Intermittent vs continuous infusion for beta-lactams",
+    "section": "How to talk about this without overselling",
+    "text": "How to talk about this without overselling\nA fair sentence sounds like this: “Under the same daily dose and the same virtual population, continuous infusion improved PTA at higher MIC values because trough undershoot disappeared; early coverage still depended on the loading dose.”\nAn unfair sentence sounds like this: “Continuous infusion is better,” with no fixed daily dose, no population lock, and no target definition.\nAlso remember pharmacy and line realities. A simulation can assume perfect continuous delivery. A ward may not. If your scenario ignores stability windows or access constraints, write that limitation in ordinary language. The PK/PD geometry lesson remains useful either way.\nOne more practical tip: when two papers disagree about continuous infusion benefit, check whether they locked daily dose, population, free/total handling, and target definition. Many apparent contradictions dissolve once those four locks are compared side by side."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#takeaway",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#takeaway",
+    "title": "Intermittent vs continuous infusion for beta-lactams",
+    "section": "Takeaway",
+    "text": "Takeaway\nInfusion mode redraws the exposure path around the MIC. For time-driven beta-lactam targets, that redraw is part of the science. Compare shapes under controlled conditions, and say whether your endpoint was interval fT&gt;MIC or steady-state coverage.\nPrevious: Free drug and protein binding · Next: Joint targets for BL/BLI pairs."
+  },
+  {
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "",
+    "text": "PK/PD models usually do not simulate DNA base by base. They simulate exposure and a phenotype, often an MIC. Genetics still belongs in the room, because it tells you how stable that phenotype is and how fast the local MIC ecology can shift.\nThis lesson is a bridge for modelers. Enough bacterial genetics to stop treating every MIC cell in a table as the same kind of object."
+  },
+  {
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#two-homes-for-resistance-genes",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#two-homes-for-resistance-genes",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "Two homes for resistance genes",
+    "text": "Two homes for resistance genes\nResistance can live on the chromosome or on a plasmid (and related mobile elements). Both can raise an MIC. They do not raise it with the same epidemiological behavior.\nChromosomal changes often travel mostly with the lineage: mother cell to daughter cell. Plasmid-borne resistance can move horizontally as well, sometimes across lineages or species. Plasmid copy number can also amplify expression, so “same gene” is not always “same burden.”\n\n\n\n\n\n\n\n\nFeature\nChromosomal\nPlasmid-borne, typical case\n\n\n\n\nMain inheritance\nVertical\nVertical and often horizontal\n\n\nDose / copy effect\nUsually limited copies\nCopy number can boost expression\n\n\nSpeed of ecological change\nOften slower within a hospital\nCan surge when a plasmid expands\n\n\nModeling note\nPhenotype may be more lineage-stable\nMIC priors may age faster\n\n\n\n\n\nWhy this matters for CFR\n\nCFR needs P(MIC). If that distribution is shaped by a spreading plasmid, last year’s weights can quietly expire. Date-stamp the source and, when possible, separate mechanism strata."
+  },
+  {
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#same-mic-number-different-story",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#same-mic-number-different-story",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "Same MIC number, different story",
+    "text": "Same MIC number, different story\nImagine two isolates with MIC = 8 mg/L to the same drug.\nIn isolate A, a chromosomal target mutation reduced binding. In isolate B, a plasmid beta-lactamase is chewing the drug. A PTA grid may treat them identically if it only sees “8”. A combination with an inhibitor may help B and do little for A. Your joint-target lesson later depends on knowing which world you are in.\n\n\n  \n  \n  chromosome\n  \n  plasmid\n  \n  \n  MIC\n  \n  \n  PK/PD\n  PTA / CFR\n  Genetics annotates the phenotype input. The model still runs on exposure versus effect."
+  },
+  {
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#what-to-change-in-a-pkpd-workflow",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#what-to-change-in-a-pkpd-workflow",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "What to change in a PK/PD workflow",
+    "text": "What to change in a PK/PD workflow\n\nLabel MIC provenance with date, region, species, and method.\n\nAsk whether the mechanism is enzyme-mediated before you lean on inhibitor partners.\n\nRefresh local MIC weights more aggressively when plasmid epidemics are active.\n\nKeep genetics in the annotation layer unless you are explicitly building a genotype-to-phenotype model.\n\n\n  \n    Chromosomal lens\n    Plasmid lens\n  \n  \n    Expect more stability inside a clonal background, but still verify species ID and assay method. Target mutations may need a different therapeutic logic than enzyme blockade.\n  \n  \n    Expect mobility, possible copy-number effects, and faster change in hospital ecology. CFR priors deserve dates and sensitivity checks."
+  },
+  {
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#a-short-example-conversation",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#a-short-example-conversation",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "A short example conversation",
+    "text": "A short example conversation\nSomeone hands you an MIC table and asks for CFR. Before you run anything, ask three genetics-aware questions:\n\nAre these isolates dominated by one clone, or is the lab seeing mixed plasmid traffic?\n\nHow old is the table, and has the hospital seen a recent enzyme-gene surge?\n\nIf we later evaluate an inhibitor combination, does the mechanism even match that idea?\n\nYou may still proceed with a standard CFR. The difference is that your methods paragraph will say what kind of phenotype ecology you assumed, instead of pretending every MIC cell is interchangeable biology.\nIf the answer to those questions is “we do not know,” that is still useful. Unknown mobility is itself a reason to run sensitivity CFR under a harsher MIC prior."
+  },
+  {
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "Takeaway",
+    "text": "Takeaway\nDo not ask genetics to replace PK/PD. Ask it to annotate the MIC layer: how mobile is this phenotype, how old is the ecology prior, and which mechanism your target rule quietly assumes?\nNext genetics lesson: HGT and MIC ecology · PK/PD spine: Resistance, tolerance, and persistence."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html",
+    "href": "learning/02-pta-cfr-virtual-populations.html",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "",
+    "text": "Once you have an exposure rule and an MIC, a single “typical patient” calculation is rarely enough. Real people differ in clearance, volume, kidney function, and body size. Virtual populations, PTA, and CFR are the tools we use to ask how often a regimen works across that spread.\nThink of it as moving from one drawn curve to a cloud of curves, then counting how many of those curves pass the test you chose."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-variation",
+    "href": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-variation",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "Virtual populations are controlled variation",
+    "text": "Virtual populations are controlled variation\nA virtual population is a set of simulated individuals. For each person you draw pharmacokinetic parameters from distributions that are supposed to reflect interindividual variability. If the literature reports correlated clearances, or clearances that depend on eGFR, that structure belongs in the draw. If you invent tidy independent normals because they look neat, you are no longer studying the published system. You are studying your drawing habits.\nUseful discipline looks like this:\n\ncite the IIV source,\nkeep covariate rules explicit,\nrecord the random seed and the sample size,\nsay which population the parameters came from (ICU, healthy volunteers, dialysis, and so on).\n\n\n\nWhy sample size shows up in methods sections\n\nToo few virtual subjects and the PTA estimate jitters. Extremely large N can look impressive while hiding a bad structural assumption. Report both N and a quick stability check."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#pta-fix-the-mic-count-the-successes",
+    "href": "learning/02-pta-cfr-virtual-populations.html#pta-fix-the-mic-count-the-successes",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "PTA: fix the MIC, count the successes",
+    "text": "PTA: fix the MIC, count the successes\nProbability of target attainment (PTA) answers a conditional question:\n\nIf MIC equals this value, what fraction of virtual subjects meet the PK/PD target?\n\nYou usually compute PTA across a grid of MIC values and plot a declining curve. The interesting part is often the cliff: the MIC region where success falls apart.\n\n\n  \n  \n  \n  \n  90%\n  \n  \n  where the regimen weakens\n  MIC\n  PTA\n\nPTA is a curve over MIC, not a single trophy number."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#cfr-bring-the-local-microbiology-back-in",
+    "href": "learning/02-pta-cfr-virtual-populations.html#cfr-bring-the-local-microbiology-back-in",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "CFR: bring the local microbiology back in",
+    "text": "CFR: bring the local microbiology back in\nCumulative fraction of response (CFR) folds PTA over an MIC distribution from surveillance or local epidemiology:\n[ = _i (_i)P(_i) ]\nPTA asks “what if MIC is X?”\nCFR asks “given the MICs we actually see around here, how often do we succeed?”\nThat second question is only as honest as the MIC weights. A distribution from another country, another year, or a mixed species group can make CFR look decisive while answering the wrong question.\n\n  \n    When PTA helps\n    When CFR helps\n    When you need both\n  \n  \n    Use PTA when you want to see regimen strength across a MIC grid, compare dosing strategies, or find the MIC where performance collapses.\n  \n  \n    Use CFR when you have a trustworthy local or regional MIC distribution and you want one summary of expected success under that ecology.\n  \n  \n    Show PTA curves for mechanism insight, then report CFR under one or more dated MIC priors. Sensitivity to the prior is part of the scientific result."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow-you-can-defend",
+    "href": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow-you-can-defend",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "A minimal workflow you can defend",
+    "text": "A minimal workflow you can defend\n\nDefine regimen and PK model, with provenance.\n\nDefine free-drug target or targets.\n\nSimulate N virtual subjects.\n\nCompute PTA on an MIC grid.\n\nOptionally weight by an MIC distribution to get CFR.\n\nStress-test the fragile inputs: binding, IIV, renal strata, MIC source.\n\nIf the target is joint (two drugs, two conditions), success is the intersection inside each virtual subject. Averaging two separate PTA values is not the same thing. A later lesson walks through that case."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#takeaway",
+    "href": "learning/02-pta-cfr-virtual-populations.html#takeaway",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "Takeaway",
+    "text": "Takeaway\nVirtual populations turn “does this look fine on paper?” into “how often does this pass under realistic variability?” PTA keeps MIC fixed. CFR brings epidemiology back. Neither repairs a bad target choice or a mismatched population.\nPrevious: PK/PD targets and the MIC · Next: Resistance, tolerance, and persistence."
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Vahhab Piranfar",
+    "section": "Selected work",
+    "text": "Selected work\n\n\n\n CAZ-AVI PK/PD modeling\nProvenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.\n\n\n\n\n AI Bacteriology Hub\nResearch platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.\n\n\n\n\n Learning: antibiotic PK/PD\nShort lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence."
+  },
+  {
+    "objectID": "index.html#current-focus",
+    "href": "index.html#current-focus",
+    "title": "Vahhab Piranfar",
+    "section": "Current focus",
+    "text": "Current focus\nBased in Jersey City, New Jersey, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty."
+  },
+  {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Vahhab Piranfar",
+    "section": "",
+    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#acceptable-contributions",
+    "href": "CONTRIBUTING.html#acceptable-contributions",
+    "title": "Vahhab Piranfar",
+    "section": "Acceptable contributions",
+    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#not-acceptable",
+    "href": "CONTRIBUTING.html#not-acceptable",
+    "title": "Vahhab Piranfar",
+    "section": "Not acceptable",
+    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#how-to-contribute",
+    "href": "CONTRIBUTING.html#how-to-contribute",
+    "title": "Vahhab Piranfar",
+    "section": "How to contribute",
+    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Research & Discussion",
+    "section": "",
+    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "about.html#professional-profile",
+    "href": "about.html#professional-profile",
+    "title": "About",
+    "section": "",
+    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "about.html#research-interests",
+    "href": "about.html#research-interests",
+    "title": "About",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
+  },
+  {
+    "objectID": "about.html#professional-journey",
+    "href": "about.html#professional-journey",
+    "title": "About",
+    "section": "Professional Journey",
+    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
+  },
+  {
+    "objectID": "about.html#selected-publications",
+    "href": "about.html#selected-publications",
+    "title": "About",
+    "section": "Selected Publications",
+    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html",
+    "href": "CODE_OF_CONDUCT.html",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "We as members, contributors, and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity, or sexual orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, respectful, inclusive, and professional environment.\n\n\n\nExamples of behavior that contributes to a positive environment include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility, apologizing to those affected by mistakes, and learning from the experience\nFocusing on what is best for the project and its users\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical address or email address, without their explicit permission\nMisrepresenting the author, projects, publications, affiliations, or academic work presented in this repository\nOther conduct which could reasonably be considered inappropriate in a professional setting\n\n\n\n\nThe project maintainer is responsible for clarifying and enforcing the standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior deemed inappropriate, threatening, offensive, or harmful.\nThe project maintainer has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, pull requests, and other contributions that are not aligned with this Code of Conduct. Reasons for moderation decisions may be communicated when appropriate.\n\n\n\nThis Code of Conduct applies within all project spaces, including issues, pull requests, discussions, wiki pages, and other repository-related communication channels.\nIt also applies when an individual is officially representing the project in public spaces. Examples include using an official project email address, posting through an official social media account, or acting as an appointed representative at an online or offline event.\n\n\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer responsible for enforcement at:\nvahab.p@gmail.com\nAll complaints will be reviewed and investigated promptly and fairly.\nThe project maintainer is obligated to respect the privacy and security of the reporter of any incident.\n\n\n\nThe project maintainer will follow these Community Impact Guidelines in determining the consequences for any action deemed to violate this Code of Conduct.\n\n\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the project community.\nConsequence: A private, written warning from the project maintainer, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n\n\n\nCommunity Impact: A violation through a single incident or a series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with the project maintainer, for a specified period of time. This includes avoiding interactions in project spaces as well as external channels such as social media. Violating these terms may lead to a temporary or permanent ban.\n\n\n\nCommunity Impact: A serious violation of project standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any form of interaction or public communication with the project for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with the project maintainer, is allowed during this period. Violating these terms may lead to a permanent ban.\n\n\n\nCommunity Impact: Demonstrating a pattern of violation of project standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any form of public interaction within the project.\n\n\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#our-pledge",
+    "href": "CODE_OF_CONDUCT.html#our-pledge",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "We as members, contributors, and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity, or sexual orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, respectful, inclusive, and professional environment."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#our-standards",
+    "href": "CODE_OF_CONDUCT.html#our-standards",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "Examples of behavior that contributes to a positive environment include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility, apologizing to those affected by mistakes, and learning from the experience\nFocusing on what is best for the project and its users\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical address or email address, without their explicit permission\nMisrepresenting the author, projects, publications, affiliations, or academic work presented in this repository\nOther conduct which could reasonably be considered inappropriate in a professional setting"
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#enforcement-responsibilities",
+    "href": "CODE_OF_CONDUCT.html#enforcement-responsibilities",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "The project maintainer is responsible for clarifying and enforcing the standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior deemed inappropriate, threatening, offensive, or harmful.\nThe project maintainer has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, pull requests, and other contributions that are not aligned with this Code of Conduct. Reasons for moderation decisions may be communicated when appropriate."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#scope",
+    "href": "CODE_OF_CONDUCT.html#scope",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "This Code of Conduct applies within all project spaces, including issues, pull requests, discussions, wiki pages, and other repository-related communication channels.\nIt also applies when an individual is officially representing the project in public spaces. Examples include using an official project email address, posting through an official social media account, or acting as an appointed representative at an online or offline event."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#enforcement",
+    "href": "CODE_OF_CONDUCT.html#enforcement",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer responsible for enforcement at:\nvahab.p@gmail.com\nAll complaints will be reviewed and investigated promptly and fairly.\nThe project maintainer is obligated to respect the privacy and security of the reporter of any incident."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#enforcement-guidelines",
+    "href": "CODE_OF_CONDUCT.html#enforcement-guidelines",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "The project maintainer will follow these Community Impact Guidelines in determining the consequences for any action deemed to violate this Code of Conduct.\n\n\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the project community.\nConsequence: A private, written warning from the project maintainer, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n\n\n\nCommunity Impact: A violation through a single incident or a series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with the project maintainer, for a specified period of time. This includes avoiding interactions in project spaces as well as external channels such as social media. Violating these terms may lead to a temporary or permanent ban.\n\n\n\nCommunity Impact: A serious violation of project standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any form of interaction or public communication with the project for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with the project maintainer, is allowed during this period. Violating these terms may lead to a permanent ban.\n\n\n\nCommunity Impact: Demonstrating a pattern of violation of project standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any form of public interaction within the project."
+  },
+  {
+    "objectID": "CODE_OF_CONDUCT.html#attribution",
+    "href": "CODE_OF_CONDUCT.html#attribution",
+    "title": "Vahhab Piranfar Portfolio Code of Conduct",
+    "section": "",
+    "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
+  },
+  {
+    "objectID": "GITHUB_PAGES.html",
+    "href": "GITHUB_PAGES.html",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#address",
+    "href": "GITHUB_PAGES.html#address",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#features",
+    "href": "GITHUB_PAGES.html#features",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
+  },
+  {
+    "objectID": "GITHUB_PAGES.html#deployment",
+    "href": "GITHUB_PAGES.html#deployment",
+    "title": "GitHub Pages",
+    "section": "",
+    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+  },
+  {
+    "objectID": "learning/01-pkpd-targets-and-mic.html",
+    "href": "learning/01-pkpd-targets-and-mic.html",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "",
+    "text": "Bacteria do not read the prescription label. They experience a rising and falling concentration of drug around them. Pharmacokinetic/pharmacodynamic (PK/PD) modeling is mostly the craft of putting that time course next to a susceptibility number, usually the MIC, and asking whether the exposure looks adequate.\nThis lesson stays practical. You will leave with a clear picture of what MIC can and cannot carry, what the classic indices mean, and how to choose one without turning the choice into folklore."
+  },
+  {
+    "objectID": "learning/01-pkpd-targets-and-mic.html#start-with-the-awkward-object-the-mic",
+    "href": "learning/01-pkpd-targets-and-mic.html#start-with-the-awkward-object-the-mic",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "Start with the awkward object: the MIC",
+    "text": "Start with the awkward object: the MIC\nThe minimum inhibitory concentration is the lowest concentration that stops visible growth in a defined lab assay. That sentence already hides three compromises.\nFirst, “visible growth” is an assay endpoint, not a full story of killing. Second, the assay has a floor and a set of conditions. Change those conditions and the number can move. Third, the pathogen in a patient is not living in Mueller-Hinton broth with perfect mixing and a fixed inoculum.\nStill, MIC is useful because it compresses susceptibility into something a simulator can compare with an exposure curve. The healthy habit is to treat MIC as a scenario input with uncertainty, not as a moral fact about the organism.\n\n\nPause: what question is MIC answering?\n\nMIC answers roughly: under this assay, what concentration prevents visible growth? It does not by itself answer: will every cell die, how fast will they die, or will a small surviving fraction rebound later?"
+  },
+  {
+    "objectID": "learning/01-pkpd-targets-and-mic.html#three-index-families-said-simply",
+    "href": "learning/01-pkpd-targets-and-mic.html#three-index-families-said-simply",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "Three index families, said simply",
+    "text": "Three index families, said simply\nMost antibacterial PK/PD targets fall into one of three families. The leading f means free (unbound) drug.\n\n\n\n\n\n\n\n\nIndex\nPlain meaning\nOften used for\n\n\n\n\nfT&gt;MIC\nHow much of the dosing interval free concentration stays above MIC\nMany beta-lactams\n\n\nfAUC/MIC\nTotal free exposure over time, scaled by MIC\nFluoroquinolones; vancomycin discussions often use AUC logic\n\n\nfCmax/MIC\nPeak free level relative to MIC\nSome concentration-dependent patterns\n\n\n\nIf your model outputs total plasma concentration but the target is written for free drug, the units are already arguing with each other. Fix that before you admire the PTA curve.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  time above MIC\n  Time after dose\n  Free concentration\n\nfT&gt;MIC is literally the share of time the free curve sits above the MIC line."
+  },
+  {
+    "objectID": "learning/01-pkpd-targets-and-mic.html#choosing-an-index-without-mystique",
+    "href": "learning/01-pkpd-targets-and-mic.html#choosing-an-index-without-mystique",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "Choosing an index without mystique",
+    "text": "Choosing an index without mystique\nAsk three questions before you code a target.\n\nWhat does the drug class literature actually use for this organism and indication style: time above threshold, integrated exposure, or peak?\nAre you modeling free or total concentrations, and does the cited target match that choice?\nIs success one condition or two? Combinations may need joint rules.\n\nA published target such as “100% fT&gt;MIC” or “fAUC/MIC at least 125” is a decision rule for simulation. It is not a promise that every patient above the line is cured and every patient below it fails.\n\n  \n    Time-driven\n    Exposure-driven\n    Peak-driven\n  \n  \n    Time-driven thinking cares how long the free level stays above a threshold. Flattening troughs (for example with longer infusions) can matter more than chasing a higher peak.\n  \n  \n    Exposure-driven thinking cares about the area under the free curve relative to MIC. Missing a little time above MIC can be less important than overall integrated exposure, depending on the drug.\n  \n  \n    Peak-driven thinking cares whether the highest free concentration clears a multiple of MIC. The shape after the peak still matters clinically, but the index itself is anchored on Cmax."
+  },
+  {
+    "objectID": "learning/01-pkpd-targets-and-mic.html#a-working-habit-for-modelers",
+    "href": "learning/01-pkpd-targets-and-mic.html#a-working-habit-for-modelers",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "A working habit for modelers",
+    "text": "A working habit for modelers\nWrite the index, the free/total state, and the MIC source in one line whenever you start a run. If you cannot fill that line, the simulation is not ready for interpretation yet.\nTolerance and persistence can still spoil a “good” MIC story. We will separate those ideas in a later lesson. For now, keep the simpler rule: pick the index that matches the pharmacology, then keep the units honest.\nNext: PTA, CFR, and virtual populations."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html",
+    "href": "learning/03-resistance-tolerance-persistence.html",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "",
+    "text": "In everyday talk, if an antibiotic fails people often say the bug was resistant. That shorthand is understandable. It is also expensive for modeling, because it points the simulator at the wrong object.\nThis lesson separates three survival ideas and translates them into what a PK/PD model can see: a moved threshold, a slower kill, or a long surviving tail."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#three-words-that-should-not-be-synonyms",
+    "href": "learning/03-resistance-tolerance-persistence.html#three-words-that-should-not-be-synonyms",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Three words that should not be synonyms",
+    "text": "Three words that should not be synonyms\nResistance usually means a heritable drop in susceptibility. In practice that often shows up as a higher MIC or a shifted pharmacodynamic curve. Genetics can sit underneath (target mutation, enzyme, efflux), but the PK/PD layer mainly notices the phenotype change.\nTolerance means a population can endure drug pressure longer without a large MIC shift. Time-kill curves look sluggish. The organism is not “fully susceptible in behavior” just because the MIC table looks polite.\nPersistence points to a small subpopulation that survives much longer. The bulk may fall, then a refractory tail remains. Relapse risk lives in that tail more than in the first steep decline.\n\n\n\n\n\n\n\n\nIdea\nWhat moved\nWhat a model needs\n\n\n\n\nResistance\nThreshold / MIC\nUpdated MIC or PD curve\n\n\nTolerance\nKill speed of the population\nTime-kill or slower kill-rate terms\n\n\nPersistence\nLong-lived fraction\nBiphasic kill or persister compartment\n\n\n\n\n\nA quick self-check\n\nIf changing the MIC fully explains the failure story, you are mostly in resistance territory. If MIC barely moved but killing stalled, look at tolerance or persistence before you keep tuning the dose in a PTA-only frame."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#what-the-curves-look-like",
+    "href": "learning/03-resistance-tolerance-persistence.html#what-the-curves-look-like",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "What the curves look like",
+    "text": "What the curves look like\n\n\n  \n  \n  \n  \n  \n  \n  faster kill\n  tolerance\n  persistence tail\n  Time under drug pressure\n  Viable bacteria\n\nSame starting inoculum, different survival stories. MIC alone may not separate these lines."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#why-a-strong-pta-can-still-disappoint",
+    "href": "learning/03-resistance-tolerance-persistence.html#why-a-strong-pta-can-still-disappoint",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Why a strong PTA can still disappoint",
+    "text": "Why a strong PTA can still disappoint\nPTA asks whether exposure clears a threshold rule. That is a fair question. It is not every question.\nA regimen can look excellent against the measured MIC distribution while:\n\nkilling is too slow for the planned duration,\na persistent fraction remains,\nor the assay MIC understates the real challenge at the infection site.\n\nNone of that makes PTA useless. It means you should label what your simulation tested. “High PTA vs MIC grid” is not the same claim as “sterilizing cure in every biology.”\n\n  \n    If resistance dominates\n    If tolerance dominates\n    If persistence dominates\n  \n  \n    Update the MIC distribution or PD curve. Re-run PTA/CFR. Mechanism matters later when you choose inhibitors or drug class switches.\n  \n  \n    Bring in time-kill information or slower kill parameters. Duration and shape of exposure may matter more than another small dose bump in a MIC-only frame.\n  \n  \n    Model a refractory fraction or biphasic kill. Ask whether your endpoint is inhibition, bulk kill, or durable clearance of the tail."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#pathogen-contrast-briefly",
+    "href": "learning/03-resistance-tolerance-persistence.html#pathogen-contrast-briefly",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Pathogen contrast, briefly",
+    "text": "Pathogen contrast, briefly\nDifferent organisms lean on different survival styles. In comparative modeling work, Staphylococcus aureus and Mycobacterium tuberculosis are a useful pair: one often shows a faster tolerance-like pattern, the other a longer persistence window. The lesson for the modeler is simple. Do not copy a kill structure from one species into another because the antibiotic name matches."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#takeaway",
+    "href": "learning/03-resistance-tolerance-persistence.html#takeaway",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Takeaway",
+    "text": "Takeaway\nResistance moves the threshold. Tolerance slows the population kill. Persistence leaves a long tail. Say which one your simulation is actually testing, especially when the clinical story is failure despite a tidy MIC.\nPrevious: PTA, CFR, and virtual populations · Next: Free drug and protein binding · Genetics: Chromosome vs plasmid resistance."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html",
+    "href": "learning/05-free-drug-and-protein-binding.html",
+    "title": "Free drug and protein binding",
+    "section": "",
+    "text": "Open a PK/PD paper and you will often see a little f in front of the target: fT&gt;MIC, fAUC/MIC. That letter is easy to skim past. It is also where many simulations go wrong.\nMost antibacterial targets are written for free (unbound) drug. Many concentration models are fitted to total plasma levels. If you compare total curves to free targets, the regimen looks stronger than the rule you claimed to test."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#what-free-means-in-plain-language",
+    "href": "learning/05-free-drug-and-protein-binding.html#what-free-means-in-plain-language",
+    "title": "Free drug and protein binding",
+    "section": "What free means in plain language",
+    "text": "What free means in plain language\nIn plasma, some drug molecules stick to proteins such as albumin. The usual modeling story says the unbound molecules are the ones available to act. The MIC assay is generally interpreted on that unbound-compatible scale. So the simulator should put free concentration versus time next to MIC.\nA simple linear correction is:\n[ C_{}(t)=f_uC_{}(t) ]\nwhere (f_u) is the unbound fraction. This is a starting point, not a religion. Binding can change with albumin, pregnancy, burns, or critical illness. For a highly bound drug, a small error in (f_u) becomes a large error in free exposure.\n\n\nA numbers intuition\n\nIf fu = 0.2, only one fifth of the total concentration counts toward a free-drug target. Using the total curve unchanged is like pretending there is five times more active drug than your target definition allows.\n\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  total\n  free\n  Time\n\nThe free curve is the one that should meet a free-drug MIC rule."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#where-people-get-hurt-in-practice",
+    "href": "learning/05-free-drug-and-protein-binding.html#where-people-get-hurt-in-practice",
+    "title": "Free drug and protein binding",
+    "section": "Where people get hurt in practice",
+    "text": "Where people get hurt in practice\n\nTarget says free, plotted series is total.\n\nfu comes from healthy volunteers, applied unchanged to hypoalbuminemic ICU patients.\n\nThe infection is not in plasma (ELF, CSF, tissue), but the model never leaves the plasma compartment.\n\nCombination regimens use one fu for both components without checking.\n\n\n  \n    Aligned example\n    Mismatched example\n  \n  \n    Model outputs total concentration, multiplies by a cited fu, then tests 100% fT&gt;MIC. The methods line states free/total conversion and the fu source.\n  \n  \n    Model outputs total concentration and directly counts time above MIC using a free-drug target wording. PTA looks great. The claim is overstated by roughly the binding factor."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#a-short-checklist-before-you-run-pta",
+    "href": "learning/05-free-drug-and-protein-binding.html#a-short-checklist-before-you-run-pta",
+    "title": "Free drug and protein binding",
+    "section": "A short checklist before you run PTA",
+    "text": "A short checklist before you run PTA\n\nLabel every series: free or total.\n\nCite fu and whether it is fixed, sampled, or covariate-dependent.\n\nRe-run with lower and higher fu as a one-way sensitivity check.\n\nFor BL/BLI pairs, bind each component on its own terms.\n\nIf the effect site is not plasma, say so and move to the effect-site lesson with honest humility."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#walk-through-one-messy-case",
+    "href": "learning/05-free-drug-and-protein-binding.html#walk-through-one-messy-case",
+    "title": "Free drug and protein binding",
+    "section": "Walk through one messy case",
+    "text": "Walk through one messy case\nYou fit a model to total plasma concentrations. The target you want is 100% fT&gt;MIC. Literature fu is 0.25 in healthy volunteers, but your population is critically ill and often hypoalbuminemic. A first run uses fu = 0.25. A second run uses fu = 0.40 as a what-if for lower binding. A third run keeps total concentrations and “forgets” the f, which wrongly inflates attainment.\nOnly the first two runs belong in a serious report, and both should be shown if binding is uncertain. The third run is a unit error dressed as optimism.\nWhen you present results, say the free/total conversion out loud before you show the PTA plot. If listeners cannot tell whether the curve is free or total, the figure is not ready."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#takeaway",
+    "href": "learning/05-free-drug-and-protein-binding.html#takeaway",
+    "title": "Free drug and protein binding",
+    "section": "Takeaway",
+    "text": "Takeaway\nBinding is not cosmetic formatting. It decides which curve is allowed to talk to the MIC. Align the binding state of the PK output with the binding state of the PD target before you interpret attainment.\nPrevious: Resistance, tolerance, and persistence · Next: Intermittent vs continuous infusion."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html",
+    "href": "learning/07-joint-targets-bl-bli.html",
+    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
+    "section": "",
+    "text": "A beta-lactam paired with a beta-lactamase inhibitor is not one medicine with a long name. One partner usually does the killing work. The other protects that work from enzymes. If protection fails, the beta-lactam can look adequate on a plot and still lose in the patient.\nThat is why combination PK/PD often needs a joint rule: both conditions true in the same virtual subject at the same evaluation window."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#two-conditions-one-success-flag",
+    "href": "learning/07-joint-targets-bl-bli.html#two-conditions-one-success-flag",
+    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
+    "section": "Two conditions, one success flag",
+    "text": "Two conditions, one success flag\nSuppose drug A must meet a free-exposure target against MIC, and drug B must stay above a threshold that preserves A’s activity. For each simulated person:\n[ = {A} {B} ]\nJoint PTA is the fraction of people for whom that intersection is true. It is not the average of PTA(A) and PTA(B). It is not “A looks fine, so ignore B.”\n\n\n  \n  \n  \n  A ok\n  B ok\n  joint\n  PTA(A)\n  PTA(B)\n  PTA(A and B)\n  Joint attainment lives in the overlap.\n\n\n\n\nWhy correlation between clearances matters\n\nIf A and B clearances move together, the joint tail can be very different from two independent draws. Ignoring correlation can make joint failure look rarer or more common than your evidence supports. State the correlation assumption."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#mistakes-that-look-sophisticated",
+    "href": "learning/07-joint-targets-bl-bli.html#mistakes-that-look-sophisticated",
+    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
+    "section": "Mistakes that look sophisticated",
+    "text": "Mistakes that look sophisticated\n\nSimulating only the beta-lactam because “that is the antibiotic.”\n\nReporting the mean of two PTAs as if it were joint attainment.\n\nBorrowing an inhibitor threshold from another matrix or population without labeling.\n\nCollapsing both drugs into one fake combined concentration.\n\n\n  \n    Separate profiles\n    Joint rule\n    Not equivalent\n  \n  \n    Simulate free concentration-time for A and for B in each virtual subject. Keep units and binding honest for each component.\n  \n  \n    Apply each target. Mark success only when both pass. Build PTA versus MIC from that joint indicator. Optionally weight by MIC ecology for joint CFR.\n  \n  \n    Average(PTA_A, PTA_B), or \"A passed so count success.\" Those shortcuts answer different questions and can hide inhibitor-limited regimens."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#why-this-shows-up-in-caz-avi-style-work",
+    "href": "learning/07-joint-targets-bl-bli.html#why-this-shows-up-in-caz-avi-style-work",
+    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
+    "section": "Why this shows up in CAZ-AVI style work",
+    "text": "Why this shows up in CAZ-AVI style work\nCeftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#a-tiny-counting-example",
+    "href": "learning/07-joint-targets-bl-bli.html#a-tiny-counting-example",
+    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
+    "section": "A tiny counting example",
+    "text": "A tiny counting example\nImagine 100 virtual subjects.\n\n90 pass the beta-lactam rule.\n\n80 pass the inhibitor rule.\n\nOnly 70 pass both.\n\nJoint PTA is 70%. The average of 90% and 80% is 85%. That 15-point gap is exactly why intersection logic exists. If clearances are positively correlated, joint failures may cluster; if not, the overlap changes again. Either way, report the joint indicator you actually coded.\nWhen you write results, show component PTA only as supporting context. Lead with joint PTA if the clinical object is the combination.\nIf you need a debugging view, plot the fraction failing A only, B only, and both. That split tells you whether the regimen is beta-lactam limited, inhibitor limited, or jointly fragile. A single joint number hides that diagnosis."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#takeaway",
+    "href": "learning/07-joint-targets-bl-bli.html#takeaway",
+    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
+    "section": "Takeaway",
+    "text": "Takeaway\nFor BL/BLI pairs, protection failure is regimen failure. Joint PTA is an intersection inside each simulated person. Build it that way, then be transparent about thresholds, correlation, and which MIC the beta-lactam rule refers to.\nPrevious: Intermittent vs continuous infusion · Next: Uncertainty and provenance · Case study: CAZ-AVI end-to-end."
+  },
+  {
+    "objectID": "learning/09-hgt-and-mic-ecology.html",
+    "href": "learning/09-hgt-and-mic-ecology.html",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "",
+    "text": "Horizontal gene transfer (HGT) is sideways inheritance: genes moving between bacteria that are not simply parent and child. Plasmids, transposons, and related elements do a lot of that traffic for resistance.\nFor PK/PD, you rarely need the full molecular soap opera. You need one consequence: MIC distributions can change faster than a stable chromosomal lineage would suggest. CFR depends on those distributions. So HGT is an aging clock on your epidemiology prior."
+  },
+  {
+    "objectID": "learning/09-hgt-and-mic-ecology.html#from-gene-traffic-to-pmic",
+    "href": "learning/09-hgt-and-mic-ecology.html#from-gene-traffic-to-pmic",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "From gene traffic to P(MIC)",
+    "text": "From gene traffic to P(MIC)\nCFR needs weights: how common is each MIC category in the population you care about? That is an ecological claim. It includes species, region, year, specimen mix, and which mechanisms are circulating.\nIf a plasmid carrying a clinically important enzyme expands in a hospital network, the right-hand side of the MIC histogram can fatten within seasons. A CFR computed on last year’s weights can remain numerically tidy and scientifically late.\n\n\n  \n  Year T\n  Year T after HGT expansion\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  Same drug, different probability mass under CFR\n\n\n\n\nWhat HGT does not do\n\nHGT does not replace pharmacometrics. Clearance, infusion mode, and free-drug targets still matter. HGT tells you when the MIC weights under those calculations need a fresh date stamp."
+  },
+  {
+    "objectID": "learning/09-hgt-and-mic-ecology.html#habits-that-survive-contact-with-mobile-resistance",
+    "href": "learning/09-hgt-and-mic-ecology.html#habits-that-survive-contact-with-mobile-resistance",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "Habits that survive contact with mobile resistance",
+    "text": "Habits that survive contact with mobile resistance\n\nDate-stamp every MIC source used in CFR.\n\nSeparate mechanism strata when the data allow (enzyme class versus target mutation).\n\nRecompute CFR under alternate local distributions as sensitivity analysis.\n\nAvoid promoting one ward antibiogram into a universal prior.\n\nKeep the chromosome-versus-plasmid distinction nearby when you talk about stability.\n\n\n  \n    More stable prior\n    More perishable prior\n  \n  \n    Chromosomal lineage-dominant resistance, slow local change, consistent species mix, recent surveillance with clear methods.\n  \n  \n    Known plasmid outbreak potential, rapid MIC shifts in neighboring centers, mixed specimen sources, or an old surveillance table reused without comment."
+  },
+  {
+    "objectID": "learning/09-hgt-and-mic-ecology.html#a-concrete-cfr-story",
+    "href": "learning/09-hgt-and-mic-ecology.html#a-concrete-cfr-story",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "A concrete CFR story",
+    "text": "A concrete CFR story\nYour PTA curve looks reassuring through MIC 4 mg/L and then falls. Under last year’s local distribution, most isolates sit at MIC 1 or 2, so CFR looks high. This year a plasmid-associated enzyme becomes common and the mass shifts toward MIC 4 and 8. The PTA curve did not change. CFR did, because the weights changed.\nThat is why dating the MIC prior is not bureaucracy. It is part of naming the ecological world your summary number lives in. If you only have an old table, say so and show a harsher alternate prior beside it.\nPair this habit with the chromosome-versus-plasmid lesson: mobility tells you how nervous to be about calendar age.\nWhen surveillance is sparse, you can still be useful. Report PTA as the main figure and treat CFR as exploratory under two or three stated priors. That is better than one confident CFR built on an undated convenience sample.\nAsk the microbiology lab what changed recently: outbreak notes, new carbapenemase detections, or shifted species mix. Informal context is not a substitute for surveillance tables, but it tells you whether yesterday’s prior deserves extra suspicion."
+  },
+  {
+    "objectID": "learning/09-hgt-and-mic-ecology.html#takeaway",
+    "href": "learning/09-hgt-and-mic-ecology.html#takeaway",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "Takeaway",
+    "text": "Takeaway\nTreat MIC ecology as perishable when mobile elements are in play. Your PTA curve can stay the same while CFR moves, simply because the weights under the curve changed.\nPrevious: Chromosome vs plasmid resistance · PK/PD: Uncertainty and provenance · Next: Effect site versus plasma."
+  },
+  {
+    "objectID": "learning/11-renal-function-egfr-strata.html",
+    "href": "learning/11-renal-function-egfr-strata.html",
+    "title": "Renal function and eGFR strata in antibiotic PK/PD",
+    "section": "",
+    "text": "Many antibiotics leave the body through the kidney. When clearance depends on renal function, two patients on the “same” regimen can live in different exposure worlds. One has high free levels and long time above MIC. Another clears the drug so fast the troughs collapse.\nThat is why serious virtual populations often stratify by eGFR or similar kidney metrics instead of pretending one clearance distribution fits everybody."
+  },
+  {
+    "objectID": "learning/11-renal-function-egfr-strata.html#why-kidney-function-changes-the-plot",
+    "href": "learning/11-renal-function-egfr-strata.html#why-kidney-function-changes-the-plot",
+    "title": "Renal function and eGFR strata in antibiotic PK/PD",
+    "section": "Why kidney function changes the plot",
+    "text": "Why kidney function changes the plot\nIf clearance rises as eGFR rises, the concentration-time curve sits lower for better renal function, all else equal. For time-driven targets, that can erase trough coverage first. For continuous infusion, steady free concentration moves almost directly with clearance. For AUC-driven targets, the whole area shrinks.\nSo renal strata are not decorative subgroups. They are different pharmacokinetic machines.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  lower eGFR\n  higher eGFR\n  Time\n\nBetter kidney function can mean less exposure on the same nominal regimen.\n\n\n\nAugmented renal clearance\n\nSome critically ill patients clear drugs unusually fast. If your virtual population never includes that tail, PTA for “ICU adults” can look calmer than the ward you claim to study."
+  },
+  {
+    "objectID": "learning/11-renal-function-egfr-strata.html#building-strata-without-clutter",
+    "href": "learning/11-renal-function-egfr-strata.html#building-strata-without-clutter",
+    "title": "Renal function and eGFR strata in antibiotic PK/PD",
+    "section": "Building strata without clutter",
+    "text": "Building strata without clutter\nA practical pattern:\n\nDefine eGFR classes that match the covariate model you cite.\n\nDraw subjects inside each class, or draw eGFR then map to clearance.\n\nReport PTA within strata and overall.\n\nKeep dosing rules explicit if the labeled regimen itself adjusts by kidney function.\n\nIf the clinical regimen reduces dose in low eGFR, your simulation should not compare “full dose in everyone” unless that is the deliberate what-if.\n\n  \n    Fixed dose, all eGFR\n    Renally adjusted regimen\n  \n  \n    Useful for understanding raw pharmacokinetic sensitivity to kidney function. Can overstate exposure in low eGFR and understate risk in high eGFR relative to labeled practice.\n  \n  \n    Closer to practice questions. Each stratum gets its regimen rule, then PTA is compared under those rules. Still cite which adjustment scheme you implemented."
+  },
+  {
+    "objectID": "learning/11-renal-function-egfr-strata.html#what-to-report-so-readers-can-trust-you",
+    "href": "learning/11-renal-function-egfr-strata.html#what-to-report-so-readers-can-trust-you",
+    "title": "Renal function and eGFR strata in antibiotic PK/PD",
+    "section": "What to report so readers can trust you",
+    "text": "What to report so readers can trust you\nName the equation used for renal function, the class boundaries, the clearance relationship, and whether dialysis or renal replacement scenarios were excluded. Mixed populations without labels are hard to reuse and easy to over-interpret."
+  },
+  {
+    "objectID": "learning/11-renal-function-egfr-strata.html#what-changes-in-the-figure-when-you-stratify",
+    "href": "learning/11-renal-function-egfr-strata.html#what-changes-in-the-figure-when-you-stratify",
+    "title": "Renal function and eGFR strata in antibiotic PK/PD",
+    "section": "What changes in the figure when you stratify",
+    "text": "What changes in the figure when you stratify\nOverall PTA can hide a split world: strong attainment in low eGFR and fragile attainment in high eGFR on the same nominal dose. Or the reverse after renal dose reductions that overshoot. Stratified plots make that visible. A single pooled PTA can average the tension away.\nWhen you present, show at least one stratum contrast beside the overall number. Readers who treat ICU kidneys as one bin will misuse your result. Readers who see the bins can argue with you productively about class boundaries and clearance equations.\nIf renal replacement therapy is excluded, say that in the first methods paragraph. Mixed RRT and non-RRT evidence is a classic provenance trap.\nAlso write down which equation produced eGFR or creatinine clearance in your covariate chain. Switching formulas mid-project is a quiet way to invent a new population without noticing.\nIf body size and renal function both enter clearance, keep that structure intact in the virtual draws. Dropping weight while keeping eGFR, or the reverse, can warp the tails that decide PTA at higher MIC values."
+  },
+  {
+    "objectID": "learning/11-renal-function-egfr-strata.html#takeaway",
+    "href": "learning/11-renal-function-egfr-strata.html#takeaway",
+    "title": "Renal function and eGFR strata in antibiotic PK/PD",
+    "section": "Takeaway",
+    "text": "Takeaway\nFor renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.\nPrevious: Effect site versus plasma · Next: Inoculum effect."
+  },
+  {
     "objectID": "learning/13-caz-avi-mini-case.html",
     "href": "learning/13-caz-avi-mini-case.html",
     "title": "Mini case: putting CAZ-AVI style PK/PD together",
@@ -259,671 +966,6 @@
     "text": "Takeaway\nThe CAZ-AVI style case is a checklist in narrative form: separate components, free-drug honesty, joint intersection, renal structure, provenance, then PTA/CFR. If you can explain those choices out loud without slides, the simulation is ready to be read by another scientist.\nRelated lessons: Joint targets, Free drug, eGFR strata, Provenance. Project page: CAZ-AVI evidence-composite PK/PD."
   },
   {
-    "objectID": "learning/11-renal-function-egfr-strata.html",
-    "href": "learning/11-renal-function-egfr-strata.html",
-    "title": "Renal function and eGFR strata in antibiotic PK/PD",
-    "section": "",
-    "text": "Many antibiotics leave the body through the kidney. When clearance depends on renal function, two patients on the “same” regimen can live in different exposure worlds. One has high free levels and long time above MIC. Another clears the drug so fast the troughs collapse.\nThat is why serious virtual populations often stratify by eGFR or similar kidney metrics instead of pretending one clearance distribution fits everybody."
-  },
-  {
-    "objectID": "learning/11-renal-function-egfr-strata.html#why-kidney-function-changes-the-plot",
-    "href": "learning/11-renal-function-egfr-strata.html#why-kidney-function-changes-the-plot",
-    "title": "Renal function and eGFR strata in antibiotic PK/PD",
-    "section": "Why kidney function changes the plot",
-    "text": "Why kidney function changes the plot\nIf clearance rises as eGFR rises, the concentration-time curve sits lower for better renal function, all else equal. For time-driven targets, that can erase trough coverage first. For continuous infusion, steady free concentration moves almost directly with clearance. For AUC-driven targets, the whole area shrinks.\nSo renal strata are not decorative subgroups. They are different pharmacokinetic machines.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  lower eGFR\n  higher eGFR\n  Time\n\nBetter kidney function can mean less exposure on the same nominal regimen.\n\n\n\nAugmented renal clearance\n\nSome critically ill patients clear drugs unusually fast. If your virtual population never includes that tail, PTA for “ICU adults” can look calmer than the ward you claim to study."
-  },
-  {
-    "objectID": "learning/11-renal-function-egfr-strata.html#building-strata-without-clutter",
-    "href": "learning/11-renal-function-egfr-strata.html#building-strata-without-clutter",
-    "title": "Renal function and eGFR strata in antibiotic PK/PD",
-    "section": "Building strata without clutter",
-    "text": "Building strata without clutter\nA practical pattern:\n\nDefine eGFR classes that match the covariate model you cite.\n\nDraw subjects inside each class, or draw eGFR then map to clearance.\n\nReport PTA within strata and overall.\n\nKeep dosing rules explicit if the labeled regimen itself adjusts by kidney function.\n\nIf the clinical regimen reduces dose in low eGFR, your simulation should not compare “full dose in everyone” unless that is the deliberate what-if.\n\n  \n    Fixed dose, all eGFR\n    Renally adjusted regimen\n  \n  \n    Useful for understanding raw pharmacokinetic sensitivity to kidney function. Can overstate exposure in low eGFR and understate risk in high eGFR relative to labeled practice.\n  \n  \n    Closer to practice questions. Each stratum gets its regimen rule, then PTA is compared under those rules. Still cite which adjustment scheme you implemented."
-  },
-  {
-    "objectID": "learning/11-renal-function-egfr-strata.html#what-to-report-so-readers-can-trust-you",
-    "href": "learning/11-renal-function-egfr-strata.html#what-to-report-so-readers-can-trust-you",
-    "title": "Renal function and eGFR strata in antibiotic PK/PD",
-    "section": "What to report so readers can trust you",
-    "text": "What to report so readers can trust you\nName the equation used for renal function, the class boundaries, the clearance relationship, and whether dialysis or renal replacement scenarios were excluded. Mixed populations without labels are hard to reuse and easy to over-interpret."
-  },
-  {
-    "objectID": "learning/11-renal-function-egfr-strata.html#what-changes-in-the-figure-when-you-stratify",
-    "href": "learning/11-renal-function-egfr-strata.html#what-changes-in-the-figure-when-you-stratify",
-    "title": "Renal function and eGFR strata in antibiotic PK/PD",
-    "section": "What changes in the figure when you stratify",
-    "text": "What changes in the figure when you stratify\nOverall PTA can hide a split world: strong attainment in low eGFR and fragile attainment in high eGFR on the same nominal dose. Or the reverse after renal dose reductions that overshoot. Stratified plots make that visible. A single pooled PTA can average the tension away.\nWhen you present, show at least one stratum contrast beside the overall number. Readers who treat ICU kidneys as one bin will misuse your result. Readers who see the bins can argue with you productively about class boundaries and clearance equations.\nIf renal replacement therapy is excluded, say that in the first methods paragraph. Mixed RRT and non-RRT evidence is a classic provenance trap.\nAlso write down which equation produced eGFR or creatinine clearance in your covariate chain. Switching formulas mid-project is a quiet way to invent a new population without noticing.\nIf body size and renal function both enter clearance, keep that structure intact in the virtual draws. Dropping weight while keeping eGFR, or the reverse, can warp the tails that decide PTA at higher MIC values."
-  },
-  {
-    "objectID": "learning/11-renal-function-egfr-strata.html#takeaway",
-    "href": "learning/11-renal-function-egfr-strata.html#takeaway",
-    "title": "Renal function and eGFR strata in antibiotic PK/PD",
-    "section": "Takeaway",
-    "text": "Takeaway\nFor renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.\nPrevious: Effect site versus plasma · Next: Inoculum effect."
-  },
-  {
-    "objectID": "learning/09-hgt-and-mic-ecology.html",
-    "href": "learning/09-hgt-and-mic-ecology.html",
-    "title": "Horizontal gene transfer and MIC ecology",
-    "section": "",
-    "text": "Horizontal gene transfer (HGT) is sideways inheritance: genes moving between bacteria that are not simply parent and child. Plasmids, transposons, and related elements do a lot of that traffic for resistance.\nFor PK/PD, you rarely need the full molecular soap opera. You need one consequence: MIC distributions can change faster than a stable chromosomal lineage would suggest. CFR depends on those distributions. So HGT is an aging clock on your epidemiology prior."
-  },
-  {
-    "objectID": "learning/09-hgt-and-mic-ecology.html#from-gene-traffic-to-pmic",
-    "href": "learning/09-hgt-and-mic-ecology.html#from-gene-traffic-to-pmic",
-    "title": "Horizontal gene transfer and MIC ecology",
-    "section": "From gene traffic to P(MIC)",
-    "text": "From gene traffic to P(MIC)\nCFR needs weights: how common is each MIC category in the population you care about? That is an ecological claim. It includes species, region, year, specimen mix, and which mechanisms are circulating.\nIf a plasmid carrying a clinically important enzyme expands in a hospital network, the right-hand side of the MIC histogram can fatten within seasons. A CFR computed on last year’s weights can remain numerically tidy and scientifically late.\n\n\n  \n  Year T\n  Year T after HGT expansion\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  Same drug, different probability mass under CFR\n\n\n\n\nWhat HGT does not do\n\nHGT does not replace pharmacometrics. Clearance, infusion mode, and free-drug targets still matter. HGT tells you when the MIC weights under those calculations need a fresh date stamp."
-  },
-  {
-    "objectID": "learning/09-hgt-and-mic-ecology.html#habits-that-survive-contact-with-mobile-resistance",
-    "href": "learning/09-hgt-and-mic-ecology.html#habits-that-survive-contact-with-mobile-resistance",
-    "title": "Horizontal gene transfer and MIC ecology",
-    "section": "Habits that survive contact with mobile resistance",
-    "text": "Habits that survive contact with mobile resistance\n\nDate-stamp every MIC source used in CFR.\n\nSeparate mechanism strata when the data allow (enzyme class versus target mutation).\n\nRecompute CFR under alternate local distributions as sensitivity analysis.\n\nAvoid promoting one ward antibiogram into a universal prior.\n\nKeep the chromosome-versus-plasmid distinction nearby when you talk about stability.\n\n\n  \n    More stable prior\n    More perishable prior\n  \n  \n    Chromosomal lineage-dominant resistance, slow local change, consistent species mix, recent surveillance with clear methods.\n  \n  \n    Known plasmid outbreak potential, rapid MIC shifts in neighboring centers, mixed specimen sources, or an old surveillance table reused without comment."
-  },
-  {
-    "objectID": "learning/09-hgt-and-mic-ecology.html#a-concrete-cfr-story",
-    "href": "learning/09-hgt-and-mic-ecology.html#a-concrete-cfr-story",
-    "title": "Horizontal gene transfer and MIC ecology",
-    "section": "A concrete CFR story",
-    "text": "A concrete CFR story\nYour PTA curve looks reassuring through MIC 4 mg/L and then falls. Under last year’s local distribution, most isolates sit at MIC 1 or 2, so CFR looks high. This year a plasmid-associated enzyme becomes common and the mass shifts toward MIC 4 and 8. The PTA curve did not change. CFR did, because the weights changed.\nThat is why dating the MIC prior is not bureaucracy. It is part of naming the ecological world your summary number lives in. If you only have an old table, say so and show a harsher alternate prior beside it.\nPair this habit with the chromosome-versus-plasmid lesson: mobility tells you how nervous to be about calendar age.\nWhen surveillance is sparse, you can still be useful. Report PTA as the main figure and treat CFR as exploratory under two or three stated priors. That is better than one confident CFR built on an undated convenience sample.\nAsk the microbiology lab what changed recently: outbreak notes, new carbapenemase detections, or shifted species mix. Informal context is not a substitute for surveillance tables, but it tells you whether yesterday’s prior deserves extra suspicion."
-  },
-  {
-    "objectID": "learning/09-hgt-and-mic-ecology.html#takeaway",
-    "href": "learning/09-hgt-and-mic-ecology.html#takeaway",
-    "title": "Horizontal gene transfer and MIC ecology",
-    "section": "Takeaway",
-    "text": "Takeaway\nTreat MIC ecology as perishable when mobile elements are in play. Your PTA curve can stay the same while CFR moves, simply because the weights under the curve changed.\nPrevious: Chromosome vs plasmid resistance · PK/PD: Uncertainty and provenance · Next: Effect site versus plasma."
-  },
-  {
-    "objectID": "learning/07-joint-targets-bl-bli.html",
-    "href": "learning/07-joint-targets-bl-bli.html",
-    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
-    "section": "",
-    "text": "A beta-lactam paired with a beta-lactamase inhibitor is not one medicine with a long name. One partner usually does the killing work. The other protects that work from enzymes. If protection fails, the beta-lactam can look adequate on a plot and still lose in the patient.\nThat is why combination PK/PD often needs a joint rule: both conditions true in the same virtual subject at the same evaluation window."
-  },
-  {
-    "objectID": "learning/07-joint-targets-bl-bli.html#two-conditions-one-success-flag",
-    "href": "learning/07-joint-targets-bl-bli.html#two-conditions-one-success-flag",
-    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
-    "section": "Two conditions, one success flag",
-    "text": "Two conditions, one success flag\nSuppose drug A must meet a free-exposure target against MIC, and drug B must stay above a threshold that preserves A’s activity. For each simulated person:\n[ = {A} {B} ]\nJoint PTA is the fraction of people for whom that intersection is true. It is not the average of PTA(A) and PTA(B). It is not “A looks fine, so ignore B.”\n\n\n  \n  \n  \n  A ok\n  B ok\n  joint\n  PTA(A)\n  PTA(B)\n  PTA(A and B)\n  Joint attainment lives in the overlap.\n\n\n\n\nWhy correlation between clearances matters\n\nIf A and B clearances move together, the joint tail can be very different from two independent draws. Ignoring correlation can make joint failure look rarer or more common than your evidence supports. State the correlation assumption."
-  },
-  {
-    "objectID": "learning/07-joint-targets-bl-bli.html#mistakes-that-look-sophisticated",
-    "href": "learning/07-joint-targets-bl-bli.html#mistakes-that-look-sophisticated",
-    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
-    "section": "Mistakes that look sophisticated",
-    "text": "Mistakes that look sophisticated\n\nSimulating only the beta-lactam because “that is the antibiotic.”\n\nReporting the mean of two PTAs as if it were joint attainment.\n\nBorrowing an inhibitor threshold from another matrix or population without labeling.\n\nCollapsing both drugs into one fake combined concentration.\n\n\n  \n    Separate profiles\n    Joint rule\n    Not equivalent\n  \n  \n    Simulate free concentration-time for A and for B in each virtual subject. Keep units and binding honest for each component.\n  \n  \n    Apply each target. Mark success only when both pass. Build PTA versus MIC from that joint indicator. Optionally weight by MIC ecology for joint CFR.\n  \n  \n    Average(PTA_A, PTA_B), or \"A passed so count success.\" Those shortcuts answer different questions and can hide inhibitor-limited regimens."
-  },
-  {
-    "objectID": "learning/07-joint-targets-bl-bli.html#why-this-shows-up-in-caz-avi-style-work",
-    "href": "learning/07-joint-targets-bl-bli.html#why-this-shows-up-in-caz-avi-style-work",
-    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
-    "section": "Why this shows up in CAZ-AVI style work",
-    "text": "Why this shows up in CAZ-AVI style work\nCeftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose."
-  },
-  {
-    "objectID": "learning/07-joint-targets-bl-bli.html#a-tiny-counting-example",
-    "href": "learning/07-joint-targets-bl-bli.html#a-tiny-counting-example",
-    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
-    "section": "A tiny counting example",
-    "text": "A tiny counting example\nImagine 100 virtual subjects.\n\n90 pass the beta-lactam rule.\n\n80 pass the inhibitor rule.\n\nOnly 70 pass both.\n\nJoint PTA is 70%. The average of 90% and 80% is 85%. That 15-point gap is exactly why intersection logic exists. If clearances are positively correlated, joint failures may cluster; if not, the overlap changes again. Either way, report the joint indicator you actually coded.\nWhen you write results, show component PTA only as supporting context. Lead with joint PTA if the clinical object is the combination.\nIf you need a debugging view, plot the fraction failing A only, B only, and both. That split tells you whether the regimen is beta-lactam limited, inhibitor limited, or jointly fragile. A single joint number hides that diagnosis."
-  },
-  {
-    "objectID": "learning/07-joint-targets-bl-bli.html#takeaway",
-    "href": "learning/07-joint-targets-bl-bli.html#takeaway",
-    "title": "Joint targets for beta-lactam / beta-lactamase inhibitor pairs",
-    "section": "Takeaway",
-    "text": "Takeaway\nFor BL/BLI pairs, protection failure is regimen failure. Joint PTA is an intersection inside each simulated person. Build it that way, then be transparent about thresholds, correlation, and which MIC the beta-lactam rule refers to.\nPrevious: Intermittent vs continuous infusion · Next: Uncertainty and provenance · Case study: CAZ-AVI end-to-end."
-  },
-  {
-    "objectID": "learning/05-free-drug-and-protein-binding.html",
-    "href": "learning/05-free-drug-and-protein-binding.html",
-    "title": "Free drug and protein binding",
-    "section": "",
-    "text": "Open a PK/PD paper and you will often see a little f in front of the target: fT&gt;MIC, fAUC/MIC. That letter is easy to skim past. It is also where many simulations go wrong.\nMost antibacterial targets are written for free (unbound) drug. Many concentration models are fitted to total plasma levels. If you compare total curves to free targets, the regimen looks stronger than the rule you claimed to test."
-  },
-  {
-    "objectID": "learning/05-free-drug-and-protein-binding.html#what-free-means-in-plain-language",
-    "href": "learning/05-free-drug-and-protein-binding.html#what-free-means-in-plain-language",
-    "title": "Free drug and protein binding",
-    "section": "What free means in plain language",
-    "text": "What free means in plain language\nIn plasma, some drug molecules stick to proteins such as albumin. The usual modeling story says the unbound molecules are the ones available to act. The MIC assay is generally interpreted on that unbound-compatible scale. So the simulator should put free concentration versus time next to MIC.\nA simple linear correction is:\n[ C_{}(t)=f_uC_{}(t) ]\nwhere (f_u) is the unbound fraction. This is a starting point, not a religion. Binding can change with albumin, pregnancy, burns, or critical illness. For a highly bound drug, a small error in (f_u) becomes a large error in free exposure.\n\n\nA numbers intuition\n\nIf fu = 0.2, only one fifth of the total concentration counts toward a free-drug target. Using the total curve unchanged is like pretending there is five times more active drug than your target definition allows.\n\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  total\n  free\n  Time\n\nThe free curve is the one that should meet a free-drug MIC rule."
-  },
-  {
-    "objectID": "learning/05-free-drug-and-protein-binding.html#where-people-get-hurt-in-practice",
-    "href": "learning/05-free-drug-and-protein-binding.html#where-people-get-hurt-in-practice",
-    "title": "Free drug and protein binding",
-    "section": "Where people get hurt in practice",
-    "text": "Where people get hurt in practice\n\nTarget says free, plotted series is total.\n\nfu comes from healthy volunteers, applied unchanged to hypoalbuminemic ICU patients.\n\nThe infection is not in plasma (ELF, CSF, tissue), but the model never leaves the plasma compartment.\n\nCombination regimens use one fu for both components without checking.\n\n\n  \n    Aligned example\n    Mismatched example\n  \n  \n    Model outputs total concentration, multiplies by a cited fu, then tests 100% fT&gt;MIC. The methods line states free/total conversion and the fu source.\n  \n  \n    Model outputs total concentration and directly counts time above MIC using a free-drug target wording. PTA looks great. The claim is overstated by roughly the binding factor."
-  },
-  {
-    "objectID": "learning/05-free-drug-and-protein-binding.html#a-short-checklist-before-you-run-pta",
-    "href": "learning/05-free-drug-and-protein-binding.html#a-short-checklist-before-you-run-pta",
-    "title": "Free drug and protein binding",
-    "section": "A short checklist before you run PTA",
-    "text": "A short checklist before you run PTA\n\nLabel every series: free or total.\n\nCite fu and whether it is fixed, sampled, or covariate-dependent.\n\nRe-run with lower and higher fu as a one-way sensitivity check.\n\nFor BL/BLI pairs, bind each component on its own terms.\n\nIf the effect site is not plasma, say so and move to the effect-site lesson with honest humility."
-  },
-  {
-    "objectID": "learning/05-free-drug-and-protein-binding.html#walk-through-one-messy-case",
-    "href": "learning/05-free-drug-and-protein-binding.html#walk-through-one-messy-case",
-    "title": "Free drug and protein binding",
-    "section": "Walk through one messy case",
-    "text": "Walk through one messy case\nYou fit a model to total plasma concentrations. The target you want is 100% fT&gt;MIC. Literature fu is 0.25 in healthy volunteers, but your population is critically ill and often hypoalbuminemic. A first run uses fu = 0.25. A second run uses fu = 0.40 as a what-if for lower binding. A third run keeps total concentrations and “forgets” the f, which wrongly inflates attainment.\nOnly the first two runs belong in a serious report, and both should be shown if binding is uncertain. The third run is a unit error dressed as optimism.\nWhen you present results, say the free/total conversion out loud before you show the PTA plot. If listeners cannot tell whether the curve is free or total, the figure is not ready."
-  },
-  {
-    "objectID": "learning/05-free-drug-and-protein-binding.html#takeaway",
-    "href": "learning/05-free-drug-and-protein-binding.html#takeaway",
-    "title": "Free drug and protein binding",
-    "section": "Takeaway",
-    "text": "Takeaway\nBinding is not cosmetic formatting. It decides which curve is allowed to talk to the MIC. Align the binding state of the PK output with the binding state of the PD target before you interpret attainment.\nPrevious: Resistance, tolerance, and persistence · Next: Intermittent vs continuous infusion."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html",
-    "href": "learning/03-resistance-tolerance-persistence.html",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "",
-    "text": "In everyday talk, if an antibiotic fails people often say the bug was resistant. That shorthand is understandable. It is also expensive for modeling, because it points the simulator at the wrong object.\nThis lesson separates three survival ideas and translates them into what a PK/PD model can see: a moved threshold, a slower kill, or a long surviving tail."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#three-words-that-should-not-be-synonyms",
-    "href": "learning/03-resistance-tolerance-persistence.html#three-words-that-should-not-be-synonyms",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Three words that should not be synonyms",
-    "text": "Three words that should not be synonyms\nResistance usually means a heritable drop in susceptibility. In practice that often shows up as a higher MIC or a shifted pharmacodynamic curve. Genetics can sit underneath (target mutation, enzyme, efflux), but the PK/PD layer mainly notices the phenotype change.\nTolerance means a population can endure drug pressure longer without a large MIC shift. Time-kill curves look sluggish. The organism is not “fully susceptible in behavior” just because the MIC table looks polite.\nPersistence points to a small subpopulation that survives much longer. The bulk may fall, then a refractory tail remains. Relapse risk lives in that tail more than in the first steep decline.\n\n\n\n\n\n\n\n\nIdea\nWhat moved\nWhat a model needs\n\n\n\n\nResistance\nThreshold / MIC\nUpdated MIC or PD curve\n\n\nTolerance\nKill speed of the population\nTime-kill or slower kill-rate terms\n\n\nPersistence\nLong-lived fraction\nBiphasic kill or persister compartment\n\n\n\n\n\nA quick self-check\n\nIf changing the MIC fully explains the failure story, you are mostly in resistance territory. If MIC barely moved but killing stalled, look at tolerance or persistence before you keep tuning the dose in a PTA-only frame."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#what-the-curves-look-like",
-    "href": "learning/03-resistance-tolerance-persistence.html#what-the-curves-look-like",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "What the curves look like",
-    "text": "What the curves look like\n\n\n  \n  \n  \n  \n  \n  \n  faster kill\n  tolerance\n  persistence tail\n  Time under drug pressure\n  Viable bacteria\n\nSame starting inoculum, different survival stories. MIC alone may not separate these lines."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#why-a-strong-pta-can-still-disappoint",
-    "href": "learning/03-resistance-tolerance-persistence.html#why-a-strong-pta-can-still-disappoint",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Why a strong PTA can still disappoint",
-    "text": "Why a strong PTA can still disappoint\nPTA asks whether exposure clears a threshold rule. That is a fair question. It is not every question.\nA regimen can look excellent against the measured MIC distribution while:\n\nkilling is too slow for the planned duration,\na persistent fraction remains,\nor the assay MIC understates the real challenge at the infection site.\n\nNone of that makes PTA useless. It means you should label what your simulation tested. “High PTA vs MIC grid” is not the same claim as “sterilizing cure in every biology.”\n\n  \n    If resistance dominates\n    If tolerance dominates\n    If persistence dominates\n  \n  \n    Update the MIC distribution or PD curve. Re-run PTA/CFR. Mechanism matters later when you choose inhibitors or drug class switches.\n  \n  \n    Bring in time-kill information or slower kill parameters. Duration and shape of exposure may matter more than another small dose bump in a MIC-only frame.\n  \n  \n    Model a refractory fraction or biphasic kill. Ask whether your endpoint is inhibition, bulk kill, or durable clearance of the tail."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#pathogen-contrast-briefly",
-    "href": "learning/03-resistance-tolerance-persistence.html#pathogen-contrast-briefly",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Pathogen contrast, briefly",
-    "text": "Pathogen contrast, briefly\nDifferent organisms lean on different survival styles. In comparative modeling work, Staphylococcus aureus and Mycobacterium tuberculosis are a useful pair: one often shows a faster tolerance-like pattern, the other a longer persistence window. The lesson for the modeler is simple. Do not copy a kill structure from one species into another because the antibiotic name matches."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#takeaway",
-    "href": "learning/03-resistance-tolerance-persistence.html#takeaway",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Takeaway",
-    "text": "Takeaway\nResistance moves the threshold. Tolerance slows the population kill. Persistence leaves a long tail. Say which one your simulation is actually testing, especially when the clinical story is failure despite a tidy MIC.\nPrevious: PTA, CFR, and virtual populations · Next: Free drug and protein binding · Genetics: Chromosome vs plasmid resistance."
-  },
-  {
-    "objectID": "learning/01-pkpd-targets-and-mic.html",
-    "href": "learning/01-pkpd-targets-and-mic.html",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "",
-    "text": "Bacteria do not read the prescription label. They experience a rising and falling concentration of drug around them. Pharmacokinetic/pharmacodynamic (PK/PD) modeling is mostly the craft of putting that time course next to a susceptibility number, usually the MIC, and asking whether the exposure looks adequate.\nThis lesson stays practical. You will leave with a clear picture of what MIC can and cannot carry, what the classic indices mean, and how to choose one without turning the choice into folklore."
-  },
-  {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#start-with-the-awkward-object-the-mic",
-    "href": "learning/01-pkpd-targets-and-mic.html#start-with-the-awkward-object-the-mic",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "Start with the awkward object: the MIC",
-    "text": "Start with the awkward object: the MIC\nThe minimum inhibitory concentration is the lowest concentration that stops visible growth in a defined lab assay. That sentence already hides three compromises.\nFirst, “visible growth” is an assay endpoint, not a full story of killing. Second, the assay has a floor and a set of conditions. Change those conditions and the number can move. Third, the pathogen in a patient is not living in Mueller-Hinton broth with perfect mixing and a fixed inoculum.\nStill, MIC is useful because it compresses susceptibility into something a simulator can compare with an exposure curve. The healthy habit is to treat MIC as a scenario input with uncertainty, not as a moral fact about the organism.\n\n\nPause: what question is MIC answering?\n\nMIC answers roughly: under this assay, what concentration prevents visible growth? It does not by itself answer: will every cell die, how fast will they die, or will a small surviving fraction rebound later?"
-  },
-  {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#three-index-families-said-simply",
-    "href": "learning/01-pkpd-targets-and-mic.html#three-index-families-said-simply",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "Three index families, said simply",
-    "text": "Three index families, said simply\nMost antibacterial PK/PD targets fall into one of three families. The leading f means free (unbound) drug.\n\n\n\n\n\n\n\n\nIndex\nPlain meaning\nOften used for\n\n\n\n\nfT&gt;MIC\nHow much of the dosing interval free concentration stays above MIC\nMany beta-lactams\n\n\nfAUC/MIC\nTotal free exposure over time, scaled by MIC\nFluoroquinolones; vancomycin discussions often use AUC logic\n\n\nfCmax/MIC\nPeak free level relative to MIC\nSome concentration-dependent patterns\n\n\n\nIf your model outputs total plasma concentration but the target is written for free drug, the units are already arguing with each other. Fix that before you admire the PTA curve.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  time above MIC\n  Time after dose\n  Free concentration\n\nfT&gt;MIC is literally the share of time the free curve sits above the MIC line."
-  },
-  {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#choosing-an-index-without-mystique",
-    "href": "learning/01-pkpd-targets-and-mic.html#choosing-an-index-without-mystique",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "Choosing an index without mystique",
-    "text": "Choosing an index without mystique\nAsk three questions before you code a target.\n\nWhat does the drug class literature actually use for this organism and indication style: time above threshold, integrated exposure, or peak?\nAre you modeling free or total concentrations, and does the cited target match that choice?\nIs success one condition or two? Combinations may need joint rules.\n\nA published target such as “100% fT&gt;MIC” or “fAUC/MIC at least 125” is a decision rule for simulation. It is not a promise that every patient above the line is cured and every patient below it fails.\n\n  \n    Time-driven\n    Exposure-driven\n    Peak-driven\n  \n  \n    Time-driven thinking cares how long the free level stays above a threshold. Flattening troughs (for example with longer infusions) can matter more than chasing a higher peak.\n  \n  \n    Exposure-driven thinking cares about the area under the free curve relative to MIC. Missing a little time above MIC can be less important than overall integrated exposure, depending on the drug.\n  \n  \n    Peak-driven thinking cares whether the highest free concentration clears a multiple of MIC. The shape after the peak still matters clinically, but the index itself is anchored on Cmax."
-  },
-  {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#a-working-habit-for-modelers",
-    "href": "learning/01-pkpd-targets-and-mic.html#a-working-habit-for-modelers",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "A working habit for modelers",
-    "text": "A working habit for modelers\nWrite the index, the free/total state, and the MIC source in one line whenever you start a run. If you cannot fill that line, the simulation is not ready for interpretation yet.\nTolerance and persistence can still spoil a “good” MIC story. We will separate those ideas in a later lesson. For now, keep the simpler rule: pick the index that matches the pharmacology, then keep the units honest.\nNext: PTA, CFR, and virtual populations."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html",
-    "href": "GITHUB_PAGES.html",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html#address",
-    "href": "GITHUB_PAGES.html#address",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html#features",
-    "href": "GITHUB_PAGES.html#features",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
-  },
-  {
-    "objectID": "GITHUB_PAGES.html#deployment",
-    "href": "GITHUB_PAGES.html#deployment",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html",
-    "href": "CODE_OF_CONDUCT.html",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "We as members, contributors, and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity, or sexual orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, respectful, inclusive, and professional environment.\n\n\n\nExamples of behavior that contributes to a positive environment include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility, apologizing to those affected by mistakes, and learning from the experience\nFocusing on what is best for the project and its users\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical address or email address, without their explicit permission\nMisrepresenting the author, projects, publications, affiliations, or academic work presented in this repository\nOther conduct which could reasonably be considered inappropriate in a professional setting\n\n\n\n\nThe project maintainer is responsible for clarifying and enforcing the standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior deemed inappropriate, threatening, offensive, or harmful.\nThe project maintainer has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, pull requests, and other contributions that are not aligned with this Code of Conduct. Reasons for moderation decisions may be communicated when appropriate.\n\n\n\nThis Code of Conduct applies within all project spaces, including issues, pull requests, discussions, wiki pages, and other repository-related communication channels.\nIt also applies when an individual is officially representing the project in public spaces. Examples include using an official project email address, posting through an official social media account, or acting as an appointed representative at an online or offline event.\n\n\n\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer responsible for enforcement at:\nvahab.p@gmail.com\nAll complaints will be reviewed and investigated promptly and fairly.\nThe project maintainer is obligated to respect the privacy and security of the reporter of any incident.\n\n\n\nThe project maintainer will follow these Community Impact Guidelines in determining the consequences for any action deemed to violate this Code of Conduct.\n\n\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the project community.\nConsequence: A private, written warning from the project maintainer, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n\n\n\nCommunity Impact: A violation through a single incident or a series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with the project maintainer, for a specified period of time. This includes avoiding interactions in project spaces as well as external channels such as social media. Violating these terms may lead to a temporary or permanent ban.\n\n\n\nCommunity Impact: A serious violation of project standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any form of interaction or public communication with the project for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with the project maintainer, is allowed during this period. Violating these terms may lead to a permanent ban.\n\n\n\nCommunity Impact: Demonstrating a pattern of violation of project standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any form of public interaction within the project.\n\n\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#our-pledge",
-    "href": "CODE_OF_CONDUCT.html#our-pledge",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "We as members, contributors, and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, sexual identity, or sexual orientation.\nWe pledge to act and interact in ways that contribute to an open, welcoming, respectful, inclusive, and professional environment."
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#our-standards",
-    "href": "CODE_OF_CONDUCT.html#our-standards",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "Examples of behavior that contributes to a positive environment include:\n\nDemonstrating empathy and kindness toward other people\nBeing respectful of differing opinions, viewpoints, and experiences\nGiving and gracefully accepting constructive feedback\nAccepting responsibility, apologizing to those affected by mistakes, and learning from the experience\nFocusing on what is best for the project and its users\n\nExamples of unacceptable behavior include:\n\nThe use of sexualized language or imagery, and sexual attention or advances of any kind\nTrolling, insulting or derogatory comments, and personal or political attacks\nPublic or private harassment\nPublishing others’ private information, such as a physical address or email address, without their explicit permission\nMisrepresenting the author, projects, publications, affiliations, or academic work presented in this repository\nOther conduct which could reasonably be considered inappropriate in a professional setting"
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#enforcement-responsibilities",
-    "href": "CODE_OF_CONDUCT.html#enforcement-responsibilities",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "The project maintainer is responsible for clarifying and enforcing the standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior deemed inappropriate, threatening, offensive, or harmful.\nThe project maintainer has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, pull requests, and other contributions that are not aligned with this Code of Conduct. Reasons for moderation decisions may be communicated when appropriate."
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#scope",
-    "href": "CODE_OF_CONDUCT.html#scope",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "This Code of Conduct applies within all project spaces, including issues, pull requests, discussions, wiki pages, and other repository-related communication channels.\nIt also applies when an individual is officially representing the project in public spaces. Examples include using an official project email address, posting through an official social media account, or acting as an appointed representative at an online or offline event."
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#enforcement",
-    "href": "CODE_OF_CONDUCT.html#enforcement",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer responsible for enforcement at:\nvahab.p@gmail.com\nAll complaints will be reviewed and investigated promptly and fairly.\nThe project maintainer is obligated to respect the privacy and security of the reporter of any incident."
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#enforcement-guidelines",
-    "href": "CODE_OF_CONDUCT.html#enforcement-guidelines",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "The project maintainer will follow these Community Impact Guidelines in determining the consequences for any action deemed to violate this Code of Conduct.\n\n\nCommunity Impact: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the project community.\nConsequence: A private, written warning from the project maintainer, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.\n\n\n\nCommunity Impact: A violation through a single incident or a series of actions.\nConsequence: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with the project maintainer, for a specified period of time. This includes avoiding interactions in project spaces as well as external channels such as social media. Violating these terms may lead to a temporary or permanent ban.\n\n\n\nCommunity Impact: A serious violation of project standards, including sustained inappropriate behavior.\nConsequence: A temporary ban from any form of interaction or public communication with the project for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with the project maintainer, is allowed during this period. Violating these terms may lead to a permanent ban.\n\n\n\nCommunity Impact: Demonstrating a pattern of violation of project standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.\nConsequence: A permanent ban from any form of public interaction within the project."
-  },
-  {
-    "objectID": "CODE_OF_CONDUCT.html#attribution",
-    "href": "CODE_OF_CONDUCT.html#attribution",
-    "title": "Vahhab Piranfar Portfolio Code of Conduct",
-    "section": "",
-    "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "about.html#professional-profile",
-    "href": "about.html#professional-profile",
-    "title": "About",
-    "section": "",
-    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "about.html#research-interests",
-    "href": "about.html#research-interests",
-    "title": "About",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
-  },
-  {
-    "objectID": "about.html#professional-journey",
-    "href": "about.html#professional-journey",
-    "title": "About",
-    "section": "Professional Journey",
-    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
-  },
-  {
-    "objectID": "about.html#technical-skills",
-    "href": "about.html#technical-skills",
-    "title": "About",
-    "section": "Technical Skills",
-    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
-  },
-  {
-    "objectID": "about.html#selected-publications",
-    "href": "about.html#selected-publications",
-    "title": "About",
-    "section": "Selected Publications",
-    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Research & Discussion",
-    "section": "",
-    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "CONTRIBUTING.html",
-    "href": "CONTRIBUTING.html",
-    "title": "Vahhab Piranfar",
-    "section": "",
-    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
-  },
-  {
-    "objectID": "CONTRIBUTING.html#acceptable-contributions",
-    "href": "CONTRIBUTING.html#acceptable-contributions",
-    "title": "Vahhab Piranfar",
-    "section": "Acceptable contributions",
-    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
-  },
-  {
-    "objectID": "CONTRIBUTING.html#not-acceptable",
-    "href": "CONTRIBUTING.html#not-acceptable",
-    "title": "Vahhab Piranfar",
-    "section": "Not acceptable",
-    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
-  },
-  {
-    "objectID": "CONTRIBUTING.html#how-to-contribute",
-    "href": "CONTRIBUTING.html#how-to-contribute",
-    "title": "Vahhab Piranfar",
-    "section": "How to contribute",
-    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
-  },
-  {
-    "objectID": "index.html#selected-work",
-    "href": "index.html#selected-work",
-    "title": "Vahhab Piranfar",
-    "section": "Selected work",
-    "text": "Selected work\n\n\n\n CAZ-AVI PK/PD modeling\nProvenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.\n\n\n\n\n AI Bacteriology Hub\nResearch platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.\n\n\n\n\n Learning: antibiotic PK/PD\nShort lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence."
-  },
-  {
-    "objectID": "index.html#current-focus",
-    "href": "index.html#current-focus",
-    "title": "Vahhab Piranfar",
-    "section": "Current focus",
-    "text": "Current focus\nBased in Jersey City, New Jersey, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html",
-    "href": "learning/02-pta-cfr-virtual-populations.html",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "",
-    "text": "Once you have an exposure rule and an MIC, a single “typical patient” calculation is rarely enough. Real people differ in clearance, volume, kidney function, and body size. Virtual populations, PTA, and CFR are the tools we use to ask how often a regimen works across that spread.\nThink of it as moving from one drawn curve to a cloud of curves, then counting how many of those curves pass the test you chose."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-variation",
-    "href": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-variation",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "Virtual populations are controlled variation",
-    "text": "Virtual populations are controlled variation\nA virtual population is a set of simulated individuals. For each person you draw pharmacokinetic parameters from distributions that are supposed to reflect interindividual variability. If the literature reports correlated clearances, or clearances that depend on eGFR, that structure belongs in the draw. If you invent tidy independent normals because they look neat, you are no longer studying the published system. You are studying your drawing habits.\nUseful discipline looks like this:\n\ncite the IIV source,\nkeep covariate rules explicit,\nrecord the random seed and the sample size,\nsay which population the parameters came from (ICU, healthy volunteers, dialysis, and so on).\n\n\n\nWhy sample size shows up in methods sections\n\nToo few virtual subjects and the PTA estimate jitters. Extremely large N can look impressive while hiding a bad structural assumption. Report both N and a quick stability check."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#pta-fix-the-mic-count-the-successes",
-    "href": "learning/02-pta-cfr-virtual-populations.html#pta-fix-the-mic-count-the-successes",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "PTA: fix the MIC, count the successes",
-    "text": "PTA: fix the MIC, count the successes\nProbability of target attainment (PTA) answers a conditional question:\n\nIf MIC equals this value, what fraction of virtual subjects meet the PK/PD target?\n\nYou usually compute PTA across a grid of MIC values and plot a declining curve. The interesting part is often the cliff: the MIC region where success falls apart.\n\n\n  \n  \n  \n  \n  90%\n  \n  \n  where the regimen weakens\n  MIC\n  PTA\n\nPTA is a curve over MIC, not a single trophy number."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#cfr-bring-the-local-microbiology-back-in",
-    "href": "learning/02-pta-cfr-virtual-populations.html#cfr-bring-the-local-microbiology-back-in",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "CFR: bring the local microbiology back in",
-    "text": "CFR: bring the local microbiology back in\nCumulative fraction of response (CFR) folds PTA over an MIC distribution from surveillance or local epidemiology:\n[ = _i (_i)P(_i) ]\nPTA asks “what if MIC is X?”\nCFR asks “given the MICs we actually see around here, how often do we succeed?”\nThat second question is only as honest as the MIC weights. A distribution from another country, another year, or a mixed species group can make CFR look decisive while answering the wrong question.\n\n  \n    When PTA helps\n    When CFR helps\n    When you need both\n  \n  \n    Use PTA when you want to see regimen strength across a MIC grid, compare dosing strategies, or find the MIC where performance collapses.\n  \n  \n    Use CFR when you have a trustworthy local or regional MIC distribution and you want one summary of expected success under that ecology.\n  \n  \n    Show PTA curves for mechanism insight, then report CFR under one or more dated MIC priors. Sensitivity to the prior is part of the scientific result."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow-you-can-defend",
-    "href": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow-you-can-defend",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "A minimal workflow you can defend",
-    "text": "A minimal workflow you can defend\n\nDefine regimen and PK model, with provenance.\n\nDefine free-drug target or targets.\n\nSimulate N virtual subjects.\n\nCompute PTA on an MIC grid.\n\nOptionally weight by an MIC distribution to get CFR.\n\nStress-test the fragile inputs: binding, IIV, renal strata, MIC source.\n\nIf the target is joint (two drugs, two conditions), success is the intersection inside each virtual subject. Averaging two separate PTA values is not the same thing. A later lesson walks through that case."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#takeaway",
-    "href": "learning/02-pta-cfr-virtual-populations.html#takeaway",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "Takeaway",
-    "text": "Takeaway\nVirtual populations turn “does this look fine on paper?” into “how often does this pass under realistic variability?” PTA keeps MIC fixed. CFR brings epidemiology back. Neither repairs a bad target choice or a mismatched population.\nPrevious: PK/PD targets and the MIC · Next: Resistance, tolerance, and persistence."
-  },
-  {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "",
-    "text": "PK/PD models usually do not simulate DNA base by base. They simulate exposure and a phenotype, often an MIC. Genetics still belongs in the room, because it tells you how stable that phenotype is and how fast the local MIC ecology can shift.\nThis lesson is a bridge for modelers. Enough bacterial genetics to stop treating every MIC cell in a table as the same kind of object."
-  },
-  {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#two-homes-for-resistance-genes",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#two-homes-for-resistance-genes",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "Two homes for resistance genes",
-    "text": "Two homes for resistance genes\nResistance can live on the chromosome or on a plasmid (and related mobile elements). Both can raise an MIC. They do not raise it with the same epidemiological behavior.\nChromosomal changes often travel mostly with the lineage: mother cell to daughter cell. Plasmid-borne resistance can move horizontally as well, sometimes across lineages or species. Plasmid copy number can also amplify expression, so “same gene” is not always “same burden.”\n\n\n\n\n\n\n\n\nFeature\nChromosomal\nPlasmid-borne, typical case\n\n\n\n\nMain inheritance\nVertical\nVertical and often horizontal\n\n\nDose / copy effect\nUsually limited copies\nCopy number can boost expression\n\n\nSpeed of ecological change\nOften slower within a hospital\nCan surge when a plasmid expands\n\n\nModeling note\nPhenotype may be more lineage-stable\nMIC priors may age faster\n\n\n\n\n\nWhy this matters for CFR\n\nCFR needs P(MIC). If that distribution is shaped by a spreading plasmid, last year’s weights can quietly expire. Date-stamp the source and, when possible, separate mechanism strata."
-  },
-  {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#same-mic-number-different-story",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#same-mic-number-different-story",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "Same MIC number, different story",
-    "text": "Same MIC number, different story\nImagine two isolates with MIC = 8 mg/L to the same drug.\nIn isolate A, a chromosomal target mutation reduced binding. In isolate B, a plasmid beta-lactamase is chewing the drug. A PTA grid may treat them identically if it only sees “8”. A combination with an inhibitor may help B and do little for A. Your joint-target lesson later depends on knowing which world you are in.\n\n\n  \n  \n  chromosome\n  \n  plasmid\n  \n  \n  MIC\n  \n  \n  PK/PD\n  PTA / CFR\n  Genetics annotates the phenotype input. The model still runs on exposure versus effect."
-  },
-  {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#what-to-change-in-a-pkpd-workflow",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#what-to-change-in-a-pkpd-workflow",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "What to change in a PK/PD workflow",
-    "text": "What to change in a PK/PD workflow\n\nLabel MIC provenance with date, region, species, and method.\n\nAsk whether the mechanism is enzyme-mediated before you lean on inhibitor partners.\n\nRefresh local MIC weights more aggressively when plasmid epidemics are active.\n\nKeep genetics in the annotation layer unless you are explicitly building a genotype-to-phenotype model.\n\n\n  \n    Chromosomal lens\n    Plasmid lens\n  \n  \n    Expect more stability inside a clonal background, but still verify species ID and assay method. Target mutations may need a different therapeutic logic than enzyme blockade.\n  \n  \n    Expect mobility, possible copy-number effects, and faster change in hospital ecology. CFR priors deserve dates and sensitivity checks."
-  },
-  {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#a-short-example-conversation",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#a-short-example-conversation",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "A short example conversation",
-    "text": "A short example conversation\nSomeone hands you an MIC table and asks for CFR. Before you run anything, ask three genetics-aware questions:\n\nAre these isolates dominated by one clone, or is the lab seeing mixed plasmid traffic?\n\nHow old is the table, and has the hospital seen a recent enzyme-gene surge?\n\nIf we later evaluate an inhibitor combination, does the mechanism even match that idea?\n\nYou may still proceed with a standard CFR. The difference is that your methods paragraph will say what kind of phenotype ecology you assumed, instead of pretending every MIC cell is interchangeable biology.\nIf the answer to those questions is “we do not know,” that is still useful. Unknown mobility is itself a reason to run sensitivity CFR under a harsher MIC prior."
-  },
-  {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "Takeaway",
-    "text": "Takeaway\nDo not ask genetics to replace PK/PD. Ask it to annotate the MIC layer: how mobile is this phenotype, how old is the ecology prior, and which mechanism your target rule quietly assumes?\nNext genetics lesson: HGT and MIC ecology · PK/PD spine: Resistance, tolerance, and persistence."
-  },
-  {
-    "objectID": "learning/06-intermittent-vs-continuous-infusion.html",
-    "href": "learning/06-intermittent-vs-continuous-infusion.html",
-    "title": "Intermittent vs continuous infusion for beta-lactams",
-    "section": "",
-    "text": "For many beta-lactams the index that matters most is time above a threshold. That makes how you deliver the dose part of the pharmacology, not a nursing footnote.\nGive the same daily amount as short intermittent infusions and you get peaks and troughs. Stretch the infusion and the troughs rise. Run it continuously and the profile can settle toward a steady free concentration. The MIC line does not move. The geometry around it does."
-  },
-  {
-    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#same-daily-dose-different-shape",
-    "href": "learning/06-intermittent-vs-continuous-infusion.html#same-daily-dose-different-shape",
-    "title": "Intermittent vs continuous infusion for beta-lactams",
-    "section": "Same daily dose, different shape",
-    "text": "Same daily dose, different shape\nHold clearance, volume, fu, and MIC fixed. Change only the input rate.\n\nIntermittent short infusion: oscillating free levels. Success depends on how long each cycle stays above MIC.\n\nExtended infusion: softer peaks, higher troughs.\n\nContinuous infusion: approach to steady state. Many analyses then ask whether steady free concentration stays above MIC, or above a multiple of MIC.\n\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  intermittent\n  continuous Css\n  Time\n\nInfusion mode changes which parts of the day sit above the MIC line.\n\n\n\nWhy loading doses appear in continuous regimens\n\nIf you start continuous infusion with no load, early concentrations climb slowly. A PTA that only looks at later steady state can miss early undershoot. If your clinical question includes the first hours, model the load."
-  },
-  {
-    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#what-the-simulator-must-keep-honest",
-    "href": "learning/06-intermittent-vs-continuous-infusion.html#what-the-simulator-must-keep-honest",
-    "title": "Intermittent vs continuous infusion for beta-lactams",
-    "section": "What the simulator must keep honest",
-    "text": "What the simulator must keep honest\n\nLoading dose status.\n\nRenal function strata, because steady concentration moves with clearance.\n\nAdministration constraints that your scenario ignores (stability, line access). Label them.\n\nTarget form: percent fT&gt;MIC versus a Css/MIC ratio rule. They are related ideas with different bookkeeping.\n\n\n  \n    Compare fairly\n    Common trap\n  \n  \n    Freeze the virtual population and MIC grid. Change only the dosing input. Plot PTA on the same MIC axis. Report early and steady periods if loading differs.\n  \n  \n    Changing infusion mode and also silently changing daily dose, population, or target definition. Then attributing the whole PTA jump to \"continuous infusion magic.\""
-  },
-  {
-    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#a-classroom-example-without-fake-precision",
-    "href": "learning/06-intermittent-vs-continuous-infusion.html#a-classroom-example-without-fake-precision",
-    "title": "Intermittent vs continuous infusion for beta-lactams",
-    "section": "A classroom example without fake precision",
-    "text": "A classroom example without fake precision\nSuppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison."
-  },
-  {
-    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#how-to-talk-about-this-without-overselling",
-    "href": "learning/06-intermittent-vs-continuous-infusion.html#how-to-talk-about-this-without-overselling",
-    "title": "Intermittent vs continuous infusion for beta-lactams",
-    "section": "How to talk about this without overselling",
-    "text": "How to talk about this without overselling\nA fair sentence sounds like this: “Under the same daily dose and the same virtual population, continuous infusion improved PTA at higher MIC values because trough undershoot disappeared; early coverage still depended on the loading dose.”\nAn unfair sentence sounds like this: “Continuous infusion is better,” with no fixed daily dose, no population lock, and no target definition.\nAlso remember pharmacy and line realities. A simulation can assume perfect continuous delivery. A ward may not. If your scenario ignores stability windows or access constraints, write that limitation in ordinary language. The PK/PD geometry lesson remains useful either way.\nOne more practical tip: when two papers disagree about continuous infusion benefit, check whether they locked daily dose, population, free/total handling, and target definition. Many apparent contradictions dissolve once those four locks are compared side by side."
-  },
-  {
-    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#takeaway",
-    "href": "learning/06-intermittent-vs-continuous-infusion.html#takeaway",
-    "title": "Intermittent vs continuous infusion for beta-lactams",
-    "section": "Takeaway",
-    "text": "Takeaway\nInfusion mode redraws the exposure path around the MIC. For time-driven beta-lactam targets, that redraw is part of the science. Compare shapes under controlled conditions, and say whether your endpoint was interval fT&gt;MIC or steady-state coverage.\nPrevious: Free drug and protein binding · Next: Joint targets for BL/BLI pairs."
-  },
-  {
-    "objectID": "learning/08-uncertainty-and-provenance.html",
-    "href": "learning/08-uncertainty-and-provenance.html",
-    "title": "Uncertainty and provenance in PK/PD evidence",
-    "section": "",
-    "text": "A smooth PTA curve can look like certainty. Often it is a stack of borrowed numbers wearing a clean plot. The scientific job is not only to compute a probability. It is to show which assumptions, from which sources, under which scenario rules, produced that probability.\nThis lesson is about evidence hygiene. It is the difference between a reusable simulation and a one-off slide."
-  },
-  {
-    "objectID": "learning/08-uncertainty-and-provenance.html#label-every-input-like-it-might-be-audited",
-    "href": "learning/08-uncertainty-and-provenance.html#label-every-input-like-it-might-be-audited",
-    "title": "Uncertainty and provenance in PK/PD evidence",
-    "section": "Label every input like it might be audited",
-    "text": "Label every input like it might be audited\nUseful labels look boring. That is why they work.\n\n\n\nLabel\nMeaning\n\n\n\n\nDirectly reported\nUsed as published for this purpose\n\n\nTransformed\nUnit change, free/total conversion, algebra\n\n\nDonor / inherited\nBorrowed from a related but non-identical source\n\n\nAssumed\nFilled so the model can run; must stay visible\n\n\nScenario-generated\nCreated by the simulation design itself\n\n\n\nMissing data should stay missing until a compatible donor is justified. Silent median fills create false completeness.\n\n\nA practical test\n\nIf a coauthor asks “where did this fu come from?” and you need five minutes to remember, the provenance trail is already too weak for a methods section."
-  },
-  {
-    "objectID": "learning/08-uncertainty-and-provenance.html#uncertainty-comes-in-layers",
-    "href": "learning/08-uncertainty-and-provenance.html#uncertainty-comes-in-layers",
-    "title": "Uncertainty and provenance in PK/PD evidence",
-    "section": "Uncertainty comes in layers",
-    "text": "Uncertainty comes in layers\n\nParameter uncertainty: IIV, residual error, covariate effects.\n\nStructural uncertainty: compartment choice, infusion constraints, correlation.\n\nEvidence uncertainty: wrong population, wrong matrix, stale MIC ecology.\n\nDecision-rule uncertainty: which threshold counts as “enough.”\n\nMonte Carlo on layer 1 alone can look precise while layer 3 quietly dominates.\n\n\n  \n  \n  PTA / CFR output\n  \n  parameter variability\n  \n  structure and scenario choices\n  \n  evidence provenance and MIC ecology\n\nPretty sampling does not repair a shaky evidence base.\n\n\n  \n    Minimum report\n    Stronger report\n  \n  \n    Source list for CL, V, fu, targets, MIC weights. Free/total notes. Population statement. Seed and N. One sensitivity check on the most fragile input.\n  \n  \n    Everything in the minimum set, plus scenario compatibility notes for donor evidence, correlation assumptions, convergence checks, and alternative MIC priors with dates."
-  },
-  {
-    "objectID": "learning/08-uncertainty-and-provenance.html#compatibility-is-a-scientific-decision",
-    "href": "learning/08-uncertainty-and-provenance.html#compatibility-is-a-scientific-decision",
-    "title": "Uncertainty and provenance in PK/PD evidence",
-    "section": "Compatibility is a scientific decision",
-    "text": "Compatibility is a scientific decision\nICU continuous-infusion parameters are not automatically interchangeable with healthy-volunteer bolus data, CSF studies, or in vitro kill curves. Those sources can still help as donors or anchors. They should not be pooled as if they were one population. Write the compatibility rule in human language: what was allowed to enter the primary scenario, and what stayed outside with a label."
-  },
-  {
-    "objectID": "learning/08-uncertainty-and-provenance.html#what-good-provenance-feels-like-in-a-meeting",
-    "href": "learning/08-uncertainty-and-provenance.html#what-good-provenance-feels-like-in-a-meeting",
-    "title": "Uncertainty and provenance in PK/PD evidence",
-    "section": "What good provenance feels like in a meeting",
-    "text": "What good provenance feels like in a meeting\nSomeone asks why ICU PTA used a clearance relationship from a continuous-infusion critically ill study and an MIC table from a regional surveillance year. You can answer in one breath: primary PK from source A for scenario match, MIC weights from source B dated to that year, fu transformed from total using source C, inhibitor threshold from source D with a compatibility note. No scavenger hunt through forgotten spreadsheets.\nIf you cannot give that breath-length answer, stop polishing the figure and rebuild the input table first. Most “mysterious” PTA sensitivity traces back to one unlabeled donor.\nKeep a one-page input ledger beside the code: parameter, value or distribution, source, transformation, scenario role. It is unglamorous. It is also what makes the project reusable six months later."
-  },
-  {
-    "objectID": "learning/08-uncertainty-and-provenance.html#takeaway",
-    "href": "learning/08-uncertainty-and-provenance.html#takeaway",
-    "title": "Uncertainty and provenance in PK/PD evidence",
-    "section": "Takeaway",
-    "text": "Takeaway\nReproducible PK/PD is less about fancier random draws and more about refusing to launder uncertain evidence into false certainty. If the trail of sources is clear, other people can challenge your result productively. That is a feature.\nPrevious: Joint targets for BL/BLI pairs · Next: HGT and MIC ecology · Then: Effect site versus plasma."
-  },
-  {
-    "objectID": "learning/10-effect-site-vs-plasma.html",
-    "href": "learning/10-effect-site-vs-plasma.html",
-    "title": "Effect site versus plasma: where the bug actually lives",
-    "section": "",
-    "text": "Most antibiotic PK models begin in plasma because plasma is what we can sample often. Many infections, though, are not happening in a blood vial. Pneumonia asks about lung concentrations. Meningitis asks about CSF. Abscesses and bone infections have their own stubborn geography.\nThis lesson is about the gap between what we measure and where the bacteria sit, and how to keep that gap from becoming an invisible leap of faith."
-  },
-  {
-    "objectID": "learning/10-effect-site-vs-plasma.html#plasma-is-a-proxy-sometimes-a-good-one",
-    "href": "learning/10-effect-site-vs-plasma.html#plasma-is-a-proxy-sometimes-a-good-one",
-    "title": "Effect site versus plasma: where the bug actually lives",
-    "section": "Plasma is a proxy, sometimes a good one",
-    "text": "Plasma is a proxy, sometimes a good one\nIf free plasma exposure tracks free exposure at the effect site closely enough for your question, plasma-based PTA can be a fair first tool. If the site is protected, poorly perfused, or governed by transporters, plasma can flatter the regimen.\nA simple mental split helps:\n\nPlasma-centric question: given systemic PK, how often do we clear a plasma free-drug target?\nSite-aware question: given systemic PK plus a site model or site observations, how often does the effect-site exposure clear the relevant target?\n\nThose are different claims. Both can be useful. They should not share one sentence in the abstract as if they were identical.\n\n\nA sentence worth refusing\n\n“Plasma fT&gt;MIC was high, therefore lung exposure was adequate.” That “therefore” needs evidence about penetration, timing, and free fraction at the site.\n\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  plasma\n  effect site\n  Time\n\nA site curve can be lower, delayed, or both. Plasma success does not automatically copy over."
-  },
-  {
-    "objectID": "learning/10-effect-site-vs-plasma.html#common-site-stories-modelers-meet",
-    "href": "learning/10-effect-site-vs-plasma.html#common-site-stories-modelers-meet",
-    "title": "Effect site versus plasma: where the bug actually lives",
-    "section": "Common site stories modelers meet",
-    "text": "Common site stories modelers meet\nEpithelial lining fluid (ELF) for pneumonia work: ratios to plasma vary by drug and sampling time.\nCSF for meningitis: barrier and inflammation change penetration.\nTissue or abscess: averages may hide necrotic cores where drug arrives late.\nIn each case you need either direct site observations, a justified transfer model, or an honest plasma-only limitation statement.\n\n  \n    Plasma-only model\n    Plasma plus site ratio\n    Site observations\n  \n  \n    Defensible when you clearly claim a plasma free-drug endpoint. Weak when the abstract quietly upgrades that claim into site adequacy.\n  \n  \n    Apply a published penetration ratio or time-varying factor, cite it, and sensitivity-test lower ratios. Keep free/total bookkeeping intact at the site if data allow.\n  \n  \n    Best case: measured site concentrations with timing. Still watch assay method, inflammation state, and whether samples represent the infected subcompartment."
-  },
-  {
-    "objectID": "learning/10-effect-site-vs-plasma.html#how-to-write-this-without-hand-waving",
-    "href": "learning/10-effect-site-vs-plasma.html#how-to-write-this-without-hand-waving",
-    "title": "Effect site versus plasma: where the bug actually lives",
-    "section": "How to write this without hand-waving",
-    "text": "How to write this without hand-waving\nIn methods, name the compartment your target refers to. In limitations, say what you did not model. If donor ELF or CSF data come from a different population than your primary PK, treat them with the same provenance care you would use for a borrowed clearance equation."
-  },
-  {
-    "objectID": "learning/10-effect-site-vs-plasma.html#two-abstracts-only-one-is-honest",
-    "href": "learning/10-effect-site-vs-plasma.html#two-abstracts-only-one-is-honest",
-    "title": "Effect site versus plasma: where the bug actually lives",
-    "section": "Two abstracts, only one is honest",
-    "text": "Two abstracts, only one is honest\nHonest: “We evaluated free plasma target attainment for regimen X in a virtual ICU population. Site-of-infection concentrations were not modeled.”\nOverstated: “We showed regimen X provides adequate lung exposure,” after only plasma PTA.\nThe first abstract can still be scientifically valuable. The second asks readers to invent a penetration model you never wrote down. If you do have ELF or CSF data, bring them in with dates, methods, and sensitivity to lower penetration. If you do not, keep the claim inside plasma and sleep better.\nTiming matters too. A site-to-plasma ratio from a late sampling window may not describe early therapy. If your PTA question includes the first hours, a single steady ratio can be the wrong proxy."
-  },
-  {
-    "objectID": "learning/10-effect-site-vs-plasma.html#takeaway",
-    "href": "learning/10-effect-site-vs-plasma.html#takeaway",
-    "title": "Effect site versus plasma: where the bug actually lives",
-    "section": "Takeaway",
-    "text": "Takeaway\nBacteria live at an effect site. Plasma is often the ladder we climb to estimate that site, not the destination itself. Keep the proxy relationship visible, or your PTA will answer a cleaner question than the infection deserves.\nPrevious: HGT and MIC ecology · Next: Renal function and eGFR strata."
-  },
-  {
-    "objectID": "learning/12-inoculum-effect.html",
-    "href": "learning/12-inoculum-effect.html",
-    "title": "Inoculum effect: when bacterial density changes the drug story",
-    "section": "",
-    "text": "Lab MIC work usually starts with a standardized inoculum. Infections do not always politely match that density. In some drug-bug pairs, a denser starting population makes the antibiotic look less effective. That pattern is called the inoculum effect.\nFor modelers, the point is not to memorize every organism that shows it. The point is to stop treating “the MIC” as independent from bacterial burden when the literature says otherwise."
-  },
-  {
-    "objectID": "learning/12-inoculum-effect.html#what-people-mean-by-inoculum-effect",
-    "href": "learning/12-inoculum-effect.html#what-people-mean-by-inoculum-effect",
-    "title": "Inoculum effect: when bacterial density changes the drug story",
-    "section": "What people mean by inoculum effect",
-    "text": "What people mean by inoculum effect\nIn plain terms: the same drug may need a higher concentration, or may kill more slowly, when the starting bacterial count is much higher. Enzymes can be more abundant. Binding or local drug depletion can matter more. Quorum-related physiology can change. The assay MIC at standard inoculum can then understate the challenge of a high-burden infection.\nThat does not mean every PTA grid is wrong. It means a high-inoculum pneumonia, endocarditis vegetation, or undrained focus may deserve a harsher PD scenario than a bloodstream model with lower density.\n\n\nA modeling translation\n\nInoculum effect can appear as a higher effective MIC, a shifted PD curve, or slower kill parameters at high CFU. Pick the representation that matches your data, and label the inoculum assumption.\n\n\n\n  \n  \n  \n  \n  \n  standard inoculum\n  high inoculum\n  Drug exposure\n  Effect\n\nSame drug, denser start, harder climb to the same effect."
-  },
-  {
-    "objectID": "learning/12-inoculum-effect.html#where-this-collides-with-pta-habits",
-    "href": "learning/12-inoculum-effect.html#where-this-collides-with-pta-habits",
-    "title": "Inoculum effect: when bacterial density changes the drug story",
-    "section": "Where this collides with PTA habits",
-    "text": "Where this collides with PTA habits\nClassic PTA uses an MIC distribution from standard testing. If your clinical question is a high-burden site with a known inoculum effect for that class, a second scenario with worsened PD inputs is more honest than a single optimistic curve.\nThis also connects to tolerance and persistence. High density can change early kill even when categorical susceptibility looks unchanged. Keep the mechanism language careful: inoculum effect is not automatically “resistance,” though both can raise the practical exposure need.\n\n  \n    Ignore inoculum\n    Scenario it\n  \n  \n    Acceptable when literature for that drug-bug pair shows little inoculum dependence, or when you clearly limit the claim to standard-assay MIC targets.\n  \n  \n    Run a base MIC/PTA case, then a high-inoculum case with cited PD worsening. Compare both. Do not average them into one unexplained hybrid."
-  },
-  {
-    "objectID": "learning/12-inoculum-effect.html#practical-reporting",
-    "href": "learning/12-inoculum-effect.html#practical-reporting",
-    "title": "Inoculum effect: when bacterial density changes the drug story",
-    "section": "Practical reporting",
-    "text": "Practical reporting\nState the inoculum assumed by your PD target. If you borrowed in vitro high-inoculum data, mark them as donor evidence and check scenario compatibility. High-inoculum lab conditions are not automatically the same as an ICU pneumonia densitiy, but they are often closer to the worry you are trying to name."
-  },
-  {
-    "objectID": "learning/12-inoculum-effect.html#how-to-keep-the-wording-clean",
-    "href": "learning/12-inoculum-effect.html#how-to-keep-the-wording-clean",
-    "title": "Inoculum effect: when bacterial density changes the drug story",
-    "section": "How to keep the wording clean",
-    "text": "How to keep the wording clean\nSay “high-inoculum scenario” when you worsened PD inputs based on cited in vitro density effects. Do not say “resistant” unless genetics or MIC category actually changed. Do not say “persistent” unless you modeled a refractory subpopulation. Inoculum effect can interact with those ideas, but the labels should stay separate so collaborators know which lever you moved.\nIf the literature for your drug-bug pair is thin, it is better to list inoculum as an unquantified limitation than to invent a severity factor with no source. Empty honesty beats decorative precision."
-  },
-  {
-    "objectID": "learning/12-inoculum-effect.html#takeaway",
-    "href": "learning/12-inoculum-effect.html#takeaway",
-    "title": "Inoculum effect: when bacterial density changes the drug story",
-    "section": "Takeaway",
-    "text": "Takeaway\nBacterial density can change the pharmacodynamic hill the drug must climb. When the literature flags an inoculum effect, put density into the scenario list beside MIC, binding, and renal function. Otherwise your clean PTA may describe a lighter fight than the infection.\nPrevious: Renal function and eGFR strata · Next: CAZ-AVI mini case."
-  },
-  {
     "objectID": "learning.html",
     "href": "learning.html",
     "title": "Learning",
@@ -935,14 +977,14 @@
     "href": "learning.html#learning-tracks",
     "title": "Learning",
     "section": "Learning tracks",
-    "text": "Learning tracks\n\n\nPrimary track\n\nAntibiotic PK/PD essentials\nMIC and indices, PTA/CFR, free drug, infusion mode, joint BL/BLI targets, provenance, effect site, renal strata, inoculum effect, and a CAZ-AVI style case.\n\n\n\nSecondary track\n\nBacterial genetics for modelers\nChromosome versus plasmid resistance and HGT-driven MIC ecology, as annotations on the phenotype layer PK/PD actually uses."
+    "text": "Learning tracks\n\n\nPrimary track\n\nAntibiotic PK/PD essentials\nMIC and indices, PTA/CFR, free drug, infusion mode, joint BL/BLI targets, provenance, effect site, renal strata, inoculum effect, and a CAZ-AVI style case.\n\n\n\nSecondary track\n\nBacterial genetics for modelers\nChromosome versus plasmid resistance, HGT-driven MIC ecology, and short-read plasmid detection versus reconstruction for AMR genomics."
   },
   {
     "objectID": "learning.html#lessons",
     "href": "learning.html#lessons",
     "title": "Learning",
     "section": "Lessons",
-    "text": "Lessons\n\n\n    \n      \n      \n    \n\n\n\n\n\nPK/PD targets and the MIC: what the indices actually mean\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA plain-language primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling.\n\n\n\n\n\nAug 30, 2026\n\n5 min\n\n\n\n\n\n\nPTA, CFR, and virtual populations\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow Monte Carlo PK/PD simulations turn parameter variability into probability of target attainment and cumulative fraction of response.\n\n\n\n\n\nSep 3, 2026\n\n5 min\n\n\n\n\n\n\nResistance, tolerance, and persistence in PK/PD language\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nSeparate genetic resistance from tolerance and persistence, and see why a good-looking MIC-based PTA can still miss the mechanism of failure.\n\n\n\n\n\nSep 7, 2026\n\n5 min\n\n\n\n\n\n\nChromosome vs plasmid resistance for PK/PD modelers\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nHow chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario.\n\n\n\n\n\nSep 11, 2026\n\n5 min\n\n\n\n\n\n\nFree drug and protein binding\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy unbound concentration matters for antibiotic PK/PD targets, and how a small binding mistake can quietly inflate PTA.\n\n\n\n\n\nSep 15, 2026\n\n4 min\n\n\n\n\n\n\nIntermittent vs continuous infusion for beta-lactams\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow infusion mode reshapes concentration-time curves, and why fT&gt;MIC or Css/MIC results change when the same daily dose is delivered differently.\n\n\n\n\n\nSep 19, 2026\n\n4 min\n\n\n\n\n\n\nJoint targets for beta-lactam / beta-lactamase inhibitor pairs\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy BL/BLI combinations need simultaneous success rules, and why averaging two separate PTA values is not joint target attainment.\n\n\n\n\n\nSep 23, 2026\n\n4 min\n\n\n\n\n\n\nUncertainty and provenance in PK/PD evidence\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources.\n\n\n\n\n\nSep 27, 2026\n\n4 min\n\n\n\n\n\n\nHorizontal gene transfer and MIC ecology\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nWhy plasmid-mediated resistance makes MIC distributions time-sensitive, and how PK/PD modelers should treat epidemiology priors as perishable.\n\n\n\n\n\nOct 1, 2026\n\n4 min\n\n\n\n\n\n\nEffect site versus plasma: where the bug actually lives\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy plasma PK is a convenient proxy, when ELF, CSF, or tissue exposure changes the story, and how to keep site assumptions visible in a model.\n\n\n\n\n\nOct 5, 2026\n\n5 min\n\n\n\n\n\n\nRenal function and eGFR strata in antibiotic PK/PD\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow kidney function reshapes clearance and attainment, and why virtual populations should treat eGFR classes as first-class scenario structure.\n\n\n\n\n\nOct 9, 2026\n\n4 min\n\n\n\n\n\n\nInoculum effect: when bacterial density changes the drug story\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy some antibiotics look weaker against denser bacterial populations, and how modelers should treat inoculum as a scenario variable rather than a footnote.\n\n\n\n\n\nOct 13, 2026\n\n4 min\n\n\n\n\n\n\nMini case: putting CAZ-AVI style PK/PD together\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA walkthrough that connects free drug, joint targets, renal strata, provenance, and PTA into one ceftazidime-avibactam style modeling story.\n\n\n\n\n\nOct 17, 2026\n\n5 min\n\n\n\n\nNo matching items"
+    "text": "Lessons\n\n\n    \n      \n      \n    \n\n\n\n\n\nPK/PD targets and the MIC: what the indices actually mean\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA plain-language primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling.\n\n\n\n\n\nAug 30, 2026\n\n5 min\n\n\n\n\n\n\nPTA, CFR, and virtual populations\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow Monte Carlo PK/PD simulations turn parameter variability into probability of target attainment and cumulative fraction of response.\n\n\n\n\n\nSep 3, 2026\n\n5 min\n\n\n\n\n\n\nResistance, tolerance, and persistence in PK/PD language\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nSeparate genetic resistance from tolerance and persistence, and see why a good-looking MIC-based PTA can still miss the mechanism of failure.\n\n\n\n\n\nSep 7, 2026\n\n5 min\n\n\n\n\n\n\nChromosome vs plasmid resistance for PK/PD modelers\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nHow chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario.\n\n\n\n\n\nSep 11, 2026\n\n5 min\n\n\n\n\n\n\nFree drug and protein binding\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy unbound concentration matters for antibiotic PK/PD targets, and how a small binding mistake can quietly inflate PTA.\n\n\n\n\n\nSep 15, 2026\n\n4 min\n\n\n\n\n\n\nIntermittent vs continuous infusion for beta-lactams\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow infusion mode reshapes concentration-time curves, and why fT&gt;MIC or Css/MIC results change when the same daily dose is delivered differently.\n\n\n\n\n\nSep 19, 2026\n\n4 min\n\n\n\n\n\n\nJoint targets for beta-lactam / beta-lactamase inhibitor pairs\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy BL/BLI combinations need simultaneous success rules, and why averaging two separate PTA values is not joint target attainment.\n\n\n\n\n\nSep 23, 2026\n\n4 min\n\n\n\n\n\n\nUncertainty and provenance in PK/PD evidence\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources.\n\n\n\n\n\nSep 27, 2026\n\n4 min\n\n\n\n\n\n\nHorizontal gene transfer and MIC ecology\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nWhy plasmid-mediated resistance makes MIC distributions time-sensitive, and how PK/PD modelers should treat epidemiology priors as perishable.\n\n\n\n\n\nOct 1, 2026\n\n4 min\n\n\n\n\n\n\nEffect site versus plasma: where the bug actually lives\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy plasma PK is a convenient proxy, when ELF, CSF, or tissue exposure changes the story, and how to keep site assumptions visible in a model.\n\n\n\n\n\nOct 5, 2026\n\n5 min\n\n\n\n\n\n\nRenal function and eGFR strata in antibiotic PK/PD\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow kidney function reshapes clearance and attainment, and why virtual populations should treat eGFR classes as first-class scenario structure.\n\n\n\n\n\nOct 9, 2026\n\n4 min\n\n\n\n\n\n\nInoculum effect: when bacterial density changes the drug story\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy some antibiotics look weaker against denser bacterial populations, and how modelers should treat inoculum as a scenario variable rather than a footnote.\n\n\n\n\n\nOct 13, 2026\n\n4 min\n\n\n\n\n\n\nMini case: putting CAZ-AVI style PK/PD together\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA walkthrough that connects free drug, joint targets, renal strata, provenance, and PTA into one ceftazidime-avibactam style modeling story.\n\n\n\n\n\nOct 17, 2026\n\n5 min\n\n\n\n\n\n\nPlasmid detection versus reconstruction from short reads\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nWhat Teixeira et al. teach about finding plasmid contigs, binning them into whole plasmids, and why database bias and assembly breaks still limit AMR genomics.\n\n\n\n\n\nOct 21, 2026\n\n5 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/caz-avi-evidence-reconstruction.html",
