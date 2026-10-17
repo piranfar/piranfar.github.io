@@ -196,165 +196,207 @@
     "text": "Final take\nThe most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.\nFor me, the strongest takeaway is this:\nThe challenge is not only killing bacteria quickly, but understanding how they survive long enough to return."
   },
   {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "objectID": "learning/09-hgt-and-mic-ecology.html",
+    "href": "learning/09-hgt-and-mic-ecology.html",
+    "title": "Horizontal gene transfer and MIC ecology",
     "section": "",
-    "text": "PK/PD models rarely simulate DNA. They simulate exposure and a phenotype — often an MIC or a kill curve. Genetics still matters, because it tells you how stable that phenotype is and how it might spread between patients or species.\nThis secondary-track lesson is a bridge: enough bacterial genetics to stop treating every MIC as the same kind of object."
+    "text": "Horizontal gene transfer (HGT) is how resistance genes move sideways — across lineages and sometimes across species — often on plasmids, transposons, or integrative elements. For PK/PD, HGT matters because it can rewire the MIC distribution faster than a cloned chromosomal mutation typically would."
   },
   {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#two-genomic-homes-for-resistance",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#two-genomic-homes-for-resistance",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "Two genomic homes for resistance",
-    "text": "Two genomic homes for resistance\n\n\n\n\n\n\n\n\nFeature\nChromosomal\nPlasmid-borne (typical)\n\n\n\n\nInheritance\nVertical (mother → daughter)\nVertical and often horizontal\n\n\nDose effect\nUsually one/few copies per genome\nCopy number can amplify expression\n\n\nMobility\nMostly within lineage\nCan jump lineages / species\n\n\nModeling implication\nPhenotype more lineage-stable\nMIC ecology can shift faster; local epidemiology ages quicker\n\n\n\nA chromosomal target-site mutation and a plasmid β-lactamase can produce the “same” higher MIC in a table — and very different public-health and uncertainty stories."
+    "objectID": "learning/09-hgt-and-mic-ecology.html#from-gene-traffic-to-simulation-priors",
+    "href": "learning/09-hgt-and-mic-ecology.html#from-gene-traffic-to-simulation-priors",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "From gene traffic to simulation priors",
+    "text": "From gene traffic to simulation priors\nCFR needs \\(P(\\mathrm{MIC})\\). That probability mass is an ecological claim:\n\nwhich species / complex,\nwhich region and year,\nwhich specimen mix,\nwhich mechanisms dominate locally.\n\nIf a plasmid carrying a carbapenemase expands in your catchment, last year’s MIC weights can become a precise answer to an obsolete question.\n\n\n  \n  Year T\n  Year T+Δ (HGT expansion)\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n      \n    \n  \n  MIC categories → probability mass used by CFR"
   },
   {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#what-changes-inside-a-pkpd-workflow",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#what-changes-inside-a-pkpd-workflow",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
-    "section": "What changes inside a PK/PD workflow",
-    "text": "What changes inside a PK/PD workflow\n\nMIC distribution provenance\nIf resistance is plasmid-driven and locally epidemic, last year’s surveillance weights may be stale.\nHeterogeneity inside “one MIC”\nSame categorical MIC breakpoint can hide different enzyme burdens or copy numbers.\nCombination regimens\nInhibitor partners (for example avibactam) are meaningful when the mechanism is enzyme-mediated; they are the wrong lever for some chromosomal target mutations.\nUncertainty labeling\nMark whether MIC inputs reflect a stable clonal background or a mobile element–shaped ecology.\n\n\n\n  \n  \n  chromosome\n  \n  plasmid\n  \n  \n    \n      \n    \n  \n  \n  MIC\n  \n  \n  PK/PD\n  PTA / CFR\n  Genotype informs the phenotype input — the model still runs on exposure vs effect."
+    "objectID": "learning/09-hgt-and-mic-ecology.html#modeler-habits-that-survive-contact-with-hgt",
+    "href": "learning/09-hgt-and-mic-ecology.html#modeler-habits-that-survive-contact-with-hgt",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "Modeler habits that survive contact with HGT",
+    "text": "Modeler habits that survive contact with HGT\n\nDate-stamp MIC sources in every CFR table.\nSeparate mechanism strata when possible (enzyme class vs target mutation).\nRecompute CFR under alternative local distributions as sensitivity analysis.\nDo not over-interpret a single-hospital antibiogram as a universal prior.\nLink back to chromosome vs plasmid resistance when labeling stability vs mobility."
   },
   {
-    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway-for-modelers",
-    "href": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway-for-modelers",
-    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "objectID": "learning/09-hgt-and-mic-ecology.html#takeaway",
+    "href": "learning/09-hgt-and-mic-ecology.html#takeaway",
+    "title": "Horizontal gene transfer and MIC ecology",
+    "section": "Takeaway",
+    "text": "Takeaway\nHGT does not replace pharmacometrics. It tells you when your epidemiology prior — the MIC weights under CFR — must be treated as perishable.\nPrevious genetics lesson: Chromosome vs plasmid resistance · PK/PD spine: Uncertainty and provenance."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html",
+    "href": "learning/07-joint-targets-bl-bli.html",
+    "title": "Joint targets for β-lactam / β-lactamase inhibitor pairs",
+    "section": "",
+    "text": "A β-lactam/β-lactamase inhibitor (BL/BLI) pair is not one drug with two names. One component usually provides antibacterial exposure; the other protects that exposure from enzymes. Adequacy is therefore often a joint event."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#two-clocks-one-decision",
+    "href": "learning/07-joint-targets-bl-bli.html#two-clocks-one-decision",
+    "title": "Joint targets for β-lactam / β-lactamase inhibitor pairs",
+    "section": "Two clocks, one decision",
+    "text": "Two clocks, one decision\nSuppose:\n\nDrug A (β-lactam) must satisfy a free-exposure target vs MIC,\nDrug B (inhibitor) must stay above a threshold that preserves A’s activity.\n\nPatient-level success is:\n[ {A } {B } ]\nnot the average of the two success indicators.\n\n\n  \n  \n  \n  A OK\n  B OK\n  joint\n  PTA(A) alone\n  PTA(B) alone\n  PTA(A∧B)\n  Joint PTA lives in the intersection."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#common-modeling-mistakes",
+    "href": "learning/07-joint-targets-bl-bli.html#common-modeling-mistakes",
+    "title": "Joint targets for β-lactam / β-lactamase inhibitor pairs",
+    "section": "Common modeling mistakes",
+    "text": "Common modeling mistakes\n\nCollapse to one analyte — simulating only the β-lactam because “that is the antibiotic.”\nReport mean(PTA_A, PTA_B) as if it were joint attainment.\nIgnore correlation — clearances of A and B may covary; independent draws can misstate joint tails.\nBorrow incompatible thresholds — inhibitor targets from a different matrix, population, or regimen without labeling."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#a-clean-joint-workflow",
+    "href": "learning/07-joint-targets-bl-bli.html#a-clean-joint-workflow",
+    "title": "Joint targets for β-lactam / β-lactamase inhibitor pairs",
+    "section": "A clean joint workflow",
+    "text": "A clean joint workflow\n\nSimulate both concentration–time profiles in each virtual subject.\nApply component-specific free targets.\nMark joint success only when both pass.\nBuild PTA vs MIC (or vs scenario grid) from the joint indicator.\nOptionally weight by MIC ecology → joint CFR.\n\nThis is the same philosophy used in provenance-aware CAZ-AVI style evidence-composite work: components stay separate until a joint rule is applied deliberately."
+  },
+  {
+    "objectID": "learning/07-joint-targets-bl-bli.html#takeaway",
+    "href": "learning/07-joint-targets-bl-bli.html#takeaway",
+    "title": "Joint targets for β-lactam / β-lactamase inhibitor pairs",
+    "section": "Takeaway",
+    "text": "Takeaway\nFor BL/BLI pairs, protection failure is regimen failure even when the β-lactam curve looks beautiful alone. Joint PTA is an intersection, not an average.\nPrevious: Intermittent vs continuous infusion · Next: Uncertainty and provenance in PK/PD evidence."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html",
+    "href": "learning/05-free-drug-and-protein-binding.html",
+    "title": "Free drug and protein binding",
+    "section": "",
+    "text": "Most antibacterial targets are written for free (unbound) drug. Many PK models, though, are fitted to total plasma concentrations. Mixing the two is one of the most common silent errors in PTA work."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#what-free-means-in-a-target",
+    "href": "learning/05-free-drug-and-protein-binding.html#what-free-means-in-a-target",
+    "title": "Free drug and protein binding",
+    "section": "What “free” means in a target",
+    "text": "What “free” means in a target\nIf a paper says 100% fT&gt;MIC, the f is doing real work:\n\nonly unbound molecules are assumed available to interact with the pathogen (in the usual plasma-centric framing),\nthe MIC assay is typically interpreted on an unbound-equivalent scale,\nso the simulator must compare free concentration–time to MIC.\n\nIf your model outputs total concentration \\(C_{\\mathrm{tot}}(t)\\) and you apply a free-drug target without correction, you inflate exposure."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#a-minimal-correction",
+    "href": "learning/05-free-drug-and-protein-binding.html#a-minimal-correction",
+    "title": "Free drug and protein binding",
+    "section": "A minimal correction",
+    "text": "A minimal correction\nWith unbound fraction \\(f_u\\):\n[ C_{}(t) = f_u C_{}(t) ]\nwhen binding is approximately linear and constant. That assumption is often good enough for a first model — and often wrong enough to deserve a sensitivity sweep.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  total\n  free (fu·total)\n  Time"
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#where-modelers-get-hurt",
+    "href": "learning/05-free-drug-and-protein-binding.html#where-modelers-get-hurt",
+    "title": "Free drug and protein binding",
+    "section": "Where modelers get hurt",
+    "text": "Where modelers get hurt\n\nTarget says free; curve is total → optimistic PTA.\nfu taken from healthy volunteers applied to hypoalbuminemic ICU patients without comment.\nSite of infection ≠ plasma — epithelial lining fluid, CSF, or tissue targets need their own framing.\nHighly bound drugs — small fu errors become large free-exposure errors."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#practical-checklist",
+    "href": "learning/05-free-drug-and-protein-binding.html#practical-checklist",
+    "title": "Free drug and protein binding",
+    "section": "Practical checklist",
+    "text": "Practical checklist\n\nWrite the unit next to every plotted series: mg/L free or mg/L total.\nCite the fu source and whether it is fixed, covariate-dependent, or sampled.\nRe-run PTA at lower/higher fu as a one-way sensitivity analysis.\nFor combinations, bind each component separately."
+  },
+  {
+    "objectID": "learning/05-free-drug-and-protein-binding.html#takeaway",
+    "href": "learning/05-free-drug-and-protein-binding.html#takeaway",
+    "title": "Free drug and protein binding",
+    "section": "Takeaway",
+    "text": "Takeaway\nAlign the binding state of the PK output with the binding state of the PD target. Everything else in the Monte Carlo stack inherits that decision.\nPrevious: Resistance, tolerance, and persistence · Next: Intermittent vs continuous infusion."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html",
+    "href": "learning/03-resistance-tolerance-persistence.html",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "",
+    "text": "In clinical conversation, “the antibiotic did not work” is often collapsed into resistance. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.\nThis lesson maps three survival ideas onto what a PK/PD model can and cannot see."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#three-words-three-model-objects",
+    "href": "learning/03-resistance-tolerance-persistence.html#three-words-three-model-objects",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Three words, three model objects",
+    "text": "Three words, three model objects\n\n\n\n\n\n\n\n\nConcept\nCore idea\nWhat usually moves in a model\n\n\n\n\nResistance\nHeritable reduced susceptibility\nHigher MIC / shifted PD curve\n\n\nTolerance\nPopulation survives longer under drug stress without a large MIC shift\nSlower kill rate, longer time-kill shoulder\n\n\nPersistence\nSmall subpopulation survives much longer\nBiphasic kill; a refractory fraction\n\n\n\nResistance changes the threshold.\nTolerance and persistence change the time course of killing even when the threshold looks acceptable.\n\n\n  \n  \n  \n  \n  \n  \n  susceptible kill\n  tolerance\n  persistence tail\n  Time under drug pressure\n  Viable bacteria"
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#why-mic-only-pta-can-look-fine-and-still-fail",
+    "href": "learning/03-resistance-tolerance-persistence.html#why-mic-only-pta-can-look-fine-and-still-fail",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Why MIC-only PTA can look “fine” and still fail",
+    "text": "Why MIC-only PTA can look “fine” and still fail\nA regimen can show high PTA against the measured MIC distribution while:\n\na tolerant population dies too slowly for the treatment duration,\na persistent fraction seeds relapse,\nor the assay MIC understates the relevant effect-site challenge.\n\nThat does not make PTA useless. It means PTA answers a specific question (exposure vs threshold), not the entire clinical narrative."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#practical-modeling-checklist",
+    "href": "learning/03-resistance-tolerance-persistence.html#practical-modeling-checklist",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Practical modeling checklist",
+    "text": "Practical modeling checklist\n\nLabel whether your PD endpoint is inhibition (MIC-style) or killing (time-kill / CFU decline).\nIf you only have MIC targets, say so explicitly in the limitations.\nWhen comparing pathogens, do not assume the same survival mode — M. tuberculosis and S. aureus are a useful contrast case in the preprint above.\nKeep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#takeaway-for-modelers",
+    "href": "learning/03-resistance-tolerance-persistence.html#takeaway-for-modelers",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
     "section": "Takeaway for modelers",
-    "text": "Takeaway for modelers\n\nDo not ask genetics to replace PK/PD; ask it to annotate the MIC layer.\nPlasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.\nChromosomal lineage structure → stability helps, but still verify assay and species ID.\n\nBack to the PK/PD spine: Resistance, tolerance, and persistence."
+    "text": "Takeaway for modelers\n\nResistance → move the MIC / PD curve.\nTolerance / persistence → reshape kill kinetics and duration logic.\nReport which of the three your simulation is actually testing.\n\nPrevious: PTA, CFR, and virtual populations · Next: Free drug and protein binding · Genetics: Chromosome vs plasmid resistance."
   },
   {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html",
-    "href": "learning/02-pta-cfr-virtual-populations.html",
-    "title": "PTA, CFR, and virtual populations",
+    "objectID": "learning/01-pkpd-targets-and-mic.html",
+    "href": "learning/01-pkpd-targets-and-mic.html",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
     "section": "",
-    "text": "Once you have an exposure index and an MIC, the next modeling question is not “does this patient hit the target?” It is: in a population with realistic variability, how often does the regimen succeed?\nThat is where virtual populations, PTA, and CFR enter."
+    "text": "Antibiotic PK/PD modeling starts with one awkward fact: bacteria do not “see” the dose. They see concentration over time at the effect site, relative to a susceptibility threshold — usually the MIC.\nThis lesson is for modelers and microbiologists who want the indices to stop feeling like slogans."
   },
   {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-randomness",
-    "href": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-randomness",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "Virtual populations are controlled randomness",
-    "text": "Virtual populations are controlled randomness\nA virtual population is a set of simulated individuals whose PK parameters (clearance, volume, covariates such as renal function) are drawn from distributions that reflect interindividual variability.\nGood practice:\n\nSample from published IIV / residual error when available.\nKeep covariate structure explicit (for example eGFR classes).\nRecord seeds, sample size, and whether parameters are correlated.\n\nBad practice:\n\nDrawing “nice looking” normals with no provenance.\nPooling incompatible populations (healthy volunteer PK used silently as ICU truth)."
+    "objectID": "learning/01-pkpd-targets-and-mic.html#the-mic-is-a-threshold-not-a-full-phenotype",
+    "href": "learning/01-pkpd-targets-and-mic.html#the-mic-is-a-threshold-not-a-full-phenotype",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "The MIC is a threshold, not a full phenotype",
+    "text": "The MIC is a threshold, not a full phenotype\nThe minimum inhibitory concentration (MIC) is the lowest concentration that prevents visible growth under a defined assay. It is useful because it compresses susceptibility into a number we can put next to an exposure curve.\nIt is also incomplete:\n\nAssay conditions can move the measured floor.\nTolerance and persistence can leave survivors even when the MIC looks favorable.\nProtein binding means free (unbound) exposure often matters more than total concentration.\n\nFor simulation, treat MIC as a scenario input with uncertainty, not as biological truth."
   },
   {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#pta-probability-of-target-attainment",
-    "href": "learning/02-pta-cfr-virtual-populations.html#pta-probability-of-target-attainment",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "PTA: probability of target attainment",
-    "text": "PTA: probability of target attainment\nPTA answers: for a fixed MIC (or a fixed MIC grid), what fraction of virtual subjects meet the PK/PD target?\nExample framing:\n\nAt MIC = 4 mg/L, what percentage of simulated ICU adults achieve 100% fT&gt;MIC on regimen X?\n\nPlot PTA against MIC to see where the regimen cliff starts.\n\n\n  \n  \n  \n  \n  \n  90%\n  \n  cliff\n  MIC\n  PTA"
+    "objectID": "learning/01-pkpd-targets-and-mic.html#three-classic-indices",
+    "href": "learning/01-pkpd-targets-and-mic.html#three-classic-indices",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "Three classic indices",
+    "text": "Three classic indices\nMost antibacterial PK/PD targets fall into one of three families:\n\n\n\n\n\n\n\n\nIndex\nRough idea\nTypical drug classes\n\n\n\n\nfT&gt;MIC\nFraction of the dosing interval that free concentration stays above MIC\nMany β-lactams\n\n\nfAUC/MIC\nIntegrated free exposure scaled by MIC\nFluoroquinolones, vancomycin (often)\n\n\nfCmax/MIC\nPeak free concentration relative to MIC\nSome concentration-dependent agents\n\n\n\nThe leading f means unbound fraction. If you simulate total concentrations but apply a free-drug target, you are mixing units.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  fT &gt; MIC\n  Time after dose\n  Free concentration"
   },
   {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#cfr-weighting-pta-by-the-real-mic-ecology",
-    "href": "learning/02-pta-cfr-virtual-populations.html#cfr-weighting-pta-by-the-real-mic-ecology",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "CFR: weighting PTA by the real MIC ecology",
-    "text": "CFR: weighting PTA by the real MIC ecology\nCFR (cumulative fraction of response) folds PTA over an MIC distribution from surveillance or local epidemiology:\n[ = _i (_i) P(_i) ]\nPTA asks “what if MIC is X?”\nCFR asks “given the MICs we actually see, how often do we succeed?”\nIf your MIC weights come from a different region, year, or species complex than your clinical question, CFR becomes a precise answer to the wrong question."
+    "objectID": "learning/01-pkpd-targets-and-mic.html#how-to-choose-an-index-in-a-model",
+    "href": "learning/01-pkpd-targets-and-mic.html#how-to-choose-an-index-in-a-model",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "How to choose an index in a model",
+    "text": "How to choose an index in a model\nAsk three questions before coding a target:\n\nIs killing time-dependent or concentration-dependent for this class in the literature you trust?\nAre you modeling free or total drug? Align the PK output with the PD target.\nIs the target joint? Combinations (for example β-lactam + inhibitor) may need two simultaneous conditions.\n\nIf the literature reports a target as “100% fT&gt;MIC” or “fAUC/MIC ≥ 125,” that is a decision rule for simulation, not proof that every patient at that threshold is cured."
   },
   {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow",
-    "href": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow",
-    "title": "PTA, CFR, and virtual populations",
-    "section": "A minimal workflow",
-    "text": "A minimal workflow\n\nDefine regimen and PK model (with provenance).\nDefine free-drug target(s).\nSimulate \\(N\\) virtual subjects.\nCompute PTA on an MIC grid.\nOptionally weight by an MIC distribution → CFR.\nReport sensitivity to binding, IIV, and MIC source."
-  },
-  {
-    "objectID": "learning/02-pta-cfr-virtual-populations.html#takeaway-for-modelers",
-    "href": "learning/02-pta-cfr-virtual-populations.html#takeaway-for-modelers",
-    "title": "PTA, CFR, and virtual populations",
+    "objectID": "learning/01-pkpd-targets-and-mic.html#takeaway-for-modelers",
+    "href": "learning/01-pkpd-targets-and-mic.html#takeaway-for-modelers",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
     "section": "Takeaway for modelers",
-    "text": "Takeaway for modelers\n\nPTA is a curve over MIC; CFR is a scalar under an epidemiology prior.\nSample size and seed reporting are part of reproducibility, not decoration.\nJoint targets (two drugs, two conditions) need joint PTA — not the average of two separate success rates.\n\nPrevious: PK/PD targets and the MIC · Next: Resistance, tolerance, and persistence."
+    "text": "Takeaway for modelers\n\nPut units and binding next to every target.\nSample MIC from a distribution when you care about population performance.\nKeep the index choice traceable to a cited source, the same way you would cite a clearance equation.\n\nNext: PTA, CFR, and virtual populations."
   },
   {
-    "objectID": "index.html#selected-work",
-    "href": "index.html#selected-work",
-    "title": "Vahhab Piranfar",
-    "section": "Selected work",
-    "text": "Selected work\n\n\n\n CAZ-AVI PK/PD modeling\nProvenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.\n\n\n\n\n AI Bacteriology Hub\nResearch platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.\n\n\n\n\n Learning: antibiotic PK/PD\nShort lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence."
-  },
-  {
-    "objectID": "index.html#current-focus",
-    "href": "index.html#current-focus",
-    "title": "Vahhab Piranfar",
-    "section": "Current focus",
-    "text": "Current focus\nBased in Jersey City, New Jersey, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty."
-  },
-  {
-    "objectID": "CONTRIBUTING.html",
-    "href": "CONTRIBUTING.html",
-    "title": "Vahhab Piranfar",
+    "objectID": "GITHUB_PAGES.html",
+    "href": "GITHUB_PAGES.html",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
+    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
   },
   {
-    "objectID": "CONTRIBUTING.html#acceptable-contributions",
-    "href": "CONTRIBUTING.html#acceptable-contributions",
-    "title": "Vahhab Piranfar",
-    "section": "Acceptable contributions",
-    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
-  },
-  {
-    "objectID": "CONTRIBUTING.html#not-acceptable",
-    "href": "CONTRIBUTING.html#not-acceptable",
-    "title": "Vahhab Piranfar",
-    "section": "Not acceptable",
-    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
-  },
-  {
-    "objectID": "CONTRIBUTING.html#how-to-contribute",
-    "href": "CONTRIBUTING.html#how-to-contribute",
-    "title": "Vahhab Piranfar",
-    "section": "How to contribute",
-    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Research & Discussion",
+    "objectID": "GITHUB_PAGES.html#address",
+    "href": "GITHUB_PAGES.html#address",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
+    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "GITHUB_PAGES.html#features",
+    "href": "GITHUB_PAGES.html#features",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
   },
   {
-    "objectID": "about.html#professional-profile",
-    "href": "about.html#professional-profile",
-    "title": "About",
+    "objectID": "GITHUB_PAGES.html#deployment",
+    "href": "GITHUB_PAGES.html#deployment",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "about.html#research-interests",
-    "href": "about.html#research-interests",
-    "title": "About",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
-  },
-  {
-    "objectID": "about.html#professional-journey",
-    "href": "about.html#professional-journey",
-    "title": "About",
-    "section": "Professional Journey",
-    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
-  },
-  {
-    "objectID": "about.html#technical-skills",
-    "href": "about.html#technical-skills",
-    "title": "About",
-    "section": "Technical Skills",
-    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
-  },
-  {
-    "objectID": "about.html#selected-publications",
-    "href": "about.html#selected-publications",
-    "title": "About",
-    "section": "Selected Publications",
-    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications."
+    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
   },
   {
     "objectID": "CODE_OF_CONDUCT.html",
@@ -413,102 +455,235 @@
     "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
   },
   {
-    "objectID": "GITHUB_PAGES.html",
-    "href": "GITHUB_PAGES.html",
-    "title": "GitHub Pages",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
   },
   {
-    "objectID": "GITHUB_PAGES.html#address",
-    "href": "GITHUB_PAGES.html#address",
-    "title": "GitHub Pages",
+    "objectID": "about.html#professional-profile",
+    "href": "about.html#professional-profile",
+    "title": "About",
     "section": "",
-    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
+    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
   },
   {
-    "objectID": "GITHUB_PAGES.html#features",
-    "href": "GITHUB_PAGES.html#features",
-    "title": "GitHub Pages",
+    "objectID": "about.html#research-interests",
+    "href": "about.html#research-interests",
+    "title": "About",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
+  },
+  {
+    "objectID": "about.html#professional-journey",
+    "href": "about.html#professional-journey",
+    "title": "About",
+    "section": "Professional Journey",
+    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
+  },
+  {
+    "objectID": "about.html#selected-publications",
+    "href": "about.html#selected-publications",
+    "title": "About",
+    "section": "Selected Publications",
+    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Research & Discussion",
     "section": "",
-    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
+    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "GITHUB_PAGES.html#deployment",
-    "href": "GITHUB_PAGES.html#deployment",
-    "title": "GitHub Pages",
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Vahhab Piranfar",
     "section": "",
-    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
   },
   {
-    "objectID": "learning/01-pkpd-targets-and-mic.html",
-    "href": "learning/01-pkpd-targets-and-mic.html",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "objectID": "CONTRIBUTING.html#acceptable-contributions",
+    "href": "CONTRIBUTING.html#acceptable-contributions",
+    "title": "Vahhab Piranfar",
+    "section": "Acceptable contributions",
+    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#not-acceptable",
+    "href": "CONTRIBUTING.html#not-acceptable",
+    "title": "Vahhab Piranfar",
+    "section": "Not acceptable",
+    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#how-to-contribute",
+    "href": "CONTRIBUTING.html#how-to-contribute",
+    "title": "Vahhab Piranfar",
+    "section": "How to contribute",
+    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Vahhab Piranfar",
+    "section": "Selected work",
+    "text": "Selected work\n\n\n\n CAZ-AVI PK/PD modeling\nProvenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.\n\n\n\n\n AI Bacteriology Hub\nResearch platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.\n\n\n\n\n Learning: antibiotic PK/PD\nShort lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence."
+  },
+  {
+    "objectID": "index.html#current-focus",
+    "href": "index.html#current-focus",
+    "title": "Vahhab Piranfar",
+    "section": "Current focus",
+    "text": "Current focus\nBased in Jersey City, New Jersey, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html",
+    "href": "learning/02-pta-cfr-virtual-populations.html",
+    "title": "PTA, CFR, and virtual populations",
     "section": "",
-    "text": "Antibiotic PK/PD modeling starts with one awkward fact: bacteria do not “see” the dose. They see concentration over time at the effect site, relative to a susceptibility threshold — usually the MIC.\nThis lesson is for modelers and microbiologists who want the indices to stop feeling like slogans."
+    "text": "Once you have an exposure index and an MIC, the next modeling question is not “does this patient hit the target?” It is: in a population with realistic variability, how often does the regimen succeed?\nThat is where virtual populations, PTA, and CFR enter."
   },
   {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#the-mic-is-a-threshold-not-a-full-phenotype",
-    "href": "learning/01-pkpd-targets-and-mic.html#the-mic-is-a-threshold-not-a-full-phenotype",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "The MIC is a threshold, not a full phenotype",
-    "text": "The MIC is a threshold, not a full phenotype\nThe minimum inhibitory concentration (MIC) is the lowest concentration that prevents visible growth under a defined assay. It is useful because it compresses susceptibility into a number we can put next to an exposure curve.\nIt is also incomplete:\n\nAssay conditions can move the measured floor.\nTolerance and persistence can leave survivors even when the MIC looks favorable.\nProtein binding means free (unbound) exposure often matters more than total concentration.\n\nFor simulation, treat MIC as a scenario input with uncertainty, not as biological truth."
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-randomness",
+    "href": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-randomness",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "Virtual populations are controlled randomness",
+    "text": "Virtual populations are controlled randomness\nA virtual population is a set of simulated individuals whose PK parameters (clearance, volume, covariates such as renal function) are drawn from distributions that reflect interindividual variability.\nGood practice:\n\nSample from published IIV / residual error when available.\nKeep covariate structure explicit (for example eGFR classes).\nRecord seeds, sample size, and whether parameters are correlated.\n\nBad practice:\n\nDrawing “nice looking” normals with no provenance.\nPooling incompatible populations (healthy volunteer PK used silently as ICU truth)."
   },
   {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#three-classic-indices",
-    "href": "learning/01-pkpd-targets-and-mic.html#three-classic-indices",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "Three classic indices",
-    "text": "Three classic indices\nMost antibacterial PK/PD targets fall into one of three families:\n\n\n\n\n\n\n\n\nIndex\nRough idea\nTypical drug classes\n\n\n\n\nfT&gt;MIC\nFraction of the dosing interval that free concentration stays above MIC\nMany β-lactams\n\n\nfAUC/MIC\nIntegrated free exposure scaled by MIC\nFluoroquinolones, vancomycin (often)\n\n\nfCmax/MIC\nPeak free concentration relative to MIC\nSome concentration-dependent agents\n\n\n\nThe leading f means unbound fraction. If you simulate total concentrations but apply a free-drug target, you are mixing units.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  fT &gt; MIC\n  Time after dose\n  Free concentration"
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#pta-probability-of-target-attainment",
+    "href": "learning/02-pta-cfr-virtual-populations.html#pta-probability-of-target-attainment",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "PTA: probability of target attainment",
+    "text": "PTA: probability of target attainment\nPTA answers: for a fixed MIC (or a fixed MIC grid), what fraction of virtual subjects meet the PK/PD target?\nExample framing:\n\nAt MIC = 4 mg/L, what percentage of simulated ICU adults achieve 100% fT&gt;MIC on regimen X?\n\nPlot PTA against MIC to see where the regimen cliff starts.\n\n\n  \n  \n  \n  \n  \n  90%\n  \n  cliff\n  MIC\n  PTA"
   },
   {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#how-to-choose-an-index-in-a-model",
-    "href": "learning/01-pkpd-targets-and-mic.html#how-to-choose-an-index-in-a-model",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
-    "section": "How to choose an index in a model",
-    "text": "How to choose an index in a model\nAsk three questions before coding a target:\n\nIs killing time-dependent or concentration-dependent for this class in the literature you trust?\nAre you modeling free or total drug? Align the PK output with the PD target.\nIs the target joint? Combinations (for example β-lactam + inhibitor) may need two simultaneous conditions.\n\nIf the literature reports a target as “100% fT&gt;MIC” or “fAUC/MIC ≥ 125,” that is a decision rule for simulation, not proof that every patient at that threshold is cured."
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#cfr-weighting-pta-by-the-real-mic-ecology",
+    "href": "learning/02-pta-cfr-virtual-populations.html#cfr-weighting-pta-by-the-real-mic-ecology",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "CFR: weighting PTA by the real MIC ecology",
+    "text": "CFR: weighting PTA by the real MIC ecology\nCFR (cumulative fraction of response) folds PTA over an MIC distribution from surveillance or local epidemiology:\n[ = _i (_i) P(_i) ]\nPTA asks “what if MIC is X?”\nCFR asks “given the MICs we actually see, how often do we succeed?”\nIf your MIC weights come from a different region, year, or species complex than your clinical question, CFR becomes a precise answer to the wrong question."
   },
   {
-    "objectID": "learning/01-pkpd-targets-and-mic.html#takeaway-for-modelers",
-    "href": "learning/01-pkpd-targets-and-mic.html#takeaway-for-modelers",
-    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow",
+    "href": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "A minimal workflow",
+    "text": "A minimal workflow\n\nDefine regimen and PK model (with provenance).\nDefine free-drug target(s).\nSimulate \\(N\\) virtual subjects.\nCompute PTA on an MIC grid.\nOptionally weight by an MIC distribution → CFR.\nReport sensitivity to binding, IIV, and MIC source."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#takeaway-for-modelers",
+    "href": "learning/02-pta-cfr-virtual-populations.html#takeaway-for-modelers",
+    "title": "PTA, CFR, and virtual populations",
     "section": "Takeaway for modelers",
-    "text": "Takeaway for modelers\n\nPut units and binding next to every target.\nSample MIC from a distribution when you care about population performance.\nKeep the index choice traceable to a cited source, the same way you would cite a clearance equation.\n\nNext: PTA, CFR, and virtual populations."
+    "text": "Takeaway for modelers\n\nPTA is a curve over MIC; CFR is a scalar under an epidemiology prior.\nSample size and seed reporting are part of reproducibility, not decoration.\nJoint targets (two drugs, two conditions) need joint PTA — not the average of two separate success rates.\n\nPrevious: PK/PD targets and the MIC · Next: Resistance, tolerance, and persistence."
   },
   {
-    "objectID": "learning/03-resistance-tolerance-persistence.html",
-    "href": "learning/03-resistance-tolerance-persistence.html",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
     "section": "",
-    "text": "In clinical conversation, “the antibiotic did not work” is often collapsed into resistance. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.\nThis lesson maps three survival ideas onto what a PK/PD model can and cannot see."
+    "text": "PK/PD models rarely simulate DNA. They simulate exposure and a phenotype — often an MIC or a kill curve. Genetics still matters, because it tells you how stable that phenotype is and how it might spread between patients or species.\nThis secondary-track lesson is a bridge: enough bacterial genetics to stop treating every MIC as the same kind of object."
   },
   {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#three-words-three-model-objects",
-    "href": "learning/03-resistance-tolerance-persistence.html#three-words-three-model-objects",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Three words, three model objects",
-    "text": "Three words, three model objects\n\n\n\n\n\n\n\n\nConcept\nCore idea\nWhat usually moves in a model\n\n\n\n\nResistance\nHeritable reduced susceptibility\nHigher MIC / shifted PD curve\n\n\nTolerance\nPopulation survives longer under drug stress without a large MIC shift\nSlower kill rate, longer time-kill shoulder\n\n\nPersistence\nSmall subpopulation survives much longer\nBiphasic kill; a refractory fraction\n\n\n\nResistance changes the threshold.\nTolerance and persistence change the time course of killing even when the threshold looks acceptable.\n\n\n  \n  \n  \n  \n  \n  \n  susceptible kill\n  tolerance\n  persistence tail\n  Time under drug pressure\n  Viable bacteria"
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#two-genomic-homes-for-resistance",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#two-genomic-homes-for-resistance",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "Two genomic homes for resistance",
+    "text": "Two genomic homes for resistance\n\n\n\n\n\n\n\n\nFeature\nChromosomal\nPlasmid-borne (typical)\n\n\n\n\nInheritance\nVertical (mother → daughter)\nVertical and often horizontal\n\n\nDose effect\nUsually one/few copies per genome\nCopy number can amplify expression\n\n\nMobility\nMostly within lineage\nCan jump lineages / species\n\n\nModeling implication\nPhenotype more lineage-stable\nMIC ecology can shift faster; local epidemiology ages quicker\n\n\n\nA chromosomal target-site mutation and a plasmid β-lactamase can produce the “same” higher MIC in a table — and very different public-health and uncertainty stories."
   },
   {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#why-mic-only-pta-can-look-fine-and-still-fail",
-    "href": "learning/03-resistance-tolerance-persistence.html#why-mic-only-pta-can-look-fine-and-still-fail",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Why MIC-only PTA can look “fine” and still fail",
-    "text": "Why MIC-only PTA can look “fine” and still fail\nA regimen can show high PTA against the measured MIC distribution while:\n\na tolerant population dies too slowly for the treatment duration,\na persistent fraction seeds relapse,\nor the assay MIC understates the relevant effect-site challenge.\n\nThat does not make PTA useless. It means PTA answers a specific question (exposure vs threshold), not the entire clinical narrative."
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#what-changes-inside-a-pkpd-workflow",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#what-changes-inside-a-pkpd-workflow",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "What changes inside a PK/PD workflow",
+    "text": "What changes inside a PK/PD workflow\n\nMIC distribution provenance\nIf resistance is plasmid-driven and locally epidemic, last year’s surveillance weights may be stale.\nHeterogeneity inside “one MIC”\nSame categorical MIC breakpoint can hide different enzyme burdens or copy numbers.\nCombination regimens\nInhibitor partners (for example avibactam) are meaningful when the mechanism is enzyme-mediated; they are the wrong lever for some chromosomal target mutations.\nUncertainty labeling\nMark whether MIC inputs reflect a stable clonal background or a mobile element–shaped ecology.\n\n\n\n  \n  \n  chromosome\n  \n  plasmid\n  \n  \n    \n      \n    \n  \n  \n  MIC\n  \n  \n  PK/PD\n  PTA / CFR\n  Genotype informs the phenotype input — the model still runs on exposure vs effect."
   },
   {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#practical-modeling-checklist",
-    "href": "learning/03-resistance-tolerance-persistence.html#practical-modeling-checklist",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
-    "section": "Practical modeling checklist",
-    "text": "Practical modeling checklist\n\nLabel whether your PD endpoint is inhibition (MIC-style) or killing (time-kill / CFU decline).\nIf you only have MIC targets, say so explicitly in the limitations.\nWhen comparing pathogens, do not assume the same survival mode — M. tuberculosis and S. aureus are a useful contrast case in the preprint above.\nKeep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not."
-  },
-  {
-    "objectID": "learning/03-resistance-tolerance-persistence.html#takeaway-for-modelers",
-    "href": "learning/03-resistance-tolerance-persistence.html#takeaway-for-modelers",
-    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway-for-modelers",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway-for-modelers",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
     "section": "Takeaway for modelers",
-    "text": "Takeaway for modelers\n\nResistance → move the MIC / PD curve.\nTolerance / persistence → reshape kill kinetics and duration logic.\nReport which of the three your simulation is actually testing.\n\nPrevious: PTA, CFR, and virtual populations · Related track: Chromosome vs plasmid resistance."
+    "text": "Takeaway for modelers\n\nDo not ask genetics to replace PK/PD; ask it to annotate the MIC layer.\nPlasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.\nChromosomal lineage structure → stability helps, but still verify assay and species ID.\n\nNext genetics lesson: HGT and MIC ecology · PK/PD spine: Resistance, tolerance, and persistence."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html",
+    "title": "Intermittent vs continuous infusion for β-lactams",
+    "section": "",
+    "text": "For many β-lactams, the dominant index is fT&gt;MIC. That makes how you deliver the daily dose a first-class modeling choice: short intermittent infusions create peaks and troughs; continuous infusion flattens the profile toward a steady free concentration."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#same-daily-dose-different-shape",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#same-daily-dose-different-shape",
+    "title": "Intermittent vs continuous infusion for β-lactams",
+    "section": "Same daily dose, different shape",
+    "text": "Same daily dose, different shape\nHold clearance, volume, fu, and MIC fixed. Change only the input rate:\n\nIntermittent: repeated short infusions → oscillating \\(C_{\\mathrm{free}}(t)\\).\nExtended infusion: longer infusions per dose → higher troughs, softer peaks.\nContinuous: constant rate → approach to steady state \\(C_{\\mathrm{ss,free}}\\).\n\nFor a pure fT&gt;MIC rule, continuous infusion often converts the question to whether \\(C_{\\mathrm{ss,free}}\\) stays above a multiple of MIC for the entire interval.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  intermittent\n  continuous Css\n  Time"
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#what-your-simulator-must-not-forget",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#what-your-simulator-must-not-forget",
+    "title": "Intermittent vs continuous infusion for β-lactams",
+    "section": "What your simulator must not forget",
+    "text": "What your simulator must not forget\n\nLoading dose — continuous regimens often need an initial bolus; omitting it underestimates early fT&gt;MIC.\nStability / administration constraints — model scenario ≠ pharmacy reality; label assumptions.\nRenal function — Css moves with clearance; eGFR strata can dominate PTA differences more than infusion cosmetics.\nTargets as ratios — some β-lactam analyses use \\(C_{\\mathrm{ss,free}}/\\mathrm{MIC} \\ge 4\\) (or similar) rather than raw T&gt;MIC percent."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#modeling-comparison-template",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#modeling-comparison-template",
+    "title": "Intermittent vs continuous infusion for β-lactams",
+    "section": "Modeling comparison template",
+    "text": "Modeling comparison template\nWhen you compare intermittent vs continuous:\n\nfreeze the virtual population and MIC grid,\nchange only the dosing input,\nreport PTA curves on the same MIC axis,\nshow early-interval behavior separately if loading doses differ."
+  },
+  {
+    "objectID": "learning/06-intermittent-vs-continuous-infusion.html#takeaway",
+    "href": "learning/06-intermittent-vs-continuous-infusion.html#takeaway",
+    "title": "Intermittent vs continuous infusion for β-lactams",
+    "section": "Takeaway",
+    "text": "Takeaway\nInfusion mode is not a plotting preference. It changes the exposure geometry that fT&gt;MIC (and Css/MIC) rules evaluate.\nPrevious: Free drug and protein binding · Next: Joint targets for β-lactam/β-lactamase inhibitor pairs."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html",
+    "href": "learning/08-uncertainty-and-provenance.html",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "",
+    "text": "A polished PTA curve can hide a messy evidence trail. The scientific question is not only “what is the probability?” but which assumptions, from which sources, under which scenario compatibility rules, produced that probability?"
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#provenance-beats-vibes",
+    "href": "learning/08-uncertainty-and-provenance.html#provenance-beats-vibes",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Provenance beats vibes",
+    "text": "Provenance beats vibes\nEvery simulation input deserves a label:\n\n\n\n\n\n\n\nLabel idea\nMeaning\n\n\n\n\nDirectly reported\nTaken as published for this use\n\n\nTransformed\nUnit change, free/total conversion, algebraic rearrange\n\n\nInherited / donor\nBorrowed from a related but non-identical source\n\n\nAssumed / user-specified\nFilled to run the model; must stay visible\n\n\nScenario-generated\nArises from the simulation design itself\n\n\n\nMissingness should remain missing until a compatible donor is justified — not silently median-imputed in a methods paragraph nobody reads."
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#uncertainty-is-layered",
+    "href": "learning/08-uncertainty-and-provenance.html#uncertainty-is-layered",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Uncertainty is layered",
+    "text": "Uncertainty is layered\n\nParameter uncertainty — IIV, residual error, covariate model.\nStructural uncertainty — one- vs two-compartment; infusion constraints.\nEvidence uncertainty — wrong population, wrong matrix, stale MIC ecology.\nDecision-rule uncertainty — which target threshold is “the” target?\n\nMonte Carlo on layer 1 alone can look precise while layer 3 dominates the truth.\n\n\n  \n  \n  PTA / CFR output\n  \n  parameter IIV / residual error\n  \n  structural & scenario assumptions\n  \n  evidence provenance & MIC ecology"
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#a-minimum-reporting-set",
+    "href": "learning/08-uncertainty-and-provenance.html#a-minimum-reporting-set",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "A minimum reporting set",
+    "text": "A minimum reporting set\n\nSource list for CL, V, fu, targets, MIC weights\nTransformation notes (free/total, units)\nPopulation / scenario compatibility statement\nSeeds, \\(N\\), and convergence check\nOne-way or global sensitivity on the fragile inputs"
+  },
+  {
+    "objectID": "learning/08-uncertainty-and-provenance.html#takeaway",
+    "href": "learning/08-uncertainty-and-provenance.html#takeaway",
+    "title": "Uncertainty and provenance in PK/PD evidence",
+    "section": "Takeaway",
+    "text": "Takeaway\nReproducible PK/PD is less about prettier sampling and more about refusing to launder uncertain evidence into false certainty.\nPrevious: Joint targets for BL/BLI pairs · Genetics bridge: HGT and MIC ecology."
   },
   {
     "objectID": "learning.html",
@@ -522,14 +697,14 @@
     "href": "learning.html#learning-tracks",
     "title": "Learning",
     "section": "Learning tracks",
-    "text": "Learning tracks\n\n\nPrimary track\n\nAntibiotic PK/PD essentials\nMIC, exposure indices, PTA/CFR, virtual populations, and how resistance, tolerance, and persistence change what “target attainment” means.\n\n\n\nSecondary track\n\nBacterial genetics for modelers\nChromosome vs plasmid resistance, copy number, and mobility — as inputs to phenotype uncertainty in PK/PD models."
+    "text": "Learning tracks\n\n\nPrimary track\n\nAntibiotic PK/PD essentials\nMIC and exposure indices → PTA/CFR → free drug → infusion geometry → joint BL/BLI targets → evidence provenance.\n\n\n\nSecondary track\n\nBacterial genetics for modelers\nChromosome vs plasmid resistance and HGT-driven MIC ecology — as annotations on the phenotype layer PK/PD actually uses."
   },
   {
     "objectID": "learning.html#lessons",
     "href": "learning.html#lessons",
     "title": "Learning",
     "section": "Lessons",
-    "text": "Lessons\n\n\n    \n      \n      \n    \n\n\n\n\n\nPK/PD targets and the MIC: what the indices actually mean\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA compact primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nPTA, CFR, and virtual populations\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow Monte Carlo PK/PD simulations turn parameter uncertainty into probability of target attainment and cumulative fraction of response.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nResistance, tolerance, and persistence in PK/PD language\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nSeparate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nChromosome vs plasmid resistance for PK/PD modelers\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nHow chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\nNo matching items"
+    "text": "Lessons\n\n\n    \n      \n      \n    \n\n\n\n\n\nPK/PD targets and the MIC: what the indices actually mean\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA compact primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nPTA, CFR, and virtual populations\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow Monte Carlo PK/PD simulations turn parameter uncertainty into probability of target attainment and cumulative fraction of response.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nResistance, tolerance, and persistence in PK/PD language\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nSeparate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nChromosome vs plasmid resistance for PK/PD modelers\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nHow chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nFree drug and protein binding\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy unbound concentration matters for antibiotic PK/PD targets — and how binding mistakes silently break PTA.\n\n\n\n\n\nOct 17, 2026\n\n2 min\n\n\n\n\n\n\nIntermittent vs continuous infusion for β-lactams\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow infusion mode reshapes the concentration–time curve and why fT&gt;MIC simulations change when you move from bolus-like dosing to continuous infusion.\n\n\n\n\n\nOct 17, 2026\n\n2 min\n\n\n\n\n\n\nJoint targets for β-lactam / β-lactamase inhibitor pairs\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nWhy ceftazidime–avibactam-style combinations need simultaneous success rules — and why averaging two PTAs is not joint target attainment.\n\n\n\n\n\nOct 17, 2026\n\n2 min\n\n\n\n\n\n\nUncertainty and provenance in PK/PD evidence\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow to keep Monte Carlo outputs honest when clearance equations, MIC weights, and targets come from fragmented published sources.\n\n\n\n\n\nOct 17, 2026\n\n2 min\n\n\n\n\n\n\nHorizontal gene transfer and MIC ecology\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nWhy plasmid-mediated resistance makes MIC distributions time-sensitive inputs — and how PK/PD modelers should refresh epidemiology priors.\n\n\n\n\n\nOct 17, 2026\n\n2 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/caz-avi-evidence-reconstruction.html",

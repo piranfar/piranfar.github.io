@@ -71,4 +71,4 @@ A chromosomal target-site mutation and a plasmid β-lactamase can produce the �
 - Plasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.
 - Chromosomal lineage structure → stability helps, but still verify assay and species ID.
 
-Back to the PK/PD spine: [Resistance, tolerance, and persistence](03-resistance-tolerance-persistence.qmd).
+Next genetics lesson: [HGT and MIC ecology](09-hgt-and-mic-ecology.qmd) · PK/PD spine: [Resistance, tolerance, and persistence](03-resistance-tolerance-persistence.qmd).

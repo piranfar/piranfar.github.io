@@ -1,0 +1,71 @@
+---
+title: "Free drug and protein binding"
+description: "Why unbound concentration matters for antibiotic PK/PD targets — and how binding mistakes silently break PTA."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+Most antibacterial targets are written for **free (unbound)** drug. Many PK models, though, are fitted to **total** plasma concentrations. Mixing the two is one of the most common silent errors in PTA work.
+
+::: {.callout-note}
+## Scope
+Modeling hygiene for exposure–effect alignment — not a dosing calculator.
+:::
+
+## What “free” means in a target
+
+If a paper says **100% fT>MIC**, the **f** is doing real work:
+
+- only unbound molecules are assumed available to interact with the pathogen (in the usual plasma-centric framing),
+- the MIC assay is typically interpreted on an unbound-equivalent scale,
+- so the simulator must compare **free concentration–time** to MIC.
+
+If your model outputs total concentration $C_{\mathrm{tot}}(t)$ and you apply a free-drug target without correction, you inflate exposure.
+
+## A minimal correction
+
+With unbound fraction $f_u$:
+
+\[
+C_{\mathrm{free}}(t) = f_u \cdot C_{\mathrm{tot}}(t)
+\]
+
+when binding is approximately linear and constant. That assumption is often good enough for a first model — and often wrong enough to deserve a sensitivity sweep.
+
+```{=html}
+<div class="learn-figure" role="img" aria-label="Total versus free concentration curves relative to MIC">
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="280" fill="#F8FAFC"/>
+  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M70,190 C120,80 170,45 230,50 C320,60 380,110 450,130 C520,90 560,70 600,65" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70,205 C120,140 170,115 230,118 C320,125 380,155 450,165 C520,145 560,135 600,132" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="470" y="78" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">total</text>
+  <text x="470" y="158" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">free (fu·total)</text>
+  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+</svg>
+</div>
+```
+
+## Where modelers get hurt
+
+1. **Target says free; curve is total** → optimistic PTA.
+2. **fu taken from healthy volunteers** applied to hypoalbuminemic ICU patients without comment.
+3. **Site of infection ≠ plasma** — epithelial lining fluid, CSF, or tissue targets need their own framing.
+4. **Highly bound drugs** — small fu errors become large free-exposure errors.
+
+## Practical checklist
+
+- Write the unit next to every plotted series: `mg/L free` or `mg/L total`.
+- Cite the fu source and whether it is fixed, covariate-dependent, or sampled.
+- Re-run PTA at lower/higher fu as a one-way sensitivity analysis.
+- For combinations, bind each component separately.
+
+## Takeaway
+
+**Align the binding state of the PK output with the binding state of the PD target.** Everything else in the Monte Carlo stack inherits that decision.
+
+Previous: [Resistance, tolerance, and persistence](03-resistance-tolerance-persistence.qmd) · Next: [Intermittent vs continuous infusion](06-intermittent-vs-continuous-infusion.qmd).

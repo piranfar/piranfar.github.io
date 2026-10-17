@@ -67,4 +67,4 @@ That does not make PTA useless. It means PTA answers a **specific question** (ex
 - **Tolerance / persistence → reshape kill kinetics and duration logic.**
 - Report which of the three your simulation is actually testing.
 
-Previous: [PTA, CFR, and virtual populations](02-pta-cfr-virtual-populations.qmd) · Related track: [Chromosome vs plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd).
+Previous: [PTA, CFR, and virtual populations](02-pta-cfr-virtual-populations.qmd) · Next: [Free drug and protein binding](05-free-drug-and-protein-binding.qmd) · Genetics: [Chromosome vs plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd).

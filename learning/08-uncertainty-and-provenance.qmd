@@ -1,0 +1,67 @@
+---
+title: "Uncertainty and provenance in PK/PD evidence"
+description: "How to keep Monte Carlo outputs honest when clearance equations, MIC weights, and targets come from fragmented published sources."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+A polished PTA curve can hide a messy evidence trail. The scientific question is not only “what is the probability?” but **which assumptions, from which sources, under which scenario compatibility rules, produced that probability?**
+
+::: {.callout-note}
+## Scope
+Evidence hygiene for reusable antimicrobial PK/PD simulation. Aligns with component-level evidence-composite thinking.
+:::
+
+## Provenance beats vibes
+
+Every simulation input deserves a label:
+
+| Label idea | Meaning |
+|------------|---------|
+| **Directly reported** | Taken as published for this use |
+| **Transformed** | Unit change, free/total conversion, algebraic rearrange |
+| **Inherited / donor** | Borrowed from a related but non-identical source |
+| **Assumed / user-specified** | Filled to run the model; must stay visible |
+| **Scenario-generated** | Arises from the simulation design itself |
+
+Missingness should remain missing until a compatible donor is justified — not silently median-imputed in a methods paragraph nobody reads.
+
+## Uncertainty is layered
+
+1. **Parameter uncertainty** — IIV, residual error, covariate model.
+2. **Structural uncertainty** — one- vs two-compartment; infusion constraints.
+3. **Evidence uncertainty** — wrong population, wrong matrix, stale MIC ecology.
+4. **Decision-rule uncertainty** — which target threshold is “the” target?
+
+Monte Carlo on layer 1 alone can look precise while layer 3 dominates the truth.
+
+```{=html}
+<div class="learn-figure" role="img" aria-label="Stacked uncertainty layers under a PTA output">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="260" fill="#F8FAFC"/>
+  <rect x="80" y="40" width="480" height="40" rx="10" fill="#0D9488"/>
+  <text x="320" y="66" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">PTA / CFR output</text>
+  <rect x="100" y="95" width="440" height="34" rx="8" fill="rgba(13,148,136,0.25)" stroke="#0D9488"/>
+  <text x="320" y="117" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">parameter IIV / residual error</text>
+  <rect x="120" y="140" width="400" height="34" rx="8" fill="rgba(249,115,22,0.2)" stroke="#F97316"/>
+  <text x="320" y="162" text-anchor="middle" fill="#EA580C" font-family="IBM Plex Sans, sans-serif" font-size="13">structural &amp; scenario assumptions</text>
+  <rect x="140" y="185" width="360" height="34" rx="8" fill="rgba(124,58,237,0.18)" stroke="#7C3AED"/>
+  <text x="320" y="207" text-anchor="middle" fill="#6D28D9" font-family="IBM Plex Sans, sans-serif" font-size="13">evidence provenance &amp; MIC ecology</text>
+</svg>
+</div>
+```
+
+## A minimum reporting set
+
+- Source list for CL, V, fu, targets, MIC weights
+- Transformation notes (free/total, units)
+- Population / scenario compatibility statement
+- Seeds, $N$, and convergence check
+- One-way or global sensitivity on the fragile inputs
+
+## Takeaway
+
+Reproducible PK/PD is less about prettier sampling and more about **refusing to launder uncertain evidence into false certainty**.
+
+Previous: [Joint targets for BL/BLI pairs](07-joint-targets-bl-bli.qmd) · Genetics bridge: [HGT and MIC ecology](09-hgt-and-mic-ecology.qmd).

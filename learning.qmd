@@ -32,7 +32,7 @@ page-layout: full
 
 ### Antibiotic PK/PD essentials
 
-MIC, exposure indices, PTA/CFR, virtual populations, and how resistance, tolerance, and persistence change what “target attainment” means.
+MIC and exposure indices → PTA/CFR → free drug → infusion geometry → joint BL/BLI targets → evidence provenance.
 :::
 
 ::: {.learning-track}
@@ -40,7 +40,7 @@ MIC, exposure indices, PTA/CFR, virtual populations, and how resistance, toleran
 
 ### Bacterial genetics for modelers
 
-Chromosome vs plasmid resistance, copy number, and mobility — as inputs to phenotype uncertainty in PK/PD models.
+Chromosome vs plasmid resistance and HGT-driven MIC ecology — as annotations on the phenotype layer PK/PD actually uses.
 :::
 
 :::

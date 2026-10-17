@@ -1,0 +1,69 @@
+---
+title: "Joint targets for β-lactam / β-lactamase inhibitor pairs"
+description: "Why ceftazidime–avibactam-style combinations need simultaneous success rules — and why averaging two PTAs is not joint target attainment."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+A β-lactam/β-lactamase inhibitor (BL/BLI) pair is not one drug with two names. One component usually provides antibacterial exposure; the other protects that exposure from enzymes. Adequacy is therefore often a **joint** event.
+
+::: {.callout-note}
+## Scope
+Simulation logic for combination PK/PD. Example framing inspired by ceftazidime–avibactam-style problems; not product-specific clinical advice.
+:::
+
+## Two clocks, one decision
+
+Suppose:
+
+- Drug A (β-lactam) must satisfy a free-exposure target vs MIC,
+- Drug B (inhibitor) must stay above a threshold that preserves A’s activity.
+
+Patient-level success is:
+
+\[
+\mathbf{1}\{A \text{ succeeds}\} \land \mathbf{1}\{B \text{ succeeds}\}
+\]
+
+not the average of the two success indicators.
+
+```{=html}
+<div class="learn-figure" role="img" aria-label="Venn-style joint success versus separate component success">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="260" fill="#F8FAFC"/>
+  <circle cx="250" cy="130" r="70" fill="rgba(13,148,136,0.18)" stroke="#0D9488" stroke-width="2.5"/>
+  <circle cx="330" cy="130" r="70" fill="rgba(249,115,22,0.16)" stroke="#F97316" stroke-width="2.5"/>
+  <text x="210" y="135" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">A OK</text>
+  <text x="345" y="135" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">B OK</text>
+  <text x="290" y="135" text-anchor="middle" fill="#0F172A" font-family="Outfit, sans-serif" font-size="12" font-weight="800">joint</text>
+  <text x="500" y="100" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(A) alone</text>
+  <text x="500" y="128" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(B) alone</text>
+  <text x="500" y="156" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PTA(A∧B)</text>
+  <text x="320" y="230" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Joint PTA lives in the intersection.</text>
+</svg>
+</div>
+```
+
+## Common modeling mistakes
+
+1. **Collapse to one analyte** — simulating only the β-lactam because “that is the antibiotic.”
+2. **Report mean(PTA_A, PTA_B)** as if it were joint attainment.
+3. **Ignore correlation** — clearances of A and B may covary; independent draws can misstate joint tails.
+4. **Borrow incompatible thresholds** — inhibitor targets from a different matrix, population, or regimen without labeling.
+
+## A clean joint workflow
+
+1. Simulate both concentration–time profiles in each virtual subject.
+2. Apply component-specific free targets.
+3. Mark joint success only when both pass.
+4. Build PTA vs MIC (or vs scenario grid) from the joint indicator.
+5. Optionally weight by MIC ecology → joint CFR.
+
+This is the same philosophy used in provenance-aware CAZ-AVI style evidence-composite work: components stay separate until a joint rule is applied deliberately.
+
+## Takeaway
+
+For BL/BLI pairs, **protection failure is regimen failure** even when the β-lactam curve looks beautiful alone. Joint PTA is an intersection, not an average.
+
+Previous: [Intermittent vs continuous infusion](06-intermittent-vs-continuous-infusion.qmd) · Next: [Uncertainty and provenance in PK/PD evidence](08-uncertainty-and-provenance.qmd).

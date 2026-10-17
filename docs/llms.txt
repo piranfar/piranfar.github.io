@@ -27,10 +27,20 @@ LinkedIn: https://www.linkedin.com/in/vahhab-piranfar/
 
 ## Learning lessons
 
+Primary track (Antibiotic PK/PD):
+
 - PK/PD targets and the MIC — https://vahhabpiranfar.com/learning/01-pkpd-targets-and-mic.html
 - PTA, CFR, and virtual populations — https://vahhabpiranfar.com/learning/02-pta-cfr-virtual-populations.html
 - Resistance, tolerance, and persistence — https://vahhabpiranfar.com/learning/03-resistance-tolerance-persistence.html
-- Chromosome vs plasmid resistance for modelers — https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html
+- Free drug and protein binding — https://vahhabpiranfar.com/learning/05-free-drug-and-protein-binding.html
+- Intermittent vs continuous infusion — https://vahhabpiranfar.com/learning/06-intermittent-vs-continuous-infusion.html
+- Joint targets for BL/BLI pairs — https://vahhabpiranfar.com/learning/07-joint-targets-bl-bli.html
+- Uncertainty and provenance in PK/PD evidence — https://vahhabpiranfar.com/learning/08-uncertainty-and-provenance.html
+
+Secondary track (Bacterial genetics for modelers):
+
+- Chromosome vs plasmid resistance — https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html
+- Horizontal gene transfer and MIC ecology — https://vahhabpiranfar.com/learning/09-hgt-and-mic-ecology.html
 
 ## Selected research (sole author unless noted)
 
