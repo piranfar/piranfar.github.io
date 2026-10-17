@@ -1,0 +1,88 @@
+---
+title: "Inoculum effect: when bacterial density changes the drug story"
+description: "Why some antibiotics look weaker against denser bacterial populations, and how modelers should treat inoculum as a scenario variable rather than a footnote."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+Lab MIC work usually starts with a standardized inoculum. Infections do not always politely match that density. In some drug-bug pairs, a denser starting population makes the antibiotic look less effective. That pattern is called the **inoculum effect**.
+
+For modelers, the point is not to memorize every organism that shows it. The point is to stop treating "the MIC" as independent from bacterial burden when the literature says otherwise.
+
+::: {.callout-note}
+## Scope
+Conceptual warning for PD inputs and scenario design. Not a complete microbiology review of every inoculum-sensitive pair.
+:::
+
+## What people mean by inoculum effect
+
+In plain terms: the same drug may need a higher concentration, or may kill more slowly, when the starting bacterial count is much higher. Enzymes can be more abundant. Binding or local drug depletion can matter more. Quorum-related physiology can change. The assay MIC at standard inoculum can then understate the challenge of a high-burden infection.
+
+That does not mean every PTA grid is wrong. It means a high-inoculum pneumonia, endocarditis vegetation, or undrained focus may deserve a harsher PD scenario than a bloodstream model with lower density.
+
+<details class="learn-think">
+<summary>A modeling translation</summary>
+Inoculum effect can appear as a higher effective MIC, a shifted PD curve, or slower kill parameters at high CFU. Pick the representation that matches your data, and label the inoculum assumption.
+</details>
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Higher inoculum requiring more exposure for similar effect">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M80,200 C160,190 220,150 280,110 C340,70 400,55 520,48" fill="none" stroke="#0D9488" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M80,200 C170,195 250,175 320,145 C400,108 470,95 560,90" fill="none" stroke="#F97316" stroke-width="3.2" stroke-linecap="round"/>
+  <text x="430" y="55" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">standard inoculum</text>
+  <text x="450" y="110" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">high inoculum</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Drug exposure</text>
+  <text x="22" y="145" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 145)" text-anchor="middle">Effect</text>
+</svg>
+<p class="learn-caption">Same drug, denser start, harder climb to the same effect.</p>
+</div>
+```
+
+## Where this collides with PTA habits
+
+Classic PTA uses an MIC distribution from standard testing. If your clinical question is a high-burden site with a known inoculum effect for that class, a second scenario with worsened PD inputs is more honest than a single optimistic curve.
+
+This also connects to tolerance and persistence. High density can change early kill even when categorical susceptibility looks unchanged. Keep the mechanism language careful: inoculum effect is not automatically "resistance," though both can raise the practical exposure need.
+
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="ignore">Ignore inoculum</button>
+    <button type="button" data-panel="scenario">Scenario it</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="ignore">
+    <p>Acceptable when literature for that drug-bug pair shows little inoculum dependence, or when you clearly limit the claim to standard-assay MIC targets.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="scenario">
+    <p>Run a base MIC/PTA case, then a high-inoculum case with cited PD worsening. Compare both. Do not average them into one unexplained hybrid.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
+
+## Practical reporting
+
+State the inoculum assumed by your PD target. If you borrowed in vitro high-inoculum data, mark them as donor evidence and check scenario compatibility. High-inoculum lab conditions are not automatically the same as an ICU pneumonia densitiy, but they are often closer to the worry you are trying to name.
+
+## Takeaway
+
+Bacterial density can change the pharmacodynamic hill the drug must climb. When the literature flags an inoculum effect, put density into the scenario list beside MIC, binding, and renal function. Otherwise your clean PTA may describe a lighter fight than the infection.
+
+Previous: [Renal function and eGFR strata](11-renal-function-egfr-strata.qmd) · Next: [CAZ-AVI mini case](13-caz-avi-mini-case.qmd).

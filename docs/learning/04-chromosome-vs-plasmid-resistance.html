@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vahhab Piranfar">
 <meta name="dcterms.date" content="2026-10-16">
-<meta name="description" content="How chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.">
+<meta name="description" content="How chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario.">
 
 <title>Chromosome vs plasmid resistance for PK/PD modelers – Vahhab Piranfar</title>
 <style>
@@ -150,11 +150,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Chromosome vs plasmid resistance for PK/PD modelers – Vahhab Piranfar">
-<meta property="og:description" content="How chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.">
+<meta property="og:description" content="How chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario.">
 <meta property="og:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta property="og:site_name" content="Vahhab Piranfar">
 <meta name="twitter:title" content="Chromosome vs plasmid resistance for PK/PD modelers – Vahhab Piranfar">
-<meta name="twitter:description" content="How chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.">
+<meta name="twitter:description" content="How chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario.">
 <meta name="twitter:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -216,9 +216,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#two-genomic-homes-for-resistance" id="toc-two-genomic-homes-for-resistance" class="nav-link active" data-scroll-target="#two-genomic-homes-for-resistance">Two genomic homes for resistance</a></li>
-  <li><a href="#what-changes-inside-a-pkpd-workflow" id="toc-what-changes-inside-a-pkpd-workflow" class="nav-link" data-scroll-target="#what-changes-inside-a-pkpd-workflow">What changes inside a PK/PD workflow</a></li>
-  <li><a href="#takeaway-for-modelers" id="toc-takeaway-for-modelers" class="nav-link" data-scroll-target="#takeaway-for-modelers">Takeaway for modelers</a></li>
+  <li><a href="#two-homes-for-resistance-genes" id="toc-two-homes-for-resistance-genes" class="nav-link active" data-scroll-target="#two-homes-for-resistance-genes">Two homes for resistance genes</a></li>
+  <li><a href="#same-mic-number-different-story" id="toc-same-mic-number-different-story" class="nav-link" data-scroll-target="#same-mic-number-different-story">Same MIC number, different story</a></li>
+  <li><a href="#what-to-change-in-a-pkpd-workflow" id="toc-what-to-change-in-a-pkpd-workflow" class="nav-link" data-scroll-target="#what-to-change-in-a-pkpd-workflow">What to change in a PK/PD workflow</a></li>
+  <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
     </div>
@@ -236,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    How chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.
+    How chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario.
   </div>
 </div>
 
@@ -265,8 +266,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>PK/PD models rarely simulate DNA. They simulate <strong>exposure</strong> and a <strong>phenotype</strong> — often an MIC or a kill curve. Genetics still matters, because it tells you how stable that phenotype is and how it might spread between patients or species.</p>
-<p>This secondary-track lesson is a bridge: enough bacterial genetics to stop treating every MIC as the same kind of object.</p>
+<p>PK/PD models usually do not simulate DNA base by base. They simulate exposure and a phenotype, often an MIC. Genetics still belongs in the room, because it tells you how stable that phenotype is and how fast the local MIC ecology can shift.</p>
+<p>This lesson is a bridge for modelers. Enough bacterial genetics to stop treating every MIC cell in a table as the same kind of object.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -277,91 +278,118 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Genetics-for-modelers, not a full genomics course. Pair with the PK/PD track starting at <a href="../learning/01-pkpd-targets-and-mic.html">targets and MIC</a>.</p>
+<p>Genetics for people who build exposure-response simulations. Not a full genomics course.</p>
 </div>
 </div>
-<section id="two-genomic-homes-for-resistance" class="level2">
-<h2 class="anchored" data-anchor-id="two-genomic-homes-for-resistance">Two genomic homes for resistance</h2>
+<section id="two-homes-for-resistance-genes" class="level2">
+<h2 class="anchored" data-anchor-id="two-homes-for-resistance-genes">Two homes for resistance genes</h2>
+<p>Resistance can live on the <strong>chromosome</strong> or on a <strong>plasmid</strong> (and related mobile elements). Both can raise an MIC. They do not raise it with the same epidemiological behavior.</p>
+<p>Chromosomal changes often travel mostly with the lineage: mother cell to daughter cell. Plasmid-borne resistance can move horizontally as well, sometimes across lineages or species. Plasmid copy number can also amplify expression, so “same gene” is not always “same burden.”</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 27%">
-<col style="width: 53%">
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Feature</th>
 <th>Chromosomal</th>
-<th>Plasmid-borne (typical)</th>
+<th>Plasmid-borne, typical case</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Inheritance</td>
-<td>Vertical (mother → daughter)</td>
-<td>Vertical <strong>and</strong> often horizontal</td>
+<td>Main inheritance</td>
+<td>Vertical</td>
+<td>Vertical and often horizontal</td>
 </tr>
 <tr class="even">
-<td>Dose effect</td>
-<td>Usually one/few copies per genome</td>
-<td>Copy number can amplify expression</td>
+<td>Dose / copy effect</td>
+<td>Usually limited copies</td>
+<td>Copy number can boost expression</td>
 </tr>
 <tr class="odd">
-<td>Mobility</td>
-<td>Mostly within lineage</td>
-<td>Can jump lineages / species</td>
+<td>Speed of ecological change</td>
+<td>Often slower within a hospital</td>
+<td>Can surge when a plasmid expands</td>
 </tr>
 <tr class="even">
-<td>Modeling implication</td>
-<td>Phenotype more lineage-stable</td>
-<td>MIC ecology can shift faster; local epidemiology ages quicker</td>
+<td>Modeling note</td>
+<td>Phenotype may be more lineage-stable</td>
+<td>MIC priors may age faster</td>
 </tr>
 </tbody>
 </table>
-<p>A chromosomal target-site mutation and a plasmid β-lactamase can produce the “same” higher MIC in a table — and very different public-health and uncertainty stories.</p>
+<details class="learn-think">
+<summary>
+Why this matters for CFR
+</summary>
+CFR needs P(MIC). If that distribution is shaped by a spreading plasmid, last year’s weights can quietly expire. Date-stamp the source and, when possible, separate mechanism strata.
+</details>
 </section>
-<section id="what-changes-inside-a-pkpd-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="what-changes-inside-a-pkpd-workflow">What changes inside a PK/PD workflow</h2>
-<ol type="1">
-<li><p><strong>MIC distribution provenance</strong><br>
-If resistance is plasmid-driven and locally epidemic, last year’s surveillance weights may be stale.</p></li>
-<li><p><strong>Heterogeneity inside “one MIC”</strong><br>
-Same categorical MIC breakpoint can hide different enzyme burdens or copy numbers.</p></li>
-<li><p><strong>Combination regimens</strong><br>
-Inhibitor partners (for example avibactam) are meaningful when the mechanism is enzyme-mediated; they are the wrong lever for some chromosomal target mutations.</p></li>
-<li><p><strong>Uncertainty labeling</strong><br>
-Mark whether MIC inputs reflect a stable clonal background or a mobile element–shaped ecology.</p></li>
-</ol>
-<div class="learn-figure" role="img" aria-label="Chromosome and plasmid both feeding an MIC input used by a PK/PD model">
-<svg viewbox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="260" fill="#F8FAFC"></rect>
-  <circle cx="120" cy="120" r="52" fill="none" stroke="#0D9488" stroke-width="3"></circle>
-  <text x="120" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">chromosome</text>
-  <ellipse cx="250" cy="120" rx="34" ry="22" fill="none" stroke="#F97316" stroke-width="3"></ellipse>
-  <text x="250" y="125" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid</text>
-  <path d="M175,120 L300,120" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"></path>
-  <defs>
-    <marker id="arrow" markerwidth="8" markerheight="8" refx="6" refy="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#94A3B8"></path>
-    </marker>
-  </defs>
-  <rect x="310" y="88" width="100" height="64" rx="12" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"></rect>
-  <text x="360" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">MIC</text>
-  <path d="M410,120 L470,120" stroke="#94A3B8" stroke-width="2"></path>
+<section id="same-mic-number-different-story" class="level2">
+<h2 class="anchored" data-anchor-id="same-mic-number-different-story">Same MIC number, different story</h2>
+<p>Imagine two isolates with MIC = 8 mg/L to the same drug.</p>
+<p>In isolate A, a chromosomal target mutation reduced binding. In isolate B, a plasmid beta-lactamase is chewing the drug. A PTA grid may treat them identically if it only sees “8”. A combination with an inhibitor may help B and do little for A. Your joint-target lesson later depends on knowing which world you are in.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chromosome and plasmid both feeding MIC into a PK/PD model">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <circle cx="115" cy="120" r="54" fill="none" stroke="#0D9488" stroke-width="3"></circle>
+  <text x="115" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">chromosome</text>
+  <ellipse cx="245" cy="120" rx="36" ry="24" fill="none" stroke="#F97316" stroke-width="3"></ellipse>
+  <text x="245" y="125" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid</text>
+  <path d="M170,120 H300" stroke="#94A3B8" stroke-width="2"></path>
+  <rect x="300" y="88" width="100" height="64" rx="12" fill="#fff" stroke="#0D9488" stroke-width="2"></rect>
+  <text x="350" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">MIC</text>
+  <path d="M400,120 H470" stroke="#94A3B8" stroke-width="2"></path>
   <rect x="470" y="78" width="140" height="84" rx="12" fill="#0B1628"></rect>
-  <text x="540" y="115" text-anchor="middle" fill="#FFFFFF" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PK/PD</text>
+  <text x="540" y="115" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PK/PD</text>
   <text x="540" y="138" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="IBM Plex Sans, sans-serif" font-size="12">PTA / CFR</text>
-  <text x="320" y="230" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Genotype informs the phenotype input — the model still runs on exposure vs effect.</text>
+  <text x="320" y="220" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Genetics annotates the phenotype input. The model still runs on exposure versus effect.</text>
 </svg>
 </div>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li>Do not ask genetics to replace PK/PD; ask it to <strong>annotate the MIC layer</strong>.</li>
-<li>Plasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.</li>
-<li>Chromosomal lineage structure → stability helps, but still verify assay and species ID.</li>
-</ul>
+<section id="what-to-change-in-a-pkpd-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-change-in-a-pkpd-workflow">What to change in a PK/PD workflow</h2>
+<ol type="1">
+<li><strong>Label MIC provenance</strong> with date, region, species, and method.<br>
+</li>
+<li><strong>Ask whether the mechanism is enzyme-mediated</strong> before you lean on inhibitor partners.<br>
+</li>
+<li><strong>Refresh local MIC weights more aggressively</strong> when plasmid epidemics are active.<br>
+</li>
+<li><strong>Keep genetics in the annotation layer</strong> unless you are explicitly building a genotype-to-phenotype model.</li>
+</ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="chrom">Chromosomal lens</button>
+    <button type="button" data-panel="plas">Plasmid lens</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="chrom">
+    <p>Expect more stability inside a clonal background, but still verify species ID and assay method. Target mutations may need a different therapeutic logic than enzyme blockade.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="plas">
+    <p>Expect mobility, possible copy-number effects, and faster change in hospital ecology. CFR priors deserve dates and sensitivity checks.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Do not ask genetics to replace PK/PD. Ask it to annotate the MIC layer: how mobile is this phenotype, how old is the ecology prior, and which mechanism your target rule quietly assumes?</p>
 <p>Next genetics lesson: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a> · PK/PD spine: <a href="../learning/03-resistance-tolerance-persistence.html">Resistance, tolerance, and persistence</a>.</p>
 
 

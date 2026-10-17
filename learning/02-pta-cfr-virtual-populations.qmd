@@ -1,88 +1,120 @@
 ---
 title: "PTA, CFR, and virtual populations"
-description: "How Monte Carlo PK/PD simulations turn parameter uncertainty into probability of target attainment and cumulative fraction of response."
+description: "How Monte Carlo PK/PD simulations turn parameter variability into probability of target attainment and cumulative fraction of response."
 author: "Vahhab Piranfar"
 date: "2026-10-16"
 categories: [Learning, Antibiotic PK/PD]
 ---
 
-Once you have an exposure index and an MIC, the next modeling question is not “does this patient hit the target?” It is: **in a population with realistic variability, how often does the regimen succeed?**
+Once you have an exposure rule and an MIC, a single "typical patient" calculation is rarely enough. Real people differ in clearance, volume, kidney function, and body size. **Virtual populations**, **PTA**, and **CFR** are the tools we use to ask how often a regimen works across that spread.
 
-That is where **virtual populations**, **PTA**, and **CFR** enter.
+Think of it as moving from one drawn curve to a cloud of curves, then counting how many of those curves pass the test you chose.
 
 ::: {.callout-note}
 ## Scope
-Methodological intuition for simulation workflows — not a clinical decision tool.
+Method intuition for simulation. Not software documentation and not a bedside calculator.
 :::
 
-## Virtual populations are controlled randomness
+## Virtual populations are controlled variation
 
-A virtual population is a set of simulated individuals whose PK parameters (clearance, volume, covariates such as renal function) are drawn from distributions that reflect interindividual variability.
+A virtual population is a set of simulated individuals. For each person you draw pharmacokinetic parameters from distributions that are supposed to reflect interindividual variability. If the literature reports correlated clearances, or clearances that depend on eGFR, that structure belongs in the draw. If you invent tidy independent normals because they look neat, you are no longer studying the published system. You are studying your drawing habits.
 
-Good practice:
+Useful discipline looks like this:
 
-- Sample from **published IIV / residual error** when available.
-- Keep covariate structure explicit (for example eGFR classes).
-- Record seeds, sample size, and whether parameters are correlated.
+- cite the IIV source,
+- keep covariate rules explicit,
+- record the random seed and the sample size,
+- say which population the parameters came from (ICU, healthy volunteers, dialysis, and so on).
 
-Bad practice:
+<details class="learn-think">
+<summary>Why sample size shows up in methods sections</summary>
+Too few virtual subjects and the PTA estimate jitters. Extremely large N can look impressive while hiding a bad structural assumption. Report both N and a quick stability check.
+</details>
 
-- Drawing “nice looking” normals with no provenance.
-- Pooling incompatible populations (healthy volunteer PK used silently as ICU truth).
+## PTA: fix the MIC, count the successes
 
-## PTA: probability of target attainment
+**Probability of target attainment (PTA)** answers a conditional question:
 
-**PTA** answers: *for a fixed MIC (or a fixed MIC grid), what fraction of virtual subjects meet the PK/PD target?*
+> If MIC equals this value, what fraction of virtual subjects meet the PK/PD target?
 
-Example framing:
-
-> At MIC = 4 mg/L, what percentage of simulated ICU adults achieve 100% fT>MIC on regimen X?
-
-Plot PTA against MIC to see where the regimen cliff starts.
+You usually compute PTA across a grid of MIC values and plot a declining curve. The interesting part is often the cliff: the MIC region where success falls apart.
 
 ```{=html}
-<div class="learn-figure" role="img" aria-label="PTA declining as MIC increases">
-<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"/>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"/>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"/>
-  <path d="M70,55 C140,55 180,58 220,70 C280,95 320,140 380,175 C450,210 520,218 590,218" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"/>
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PTA falling as MIC rises">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
   <line x1="56" y1="70" x2="600" y2="70" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 5"/>
   <text x="608" y="74" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="600">90%</text>
-  <circle cx="300" cy="118" r="5" fill="#F97316" stroke="#fff" stroke-width="2"/>
-  <text x="312" y="112" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="600">cliff</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">MIC</text>
-  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">PTA</text>
+  <path d="M70,55 C145,55 185,58 230,72 C295,100 335,145 395,180 C465,215 530,225 595,226" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="310" cy="120" r="5" fill="#F97316" stroke="#fff" stroke-width="2"/>
+  <text x="322" y="114" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="600">where the regimen weakens</text>
+  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">MIC</text>
+  <text x="22" y="145" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 145)" text-anchor="middle">PTA</text>
 </svg>
+<p class="learn-caption">PTA is a curve over MIC, not a single trophy number.</p>
 </div>
 ```
 
-## CFR: weighting PTA by the real MIC ecology
+## CFR: bring the local microbiology back in
 
-**CFR** (cumulative fraction of response) folds PTA over an **MIC distribution** from surveillance or local epidemiology:
+**Cumulative fraction of response (CFR)** folds PTA over an MIC distribution from surveillance or local epidemiology:
 
 \[
-\mathrm{CFR} = \sum_i \mathrm{PTA}(\mathrm{MIC}_i) \cdot P(\mathrm{MIC}_i)
+\mathrm{CFR} = \sum_i \mathrm{PTA}(\mathrm{MIC}_i)\cdot P(\mathrm{MIC}_i)
 \]
 
-PTA asks “what if MIC is X?”  
-CFR asks “given the MICs we actually see, how often do we succeed?”
+PTA asks "what if MIC is X?"  
+CFR asks "given the MICs we actually see around here, how often do we succeed?"
 
-If your MIC weights come from a different region, year, or species complex than your clinical question, CFR becomes a precise answer to the wrong question.
+That second question is only as honest as the MIC weights. A distribution from another country, another year, or a mixed species group can make CFR look decisive while answering the wrong question.
 
-## A minimal workflow
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="pta">When PTA helps</button>
+    <button type="button" data-panel="cfr">When CFR helps</button>
+    <button type="button" data-panel="both">When you need both</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="pta">
+    <p>Use PTA when you want to see regimen strength across a MIC grid, compare dosing strategies, or find the MIC where performance collapses.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="cfr">
+    <p>Use CFR when you have a trustworthy local or regional MIC distribution and you want one summary of expected success under that ecology.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="both">
+    <p>Show PTA curves for mechanism insight, then report CFR under one or more dated MIC priors. Sensitivity to the prior is part of the scientific result.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
 
-1. Define regimen and PK model (with provenance).
-2. Define free-drug target(s).
-3. Simulate $N$ virtual subjects.
-4. Compute PTA on an MIC grid.
-5. Optionally weight by an MIC distribution → CFR.
-6. Report sensitivity to binding, IIV, and MIC source.
+## A minimal workflow you can defend
 
-## Takeaway for modelers
+1. Define regimen and PK model, with provenance.  
+2. Define free-drug target or targets.  
+3. Simulate N virtual subjects.  
+4. Compute PTA on an MIC grid.  
+5. Optionally weight by an MIC distribution to get CFR.  
+6. Stress-test the fragile inputs: binding, IIV, renal strata, MIC source.
 
-- PTA is a **curve over MIC**; CFR is a **scalar under an epidemiology prior**.
-- Sample size and seed reporting are part of reproducibility, not decoration.
-- Joint targets (two drugs, two conditions) need joint PTA — not the average of two separate success rates.
+If the target is joint (two drugs, two conditions), success is the intersection inside each virtual subject. Averaging two separate PTA values is not the same thing. A later lesson walks through that case.
+
+## Takeaway
+
+Virtual populations turn "does this look fine on paper?" into "how often does this pass under realistic variability?" PTA keeps MIC fixed. CFR brings epidemiology back. Neither repairs a bad target choice or a mismatched population.
 
 Previous: [PK/PD targets and the MIC](01-pkpd-targets-and-mic.qmd) · Next: [Resistance, tolerance, and persistence](03-resistance-tolerance-persistence.qmd).

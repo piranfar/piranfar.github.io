@@ -1,69 +1,97 @@
 ---
-title: "Joint targets for β-lactam / β-lactamase inhibitor pairs"
-description: "Why ceftazidime–avibactam-style combinations need simultaneous success rules — and why averaging two PTAs is not joint target attainment."
+title: "Joint targets for beta-lactam / beta-lactamase inhibitor pairs"
+description: "Why BL/BLI combinations need simultaneous success rules, and why averaging two separate PTA values is not joint target attainment."
 author: "Vahhab Piranfar"
 date: "2026-10-17"
 categories: [Learning, Antibiotic PK/PD]
 ---
 
-A β-lactam/β-lactamase inhibitor (BL/BLI) pair is not one drug with two names. One component usually provides antibacterial exposure; the other protects that exposure from enzymes. Adequacy is therefore often a **joint** event.
+A beta-lactam paired with a beta-lactamase inhibitor is not one medicine with a long name. One partner usually does the killing work. The other protects that work from enzymes. If protection fails, the beta-lactam can look adequate on a plot and still lose in the patient.
+
+That is why combination PK/PD often needs a **joint** rule: both conditions true in the same virtual subject at the same evaluation window.
 
 ::: {.callout-note}
 ## Scope
-Simulation logic for combination PK/PD. Example framing inspired by ceftazidime–avibactam-style problems; not product-specific clinical advice.
+Simulation logic for combinations, with ceftazidime-avibactam style problems as a teaching frame. Not product-specific clinical advice.
 :::
 
-## Two clocks, one decision
+## Two conditions, one success flag
 
-Suppose:
-
-- Drug A (β-lactam) must satisfy a free-exposure target vs MIC,
-- Drug B (inhibitor) must stay above a threshold that preserves A’s activity.
-
-Patient-level success is:
+Suppose drug A must meet a free-exposure target against MIC, and drug B must stay above a threshold that preserves A's activity. For each simulated person:
 
 \[
-\mathbf{1}\{A \text{ succeeds}\} \land \mathbf{1}\{B \text{ succeeds}\}
+\text{success} = \mathbf{1}\{A\text{ ok}\} \land \mathbf{1}\{B\text{ ok}\}
 \]
 
-not the average of the two success indicators.
+Joint PTA is the fraction of people for whom that intersection is true. It is not the average of PTA(A) and PTA(B). It is not "A looks fine, so ignore B."
 
 ```{=html}
-<div class="learn-figure" role="img" aria-label="Venn-style joint success versus separate component success">
-<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="260" fill="#F8FAFC"/>
-  <circle cx="250" cy="130" r="70" fill="rgba(13,148,136,0.18)" stroke="#0D9488" stroke-width="2.5"/>
-  <circle cx="330" cy="130" r="70" fill="rgba(249,115,22,0.16)" stroke="#F97316" stroke-width="2.5"/>
-  <text x="210" y="135" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">A OK</text>
-  <text x="345" y="135" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">B OK</text>
-  <text x="290" y="135" text-anchor="middle" fill="#0F172A" font-family="Outfit, sans-serif" font-size="12" font-weight="800">joint</text>
-  <text x="500" y="100" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(A) alone</text>
-  <text x="500" y="128" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(B) alone</text>
-  <text x="500" y="156" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PTA(A∧B)</text>
-  <text x="320" y="230" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Joint PTA lives in the intersection.</text>
+<div class="learn-figure">
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Joint success as intersection of component A and B">
+  <rect width="640" height="280" fill="#F8FAFC"/>
+  <circle cx="245" cy="130" r="72" fill="rgba(13,148,136,0.18)" stroke="#0D9488" stroke-width="2.5"/>
+  <circle cx="325" cy="130" r="72" fill="rgba(249,115,22,0.16)" stroke="#F97316" stroke-width="2.5"/>
+  <text x="200" y="135" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">A ok</text>
+  <text x="345" y="135" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">B ok</text>
+  <text x="285" y="135" text-anchor="middle" fill="#0F172A" font-family="Outfit, sans-serif" font-size="12" font-weight="800">joint</text>
+  <text x="500" y="105" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(A)</text>
+  <text x="500" y="130" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(B)</text>
+  <text x="500" y="155" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PTA(A and B)</text>
+  <text x="320" y="235" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Joint attainment lives in the overlap.</text>
 </svg>
 </div>
 ```
 
-## Common modeling mistakes
+<details class="learn-think">
+<summary>Why correlation between clearances matters</summary>
+If A and B clearances move together, the joint tail can be very different from two independent draws. Ignoring correlation can make joint failure look rarer or more common than your evidence supports. State the correlation assumption.
+</details>
 
-1. **Collapse to one analyte** — simulating only the β-lactam because “that is the antibiotic.”
-2. **Report mean(PTA_A, PTA_B)** as if it were joint attainment.
-3. **Ignore correlation** — clearances of A and B may covary; independent draws can misstate joint tails.
-4. **Borrow incompatible thresholds** — inhibitor targets from a different matrix, population, or regimen without labeling.
+## Mistakes that look sophisticated
 
-## A clean joint workflow
+1. Simulating only the beta-lactam because "that is the antibiotic."  
+2. Reporting the mean of two PTAs as if it were joint attainment.  
+3. Borrowing an inhibitor threshold from another matrix or population without labeling.  
+4. Collapsing both drugs into one fake combined concentration.
 
-1. Simulate both concentration–time profiles in each virtual subject.
-2. Apply component-specific free targets.
-3. Mark joint success only when both pass.
-4. Build PTA vs MIC (or vs scenario grid) from the joint indicator.
-5. Optionally weight by MIC ecology → joint CFR.
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="sep">Separate profiles</button>
+    <button type="button" data-panel="joint">Joint rule</button>
+    <button type="button" data-panel="wrong">Not equivalent</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="sep">
+    <p>Simulate free concentration-time for A and for B in each virtual subject. Keep units and binding honest for each component.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="joint">
+    <p>Apply each target. Mark success only when both pass. Build PTA versus MIC from that joint indicator. Optionally weight by MIC ecology for joint CFR.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="wrong">
+    <p>Average(PTA_A, PTA_B), or "A passed so count success." Those shortcuts answer different questions and can hide inhibitor-limited regimens.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
 
-This is the same philosophy used in provenance-aware CAZ-AVI style evidence-composite work: components stay separate until a joint rule is applied deliberately.
+## Why this shows up in CAZ-AVI style work
+
+Ceftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose.
 
 ## Takeaway
 
-For BL/BLI pairs, **protection failure is regimen failure** even when the β-lactam curve looks beautiful alone. Joint PTA is an intersection, not an average.
+For BL/BLI pairs, protection failure is regimen failure. Joint PTA is an intersection inside each simulated person. Build it that way, then be transparent about thresholds, correlation, and which MIC the beta-lactam rule refers to.
 
-Previous: [Intermittent vs continuous infusion](06-intermittent-vs-continuous-infusion.qmd) · Next: [Uncertainty and provenance in PK/PD evidence](08-uncertainty-and-provenance.qmd).
+Previous: [Intermittent vs continuous infusion](06-intermittent-vs-continuous-infusion.qmd) · Next: [Uncertainty and provenance](08-uncertainty-and-provenance.qmd) · Case study: [CAZ-AVI end-to-end](13-caz-avi-mini-case.qmd).

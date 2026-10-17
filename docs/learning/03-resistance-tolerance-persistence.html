@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vahhab Piranfar">
 <meta name="dcterms.date" content="2026-10-16">
-<meta name="description" content="Separate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.">
+<meta name="description" content="Separate genetic resistance from tolerance and persistence, and see why a good-looking MIC-based PTA can still miss the mechanism of failure.">
 
 <title>Resistance, tolerance, and persistence in PK/PD language – Vahhab Piranfar</title>
 <style>
@@ -150,11 +150,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Resistance, tolerance, and persistence in PK/PD language – Vahhab Piranfar">
-<meta property="og:description" content="Separate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.">
+<meta property="og:description" content="Separate genetic resistance from tolerance and persistence, and see why a good-looking MIC-based PTA can still miss the mechanism of failure.">
 <meta property="og:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta property="og:site_name" content="Vahhab Piranfar">
 <meta name="twitter:title" content="Resistance, tolerance, and persistence in PK/PD language – Vahhab Piranfar">
-<meta name="twitter:description" content="Separate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.">
+<meta name="twitter:description" content="Separate genetic resistance from tolerance and persistence, and see why a good-looking MIC-based PTA can still miss the mechanism of failure.">
 <meta name="twitter:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -216,10 +216,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#three-words-three-model-objects" id="toc-three-words-three-model-objects" class="nav-link active" data-scroll-target="#three-words-three-model-objects">Three words, three model objects</a></li>
-  <li><a href="#why-mic-only-pta-can-look-fine-and-still-fail" id="toc-why-mic-only-pta-can-look-fine-and-still-fail" class="nav-link" data-scroll-target="#why-mic-only-pta-can-look-fine-and-still-fail">Why MIC-only PTA can look “fine” and still fail</a></li>
-  <li><a href="#practical-modeling-checklist" id="toc-practical-modeling-checklist" class="nav-link" data-scroll-target="#practical-modeling-checklist">Practical modeling checklist</a></li>
-  <li><a href="#takeaway-for-modelers" id="toc-takeaway-for-modelers" class="nav-link" data-scroll-target="#takeaway-for-modelers">Takeaway for modelers</a></li>
+  <li><a href="#three-words-that-should-not-be-synonyms" id="toc-three-words-that-should-not-be-synonyms" class="nav-link active" data-scroll-target="#three-words-that-should-not-be-synonyms">Three words that should not be synonyms</a></li>
+  <li><a href="#what-the-curves-look-like" id="toc-what-the-curves-look-like" class="nav-link" data-scroll-target="#what-the-curves-look-like">What the curves look like</a></li>
+  <li><a href="#why-a-strong-pta-can-still-disappoint" id="toc-why-a-strong-pta-can-still-disappoint" class="nav-link" data-scroll-target="#why-a-strong-pta-can-still-disappoint">Why a strong PTA can still disappoint</a></li>
+  <li><a href="#pathogen-contrast-briefly" id="toc-pathogen-contrast-briefly" class="nav-link" data-scroll-target="#pathogen-contrast-briefly">Pathogen contrast, briefly</a></li>
+  <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
     </div>
@@ -237,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Separate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.
+    Separate genetic resistance from tolerance and persistence, and see why a good-looking MIC-based PTA can still miss the mechanism of failure.
   </div>
 </div>
 
@@ -266,8 +267,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In clinical conversation, “the antibiotic did not work” is often collapsed into <strong>resistance</strong>. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.</p>
-<p>This lesson maps three survival ideas onto what a PK/PD model can and cannot see.</p>
+<p>In everyday talk, if an antibiotic fails people often say the bug was resistant. That shorthand is understandable. It is also expensive for modeling, because it points the simulator at the wrong object.</p>
+<p>This lesson separates three survival ideas and translates them into what a PK/PD model can see: a moved threshold, a slower kill, or a long surviving tail.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -278,86 +279,118 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Conceptual distinctions for simulation and evidence interpretation. Related preprint context: <a href="https://doi.org/10.1101/2025.02.12.637810">comparative modeling of resistance, tolerance, and persistence</a>.</p>
+<p>Concept map for simulation and reading papers. Related preprint context: <a href="https://doi.org/10.1101/2025.02.12.637810">comparative modeling of resistance, tolerance, and persistence</a>.</p>
 </div>
 </div>
-<section id="three-words-three-model-objects" class="level2">
-<h2 class="anchored" data-anchor-id="three-words-three-model-objects">Three words, three model objects</h2>
+<section id="three-words-that-should-not-be-synonyms" class="level2">
+<h2 class="anchored" data-anchor-id="three-words-that-should-not-be-synonyms">Three words that should not be synonyms</h2>
+<p><strong>Resistance</strong> usually means a heritable drop in susceptibility. In practice that often shows up as a higher MIC or a shifted pharmacodynamic curve. Genetics can sit underneath (target mutation, enzyme, efflux), but the PK/PD layer mainly notices the phenotype change.</p>
+<p><strong>Tolerance</strong> means a population can endure drug pressure longer without a large MIC shift. Time-kill curves look sluggish. The organism is not “fully susceptible in behavior” just because the MIC table looks polite.</p>
+<p><strong>Persistence</strong> points to a small subpopulation that survives much longer. The bulk may fall, then a refractory tail remains. Relapse risk lives in that tail more than in the first steep decline.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 21%">
-<col style="width: 61%">
+<col style="width: 15%">
+<col style="width: 31%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Concept</th>
-<th>Core idea</th>
-<th>What usually moves in a model</th>
+<th>Idea</th>
+<th>What moved</th>
+<th>What a model needs</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Resistance</strong></td>
-<td>Heritable reduced susceptibility</td>
-<td>Higher MIC / shifted PD curve</td>
+<td>Resistance</td>
+<td>Threshold / MIC</td>
+<td>Updated MIC or PD curve</td>
 </tr>
 <tr class="even">
-<td><strong>Tolerance</strong></td>
-<td>Population survives longer under drug stress without a large MIC shift</td>
-<td>Slower kill rate, longer time-kill shoulder</td>
+<td>Tolerance</td>
+<td>Kill speed of the population</td>
+<td>Time-kill or slower kill-rate terms</td>
 </tr>
 <tr class="odd">
-<td><strong>Persistence</strong></td>
-<td>Small subpopulation survives much longer</td>
-<td>Biphasic kill; a refractory fraction</td>
+<td>Persistence</td>
+<td>Long-lived fraction</td>
+<td>Biphasic kill or persister compartment</td>
 </tr>
 </tbody>
 </table>
-<p>Resistance changes the <strong>threshold</strong>.<br>
-Tolerance and persistence change the <strong>time course of killing</strong> even when the threshold looks acceptable.</p>
-<div class="learn-figure" role="img" aria-label="Time-kill curves for susceptible, tolerant, and persistent populations">
-<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="300" fill="#F8FAFC"></rect>
-  <line x1="56" y1="30" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <path d="M70,50 C120,55 160,80 200,130 C260,200 300,220 360,225" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"></path>
-  <path d="M70,50 C140,60 200,90 260,130 C330,175 400,195 520,210" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"></path>
-  <path d="M70,50 C110,55 150,75 180,110 C210,145 230,160 250,168 C300,175 380,178 560,182" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"></path>
-  <text x="370" y="220" fill="#0D9488" font-family="Outfit, sans-serif" font-size="12" font-weight="700">susceptible kill</text>
-  <text x="470" y="200" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">tolerance</text>
-  <text x="430" y="168" fill="#7C3AED" font-family="Outfit, sans-serif" font-size="12" font-weight="700">persistence tail</text>
-  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time under drug pressure</text>
-  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Viable bacteria</text>
+<details class="learn-think">
+<summary>
+A quick self-check
+</summary>
+If changing the MIC fully explains the failure story, you are mostly in resistance territory. If MIC barely moved but killing stalled, look at tolerance or persistence before you keep tuning the dose in a PTA-only frame.
+</details>
+</section>
+<section id="what-the-curves-look-like" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-curves-look-like">What the curves look like</h2>
+<div class="learn-figure">
+<svg viewbox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Time-kill curves for susceptible, tolerant, and persistent populations">
+  <rect width="640" height="320" fill="#F8FAFC"></rect>
+  <line x1="56" y1="36" x2="56" y2="240" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="240" x2="600" y2="240" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <path d="M70,55 C125,60 165,90 205,145 C265,215 310,230 370,235" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,55 C145,65 205,100 270,145 C340,190 420,210 545,222" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,55 C115,60 155,85 185,120 C215,155 235,170 255,176 C310,184 400,188 580,192" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"></path>
+  <text x="380" y="228" fill="#0D9488" font-family="Outfit, sans-serif" font-size="12" font-weight="700">faster kill</text>
+  <text x="500" y="210" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">tolerance</text>
+  <text x="430" y="175" fill="#6D28D9" font-family="Outfit, sans-serif" font-size="12" font-weight="700">persistence tail</text>
+  <text x="320" y="275" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time under drug pressure</text>
+  <text x="22" y="150" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 150)" text-anchor="middle">Viable bacteria</text>
 </svg>
+<p class="learn-caption">Same starting inoculum, different survival stories. MIC alone may not separate these lines.</p>
 </div>
 </section>
-<section id="why-mic-only-pta-can-look-fine-and-still-fail" class="level2">
-<h2 class="anchored" data-anchor-id="why-mic-only-pta-can-look-fine-and-still-fail">Why MIC-only PTA can look “fine” and still fail</h2>
-<p>A regimen can show high PTA against the measured MIC distribution while:</p>
+<section id="why-a-strong-pta-can-still-disappoint" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-strong-pta-can-still-disappoint">Why a strong PTA can still disappoint</h2>
+<p>PTA asks whether exposure clears a threshold rule. That is a fair question. It is not every question.</p>
+<p>A regimen can look excellent against the measured MIC distribution while:</p>
 <ul>
-<li>a tolerant population dies too slowly for the treatment duration,</li>
-<li>a persistent fraction seeds relapse,</li>
-<li>or the assay MIC understates the relevant effect-site challenge.</li>
+<li>killing is too slow for the planned duration,</li>
+<li>a persistent fraction remains,</li>
+<li>or the assay MIC understates the real challenge at the infection site.</li>
 </ul>
-<p>That does not make PTA useless. It means PTA answers a <strong>specific question</strong> (exposure vs threshold), not the entire clinical narrative.</p>
+<p>None of that makes PTA useless. It means you should label what your simulation tested. “High PTA vs MIC grid” is not the same claim as “sterilizing cure in every biology.”</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="r">If resistance dominates</button>
+    <button type="button" data-panel="t">If tolerance dominates</button>
+    <button type="button" data-panel="p">If persistence dominates</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="r">
+    <p>Update the MIC distribution or PD curve. Re-run PTA/CFR. Mechanism matters later when you choose inhibitors or drug class switches.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="t">
+    <p>Bring in time-kill information or slower kill parameters. Duration and shape of exposure may matter more than another small dose bump in a MIC-only frame.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="p">
+    <p>Model a refractory fraction or biphasic kill. Ask whether your endpoint is inhibition, bulk kill, or durable clearance of the tail.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="practical-modeling-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="practical-modeling-checklist">Practical modeling checklist</h2>
-<ol type="1">
-<li>Label whether your PD endpoint is <strong>inhibition</strong> (MIC-style) or <strong>killing</strong> (time-kill / CFU decline).</li>
-<li>If you only have MIC targets, say so explicitly in the limitations.</li>
-<li>When comparing pathogens, do not assume the same survival mode — <em>M. tuberculosis</em> and <em>S. aureus</em> are a useful contrast case in the preprint above.</li>
-<li>Keep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not.</li>
-</ol>
+<section id="pathogen-contrast-briefly" class="level2">
+<h2 class="anchored" data-anchor-id="pathogen-contrast-briefly">Pathogen contrast, briefly</h2>
+<p>Different organisms lean on different survival styles. In comparative modeling work, <em>Staphylococcus aureus</em> and <em>Mycobacterium tuberculosis</em> are a useful pair: one often shows a faster tolerance-like pattern, the other a longer persistence window. The lesson for the modeler is simple. Do not copy a kill structure from one species into another because the antibiotic name matches.</p>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li><strong>Resistance → move the MIC / PD curve.</strong></li>
-<li><strong>Tolerance / persistence → reshape kill kinetics and duration logic.</strong></li>
-<li>Report which of the three your simulation is actually testing.</li>
-</ul>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Resistance moves the threshold. Tolerance slows the population kill. Persistence leaves a long tail. Say which one your simulation is actually testing, especially when the clinical story is failure despite a tidy MIC.</p>
 <p>Previous: <a href="../learning/02-pta-cfr-virtual-populations.html">PTA, CFR, and virtual populations</a> · Next: <a href="../learning/05-free-drug-and-protein-binding.html">Free drug and protein binding</a> · Genetics: <a href="../learning/04-chromosome-vs-plasmid-resistance.html">Chromosome vs plasmid resistance</a>.</p>
 
 

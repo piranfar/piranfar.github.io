@@ -1,0 +1,94 @@
+---
+title: "Renal function and eGFR strata in antibiotic PK/PD"
+description: "How kidney function reshapes clearance and attainment, and why virtual populations should treat eGFR classes as first-class scenario structure."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+Many antibiotics leave the body through the kidney. When clearance depends on renal function, two patients on the "same" regimen can live in different exposure worlds. One has high free levels and long time above MIC. Another clears the drug so fast the troughs collapse.
+
+That is why serious virtual populations often stratify by **eGFR** or similar kidney metrics instead of pretending one clearance distribution fits everybody.
+
+::: {.callout-note}
+## Scope
+Modeling structure for renally cleared drugs. Not individualized clinical dosing advice.
+:::
+
+## Why kidney function changes the plot
+
+If clearance rises as eGFR rises, the concentration-time curve sits lower for better renal function, all else equal. For time-driven targets, that can erase trough coverage first. For continuous infusion, steady free concentration moves almost directly with clearance. For AUC-driven targets, the whole area shrinks.
+
+So renal strata are not decorative subgroups. They are different pharmacokinetic machines.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lower exposure curve with higher renal clearance">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M70,175 C130,70 180,50 240,58 C320,75 380,120 450,135 C520,100 560,85 600,80" fill="none" stroke="#0D9488" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M70,200 C130,130 180,115 240,120 C320,130 380,160 450,170 C520,150 560,145 600,142" fill="none" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round"/>
+  <text x="430" y="95" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">lower eGFR</text>
+  <text x="455" y="188" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">higher eGFR</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+</svg>
+<p class="learn-caption">Better kidney function can mean less exposure on the same nominal regimen.</p>
+</div>
+```
+
+<details class="learn-think">
+<summary>Augmented renal clearance</summary>
+Some critically ill patients clear drugs unusually fast. If your virtual population never includes that tail, PTA for "ICU adults" can look calmer than the ward you claim to study.
+</details>
+
+## Building strata without clutter
+
+A practical pattern:
+
+1. Define eGFR classes that match the covariate model you cite.  
+2. Draw subjects inside each class, or draw eGFR then map to clearance.  
+3. Report PTA within strata and overall.  
+4. Keep dosing rules explicit if the labeled regimen itself adjusts by kidney function.
+
+If the clinical regimen reduces dose in low eGFR, your simulation should not compare "full dose in everyone" unless that is the deliberate what-if.
+
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="fixed">Fixed dose, all eGFR</button>
+    <button type="button" data-panel="adj">Renally adjusted regimen</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="fixed">
+    <p>Useful for understanding raw pharmacokinetic sensitivity to kidney function. Can overstate exposure in low eGFR and understate risk in high eGFR relative to labeled practice.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="adj">
+    <p>Closer to practice questions. Each stratum gets its regimen rule, then PTA is compared under those rules. Still cite which adjustment scheme you implemented.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
+
+## What to report so readers can trust you
+
+Name the equation used for renal function, the class boundaries, the clearance relationship, and whether dialysis or renal replacement scenarios were excluded. Mixed populations without labels are hard to reuse and easy to over-interpret.
+
+## Takeaway
+
+For renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.
+
+Previous: [Effect site versus plasma](10-effect-site-vs-plasma.qmd) · Next: [Inoculum effect](12-inoculum-effect.qmd).

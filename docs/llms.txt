@@ -35,7 +35,11 @@ Primary track (Antibiotic PK/PD):
 - Free drug and protein binding — https://vahhabpiranfar.com/learning/05-free-drug-and-protein-binding.html
 - Intermittent vs continuous infusion — https://vahhabpiranfar.com/learning/06-intermittent-vs-continuous-infusion.html
 - Joint targets for BL/BLI pairs — https://vahhabpiranfar.com/learning/07-joint-targets-bl-bli.html
-- Uncertainty and provenance in PK/PD evidence — https://vahhabpiranfar.com/learning/08-uncertainty-and-provenance.html
+- Uncertainty and provenance — https://vahhabpiranfar.com/learning/08-uncertainty-and-provenance.html
+- Effect site versus plasma — https://vahhabpiranfar.com/learning/10-effect-site-vs-plasma.html
+- Renal function and eGFR strata — https://vahhabpiranfar.com/learning/11-renal-function-egfr-strata.html
+- Inoculum effect — https://vahhabpiranfar.com/learning/12-inoculum-effect.html
+- CAZ-AVI mini case — https://vahhabpiranfar.com/learning/13-caz-avi-mini-case.html
 
 Secondary track (Bacterial genetics for modelers):
 

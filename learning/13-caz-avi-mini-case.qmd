@@ -1,0 +1,106 @@
+---
+title: "Mini case: putting CAZ-AVI style PK/PD together"
+description: "A walkthrough that connects free drug, joint targets, renal strata, provenance, and PTA into one ceftazidime-avibactam style modeling story."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+This lesson stitches the earlier notes into one worked story. The drug pair is **ceftazidime-avibactam** style thinking: a beta-lactam plus a protector. The goal is not to deliver a clinical dose recommendation. The goal is to show how a careful modeler moves from fragmented evidence to a joint attainment question without laundering uncertainty.
+
+::: {.callout-note}
+## Scope
+Teaching case for method order and joint logic. Numbers here are illustrative shapes, not a substitute for a full evidence-composite package.
+:::
+
+## The question in one sentence
+
+In critically ill adults without renal replacement therapy, given a continuous-infusion style regimen, how often do virtual subjects jointly clear a free ceftazidime exposure rule against MIC and an avibactam threshold rule?
+
+Notice what that sentence already fixed: population, infusion idea, free-drug thinking, and joint success.
+
+## Step 1: keep the components separate
+
+Ceftazidime and avibactam get their own concentration-time profiles. Binding, clearance, and variability are component-specific. If published clearances are correlated, that correlation belongs in the draw. Collapsing both drugs into one fake "combo level" throws away the reason the pair exists.
+
+<details class="learn-think">
+<summary>Why joint logic appears here</summary>
+A subject can pass the beta-lactam rule and fail the inhibitor rule. Counting that subject as a success would answer a different question than combination adequacy.
+</details>
+
+## Step 2: choose targets you can defend
+
+A common teaching pattern is:
+
+- ceftazidime judged on a free steady-state concentration relative to MIC,
+- avibactam judged on staying above a fixed free threshold,
+- joint success only when both pass.
+
+Whatever thresholds you use, cite them and keep free/total conversion explicit.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two component checks feeding one joint success flag">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <rect x="40" y="50" width="200" height="90" rx="12" fill="#fff" stroke="#0D9488" stroke-width="2"/>
+  <text x="140" y="85" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Ceftazidime</text>
+  <text x="140" y="112" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">free Css vs MIC</text>
+  <rect x="40" y="170" width="200" height="90" rx="12" fill="#fff" stroke="#F97316" stroke-width="2"/>
+  <text x="140" y="205" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Avibactam</text>
+  <text x="140" y="232" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">free level vs threshold</text>
+  <path d="M240,95 H310" stroke="#94A3B8" stroke-width="2"/>
+  <path d="M240,215 H310" stroke="#94A3B8" stroke-width="2"/>
+  <path d="M310,95 V215" stroke="#94A3B8" stroke-width="2"/>
+  <path d="M310,155 H380" stroke="#94A3B8" stroke-width="2"/>
+  <rect x="380" y="115" width="200" height="80" rx="12" fill="#0B1628"/>
+  <text x="480" y="150" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Joint success?</text>
+  <text x="480" y="175" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="IBM Plex Sans, sans-serif" font-size="12">both must pass</text>
+</svg>
+</div>
+```
+
+## Step 3: put kidney function in the population
+
+Continuous infusion steady levels move with clearance. eGFR strata are not optional decoration for this story. Draw or assign renal classes, map them to clearance, and report attainment by stratum as well as overall. If the labeled regimen adjusts by renal function, say whether you modeled that adjustment.
+
+## Step 4: build PTA, then maybe CFR
+
+Compute joint PTA across an MIC grid for the beta-lactam rule while the inhibitor rule stays active in every subject. If you have a dated MIC distribution for the relevant Gram-negative ecology, weight the PTA curve to get joint CFR. Then re-run under an alternate MIC prior if plasmid-driven shifts are a live concern.
+
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="order">Suggested order</button>
+    <button type="button" data-panel="skip">What not to skip</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="order">
+    <p>Evidence labels → component PK → free conversion → joint target rule → renal strata → Monte Carlo → joint PTA grid → optional CFR → sensitivity on fu, correlation, and MIC prior.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="skip">
+    <p>Do not skip provenance for donor PK pieces, free/total bookkeeping, joint intersection logic, or a plain-language scenario compatibility note.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
+
+## Step 5: say what the case did not claim
+
+A plasma free-drug joint PTA is not automatically ELF adequacy. A standard-inoculum MIC grid is not automatically a high-burden abscess story. Healthy-volunteer donor pieces are not automatically ICU truth. Write those limits in ordinary sentences. Readers forgive uncertainty. They distrust invisible upgrades.
+
+## Takeaway
+
+The CAZ-AVI style case is a checklist in narrative form: separate components, free-drug honesty, joint intersection, renal structure, provenance, then PTA/CFR. If you can explain those choices out loud without slides, the simulation is ready to be read by another scientist.
+
+Related lessons: [Joint targets](07-joint-targets-bl-bli.qmd), [Free drug](05-free-drug-and-protein-binding.qmd), [eGFR strata](11-renal-function-egfr-strata.qmd), [Provenance](08-uncertainty-and-provenance.qmd). Project page: [CAZ-AVI evidence-composite PK/PD](../projects/caz-avi-evidence-composite-pkpd.qmd).

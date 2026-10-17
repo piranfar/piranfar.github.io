@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vahhab Piranfar">
 <meta name="dcterms.date" content="2026-10-17">
-<meta name="description" content="How to keep Monte Carlo outputs honest when clearance equations, MIC weights, and targets come from fragmented published sources.">
+<meta name="description" content="How to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources.">
 
 <title>Uncertainty and provenance in PK/PD evidence – Vahhab Piranfar</title>
 <style>
@@ -147,43 +147,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;family=Outfit:wght@400;600;700;800;900&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Uncertainty and provenance in PK/PD evidence – Vahhab Piranfar">
-<meta property="og:description" content="How to keep Monte Carlo outputs honest when clearance equations, MIC weights, and targets come from fragmented published sources.">
+<meta property="og:description" content="How to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources.">
 <meta property="og:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta property="og:site_name" content="Vahhab Piranfar">
 <meta name="twitter:title" content="Uncertainty and provenance in PK/PD evidence – Vahhab Piranfar">
-<meta name="twitter:description" content="How to keep Monte Carlo outputs honest when clearance equations, MIC weights, and targets come from fragmented published sources.">
+<meta name="twitter:description" content="How to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources.">
 <meta name="twitter:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -245,9 +216,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#provenance-beats-vibes" id="toc-provenance-beats-vibes" class="nav-link active" data-scroll-target="#provenance-beats-vibes">Provenance beats vibes</a></li>
-  <li><a href="#uncertainty-is-layered" id="toc-uncertainty-is-layered" class="nav-link" data-scroll-target="#uncertainty-is-layered">Uncertainty is layered</a></li>
-  <li><a href="#a-minimum-reporting-set" id="toc-a-minimum-reporting-set" class="nav-link" data-scroll-target="#a-minimum-reporting-set">A minimum reporting set</a></li>
+  <li><a href="#label-every-input-like-it-might-be-audited" id="toc-label-every-input-like-it-might-be-audited" class="nav-link active" data-scroll-target="#label-every-input-like-it-might-be-audited">Label every input like it might be audited</a></li>
+  <li><a href="#uncertainty-comes-in-layers" id="toc-uncertainty-comes-in-layers" class="nav-link" data-scroll-target="#uncertainty-comes-in-layers">Uncertainty comes in layers</a></li>
+  <li><a href="#compatibility-is-a-scientific-decision" id="toc-compatibility-is-a-scientific-decision" class="nav-link" data-scroll-target="#compatibility-is-a-scientific-decision">Compatibility is a scientific decision</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
@@ -266,7 +237,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    How to keep Monte Carlo outputs honest when clearance equations, MIC weights, and targets come from fragmented published sources.
+    How to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources.
   </div>
 </div>
 
@@ -295,7 +266,8 @@ window.Quarto = {
 </header>
 
 
-<p>A polished PTA curve can hide a messy evidence trail. The scientific question is not only “what is the probability?” but <strong>which assumptions, from which sources, under which scenario compatibility rules, produced that probability?</strong></p>
+<p>A smooth PTA curve can look like certainty. Often it is a stack of borrowed numbers wearing a clean plot. The scientific job is not only to compute a probability. It is to show <strong>which assumptions, from which sources, under which scenario rules</strong>, produced that probability.</p>
+<p>This lesson is about evidence hygiene. It is the difference between a reusable simulation and a one-off slide.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -306,85 +278,110 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Evidence hygiene for reusable antimicrobial PK/PD simulation. Aligns with component-level evidence-composite thinking.</p>
+<p>Provenance habits for antimicrobial PK/PD simulation, aligned with component-level evidence thinking.</p>
 </div>
 </div>
-<section id="provenance-beats-vibes" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-beats-vibes">Provenance beats vibes</h2>
-<p>Every simulation input deserves a label:</p>
+<section id="label-every-input-like-it-might-be-audited" class="level2">
+<h2 class="anchored" data-anchor-id="label-every-input-like-it-might-be-audited">Label every input like it might be audited</h2>
+<p>Useful labels look boring. That is why they work.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 57%">
-<col style="width: 42%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Label idea</th>
+<th>Label</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Directly reported</strong></td>
-<td>Taken as published for this use</td>
+<td>Directly reported</td>
+<td>Used as published for this purpose</td>
 </tr>
 <tr class="even">
-<td><strong>Transformed</strong></td>
-<td>Unit change, free/total conversion, algebraic rearrange</td>
+<td>Transformed</td>
+<td>Unit change, free/total conversion, algebra</td>
 </tr>
 <tr class="odd">
-<td><strong>Inherited / donor</strong></td>
+<td>Donor / inherited</td>
 <td>Borrowed from a related but non-identical source</td>
 </tr>
 <tr class="even">
-<td><strong>Assumed / user-specified</strong></td>
-<td>Filled to run the model; must stay visible</td>
+<td>Assumed</td>
+<td>Filled so the model can run; must stay visible</td>
 </tr>
 <tr class="odd">
-<td><strong>Scenario-generated</strong></td>
-<td>Arises from the simulation design itself</td>
+<td>Scenario-generated</td>
+<td>Created by the simulation design itself</td>
 </tr>
 </tbody>
 </table>
-<p>Missingness should remain missing until a compatible donor is justified — not silently median-imputed in a methods paragraph nobody reads.</p>
+<p>Missing data should stay missing until a compatible donor is justified. Silent median fills create false completeness.</p>
+<details class="learn-think">
+<summary>
+A practical test
+</summary>
+If a coauthor asks “where did this fu come from?” and you need five minutes to remember, the provenance trail is already too weak for a methods section.
+</details>
 </section>
-<section id="uncertainty-is-layered" class="level2">
-<h2 class="anchored" data-anchor-id="uncertainty-is-layered">Uncertainty is layered</h2>
+<section id="uncertainty-comes-in-layers" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-comes-in-layers">Uncertainty comes in layers</h2>
 <ol type="1">
-<li><strong>Parameter uncertainty</strong> — IIV, residual error, covariate model.</li>
-<li><strong>Structural uncertainty</strong> — one- vs two-compartment; infusion constraints.</li>
-<li><strong>Evidence uncertainty</strong> — wrong population, wrong matrix, stale MIC ecology.</li>
-<li><strong>Decision-rule uncertainty</strong> — which target threshold is “the” target?</li>
+<li><strong>Parameter uncertainty:</strong> IIV, residual error, covariate effects.<br>
+</li>
+<li><strong>Structural uncertainty:</strong> compartment choice, infusion constraints, correlation.<br>
+</li>
+<li><strong>Evidence uncertainty:</strong> wrong population, wrong matrix, stale MIC ecology.<br>
+</li>
+<li><strong>Decision-rule uncertainty:</strong> which threshold counts as “enough.”</li>
 </ol>
-<p>Monte Carlo on layer 1 alone can look precise while layer 3 dominates the truth.</p>
-<div class="learn-figure" role="img" aria-label="Stacked uncertainty layers under a PTA output">
-<svg viewbox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="260" fill="#F8FAFC"></rect>
-  <rect x="80" y="40" width="480" height="40" rx="10" fill="#0D9488"></rect>
-  <text x="320" y="66" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">PTA / CFR output</text>
-  <rect x="100" y="95" width="440" height="34" rx="8" fill="rgba(13,148,136,0.25)" stroke="#0D9488"></rect>
-  <text x="320" y="117" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">parameter IIV / residual error</text>
-  <rect x="120" y="140" width="400" height="34" rx="8" fill="rgba(249,115,22,0.2)" stroke="#F97316"></rect>
-  <text x="320" y="162" text-anchor="middle" fill="#EA580C" font-family="IBM Plex Sans, sans-serif" font-size="13">structural &amp; scenario assumptions</text>
-  <rect x="140" y="185" width="360" height="34" rx="8" fill="rgba(124,58,237,0.18)" stroke="#7C3AED"></rect>
-  <text x="320" y="207" text-anchor="middle" fill="#6D28D9" font-family="IBM Plex Sans, sans-serif" font-size="13">evidence provenance &amp; MIC ecology</text>
+<p>Monte Carlo on layer 1 alone can look precise while layer 3 quietly dominates.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked uncertainty layers under PTA output">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <rect x="80" y="36" width="480" height="42" rx="10" fill="#0D9488"></rect>
+  <text x="320" y="63" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">PTA / CFR output</text>
+  <rect x="100" y="95" width="440" height="36" rx="8" fill="rgba(13,148,136,0.25)" stroke="#0D9488"></rect>
+  <text x="320" y="118" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">parameter variability</text>
+  <rect x="120" y="145" width="400" height="36" rx="8" fill="rgba(249,115,22,0.2)" stroke="#F97316"></rect>
+  <text x="320" y="168" text-anchor="middle" fill="#EA580C" font-family="IBM Plex Sans, sans-serif" font-size="13">structure and scenario choices</text>
+  <rect x="140" y="195" width="360" height="36" rx="8" fill="rgba(124,58,237,0.18)" stroke="#7C3AED"></rect>
+  <text x="320" y="218" text-anchor="middle" fill="#6D28D9" font-family="IBM Plex Sans, sans-serif" font-size="13">evidence provenance and MIC ecology</text>
 </svg>
+<p class="learn-caption">Pretty sampling does not repair a shaky evidence base.</p>
 </div>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="min">Minimum report</button>
+    <button type="button" data-panel="better">Stronger report</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="min">
+    <p>Source list for CL, V, fu, targets, MIC weights. Free/total notes. Population statement. Seed and N. One sensitivity check on the most fragile input.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="better">
+    <p>Everything in the minimum set, plus scenario compatibility notes for donor evidence, correlation assumptions, convergence checks, and alternative MIC priors with dates.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="a-minimum-reporting-set" class="level2">
-<h2 class="anchored" data-anchor-id="a-minimum-reporting-set">A minimum reporting set</h2>
-<ul>
-<li>Source list for CL, V, fu, targets, MIC weights</li>
-<li>Transformation notes (free/total, units)</li>
-<li>Population / scenario compatibility statement</li>
-<li>Seeds, <span class="math inline">\(N\)</span>, and convergence check</li>
-<li>One-way or global sensitivity on the fragile inputs</li>
-</ul>
+<section id="compatibility-is-a-scientific-decision" class="level2">
+<h2 class="anchored" data-anchor-id="compatibility-is-a-scientific-decision">Compatibility is a scientific decision</h2>
+<p>ICU continuous-infusion parameters are not automatically interchangeable with healthy-volunteer bolus data, CSF studies, or in vitro kill curves. Those sources can still help as donors or anchors. They should not be pooled as if they were one population. Write the compatibility rule in human language: what was allowed to enter the primary scenario, and what stayed outside with a label.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>Reproducible PK/PD is less about prettier sampling and more about <strong>refusing to launder uncertain evidence into false certainty</strong>.</p>
-<p>Previous: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for BL/BLI pairs</a> · Genetics bridge: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a>.</p>
+<p>Reproducible PK/PD is less about fancier random draws and more about refusing to launder uncertain evidence into false certainty. If the trail of sources is clear, other people can challenge your result productively. That is a feature.</p>
+<p>Previous: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for BL/BLI pairs</a> · Next: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a> · Then: <a href="../learning/10-effect-site-vs-plasma.html">Effect site versus plasma</a>.</p>
 
 
 </section>

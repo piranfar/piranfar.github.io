@@ -8,9 +8,9 @@
 
 <meta name="author" content="Vahhab Piranfar">
 <meta name="dcterms.date" content="2026-10-17">
-<meta name="description" content="How infusion mode reshapes the concentration–time curve and why fT>MIC simulations change when you move from bolus-like dosing to continuous infusion.">
+<meta name="description" content="How infusion mode reshapes concentration-time curves, and why fT>MIC or Css/MIC results change when the same daily dose is delivered differently.">
 
-<title>Intermittent vs continuous infusion for β-lactams – Vahhab Piranfar</title>
+<title>Intermittent vs continuous infusion for beta-lactams – Vahhab Piranfar</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -147,43 +147,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;family=Outfit:wght@400;600;700;800;900&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Intermittent vs continuous infusion for β-lactams – Vahhab Piranfar">
-<meta property="og:description" content="How infusion mode reshapes the concentration–time curve and why fT>MIC simulations change when you move from bolus-like dosing to continuous infusion.">
+<meta property="og:title" content="Intermittent vs continuous infusion for beta-lactams – Vahhab Piranfar">
+<meta property="og:description" content="How infusion mode reshapes concentration-time curves, and why fT>MIC or Css/MIC results change when the same daily dose is delivered differently.">
 <meta property="og:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta property="og:site_name" content="Vahhab Piranfar">
-<meta name="twitter:title" content="Intermittent vs continuous infusion for β-lactams – Vahhab Piranfar">
-<meta name="twitter:description" content="How infusion mode reshapes the concentration–time curve and why fT>MIC simulations change when you move from bolus-like dosing to continuous infusion.">
+<meta name="twitter:title" content="Intermittent vs continuous infusion for beta-lactams – Vahhab Piranfar">
+<meta name="twitter:description" content="How infusion mode reshapes concentration-time curves, and why fT>MIC or Css/MIC results change when the same daily dose is delivered differently.">
 <meta name="twitter:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -246,8 +217,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#same-daily-dose-different-shape" id="toc-same-daily-dose-different-shape" class="nav-link active" data-scroll-target="#same-daily-dose-different-shape">Same daily dose, different shape</a></li>
-  <li><a href="#what-your-simulator-must-not-forget" id="toc-what-your-simulator-must-not-forget" class="nav-link" data-scroll-target="#what-your-simulator-must-not-forget">What your simulator must not forget</a></li>
-  <li><a href="#modeling-comparison-template" id="toc-modeling-comparison-template" class="nav-link" data-scroll-target="#modeling-comparison-template">Modeling comparison template</a></li>
+  <li><a href="#what-the-simulator-must-keep-honest" id="toc-what-the-simulator-must-keep-honest" class="nav-link" data-scroll-target="#what-the-simulator-must-keep-honest">What the simulator must keep honest</a></li>
+  <li><a href="#a-classroom-example-without-fake-precision" id="toc-a-classroom-example-without-fake-precision" class="nav-link" data-scroll-target="#a-classroom-example-without-fake-precision">A classroom example without fake precision</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
@@ -257,7 +228,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intermittent vs continuous infusion for β-lactams</h1>
+<h1 class="title">Intermittent vs continuous infusion for beta-lactams</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Learning</div>
     <div class="quarto-category">Antibiotic PK/PD</div>
@@ -266,7 +237,7 @@ window.Quarto = {
 
 <div>
   <div class="description">
-    How infusion mode reshapes the concentration–time curve and why fT&gt;MIC simulations change when you move from bolus-like dosing to continuous infusion.
+    How infusion mode reshapes concentration-time curves, and why fT&gt;MIC or Css/MIC results change when the same daily dose is delivered differently.
   </div>
 </div>
 
@@ -295,7 +266,8 @@ window.Quarto = {
 </header>
 
 
-<p>For many β-lactams, the dominant index is <strong>fT&gt;MIC</strong>. That makes <strong>how you deliver the daily dose</strong> a first-class modeling choice: short intermittent infusions create peaks and troughs; continuous infusion flattens the profile toward a steady free concentration.</p>
+<p>For many beta-lactams the index that matters most is time above a threshold. That makes <strong>how you deliver the dose</strong> part of the pharmacology, not a nursing footnote.</p>
+<p>Give the same daily amount as short intermittent infusions and you get peaks and troughs. Stretch the infusion and the troughs rise. Run it continuously and the profile can settle toward a steady free concentration. The MIC line does not move. The geometry around it does.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -306,56 +278,86 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>PK/PD geometry of infusion mode for simulation. Not a recommendation to change bedside practice.</p>
+<p>Geometry of infusion mode for simulation. Not a recommendation to change bedside practice by itself.</p>
 </div>
 </div>
 <section id="same-daily-dose-different-shape" class="level2">
 <h2 class="anchored" data-anchor-id="same-daily-dose-different-shape">Same daily dose, different shape</h2>
-<p>Hold clearance, volume, fu, and MIC fixed. Change only the input rate:</p>
+<p>Hold clearance, volume, fu, and MIC fixed. Change only the input rate.</p>
 <ul>
-<li><strong>Intermittent</strong>: repeated short infusions → oscillating <span class="math inline">\(C_{\mathrm{free}}(t)\)</span>.</li>
-<li><strong>Extended infusion</strong>: longer infusions per dose → higher troughs, softer peaks.</li>
-<li><strong>Continuous</strong>: constant rate → approach to steady state <span class="math inline">\(C_{\mathrm{ss,free}}\)</span>.</li>
+<li><strong>Intermittent short infusion:</strong> oscillating free levels. Success depends on how long each cycle stays above MIC.<br>
+</li>
+<li><strong>Extended infusion:</strong> softer peaks, higher troughs.<br>
+</li>
+<li><strong>Continuous infusion:</strong> approach to steady state. Many analyses then ask whether steady free concentration stays above MIC, or above a multiple of MIC.</li>
 </ul>
-<p>For a pure fT&gt;MIC rule, continuous infusion often converts the question to whether <span class="math inline">\(C_{\mathrm{ss,free}}\)</span> stays above a multiple of MIC for the entire interval.</p>
-<div class="learn-figure" role="img" aria-label="Intermittent peaks versus continuous steady free concentration above MIC">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Intermittent peaks versus continuous steady concentration">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
   <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
   <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
-  <path d="M70,200 C95,60 110,55 130,70 C155,200 175,200 200,70 C225,200 245,200 270,70 C295,200 320,200 345,75" fill="none" stroke="#94A3B8" stroke-width="2.8" stroke-linecap="round"></path>
-  <path d="M360,200 C400,120 430,105 470,100 C520,95 560,95 600,95" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
-  <text x="160" y="48" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">intermittent</text>
-  <text x="470" y="82" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">continuous Css</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+  <path d="M70,205 C95,55 110,50 130,70 C155,205 175,205 200,70 C225,205 245,205 270,70 C295,205 320,205 345,78" fill="none" stroke="#94A3B8" stroke-width="2.8" stroke-linecap="round"></path>
+  <path d="M360,205 C405,125 440,108 480,102 C530,96 565,96 600,96" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <text x="150" y="48" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">intermittent</text>
+  <text x="470" y="84" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">continuous Css</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
 </svg>
+<p class="learn-caption">Infusion mode changes which parts of the day sit above the MIC line.</p>
 </div>
+<details class="learn-think">
+<summary>
+Why loading doses appear in continuous regimens
+</summary>
+If you start continuous infusion with no load, early concentrations climb slowly. A PTA that only looks at later steady state can miss early undershoot. If your clinical question includes the first hours, model the load.
+</details>
 </section>
-<section id="what-your-simulator-must-not-forget" class="level2">
-<h2 class="anchored" data-anchor-id="what-your-simulator-must-not-forget">What your simulator must not forget</h2>
+<section id="what-the-simulator-must-keep-honest" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-simulator-must-keep-honest">What the simulator must keep honest</h2>
 <ol type="1">
-<li><strong>Loading dose</strong> — continuous regimens often need an initial bolus; omitting it underestimates early fT&gt;MIC.</li>
-<li><strong>Stability / administration constraints</strong> — model scenario ≠ pharmacy reality; label assumptions.</li>
-<li><strong>Renal function</strong> — Css moves with clearance; eGFR strata can dominate PTA differences more than infusion cosmetics.</li>
-<li><strong>Targets as ratios</strong> — some β-lactam analyses use <span class="math inline">\(C_{\mathrm{ss,free}}/\mathrm{MIC} \ge 4\)</span> (or similar) rather than raw T&gt;MIC percent.</li>
+<li><strong>Loading dose</strong> status.<br>
+</li>
+<li><strong>Renal function strata</strong>, because steady concentration moves with clearance.<br>
+</li>
+<li><strong>Administration constraints</strong> that your scenario ignores (stability, line access). Label them.<br>
+</li>
+<li><strong>Target form</strong>: percent fT&gt;MIC versus a Css/MIC ratio rule. They are related ideas with different bookkeeping.</li>
 </ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="int">Compare fairly</button>
+    <button type="button" data-panel="trap">Common trap</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="int">
+    <p>Freeze the virtual population and MIC grid. Change only the dosing input. Plot PTA on the same MIC axis. Report early and steady periods if loading differs.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="trap">
+    <p>Changing infusion mode and also silently changing daily dose, population, or target definition. Then attributing the whole PTA jump to "continuous infusion magic."</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="modeling-comparison-template" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-comparison-template">Modeling comparison template</h2>
-<p>When you compare intermittent vs continuous:</p>
-<ul>
-<li>freeze the virtual population and MIC grid,</li>
-<li>change only the dosing input,</li>
-<li>report PTA curves on the same MIC axis,</li>
-<li>show early-interval behavior separately if loading doses differ.</li>
-</ul>
+<section id="a-classroom-example-without-fake-precision" class="level2">
+<h2 class="anchored" data-anchor-id="a-classroom-example-without-fake-precision">A classroom example without fake precision</h2>
+<p>Suppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>Infusion mode is not a plotting preference. It changes the <strong>exposure geometry</strong> that fT&gt;MIC (and Css/MIC) rules evaluate.</p>
-<p>Previous: <a href="../learning/05-free-drug-and-protein-binding.html">Free drug and protein binding</a> · Next: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for β-lactam/β-lactamase inhibitor pairs</a>.</p>
+<p>Infusion mode redraws the exposure path around the MIC. For time-driven beta-lactam targets, that redraw is part of the science. Compare shapes under controlled conditions, and say whether your endpoint was interval fT&gt;MIC or steady-state coverage.</p>
+<p>Previous: <a href="../learning/05-free-drug-and-protein-binding.html">Free drug and protein binding</a> · Next: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for BL/BLI pairs</a>.</p>
 
 
 </section>

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Vahhab Piranfar">
 <meta name="dcterms.date" content="2026-10-16">
-<meta name="description" content="A compact primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.">
+<meta name="description" content="A plain-language primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling.">
 
 <title>PK/PD targets and the MIC: what the indices actually mean – Vahhab Piranfar</title>
 <style>
@@ -150,11 +150,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="PK/PD targets and the MIC: what the indices actually mean – Vahhab Piranfar">
-<meta property="og:description" content="A compact primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.">
+<meta property="og:description" content="A plain-language primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling.">
 <meta property="og:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta property="og:site_name" content="Vahhab Piranfar">
 <meta name="twitter:title" content="PK/PD targets and the MIC: what the indices actually mean – Vahhab Piranfar">
-<meta name="twitter:description" content="A compact primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.">
+<meta name="twitter:description" content="A plain-language primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling.">
 <meta name="twitter:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -216,10 +216,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-mic-is-a-threshold-not-a-full-phenotype" id="toc-the-mic-is-a-threshold-not-a-full-phenotype" class="nav-link active" data-scroll-target="#the-mic-is-a-threshold-not-a-full-phenotype">The MIC is a threshold, not a full phenotype</a></li>
-  <li><a href="#three-classic-indices" id="toc-three-classic-indices" class="nav-link" data-scroll-target="#three-classic-indices">Three classic indices</a></li>
-  <li><a href="#how-to-choose-an-index-in-a-model" id="toc-how-to-choose-an-index-in-a-model" class="nav-link" data-scroll-target="#how-to-choose-an-index-in-a-model">How to choose an index in a model</a></li>
-  <li><a href="#takeaway-for-modelers" id="toc-takeaway-for-modelers" class="nav-link" data-scroll-target="#takeaway-for-modelers">Takeaway for modelers</a></li>
+  <li><a href="#start-with-the-awkward-object-the-mic" id="toc-start-with-the-awkward-object-the-mic" class="nav-link active" data-scroll-target="#start-with-the-awkward-object-the-mic">Start with the awkward object: the MIC</a></li>
+  <li><a href="#three-index-families-said-simply" id="toc-three-index-families-said-simply" class="nav-link" data-scroll-target="#three-index-families-said-simply">Three index families, said simply</a></li>
+  <li><a href="#choosing-an-index-without-mystique" id="toc-choosing-an-index-without-mystique" class="nav-link" data-scroll-target="#choosing-an-index-without-mystique">Choosing an index without mystique</a></li>
+  <li><a href="#a-working-habit-for-modelers" id="toc-a-working-habit-for-modelers" class="nav-link" data-scroll-target="#a-working-habit-for-modelers">A working habit for modelers</a></li>
   </ul>
 </nav>
     </div>
@@ -237,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    A compact primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.
+    A plain-language primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling.
   </div>
 </div>
 
@@ -266,8 +266,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Antibiotic PK/PD modeling starts with one awkward fact: bacteria do not “see” the dose. They see <strong>concentration over time</strong> at the effect site, relative to a susceptibility threshold — usually the <strong>MIC</strong>.</p>
-<p>This lesson is for modelers and microbiologists who want the indices to stop feeling like slogans.</p>
+<p>Bacteria do not read the prescription label. They experience a rising and falling concentration of drug around them. Pharmacokinetic/pharmacodynamic (PK/PD) modeling is mostly the craft of putting that time course next to a susceptibility number, usually the <strong>MIC</strong>, and asking whether the exposure looks adequate.</p>
+<p>This lesson stays practical. You will leave with a clear picture of what MIC can and cannot carry, what the classic indices mean, and how to choose one without turning the choice into folklore.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -278,87 +278,115 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Educational modeling intuition — not a dosing guide and not a substitute for clinical guidelines.</p>
+<p>Teaching intuition for modeling. Not a dosing protocol and not a substitute for clinical guidelines.</p>
 </div>
 </div>
-<section id="the-mic-is-a-threshold-not-a-full-phenotype" class="level2">
-<h2 class="anchored" data-anchor-id="the-mic-is-a-threshold-not-a-full-phenotype">The MIC is a threshold, not a full phenotype</h2>
-<p>The <strong>minimum inhibitory concentration (MIC)</strong> is the lowest concentration that prevents visible growth under a defined assay. It is useful because it compresses susceptibility into a number we can put next to an exposure curve.</p>
-<p>It is also incomplete:</p>
-<ul>
-<li>Assay conditions can move the measured floor.</li>
-<li>Tolerance and persistence can leave survivors even when the MIC looks favorable.</li>
-<li>Protein binding means free (unbound) exposure often matters more than total concentration.</li>
-</ul>
-<p>For simulation, treat MIC as a <strong>scenario input with uncertainty</strong>, not as biological truth.</p>
+<section id="start-with-the-awkward-object-the-mic" class="level2">
+<h2 class="anchored" data-anchor-id="start-with-the-awkward-object-the-mic">Start with the awkward object: the MIC</h2>
+<p>The <strong>minimum inhibitory concentration</strong> is the lowest concentration that stops visible growth in a defined lab assay. That sentence already hides three compromises.</p>
+<p>First, “visible growth” is an assay endpoint, not a full story of killing. Second, the assay has a floor and a set of conditions. Change those conditions and the number can move. Third, the pathogen in a patient is not living in Mueller-Hinton broth with perfect mixing and a fixed inoculum.</p>
+<p>Still, MIC is useful because it compresses susceptibility into something a simulator can compare with an exposure curve. The healthy habit is to treat MIC as a <strong>scenario input with uncertainty</strong>, not as a moral fact about the organism.</p>
+<details class="learn-think">
+<summary>
+Pause: what question is MIC answering?
+</summary>
+MIC answers roughly: under this assay, what concentration prevents visible growth? It does not by itself answer: will every cell die, how fast will they die, or will a small surviving fraction rebound later?
+</details>
 </section>
-<section id="three-classic-indices" class="level2">
-<h2 class="anchored" data-anchor-id="three-classic-indices">Three classic indices</h2>
-<p>Most antibacterial PK/PD targets fall into one of three families:</p>
+<section id="three-index-families-said-simply" class="level2">
+<h2 class="anchored" data-anchor-id="three-index-families-said-simply">Three index families, said simply</h2>
+<p>Most antibacterial PK/PD targets fall into one of three families. The leading <strong>f</strong> means free (unbound) drug.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 29%">
-<col style="width: 53%">
+<col style="width: 18%">
+<col style="width: 39%">
+<col style="width: 42%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Index</th>
-<th>Rough idea</th>
-<th>Typical drug classes</th>
+<th>Plain meaning</th>
+<th>Often used for</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>fT&gt;MIC</strong></td>
-<td>Fraction of the dosing interval that free concentration stays above MIC</td>
-<td>Many β-lactams</td>
+<td>How much of the dosing interval free concentration stays above MIC</td>
+<td>Many beta-lactams</td>
 </tr>
 <tr class="even">
 <td><strong>fAUC/MIC</strong></td>
-<td>Integrated free exposure scaled by MIC</td>
-<td>Fluoroquinolones, vancomycin (often)</td>
+<td>Total free exposure over time, scaled by MIC</td>
+<td>Fluoroquinolones; vancomycin discussions often use AUC logic</td>
 </tr>
 <tr class="odd">
 <td><strong>fCmax/MIC</strong></td>
-<td>Peak free concentration relative to MIC</td>
-<td>Some concentration-dependent agents</td>
+<td>Peak free level relative to MIC</td>
+<td>Some concentration-dependent patterns</td>
 </tr>
 </tbody>
 </table>
-<p>The leading <strong>f</strong> means unbound fraction. If you simulate total concentrations but apply a free-drug target, you are mixing units.</p>
-<div class="learn-figure" role="img" aria-label="Concentration-time curve with MIC line and shaded time above MIC">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
-  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
-  <path d="M120,150 C150,90 170,70 190,68 C280,60 360,120 420,150 C470,120 510,90 560,85 L560,150 L120,150 Z" fill="rgba(20,184,166,0.22)"></path>
-  <path d="M56,210 C100,205 120,150 150,90 C170,55 190,48 220,55 C300,80 340,140 390,170 C440,130 500,70 600,60" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
-  <text x="250" y="125" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="600">fT &gt; MIC</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
-  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Free concentration</text>
+<p>If your model outputs total plasma concentration but the target is written for free drug, the units are already arguing with each other. Fix that before you admire the PTA curve.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Free concentration curve with MIC line and shaded time above MIC">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="155" x2="600" y2="155" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
+  <text x="608" y="159" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M125,155 C155,95 175,75 195,72 C285,64 360,125 420,155 C470,125 515,95 565,90 L565,155 Z" fill="rgba(20,184,166,0.22)"></path>
+  <path d="M56,215 C105,210 125,155 155,95 C175,60 195,52 225,58 C305,85 345,145 395,175 C445,135 505,75 600,65" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <text x="255" y="130" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="600">time above MIC</text>
+  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
+  <text x="22" y="145" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 145)" text-anchor="middle">Free concentration</text>
 </svg>
+<p class="learn-caption">fT&gt;MIC is literally the share of time the free curve sits above the MIC line.</p>
 </div>
 </section>
-<section id="how-to-choose-an-index-in-a-model" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-choose-an-index-in-a-model">How to choose an index in a model</h2>
-<p>Ask three questions before coding a target:</p>
+<section id="choosing-an-index-without-mystique" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-an-index-without-mystique">Choosing an index without mystique</h2>
+<p>Ask three questions before you code a target.</p>
 <ol type="1">
-<li><strong>Is killing time-dependent or concentration-dependent</strong> for this class in the literature you trust?</li>
-<li><strong>Are you modeling free or total drug?</strong> Align the PK output with the PD target.</li>
-<li><strong>Is the target joint?</strong> Combinations (for example β-lactam + inhibitor) may need two simultaneous conditions.</li>
+<li>What does the drug class literature actually use for this organism and indication style: time above threshold, integrated exposure, or peak?</li>
+<li>Are you modeling free or total concentrations, and does the cited target match that choice?</li>
+<li>Is success one condition or two? Combinations may need joint rules.</li>
 </ol>
-<p>If the literature reports a target as “100% fT&gt;MIC” or “fAUC/MIC ≥ 125,” that is a <strong>decision rule for simulation</strong>, not proof that every patient at that threshold is cured.</p>
+<p>A published target such as “100% fT&gt;MIC” or “fAUC/MIC at least 125” is a <strong>decision rule for simulation</strong>. It is not a promise that every patient above the line is cured and every patient below it fails.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="time">Time-driven</button>
+    <button type="button" data-panel="auc">Exposure-driven</button>
+    <button type="button" data-panel="peak">Peak-driven</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="time">
+    <p><strong>Time-driven thinking</strong> cares how long the free level stays above a threshold. Flattening troughs (for example with longer infusions) can matter more than chasing a higher peak.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="auc">
+    <p><strong>Exposure-driven thinking</strong> cares about the area under the free curve relative to MIC. Missing a little time above MIC can be less important than overall integrated exposure, depending on the drug.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="peak">
+    <p><strong>Peak-driven thinking</strong> cares whether the highest free concentration clears a multiple of MIC. The shape after the peak still matters clinically, but the index itself is anchored on Cmax.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li>Put <strong>units and binding</strong> next to every target.</li>
-<li>Sample MIC from a distribution when you care about population performance.</li>
-<li>Keep the index choice <strong>traceable to a cited source</strong>, the same way you would cite a clearance equation.</li>
-</ul>
+<section id="a-working-habit-for-modelers" class="level2">
+<h2 class="anchored" data-anchor-id="a-working-habit-for-modelers">A working habit for modelers</h2>
+<p>Write the index, the free/total state, and the MIC source in one line whenever you start a run. If you cannot fill that line, the simulation is not ready for interpretation yet.</p>
+<p>Tolerance and persistence can still spoil a “good” MIC story. We will separate those ideas in a later lesson. For now, keep the simpler rule: <strong>pick the index that matches the pharmacology, then keep the units honest</strong>.</p>
 <p>Next: <a href="../learning/02-pta-cfr-virtual-populations.html">PTA, CFR, and virtual populations</a>.</p>
 
 

@@ -13,14 +13,14 @@ listing:
   fields: [date, title, description, categories, reading-time]
   sort-ui: false
   filter-ui: true
-  page-size: 12
+  page-size: 20
 page-layout: full
 ---
 
 ::: {.learning-intro}
 <span class="learning-eyebrow">Tutorials · Modeling intuition · Not clinical advice</span>
 
-<p class="learning-lead">Short, modeler-oriented notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate.</p>
+<p class="learning-lead">Short, plain-language notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate. Written for people who build or read PK/PD models.</p>
 :::
 
 ## Learning tracks
@@ -32,7 +32,7 @@ page-layout: full
 
 ### Antibiotic PK/PD essentials
 
-MIC and exposure indices → PTA/CFR → free drug → infusion geometry → joint BL/BLI targets → evidence provenance.
+MIC and indices, PTA/CFR, free drug, infusion mode, joint BL/BLI targets, provenance, effect site, renal strata, inoculum effect, and a CAZ-AVI style case.
 :::
 
 ::: {.learning-track}
@@ -40,7 +40,7 @@ MIC and exposure indices → PTA/CFR → free drug → infusion geometry → joi
 
 ### Bacterial genetics for modelers
 
-Chromosome vs plasmid resistance and HGT-driven MIC ecology — as annotations on the phenotype layer PK/PD actually uses.
+Chromosome versus plasmid resistance and HGT-driven MIC ecology, as annotations on the phenotype layer PK/PD actually uses.
 :::
 
 :::

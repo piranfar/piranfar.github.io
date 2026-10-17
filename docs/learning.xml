@@ -25,7 +25,8 @@
 
 
 
-<p>Most antibacterial targets are written for <strong>free (unbound)</strong> drug. Many PK models, though, are fitted to <strong>total</strong> plasma concentrations. Mixing the two is one of the most common silent errors in PTA work.</p>
+<p>Open a PK/PD paper and you will often see a little <strong>f</strong> in front of the target: fT&gt;MIC, fAUC/MIC. That letter is easy to skim past. It is also where many simulations go wrong.</p>
+<p>Most antibacterial targets are written for <strong>free (unbound)</strong> drug. Many concentration models are fitted to <strong>total</strong> plasma levels. If you compare total curves to free targets, the regimen looks stronger than the rule you claimed to test.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -36,60 +37,91 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Modeling hygiene for exposure–effect alignment — not a dosing calculator.</p>
+<p>Unit hygiene for exposure-effect work. Not a dosing calculator.</p>
 </div>
 </div>
-<section id="what-free-means-in-a-target" class="level2">
-<h2 class="anchored" data-anchor-id="what-free-means-in-a-target">What “free” means in a target</h2>
-<p>If a paper says <strong>100% fT&gt;MIC</strong>, the <strong>f</strong> is doing real work:</p>
-<ul>
-<li>only unbound molecules are assumed available to interact with the pathogen (in the usual plasma-centric framing),</li>
-<li>the MIC assay is typically interpreted on an unbound-equivalent scale,</li>
-<li>so the simulator must compare <strong>free concentration–time</strong> to MIC.</li>
-</ul>
-<p>If your model outputs total concentration <img src="https://latex.codecogs.com/png.latex?C_%7B%5Cmathrm%7Btot%7D%7D(t)"> and you apply a free-drug target without correction, you inflate exposure.</p>
-</section>
-<section id="a-minimal-correction" class="level2">
-<h2 class="anchored" data-anchor-id="a-minimal-correction">A minimal correction</h2>
-<p>With unbound fraction <img src="https://latex.codecogs.com/png.latex?f_u">:</p>
-<p>[ C_{}(t) = f_u C_{}(t) ]</p>
-<p>when binding is approximately linear and constant. That assumption is often good enough for a first model — and often wrong enough to deserve a sensitivity sweep.</p>
-<div class="learn-figure" aria-label="Total versus free concentration curves relative to MIC">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+<section id="what-free-means-in-plain-language" class="level2">
+<h2 class="anchored" data-anchor-id="what-free-means-in-plain-language">What free means in plain language</h2>
+<p>In plasma, some drug molecules stick to proteins such as albumin. The usual modeling story says the unbound molecules are the ones available to act. The MIC assay is generally interpreted on that unbound-compatible scale. So the simulator should put <strong>free concentration versus time</strong> next to MIC.</p>
+<p>A simple linear correction is:</p>
+<p>[ C_{}(t)=f_uC_{}(t) ]</p>
+<p>where (f_u) is the unbound fraction. This is a starting point, not a religion. Binding can change with albumin, pregnancy, burns, or critical illness. For a highly bound drug, a small error in (f_u) becomes a large error in free exposure.</p>
+<details class="learn-think">
+<summary>
+A numbers intuition
+</summary>
+If fu = 0.2, only one fifth of the total concentration counts toward a free-drug target. Using the total curve unchanged is like pretending there is five times more active drug than your target definition allows.
+</details>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Total and free concentration curves against MIC">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
   <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
   <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
-  <path d="M70,190 C120,80 170,45 230,50 C320,60 380,110 450,130 C520,90 560,70 600,65" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"></path>
-  <path d="M70,205 C120,140 170,115 230,118 C320,125 380,155 450,165 C520,145 560,135 600,132" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <path d="M70,195 C125,75 175,40 235,48 C325,60 385,115 455,135 C525,90 565,70 600,66" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,210 C125,145 175,118 235,122 C325,130 385,160 455,170 C525,148 565,138 600,135" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
   <text x="470" y="78" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">total</text>
-  <text x="470" y="158" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">free (fu·total)</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+  <text x="455" y="188" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">free</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
 </svg>
+<p class="learn-caption">The free curve is the one that should meet a free-drug MIC rule.</p>
 </div>
 </section>
-<section id="where-modelers-get-hurt" class="level2">
-<h2 class="anchored" data-anchor-id="where-modelers-get-hurt">Where modelers get hurt</h2>
+<section id="where-people-get-hurt-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="where-people-get-hurt-in-practice">Where people get hurt in practice</h2>
 <ol type="1">
-<li><strong>Target says free; curve is total</strong> → optimistic PTA.</li>
-<li><strong>fu taken from healthy volunteers</strong> applied to hypoalbuminemic ICU patients without comment.</li>
-<li><strong>Site of infection ≠ plasma</strong> — epithelial lining fluid, CSF, or tissue targets need their own framing.</li>
-<li><strong>Highly bound drugs</strong> — small fu errors become large free-exposure errors.</li>
+<li>Target says free, plotted series is total.<br>
+</li>
+<li>fu comes from healthy volunteers, applied unchanged to hypoalbuminemic ICU patients.<br>
+</li>
+<li>The infection is not in plasma (ELF, CSF, tissue), but the model never leaves the plasma compartment.<br>
+</li>
+<li>Combination regimens use one fu for both components without checking.</li>
 </ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="ok">Aligned example</button>
+    <button type="button" data-panel="bad">Mismatched example</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="ok">
+    <p>Model outputs total concentration, multiplies by a cited fu, then tests 100% fT&gt;MIC. The methods line states free/total conversion and the fu source.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="bad">
+    <p>Model outputs total concentration and directly counts time above MIC using a free-drug target wording. PTA looks great. The claim is overstated by roughly the binding factor.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="practical-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="practical-checklist">Practical checklist</h2>
+<section id="a-short-checklist-before-you-run-pta" class="level2">
+<h2 class="anchored" data-anchor-id="a-short-checklist-before-you-run-pta">A short checklist before you run PTA</h2>
 <ul>
-<li>Write the unit next to every plotted series: <code>mg/L free</code> or <code>mg/L total</code>.</li>
-<li>Cite the fu source and whether it is fixed, covariate-dependent, or sampled.</li>
-<li>Re-run PTA at lower/higher fu as a one-way sensitivity analysis.</li>
-<li>For combinations, bind each component separately.</li>
+<li>Label every series: free or total.<br>
+</li>
+<li>Cite fu and whether it is fixed, sampled, or covariate-dependent.<br>
+</li>
+<li>Re-run with lower and higher fu as a one-way sensitivity check.<br>
+</li>
+<li>For BL/BLI pairs, bind each component on its own terms.<br>
+</li>
+<li>If the effect site is not plasma, say so and move to the effect-site lesson with honest humility.</li>
 </ul>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p><strong>Align the binding state of the PK output with the binding state of the PD target.</strong> Everything else in the Monte Carlo stack inherits that decision.</p>
+<p>Binding is not cosmetic formatting. It decides which curve is allowed to talk to the MIC. Align the binding state of the PK output with the binding state of the PD target before you interpret attainment.</p>
 <p>Previous: <a href="../learning/03-resistance-tolerance-persistence.html">Resistance, tolerance, and persistence</a> · Next: <a href="../learning/06-intermittent-vs-continuous-infusion.html">Intermittent vs continuous infusion</a>.</p>
 
 
@@ -102,7 +134,7 @@
   <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Intermittent vs continuous infusion for β-lactams</title>
+  <title>Intermittent vs continuous infusion for beta-lactams</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
   <link>https://vahhabpiranfar.com/learning/06-intermittent-vs-continuous-infusion.html</link>
   <description><![CDATA[ 
@@ -110,7 +142,8 @@
 
 
 
-<p>For many β-lactams, the dominant index is <strong>fT&gt;MIC</strong>. That makes <strong>how you deliver the daily dose</strong> a first-class modeling choice: short intermittent infusions create peaks and troughs; continuous infusion flattens the profile toward a steady free concentration.</p>
+<p>For many beta-lactams the index that matters most is time above a threshold. That makes <strong>how you deliver the dose</strong> part of the pharmacology, not a nursing footnote.</p>
+<p>Give the same daily amount as short intermittent infusions and you get peaks and troughs. Stretch the infusion and the troughs rise. Run it continuously and the profile can settle toward a steady free concentration. The MIC line does not move. The geometry around it does.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -121,56 +154,86 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>PK/PD geometry of infusion mode for simulation. Not a recommendation to change bedside practice.</p>
+<p>Geometry of infusion mode for simulation. Not a recommendation to change bedside practice by itself.</p>
 </div>
 </div>
 <section id="same-daily-dose-different-shape" class="level2">
 <h2 class="anchored" data-anchor-id="same-daily-dose-different-shape">Same daily dose, different shape</h2>
-<p>Hold clearance, volume, fu, and MIC fixed. Change only the input rate:</p>
+<p>Hold clearance, volume, fu, and MIC fixed. Change only the input rate.</p>
 <ul>
-<li><strong>Intermittent</strong>: repeated short infusions → oscillating <img src="https://latex.codecogs.com/png.latex?C_%7B%5Cmathrm%7Bfree%7D%7D(t)">.</li>
-<li><strong>Extended infusion</strong>: longer infusions per dose → higher troughs, softer peaks.</li>
-<li><strong>Continuous</strong>: constant rate → approach to steady state <img src="https://latex.codecogs.com/png.latex?C_%7B%5Cmathrm%7Bss,free%7D%7D">.</li>
+<li><strong>Intermittent short infusion:</strong> oscillating free levels. Success depends on how long each cycle stays above MIC.<br>
+</li>
+<li><strong>Extended infusion:</strong> softer peaks, higher troughs.<br>
+</li>
+<li><strong>Continuous infusion:</strong> approach to steady state. Many analyses then ask whether steady free concentration stays above MIC, or above a multiple of MIC.</li>
 </ul>
-<p>For a pure fT&gt;MIC rule, continuous infusion often converts the question to whether <img src="https://latex.codecogs.com/png.latex?C_%7B%5Cmathrm%7Bss,free%7D%7D"> stays above a multiple of MIC for the entire interval.</p>
-<div class="learn-figure" aria-label="Intermittent peaks versus continuous steady free concentration above MIC">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Intermittent peaks versus continuous steady concentration">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
   <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
   <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
-  <path d="M70,200 C95,60 110,55 130,70 C155,200 175,200 200,70 C225,200 245,200 270,70 C295,200 320,200 345,75" fill="none" stroke="#94A3B8" stroke-width="2.8" stroke-linecap="round"></path>
-  <path d="M360,200 C400,120 430,105 470,100 C520,95 560,95 600,95" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
-  <text x="160" y="48" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">intermittent</text>
-  <text x="470" y="82" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">continuous Css</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+  <path d="M70,205 C95,55 110,50 130,70 C155,205 175,205 200,70 C225,205 245,205 270,70 C295,205 320,205 345,78" fill="none" stroke="#94A3B8" stroke-width="2.8" stroke-linecap="round"></path>
+  <path d="M360,205 C405,125 440,108 480,102 C530,96 565,96 600,96" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <text x="150" y="48" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">intermittent</text>
+  <text x="470" y="84" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">continuous Css</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
 </svg>
+<p class="learn-caption">Infusion mode changes which parts of the day sit above the MIC line.</p>
 </div>
+<details class="learn-think">
+<summary>
+Why loading doses appear in continuous regimens
+</summary>
+If you start continuous infusion with no load, early concentrations climb slowly. A PTA that only looks at later steady state can miss early undershoot. If your clinical question includes the first hours, model the load.
+</details>
 </section>
-<section id="what-your-simulator-must-not-forget" class="level2">
-<h2 class="anchored" data-anchor-id="what-your-simulator-must-not-forget">What your simulator must not forget</h2>
+<section id="what-the-simulator-must-keep-honest" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-simulator-must-keep-honest">What the simulator must keep honest</h2>
 <ol type="1">
-<li><strong>Loading dose</strong> — continuous regimens often need an initial bolus; omitting it underestimates early fT&gt;MIC.</li>
-<li><strong>Stability / administration constraints</strong> — model scenario ≠ pharmacy reality; label assumptions.</li>
-<li><strong>Renal function</strong> — Css moves with clearance; eGFR strata can dominate PTA differences more than infusion cosmetics.</li>
-<li><strong>Targets as ratios</strong> — some β-lactam analyses use <img src="https://latex.codecogs.com/png.latex?C_%7B%5Cmathrm%7Bss,free%7D%7D/%5Cmathrm%7BMIC%7D%20%5Cge%204"> (or similar) rather than raw T&gt;MIC percent.</li>
+<li><strong>Loading dose</strong> status.<br>
+</li>
+<li><strong>Renal function strata</strong>, because steady concentration moves with clearance.<br>
+</li>
+<li><strong>Administration constraints</strong> that your scenario ignores (stability, line access). Label them.<br>
+</li>
+<li><strong>Target form</strong>: percent fT&gt;MIC versus a Css/MIC ratio rule. They are related ideas with different bookkeeping.</li>
 </ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="int">Compare fairly</button>
+    <button type="button" data-panel="trap">Common trap</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="int">
+    <p>Freeze the virtual population and MIC grid. Change only the dosing input. Plot PTA on the same MIC axis. Report early and steady periods if loading differs.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="trap">
+    <p>Changing infusion mode and also silently changing daily dose, population, or target definition. Then attributing the whole PTA jump to "continuous infusion magic."</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="modeling-comparison-template" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-comparison-template">Modeling comparison template</h2>
-<p>When you compare intermittent vs continuous:</p>
-<ul>
-<li>freeze the virtual population and MIC grid,</li>
-<li>change only the dosing input,</li>
-<li>report PTA curves on the same MIC axis,</li>
-<li>show early-interval behavior separately if loading doses differ.</li>
-</ul>
+<section id="a-classroom-example-without-fake-precision" class="level2">
+<h2 class="anchored" data-anchor-id="a-classroom-example-without-fake-precision">A classroom example without fake precision</h2>
+<p>Suppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>Infusion mode is not a plotting preference. It changes the <strong>exposure geometry</strong> that fT&gt;MIC (and Css/MIC) rules evaluate.</p>
-<p>Previous: <a href="../learning/05-free-drug-and-protein-binding.html">Free drug and protein binding</a> · Next: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for β-lactam/β-lactamase inhibitor pairs</a>.</p>
+<p>Infusion mode redraws the exposure path around the MIC. For time-driven beta-lactam targets, that redraw is part of the science. Compare shapes under controlled conditions, and say whether your endpoint was interval fT&gt;MIC or steady-state coverage.</p>
+<p>Previous: <a href="../learning/05-free-drug-and-protein-binding.html">Free drug and protein binding</a> · Next: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for BL/BLI pairs</a>.</p>
 
 
 </section>
@@ -182,7 +245,7 @@
   <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Joint targets for β-lactam / β-lactamase inhibitor pairs</title>
+  <title>Joint targets for beta-lactam / beta-lactamase inhibitor pairs</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
   <link>https://vahhabpiranfar.com/learning/07-joint-targets-bl-bli.html</link>
   <description><![CDATA[ 
@@ -190,7 +253,8 @@
 
 
 
-<p>A β-lactam/β-lactamase inhibitor (BL/BLI) pair is not one drug with two names. One component usually provides antibacterial exposure; the other protects that exposure from enzymes. Adequacy is therefore often a <strong>joint</strong> event.</p>
+<p>A beta-lactam paired with a beta-lactamase inhibitor is not one medicine with a long name. One partner usually does the killing work. The other protects that work from enzymes. If protection fails, the beta-lactam can look adequate on a plot and still lose in the patient.</p>
+<p>That is why combination PK/PD often needs a <strong>joint</strong> rule: both conditions true in the same virtual subject at the same evaluation window.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -201,58 +265,84 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Simulation logic for combination PK/PD. Example framing inspired by ceftazidime–avibactam-style problems; not product-specific clinical advice.</p>
+<p>Simulation logic for combinations, with ceftazidime-avibactam style problems as a teaching frame. Not product-specific clinical advice.</p>
 </div>
 </div>
-<section id="two-clocks-one-decision" class="level2">
-<h2 class="anchored" data-anchor-id="two-clocks-one-decision">Two clocks, one decision</h2>
-<p>Suppose:</p>
-<ul>
-<li>Drug A (β-lactam) must satisfy a free-exposure target vs MIC,</li>
-<li>Drug B (inhibitor) must stay above a threshold that preserves A’s activity.</li>
-</ul>
-<p>Patient-level success is:</p>
-<p>[ {A } {B } ]</p>
-<p>not the average of the two success indicators.</p>
-<div class="learn-figure" aria-label="Venn-style joint success versus separate component success">
-<svg viewbox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="260" fill="#F8FAFC"></rect>
-  <circle cx="250" cy="130" r="70" fill="rgba(13,148,136,0.18)" stroke="#0D9488" stroke-width="2.5"></circle>
-  <circle cx="330" cy="130" r="70" fill="rgba(249,115,22,0.16)" stroke="#F97316" stroke-width="2.5"></circle>
-  <text x="210" y="135" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">A OK</text>
-  <text x="345" y="135" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">B OK</text>
-  <text x="290" y="135" text-anchor="middle" fill="#0F172A" font-family="Outfit, sans-serif" font-size="12" font-weight="800">joint</text>
-  <text x="500" y="100" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(A) alone</text>
-  <text x="500" y="128" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(B) alone</text>
-  <text x="500" y="156" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PTA(A∧B)</text>
-  <text x="320" y="230" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Joint PTA lives in the intersection.</text>
+<section id="two-conditions-one-success-flag" class="level2">
+<h2 class="anchored" data-anchor-id="two-conditions-one-success-flag">Two conditions, one success flag</h2>
+<p>Suppose drug A must meet a free-exposure target against MIC, and drug B must stay above a threshold that preserves A’s activity. For each simulated person:</p>
+<p>[ = {A} {B} ]</p>
+<p>Joint PTA is the fraction of people for whom that intersection is true. It is not the average of PTA(A) and PTA(B). It is not “A looks fine, so ignore B.”</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" aria-label="Joint success as intersection of component A and B">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <circle cx="245" cy="130" r="72" fill="rgba(13,148,136,0.18)" stroke="#0D9488" stroke-width="2.5"></circle>
+  <circle cx="325" cy="130" r="72" fill="rgba(249,115,22,0.16)" stroke="#F97316" stroke-width="2.5"></circle>
+  <text x="200" y="135" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">A ok</text>
+  <text x="345" y="135" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">B ok</text>
+  <text x="285" y="135" text-anchor="middle" fill="#0F172A" font-family="Outfit, sans-serif" font-size="12" font-weight="800">joint</text>
+  <text x="500" y="105" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(A)</text>
+  <text x="500" y="130" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="13">PTA(B)</text>
+  <text x="500" y="155" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PTA(A and B)</text>
+  <text x="320" y="235" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Joint attainment lives in the overlap.</text>
 </svg>
 </div>
+<details class="learn-think">
+<summary>
+Why correlation between clearances matters
+</summary>
+If A and B clearances move together, the joint tail can be very different from two independent draws. Ignoring correlation can make joint failure look rarer or more common than your evidence supports. State the correlation assumption.
+</details>
 </section>
-<section id="common-modeling-mistakes" class="level2">
-<h2 class="anchored" data-anchor-id="common-modeling-mistakes">Common modeling mistakes</h2>
+<section id="mistakes-that-look-sophisticated" class="level2">
+<h2 class="anchored" data-anchor-id="mistakes-that-look-sophisticated">Mistakes that look sophisticated</h2>
 <ol type="1">
-<li><strong>Collapse to one analyte</strong> — simulating only the β-lactam because “that is the antibiotic.”</li>
-<li><strong>Report mean(PTA_A, PTA_B)</strong> as if it were joint attainment.</li>
-<li><strong>Ignore correlation</strong> — clearances of A and B may covary; independent draws can misstate joint tails.</li>
-<li><strong>Borrow incompatible thresholds</strong> — inhibitor targets from a different matrix, population, or regimen without labeling.</li>
+<li>Simulating only the beta-lactam because “that is the antibiotic.”<br>
+</li>
+<li>Reporting the mean of two PTAs as if it were joint attainment.<br>
+</li>
+<li>Borrowing an inhibitor threshold from another matrix or population without labeling.<br>
+</li>
+<li>Collapsing both drugs into one fake combined concentration.</li>
 </ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="sep">Separate profiles</button>
+    <button type="button" data-panel="joint">Joint rule</button>
+    <button type="button" data-panel="wrong">Not equivalent</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="sep">
+    <p>Simulate free concentration-time for A and for B in each virtual subject. Keep units and binding honest for each component.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="joint">
+    <p>Apply each target. Mark success only when both pass. Build PTA versus MIC from that joint indicator. Optionally weight by MIC ecology for joint CFR.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="wrong">
+    <p>Average(PTA_A, PTA_B), or "A passed so count success." Those shortcuts answer different questions and can hide inhibitor-limited regimens.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="a-clean-joint-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="a-clean-joint-workflow">A clean joint workflow</h2>
-<ol type="1">
-<li>Simulate both concentration–time profiles in each virtual subject.</li>
-<li>Apply component-specific free targets.</li>
-<li>Mark joint success only when both pass.</li>
-<li>Build PTA vs MIC (or vs scenario grid) from the joint indicator.</li>
-<li>Optionally weight by MIC ecology → joint CFR.</li>
-</ol>
-<p>This is the same philosophy used in provenance-aware CAZ-AVI style evidence-composite work: components stay separate until a joint rule is applied deliberately.</p>
+<section id="why-this-shows-up-in-caz-avi-style-work" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-shows-up-in-caz-avi-style-work">Why this shows up in CAZ-AVI style work</h2>
+<p>Ceftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>For BL/BLI pairs, <strong>protection failure is regimen failure</strong> even when the β-lactam curve looks beautiful alone. Joint PTA is an intersection, not an average.</p>
-<p>Previous: <a href="../learning/06-intermittent-vs-continuous-infusion.html">Intermittent vs continuous infusion</a> · Next: <a href="../learning/08-uncertainty-and-provenance.html">Uncertainty and provenance in PK/PD evidence</a>.</p>
+<p>For BL/BLI pairs, protection failure is regimen failure. Joint PTA is an intersection inside each simulated person. Build it that way, then be transparent about thresholds, correlation, and which MIC the beta-lactam rule refers to.</p>
+<p>Previous: <a href="../learning/06-intermittent-vs-continuous-infusion.html">Intermittent vs continuous infusion</a> · Next: <a href="../learning/08-uncertainty-and-provenance.html">Uncertainty and provenance</a> · Case study: <a href="../learning/13-caz-avi-mini-case.html">CAZ-AVI end-to-end</a>.</p>
 
 
 </section>
@@ -272,7 +362,8 @@
 
 
 
-<p>A polished PTA curve can hide a messy evidence trail. The scientific question is not only “what is the probability?” but <strong>which assumptions, from which sources, under which scenario compatibility rules, produced that probability?</strong></p>
+<p>A smooth PTA curve can look like certainty. Often it is a stack of borrowed numbers wearing a clean plot. The scientific job is not only to compute a probability. It is to show <strong>which assumptions, from which sources, under which scenario rules</strong>, produced that probability.</p>
+<p>This lesson is about evidence hygiene. It is the difference between a reusable simulation and a one-off slide.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -283,85 +374,110 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Evidence hygiene for reusable antimicrobial PK/PD simulation. Aligns with component-level evidence-composite thinking.</p>
+<p>Provenance habits for antimicrobial PK/PD simulation, aligned with component-level evidence thinking.</p>
 </div>
 </div>
-<section id="provenance-beats-vibes" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-beats-vibes">Provenance beats vibes</h2>
-<p>Every simulation input deserves a label:</p>
+<section id="label-every-input-like-it-might-be-audited" class="level2">
+<h2 class="anchored" data-anchor-id="label-every-input-like-it-might-be-audited">Label every input like it might be audited</h2>
+<p>Useful labels look boring. That is why they work.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 57%">
-<col style="width: 42%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Label idea</th>
+<th>Label</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Directly reported</strong></td>
-<td>Taken as published for this use</td>
+<td>Directly reported</td>
+<td>Used as published for this purpose</td>
 </tr>
 <tr class="even">
-<td><strong>Transformed</strong></td>
-<td>Unit change, free/total conversion, algebraic rearrange</td>
+<td>Transformed</td>
+<td>Unit change, free/total conversion, algebra</td>
 </tr>
 <tr class="odd">
-<td><strong>Inherited / donor</strong></td>
+<td>Donor / inherited</td>
 <td>Borrowed from a related but non-identical source</td>
 </tr>
 <tr class="even">
-<td><strong>Assumed / user-specified</strong></td>
-<td>Filled to run the model; must stay visible</td>
+<td>Assumed</td>
+<td>Filled so the model can run; must stay visible</td>
 </tr>
 <tr class="odd">
-<td><strong>Scenario-generated</strong></td>
-<td>Arises from the simulation design itself</td>
+<td>Scenario-generated</td>
+<td>Created by the simulation design itself</td>
 </tr>
 </tbody>
 </table>
-<p>Missingness should remain missing until a compatible donor is justified — not silently median-imputed in a methods paragraph nobody reads.</p>
+<p>Missing data should stay missing until a compatible donor is justified. Silent median fills create false completeness.</p>
+<details class="learn-think">
+<summary>
+A practical test
+</summary>
+If a coauthor asks “where did this fu come from?” and you need five minutes to remember, the provenance trail is already too weak for a methods section.
+</details>
 </section>
-<section id="uncertainty-is-layered" class="level2">
-<h2 class="anchored" data-anchor-id="uncertainty-is-layered">Uncertainty is layered</h2>
+<section id="uncertainty-comes-in-layers" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-comes-in-layers">Uncertainty comes in layers</h2>
 <ol type="1">
-<li><strong>Parameter uncertainty</strong> — IIV, residual error, covariate model.</li>
-<li><strong>Structural uncertainty</strong> — one- vs two-compartment; infusion constraints.</li>
-<li><strong>Evidence uncertainty</strong> — wrong population, wrong matrix, stale MIC ecology.</li>
-<li><strong>Decision-rule uncertainty</strong> — which target threshold is “the” target?</li>
+<li><strong>Parameter uncertainty:</strong> IIV, residual error, covariate effects.<br>
+</li>
+<li><strong>Structural uncertainty:</strong> compartment choice, infusion constraints, correlation.<br>
+</li>
+<li><strong>Evidence uncertainty:</strong> wrong population, wrong matrix, stale MIC ecology.<br>
+</li>
+<li><strong>Decision-rule uncertainty:</strong> which threshold counts as “enough.”</li>
 </ol>
-<p>Monte Carlo on layer 1 alone can look precise while layer 3 dominates the truth.</p>
-<div class="learn-figure" aria-label="Stacked uncertainty layers under a PTA output">
-<svg viewbox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="260" fill="#F8FAFC"></rect>
-  <rect x="80" y="40" width="480" height="40" rx="10" fill="#0D9488"></rect>
-  <text x="320" y="66" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">PTA / CFR output</text>
-  <rect x="100" y="95" width="440" height="34" rx="8" fill="rgba(13,148,136,0.25)" stroke="#0D9488"></rect>
-  <text x="320" y="117" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">parameter IIV / residual error</text>
-  <rect x="120" y="140" width="400" height="34" rx="8" fill="rgba(249,115,22,0.2)" stroke="#F97316"></rect>
-  <text x="320" y="162" text-anchor="middle" fill="#EA580C" font-family="IBM Plex Sans, sans-serif" font-size="13">structural &amp; scenario assumptions</text>
-  <rect x="140" y="185" width="360" height="34" rx="8" fill="rgba(124,58,237,0.18)" stroke="#7C3AED"></rect>
-  <text x="320" y="207" text-anchor="middle" fill="#6D28D9" font-family="IBM Plex Sans, sans-serif" font-size="13">evidence provenance &amp; MIC ecology</text>
+<p>Monte Carlo on layer 1 alone can look precise while layer 3 quietly dominates.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" aria-label="Stacked uncertainty layers under PTA output">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <rect x="80" y="36" width="480" height="42" rx="10" fill="#0D9488"></rect>
+  <text x="320" y="63" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">PTA / CFR output</text>
+  <rect x="100" y="95" width="440" height="36" rx="8" fill="rgba(13,148,136,0.25)" stroke="#0D9488"></rect>
+  <text x="320" y="118" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">parameter variability</text>
+  <rect x="120" y="145" width="400" height="36" rx="8" fill="rgba(249,115,22,0.2)" stroke="#F97316"></rect>
+  <text x="320" y="168" text-anchor="middle" fill="#EA580C" font-family="IBM Plex Sans, sans-serif" font-size="13">structure and scenario choices</text>
+  <rect x="140" y="195" width="360" height="36" rx="8" fill="rgba(124,58,237,0.18)" stroke="#7C3AED"></rect>
+  <text x="320" y="218" text-anchor="middle" fill="#6D28D9" font-family="IBM Plex Sans, sans-serif" font-size="13">evidence provenance and MIC ecology</text>
 </svg>
+<p class="learn-caption">Pretty sampling does not repair a shaky evidence base.</p>
 </div>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="min">Minimum report</button>
+    <button type="button" data-panel="better">Stronger report</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="min">
+    <p>Source list for CL, V, fu, targets, MIC weights. Free/total notes. Population statement. Seed and N. One sensitivity check on the most fragile input.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="better">
+    <p>Everything in the minimum set, plus scenario compatibility notes for donor evidence, correlation assumptions, convergence checks, and alternative MIC priors with dates.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="a-minimum-reporting-set" class="level2">
-<h2 class="anchored" data-anchor-id="a-minimum-reporting-set">A minimum reporting set</h2>
-<ul>
-<li>Source list for CL, V, fu, targets, MIC weights</li>
-<li>Transformation notes (free/total, units)</li>
-<li>Population / scenario compatibility statement</li>
-<li>Seeds, <img src="https://latex.codecogs.com/png.latex?N">, and convergence check</li>
-<li>One-way or global sensitivity on the fragile inputs</li>
-</ul>
+<section id="compatibility-is-a-scientific-decision" class="level2">
+<h2 class="anchored" data-anchor-id="compatibility-is-a-scientific-decision">Compatibility is a scientific decision</h2>
+<p>ICU continuous-infusion parameters are not automatically interchangeable with healthy-volunteer bolus data, CSF studies, or in vitro kill curves. Those sources can still help as donors or anchors. They should not be pooled as if they were one population. Write the compatibility rule in human language: what was allowed to enter the primary scenario, and what stayed outside with a label.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>Reproducible PK/PD is less about prettier sampling and more about <strong>refusing to launder uncertain evidence into false certainty</strong>.</p>
-<p>Previous: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for BL/BLI pairs</a> · Genetics bridge: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a>.</p>
+<p>Reproducible PK/PD is less about fancier random draws and more about refusing to launder uncertain evidence into false certainty. If the trail of sources is clear, other people can challenge your result productively. That is a feature.</p>
+<p>Previous: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets for BL/BLI pairs</a> · Next: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a> · Then: <a href="../learning/10-effect-site-vs-plasma.html">Effect site versus plasma</a>.</p>
 
 
 </section>
@@ -381,7 +497,8 @@
 
 
 
-<p>Horizontal gene transfer (HGT) is how resistance genes move sideways — across lineages and sometimes across species — often on plasmids, transposons, or integrative elements. For PK/PD, HGT matters because it can <strong>rewire the MIC distribution faster than a cloned chromosomal mutation typically would</strong>.</p>
+<p>Horizontal gene transfer (HGT) is sideways inheritance: genes moving between bacteria that are not simply parent and child. Plasmids, transposons, and related elements do a lot of that traffic for resistance.</p>
+<p>For PK/PD, you rarely need the full molecular soap opera. You need one consequence: <strong>MIC distributions can change faster than a stable chromosomal lineage would suggest.</strong> CFR depends on those distributions. So HGT is an aging clock on your epidemiology prior.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -392,59 +509,83 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Genetics as annotation on the MIC layer used by PTA/CFR — not a full HGT mechanisms course.</p>
+<p>Genetics as annotation on the MIC layer used by PTA/CFR.</p>
 </div>
 </div>
-<section id="from-gene-traffic-to-simulation-priors" class="level2">
-<h2 class="anchored" data-anchor-id="from-gene-traffic-to-simulation-priors">From gene traffic to simulation priors</h2>
-<p>CFR needs <img src="https://latex.codecogs.com/png.latex?P(%5Cmathrm%7BMIC%7D)">. That probability mass is an ecological claim:</p>
-<ul>
-<li>which species / complex,</li>
-<li>which region and year,</li>
-<li>which specimen mix,</li>
-<li>which mechanisms dominate locally.</li>
-</ul>
-<p>If a plasmid carrying a carbapenemase expands in your catchment, last year’s MIC weights can become a precise answer to an obsolete question.</p>
-<div class="learn-figure" aria-label="Plasmid transfer shifting MIC distribution over time">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <text x="150" y="40" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T</text>
-  <text x="470" y="40" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T+Δ (HGT expansion)</text>
-  <rect x="70" y="180" width="28" height="40" fill="#0D9488"></rect>
-  <rect x="110" y="140" width="28" height="80" fill="#0D9488"></rect>
-  <rect x="150" y="110" width="28" height="110" fill="#0D9488"></rect>
-  <rect x="190" y="150" width="28" height="70" fill="#0D9488"></rect>
-  <rect x="230" y="190" width="28" height="30" fill="#0D9488"></rect>
-  <rect x="390" y="200" width="28" height="20" fill="#F97316"></rect>
-  <rect x="430" y="170" width="28" height="50" fill="#F97316"></rect>
-  <rect x="470" y="120" width="28" height="100" fill="#F97316"></rect>
-  <rect x="510" y="80" width="28" height="140" fill="#F97316"></rect>
-  <rect x="550" y="100" width="28" height="120" fill="#F97316"></rect>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <path d="M280,130 L360,130" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#arr)"></path>
-  <defs>
-    <marker id="arr" markerwidth="8" markerheight="8" refx="6" refy="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#94A3B8"></path>
-    </marker>
-  </defs>
-  <text x="320" y="252" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">MIC categories → probability mass used by CFR</text>
+<section id="from-gene-traffic-to-pmic" class="level2">
+<h2 class="anchored" data-anchor-id="from-gene-traffic-to-pmic">From gene traffic to P(MIC)</h2>
+<p>CFR needs weights: how common is each MIC category in the population you care about? That is an ecological claim. It includes species, region, year, specimen mix, and which mechanisms are circulating.</p>
+<p>If a plasmid carrying a clinically important enzyme expands in a hospital network, the right-hand side of the MIC histogram can fatten within seasons. A CFR computed on last year’s weights can remain numerically tidy and scientifically late.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="MIC distribution shifting after HGT expansion">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <text x="150" y="42" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T</text>
+  <text x="470" y="42" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T after HGT expansion</text>
+  <rect x="70" y="190" width="28" height="40" fill="#0D9488"></rect>
+  <rect x="110" y="150" width="28" height="80" fill="#0D9488"></rect>
+  <rect x="150" y="120" width="28" height="110" fill="#0D9488"></rect>
+  <rect x="190" y="160" width="28" height="70" fill="#0D9488"></rect>
+  <rect x="230" y="200" width="28" height="30" fill="#0D9488"></rect>
+  <rect x="390" y="205" width="28" height="25" fill="#F97316"></rect>
+  <rect x="430" y="175" width="28" height="55" fill="#F97316"></rect>
+  <rect x="470" y="125" width="28" height="105" fill="#F97316"></rect>
+  <rect x="510" y="85" width="28" height="145" fill="#F97316"></rect>
+  <rect x="550" y="105" width="28" height="125" fill="#F97316"></rect>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <path d="M280,135 H360" stroke="#94A3B8" stroke-width="2.5"></path>
+  <text x="320" y="270" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Same drug, different probability mass under CFR</text>
 </svg>
 </div>
+<details class="learn-think">
+<summary>
+What HGT does not do
+</summary>
+HGT does not replace pharmacometrics. Clearance, infusion mode, and free-drug targets still matter. HGT tells you when the MIC weights under those calculations need a fresh date stamp.
+</details>
 </section>
-<section id="modeler-habits-that-survive-contact-with-hgt" class="level2">
-<h2 class="anchored" data-anchor-id="modeler-habits-that-survive-contact-with-hgt">Modeler habits that survive contact with HGT</h2>
+<section id="habits-that-survive-contact-with-mobile-resistance" class="level2">
+<h2 class="anchored" data-anchor-id="habits-that-survive-contact-with-mobile-resistance">Habits that survive contact with mobile resistance</h2>
 <ol type="1">
-<li><strong>Date-stamp MIC sources</strong> in every CFR table.</li>
-<li><strong>Separate mechanism strata</strong> when possible (enzyme class vs target mutation).</li>
-<li><strong>Recompute CFR</strong> under alternative local distributions as sensitivity analysis.</li>
-<li><strong>Do not over-interpret</strong> a single-hospital antibiogram as a universal prior.</li>
-<li>Link back to <a href="../learning/04-chromosome-vs-plasmid-resistance.html">chromosome vs plasmid resistance</a> when labeling stability vs mobility.</li>
+<li>Date-stamp every MIC source used in CFR.<br>
+</li>
+<li>Separate mechanism strata when the data allow (enzyme class versus target mutation).<br>
+</li>
+<li>Recompute CFR under alternate local distributions as sensitivity analysis.<br>
+</li>
+<li>Avoid promoting one ward antibiogram into a universal prior.<br>
+</li>
+<li>Keep the chromosome-versus-plasmid distinction nearby when you talk about stability.</li>
 </ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="stable">More stable prior</button>
+    <button type="button" data-panel="mobile">More perishable prior</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="stable">
+    <p>Chromosomal lineage-dominant resistance, slow local change, consistent species mix, recent surveillance with clear methods.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="mobile">
+    <p>Known plasmid outbreak potential, rapid MIC shifts in neighboring centers, mixed specimen sources, or an old surveillance table reused without comment.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>HGT does not replace pharmacometrics. It tells you when your <strong>epidemiology prior</strong> — the MIC weights under CFR — must be treated as perishable.</p>
-<p>Previous genetics lesson: <a href="../learning/04-chromosome-vs-plasmid-resistance.html">Chromosome vs plasmid resistance</a> · PK/PD spine: <a href="../learning/08-uncertainty-and-provenance.html">Uncertainty and provenance</a>.</p>
+<p>Treat MIC ecology as perishable when mobile elements are in play. Your PTA curve can stay the same while CFR moves, simply because the weights under the curve changed.</p>
+<p>Previous: <a href="../learning/04-chromosome-vs-plasmid-resistance.html">Chromosome vs plasmid resistance</a> · PK/PD: <a href="../learning/08-uncertainty-and-provenance.html">Uncertainty and provenance</a> · Next: <a href="../learning/10-effect-site-vs-plasma.html">Effect site versus plasma</a>.</p>
 
 
 </section>
@@ -456,16 +597,16 @@
   <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>PK/PD targets and the MIC: what the indices actually mean</title>
+  <title>Effect site versus plasma: where the bug actually lives</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://vahhabpiranfar.com/learning/01-pkpd-targets-and-mic.html</link>
+  <link>https://vahhabpiranfar.com/learning/10-effect-site-vs-plasma.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>Antibiotic PK/PD modeling starts with one awkward fact: bacteria do not “see” the dose. They see <strong>concentration over time</strong> at the effect site, relative to a susceptibility threshold — usually the <strong>MIC</strong>.</p>
-<p>This lesson is for modelers and microbiologists who want the indices to stop feeling like slogans.</p>
+<p>Most antibiotic PK models begin in plasma because plasma is what we can sample often. Many infections, though, are not happening in a blood vial. Pneumonia asks about lung concentrations. Meningitis asks about CSF. Abscesses and bone infections have their own stubborn geography.</p>
+<p>This lesson is about the gap between <strong>what we measure</strong> and <strong>where the bacteria sit</strong>, and how to keep that gap from becoming an invisible leap of faith.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -476,87 +617,545 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Educational modeling intuition — not a dosing guide and not a substitute for clinical guidelines.</p>
+<p>Modeling intuition about site of infection. Not a catalog of tissue penetration coefficients for every drug.</p>
 </div>
 </div>
-<section id="the-mic-is-a-threshold-not-a-full-phenotype" class="level2">
-<h2 class="anchored" data-anchor-id="the-mic-is-a-threshold-not-a-full-phenotype">The MIC is a threshold, not a full phenotype</h2>
-<p>The <strong>minimum inhibitory concentration (MIC)</strong> is the lowest concentration that prevents visible growth under a defined assay. It is useful because it compresses susceptibility into a number we can put next to an exposure curve.</p>
-<p>It is also incomplete:</p>
+<section id="plasma-is-a-proxy-sometimes-a-good-one" class="level2">
+<h2 class="anchored" data-anchor-id="plasma-is-a-proxy-sometimes-a-good-one">Plasma is a proxy, sometimes a good one</h2>
+<p>If free plasma exposure tracks free exposure at the effect site closely enough for your question, plasma-based PTA can be a fair first tool. If the site is protected, poorly perfused, or governed by transporters, plasma can flatter the regimen.</p>
+<p>A simple mental split helps:</p>
 <ul>
-<li>Assay conditions can move the measured floor.</li>
-<li>Tolerance and persistence can leave survivors even when the MIC looks favorable.</li>
-<li>Protein binding means free (unbound) exposure often matters more than total concentration.</li>
+<li><strong>Plasma-centric question:</strong> given systemic PK, how often do we clear a plasma free-drug target?</li>
+<li><strong>Site-aware question:</strong> given systemic PK plus a site model or site observations, how often does the effect-site exposure clear the relevant target?</li>
 </ul>
-<p>For simulation, treat MIC as a <strong>scenario input with uncertainty</strong>, not as biological truth.</p>
+<p>Those are different claims. Both can be useful. They should not share one sentence in the abstract as if they were identical.</p>
+<details class="learn-think">
+<summary>
+A sentence worth refusing
+</summary>
+“Plasma fT&gt;MIC was high, therefore lung exposure was adequate.” That “therefore” needs evidence about penetration, timing, and free fraction at the site.
+</details>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Plasma curve versus delayed lower effect-site curve">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
+  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M70,200 C120,70 170,45 230,55 C310,75 360,120 430,140 C500,100 545,80 600,75" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,215 C140,170 190,145 250,140 C330,132 390,155 460,170 C520,155 560,150 600,148" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <text x="455" y="78" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasma</text>
+  <text x="470" y="188" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">effect site</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+</svg>
+<p class="learn-caption">A site curve can be lower, delayed, or both. Plasma success does not automatically copy over.</p>
+</div>
 </section>
-<section id="three-classic-indices" class="level2">
-<h2 class="anchored" data-anchor-id="three-classic-indices">Three classic indices</h2>
-<p>Most antibacterial PK/PD targets fall into one of three families:</p>
+<section id="common-site-stories-modelers-meet" class="level2">
+<h2 class="anchored" data-anchor-id="common-site-stories-modelers-meet">Common site stories modelers meet</h2>
+<p><strong>Epithelial lining fluid (ELF)</strong> for pneumonia work: ratios to plasma vary by drug and sampling time.<br>
+<strong>CSF</strong> for meningitis: barrier and inflammation change penetration.<br>
+<strong>Tissue or abscess:</strong> averages may hide necrotic cores where drug arrives late.</p>
+<p>In each case you need either direct site observations, a justified transfer model, or an honest plasma-only limitation statement.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="plasma">Plasma-only model</button>
+    <button type="button" data-panel="ratio">Plasma plus site ratio</button>
+    <button type="button" data-panel="full">Site observations</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="plasma">
+    <p>Defensible when you clearly claim a plasma free-drug endpoint. Weak when the abstract quietly upgrades that claim into site adequacy.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="ratio">
+    <p>Apply a published penetration ratio or time-varying factor, cite it, and sensitivity-test lower ratios. Keep free/total bookkeeping intact at the site if data allow.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="full">
+    <p>Best case: measured site concentrations with timing. Still watch assay method, inflammation state, and whether samples represent the infected subcompartment.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+</section>
+<section id="how-to-write-this-without-hand-waving" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-write-this-without-hand-waving">How to write this without hand-waving</h2>
+<p>In methods, name the compartment your target refers to. In limitations, say what you did not model. If donor ELF or CSF data come from a different population than your primary PK, treat them with the same provenance care you would use for a borrowed clearance equation.</p>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Bacteria live at an effect site. Plasma is often the ladder we climb to estimate that site, not the destination itself. Keep the proxy relationship visible, or your PTA will answer a cleaner question than the infection deserves.</p>
+<p>Previous: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a> · Next: <a href="../learning/11-renal-function-egfr-strata.html">Renal function and eGFR strata</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/10-effect-site-vs-plasma.html</guid>
+  <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Renal function and eGFR strata in antibiotic PK/PD</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/11-renal-function-egfr-strata.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Many antibiotics leave the body through the kidney. When clearance depends on renal function, two patients on the “same” regimen can live in different exposure worlds. One has high free levels and long time above MIC. Another clears the drug so fast the troughs collapse.</p>
+<p>That is why serious virtual populations often stratify by <strong>eGFR</strong> or similar kidney metrics instead of pretending one clearance distribution fits everybody.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Modeling structure for renally cleared drugs. Not individualized clinical dosing advice.</p>
+</div>
+</div>
+<section id="why-kidney-function-changes-the-plot" class="level2">
+<h2 class="anchored" data-anchor-id="why-kidney-function-changes-the-plot">Why kidney function changes the plot</h2>
+<p>If clearance rises as eGFR rises, the concentration-time curve sits lower for better renal function, all else equal. For time-driven targets, that can erase trough coverage first. For continuous infusion, steady free concentration moves almost directly with clearance. For AUC-driven targets, the whole area shrinks.</p>
+<p>So renal strata are not decorative subgroups. They are different pharmacokinetic machines.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Lower exposure curve with higher renal clearance">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
+  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M70,175 C130,70 180,50 240,58 C320,75 380,120 450,135 C520,100 560,85 600,80" fill="none" stroke="#0D9488" stroke-width="3.2" stroke-linecap="round"></path>
+  <path d="M70,200 C130,130 180,115 240,120 C320,130 380,160 450,170 C520,150 560,145 600,142" fill="none" stroke="#94A3B8" stroke-width="3.2" stroke-linecap="round"></path>
+  <text x="430" y="95" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">lower eGFR</text>
+  <text x="455" y="188" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">higher eGFR</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+</svg>
+<p class="learn-caption">Better kidney function can mean less exposure on the same nominal regimen.</p>
+</div>
+<details class="learn-think">
+<summary>
+Augmented renal clearance
+</summary>
+Some critically ill patients clear drugs unusually fast. If your virtual population never includes that tail, PTA for “ICU adults” can look calmer than the ward you claim to study.
+</details>
+</section>
+<section id="building-strata-without-clutter" class="level2">
+<h2 class="anchored" data-anchor-id="building-strata-without-clutter">Building strata without clutter</h2>
+<p>A practical pattern:</p>
+<ol type="1">
+<li>Define eGFR classes that match the covariate model you cite.<br>
+</li>
+<li>Draw subjects inside each class, or draw eGFR then map to clearance.<br>
+</li>
+<li>Report PTA within strata and overall.<br>
+</li>
+<li>Keep dosing rules explicit if the labeled regimen itself adjusts by kidney function.</li>
+</ol>
+<p>If the clinical regimen reduces dose in low eGFR, your simulation should not compare “full dose in everyone” unless that is the deliberate what-if.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="fixed">Fixed dose, all eGFR</button>
+    <button type="button" data-panel="adj">Renally adjusted regimen</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="fixed">
+    <p>Useful for understanding raw pharmacokinetic sensitivity to kidney function. Can overstate exposure in low eGFR and understate risk in high eGFR relative to labeled practice.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="adj">
+    <p>Closer to practice questions. Each stratum gets its regimen rule, then PTA is compared under those rules. Still cite which adjustment scheme you implemented.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+</section>
+<section id="what-to-report-so-readers-can-trust-you" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-report-so-readers-can-trust-you">What to report so readers can trust you</h2>
+<p>Name the equation used for renal function, the class boundaries, the clearance relationship, and whether dialysis or renal replacement scenarios were excluded. Mixed populations without labels are hard to reuse and easy to over-interpret.</p>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>For renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.</p>
+<p>Previous: <a href="../learning/10-effect-site-vs-plasma.html">Effect site versus plasma</a> · Next: <a href="../learning/12-inoculum-effect.html">Inoculum effect</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/11-renal-function-egfr-strata.html</guid>
+  <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Inoculum effect: when bacterial density changes the drug story</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/12-inoculum-effect.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Lab MIC work usually starts with a standardized inoculum. Infections do not always politely match that density. In some drug-bug pairs, a denser starting population makes the antibiotic look less effective. That pattern is called the <strong>inoculum effect</strong>.</p>
+<p>For modelers, the point is not to memorize every organism that shows it. The point is to stop treating “the MIC” as independent from bacterial burden when the literature says otherwise.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Conceptual warning for PD inputs and scenario design. Not a complete microbiology review of every inoculum-sensitive pair.</p>
+</div>
+</div>
+<section id="what-people-mean-by-inoculum-effect" class="level2">
+<h2 class="anchored" data-anchor-id="what-people-mean-by-inoculum-effect">What people mean by inoculum effect</h2>
+<p>In plain terms: the same drug may need a higher concentration, or may kill more slowly, when the starting bacterial count is much higher. Enzymes can be more abundant. Binding or local drug depletion can matter more. Quorum-related physiology can change. The assay MIC at standard inoculum can then understate the challenge of a high-burden infection.</p>
+<p>That does not mean every PTA grid is wrong. It means a high-inoculum pneumonia, endocarditis vegetation, or undrained focus may deserve a harsher PD scenario than a bloodstream model with lower density.</p>
+<details class="learn-think">
+<summary>
+A modeling translation
+</summary>
+Inoculum effect can appear as a higher effective MIC, a shifted PD curve, or slower kill parameters at high CFU. Pick the representation that matches your data, and label the inoculum assumption.
+</details>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Higher inoculum requiring more exposure for similar effect">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <path d="M80,200 C160,190 220,150 280,110 C340,70 400,55 520,48" fill="none" stroke="#0D9488" stroke-width="3.2" stroke-linecap="round"></path>
+  <path d="M80,200 C170,195 250,175 320,145 C400,108 470,95 560,90" fill="none" stroke="#F97316" stroke-width="3.2" stroke-linecap="round"></path>
+  <text x="430" y="55" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">standard inoculum</text>
+  <text x="450" y="110" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">high inoculum</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Drug exposure</text>
+  <text x="22" y="145" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 145)" text-anchor="middle">Effect</text>
+</svg>
+<p class="learn-caption">Same drug, denser start, harder climb to the same effect.</p>
+</div>
+</section>
+<section id="where-this-collides-with-pta-habits" class="level2">
+<h2 class="anchored" data-anchor-id="where-this-collides-with-pta-habits">Where this collides with PTA habits</h2>
+<p>Classic PTA uses an MIC distribution from standard testing. If your clinical question is a high-burden site with a known inoculum effect for that class, a second scenario with worsened PD inputs is more honest than a single optimistic curve.</p>
+<p>This also connects to tolerance and persistence. High density can change early kill even when categorical susceptibility looks unchanged. Keep the mechanism language careful: inoculum effect is not automatically “resistance,” though both can raise the practical exposure need.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="ignore">Ignore inoculum</button>
+    <button type="button" data-panel="scenario">Scenario it</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="ignore">
+    <p>Acceptable when literature for that drug-bug pair shows little inoculum dependence, or when you clearly limit the claim to standard-assay MIC targets.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="scenario">
+    <p>Run a base MIC/PTA case, then a high-inoculum case with cited PD worsening. Compare both. Do not average them into one unexplained hybrid.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+</section>
+<section id="practical-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="practical-reporting">Practical reporting</h2>
+<p>State the inoculum assumed by your PD target. If you borrowed in vitro high-inoculum data, mark them as donor evidence and check scenario compatibility. High-inoculum lab conditions are not automatically the same as an ICU pneumonia densitiy, but they are often closer to the worry you are trying to name.</p>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Bacterial density can change the pharmacodynamic hill the drug must climb. When the literature flags an inoculum effect, put density into the scenario list beside MIC, binding, and renal function. Otherwise your clean PTA may describe a lighter fight than the infection.</p>
+<p>Previous: <a href="../learning/11-renal-function-egfr-strata.html">Renal function and eGFR strata</a> · Next: <a href="../learning/13-caz-avi-mini-case.html">CAZ-AVI mini case</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/12-inoculum-effect.html</guid>
+  <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Mini case: putting CAZ-AVI style PK/PD together</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/13-caz-avi-mini-case.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This lesson stitches the earlier notes into one worked story. The drug pair is <strong>ceftazidime-avibactam</strong> style thinking: a beta-lactam plus a protector. The goal is not to deliver a clinical dose recommendation. The goal is to show how a careful modeler moves from fragmented evidence to a joint attainment question without laundering uncertainty.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Teaching case for method order and joint logic. Numbers here are illustrative shapes, not a substitute for a full evidence-composite package.</p>
+</div>
+</div>
+<section id="the-question-in-one-sentence" class="level2">
+<h2 class="anchored" data-anchor-id="the-question-in-one-sentence">The question in one sentence</h2>
+<p>In critically ill adults without renal replacement therapy, given a continuous-infusion style regimen, how often do virtual subjects jointly clear a free ceftazidime exposure rule against MIC and an avibactam threshold rule?</p>
+<p>Notice what that sentence already fixed: population, infusion idea, free-drug thinking, and joint success.</p>
+</section>
+<section id="step-1-keep-the-components-separate" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-keep-the-components-separate">Step 1: keep the components separate</h2>
+<p>Ceftazidime and avibactam get their own concentration-time profiles. Binding, clearance, and variability are component-specific. If published clearances are correlated, that correlation belongs in the draw. Collapsing both drugs into one fake “combo level” throws away the reason the pair exists.</p>
+<details class="learn-think">
+<summary>
+Why joint logic appears here
+</summary>
+A subject can pass the beta-lactam rule and fail the inhibitor rule. Counting that subject as a success would answer a different question than combination adequacy.
+</details>
+</section>
+<section id="step-2-choose-targets-you-can-defend" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-choose-targets-you-can-defend">Step 2: choose targets you can defend</h2>
+<p>A common teaching pattern is:</p>
+<ul>
+<li>ceftazidime judged on a free steady-state concentration relative to MIC,</li>
+<li>avibactam judged on staying above a fixed free threshold,</li>
+<li>joint success only when both pass.</li>
+</ul>
+<p>Whatever thresholds you use, cite them and keep free/total conversion explicit.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Two component checks feeding one joint success flag">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <rect x="40" y="50" width="200" height="90" rx="12" fill="#fff" stroke="#0D9488" stroke-width="2"></rect>
+  <text x="140" y="85" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Ceftazidime</text>
+  <text x="140" y="112" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">free Css vs MIC</text>
+  <rect x="40" y="170" width="200" height="90" rx="12" fill="#fff" stroke="#F97316" stroke-width="2"></rect>
+  <text x="140" y="205" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Avibactam</text>
+  <text x="140" y="232" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">free level vs threshold</text>
+  <path d="M240,95 H310" stroke="#94A3B8" stroke-width="2"></path>
+  <path d="M240,215 H310" stroke="#94A3B8" stroke-width="2"></path>
+  <path d="M310,95 V215" stroke="#94A3B8" stroke-width="2"></path>
+  <path d="M310,155 H380" stroke="#94A3B8" stroke-width="2"></path>
+  <rect x="380" y="115" width="200" height="80" rx="12" fill="#0B1628"></rect>
+  <text x="480" y="150" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Joint success?</text>
+  <text x="480" y="175" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="IBM Plex Sans, sans-serif" font-size="12">both must pass</text>
+</svg>
+</div>
+</section>
+<section id="step-3-put-kidney-function-in-the-population" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-put-kidney-function-in-the-population">Step 3: put kidney function in the population</h2>
+<p>Continuous infusion steady levels move with clearance. eGFR strata are not optional decoration for this story. Draw or assign renal classes, map them to clearance, and report attainment by stratum as well as overall. If the labeled regimen adjusts by renal function, say whether you modeled that adjustment.</p>
+</section>
+<section id="step-4-build-pta-then-maybe-cfr" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-build-pta-then-maybe-cfr">Step 4: build PTA, then maybe CFR</h2>
+<p>Compute joint PTA across an MIC grid for the beta-lactam rule while the inhibitor rule stays active in every subject. If you have a dated MIC distribution for the relevant Gram-negative ecology, weight the PTA curve to get joint CFR. Then re-run under an alternate MIC prior if plasmid-driven shifts are a live concern.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="order">Suggested order</button>
+    <button type="button" data-panel="skip">What not to skip</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="order">
+    <p>Evidence labels → component PK → free conversion → joint target rule → renal strata → Monte Carlo → joint PTA grid → optional CFR → sensitivity on fu, correlation, and MIC prior.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="skip">
+    <p>Do not skip provenance for donor PK pieces, free/total bookkeeping, joint intersection logic, or a plain-language scenario compatibility note.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+</section>
+<section id="step-5-say-what-the-case-did-not-claim" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-say-what-the-case-did-not-claim">Step 5: say what the case did not claim</h2>
+<p>A plasma free-drug joint PTA is not automatically ELF adequacy. A standard-inoculum MIC grid is not automatically a high-burden abscess story. Healthy-volunteer donor pieces are not automatically ICU truth. Write those limits in ordinary sentences. Readers forgive uncertainty. They distrust invisible upgrades.</p>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>The CAZ-AVI style case is a checklist in narrative form: separate components, free-drug honesty, joint intersection, renal structure, provenance, then PTA/CFR. If you can explain those choices out loud without slides, the simulation is ready to be read by another scientist.</p>
+<p>Related lessons: <a href="../learning/07-joint-targets-bl-bli.html">Joint targets</a>, <a href="../learning/05-free-drug-and-protein-binding.html">Free drug</a>, <a href="../learning/11-renal-function-egfr-strata.html">eGFR strata</a>, <a href="../learning/08-uncertainty-and-provenance.html">Provenance</a>. Project page: <a href="../projects/caz-avi-evidence-composite-pkpd.html">CAZ-AVI evidence-composite PK/PD</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/13-caz-avi-mini-case.html</guid>
+  <pubDate>Sat, 17 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PK/PD targets and the MIC: what the indices actually mean</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/01-pkpd-targets-and-mic.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Bacteria do not read the prescription label. They experience a rising and falling concentration of drug around them. Pharmacokinetic/pharmacodynamic (PK/PD) modeling is mostly the craft of putting that time course next to a susceptibility number, usually the <strong>MIC</strong>, and asking whether the exposure looks adequate.</p>
+<p>This lesson stays practical. You will leave with a clear picture of what MIC can and cannot carry, what the classic indices mean, and how to choose one without turning the choice into folklore.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Teaching intuition for modeling. Not a dosing protocol and not a substitute for clinical guidelines.</p>
+</div>
+</div>
+<section id="start-with-the-awkward-object-the-mic" class="level2">
+<h2 class="anchored" data-anchor-id="start-with-the-awkward-object-the-mic">Start with the awkward object: the MIC</h2>
+<p>The <strong>minimum inhibitory concentration</strong> is the lowest concentration that stops visible growth in a defined lab assay. That sentence already hides three compromises.</p>
+<p>First, “visible growth” is an assay endpoint, not a full story of killing. Second, the assay has a floor and a set of conditions. Change those conditions and the number can move. Third, the pathogen in a patient is not living in Mueller-Hinton broth with perfect mixing and a fixed inoculum.</p>
+<p>Still, MIC is useful because it compresses susceptibility into something a simulator can compare with an exposure curve. The healthy habit is to treat MIC as a <strong>scenario input with uncertainty</strong>, not as a moral fact about the organism.</p>
+<details class="learn-think">
+<summary>
+Pause: what question is MIC answering?
+</summary>
+MIC answers roughly: under this assay, what concentration prevents visible growth? It does not by itself answer: will every cell die, how fast will they die, or will a small surviving fraction rebound later?
+</details>
+</section>
+<section id="three-index-families-said-simply" class="level2">
+<h2 class="anchored" data-anchor-id="three-index-families-said-simply">Three index families, said simply</h2>
+<p>Most antibacterial PK/PD targets fall into one of three families. The leading <strong>f</strong> means free (unbound) drug.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 29%">
-<col style="width: 53%">
+<col style="width: 18%">
+<col style="width: 39%">
+<col style="width: 42%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Index</th>
-<th>Rough idea</th>
-<th>Typical drug classes</th>
+<th>Plain meaning</th>
+<th>Often used for</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>fT&gt;MIC</strong></td>
-<td>Fraction of the dosing interval that free concentration stays above MIC</td>
-<td>Many β-lactams</td>
+<td>How much of the dosing interval free concentration stays above MIC</td>
+<td>Many beta-lactams</td>
 </tr>
 <tr class="even">
 <td><strong>fAUC/MIC</strong></td>
-<td>Integrated free exposure scaled by MIC</td>
-<td>Fluoroquinolones, vancomycin (often)</td>
+<td>Total free exposure over time, scaled by MIC</td>
+<td>Fluoroquinolones; vancomycin discussions often use AUC logic</td>
 </tr>
 <tr class="odd">
 <td><strong>fCmax/MIC</strong></td>
-<td>Peak free concentration relative to MIC</td>
-<td>Some concentration-dependent agents</td>
+<td>Peak free level relative to MIC</td>
+<td>Some concentration-dependent patterns</td>
 </tr>
 </tbody>
 </table>
-<p>The leading <strong>f</strong> means unbound fraction. If you simulate total concentrations but apply a free-drug target, you are mixing units.</p>
-<div class="learn-figure" aria-label="Concentration-time curve with MIC line and shaded time above MIC">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
-  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
-  <path d="M120,150 C150,90 170,70 190,68 C280,60 360,120 420,150 C470,120 510,90 560,85 L560,150 L120,150 Z" fill="rgba(20,184,166,0.22)"></path>
-  <path d="M56,210 C100,205 120,150 150,90 C170,55 190,48 220,55 C300,80 340,140 390,170 C440,130 500,70 600,60" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
-  <text x="250" y="125" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="600">fT &gt; MIC</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
-  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Free concentration</text>
+<p>If your model outputs total plasma concentration but the target is written for free drug, the units are already arguing with each other. Fix that before you admire the PTA curve.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="Free concentration curve with MIC line and shaded time above MIC">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="155" x2="600" y2="155" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
+  <text x="608" y="159" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M125,155 C155,95 175,75 195,72 C285,64 360,125 420,155 C470,125 515,95 565,90 L565,155 Z" fill="rgba(20,184,166,0.22)"></path>
+  <path d="M56,215 C105,210 125,155 155,95 C175,60 195,52 225,58 C305,85 345,145 395,175 C445,135 505,75 600,65" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <text x="255" y="130" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="600">time above MIC</text>
+  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
+  <text x="22" y="145" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 145)" text-anchor="middle">Free concentration</text>
 </svg>
+<p class="learn-caption">fT&gt;MIC is literally the share of time the free curve sits above the MIC line.</p>
 </div>
 </section>
-<section id="how-to-choose-an-index-in-a-model" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-choose-an-index-in-a-model">How to choose an index in a model</h2>
-<p>Ask three questions before coding a target:</p>
+<section id="choosing-an-index-without-mystique" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-an-index-without-mystique">Choosing an index without mystique</h2>
+<p>Ask three questions before you code a target.</p>
 <ol type="1">
-<li><strong>Is killing time-dependent or concentration-dependent</strong> for this class in the literature you trust?</li>
-<li><strong>Are you modeling free or total drug?</strong> Align the PK output with the PD target.</li>
-<li><strong>Is the target joint?</strong> Combinations (for example β-lactam + inhibitor) may need two simultaneous conditions.</li>
+<li>What does the drug class literature actually use for this organism and indication style: time above threshold, integrated exposure, or peak?</li>
+<li>Are you modeling free or total concentrations, and does the cited target match that choice?</li>
+<li>Is success one condition or two? Combinations may need joint rules.</li>
 </ol>
-<p>If the literature reports a target as “100% fT&gt;MIC” or “fAUC/MIC ≥ 125,” that is a <strong>decision rule for simulation</strong>, not proof that every patient at that threshold is cured.</p>
+<p>A published target such as “100% fT&gt;MIC” or “fAUC/MIC at least 125” is a <strong>decision rule for simulation</strong>. It is not a promise that every patient above the line is cured and every patient below it fails.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="time">Time-driven</button>
+    <button type="button" data-panel="auc">Exposure-driven</button>
+    <button type="button" data-panel="peak">Peak-driven</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="time">
+    <p><strong>Time-driven thinking</strong> cares how long the free level stays above a threshold. Flattening troughs (for example with longer infusions) can matter more than chasing a higher peak.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="auc">
+    <p><strong>Exposure-driven thinking</strong> cares about the area under the free curve relative to MIC. Missing a little time above MIC can be less important than overall integrated exposure, depending on the drug.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="peak">
+    <p><strong>Peak-driven thinking</strong> cares whether the highest free concentration clears a multiple of MIC. The shape after the peak still matters clinically, but the index itself is anchored on Cmax.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li>Put <strong>units and binding</strong> next to every target.</li>
-<li>Sample MIC from a distribution when you care about population performance.</li>
-<li>Keep the index choice <strong>traceable to a cited source</strong>, the same way you would cite a clearance equation.</li>
-</ul>
+<section id="a-working-habit-for-modelers" class="level2">
+<h2 class="anchored" data-anchor-id="a-working-habit-for-modelers">A working habit for modelers</h2>
+<p>Write the index, the free/total state, and the MIC source in one line whenever you start a run. If you cannot fill that line, the simulation is not ready for interpretation yet.</p>
+<p>Tolerance and persistence can still spoil a “good” MIC story. We will separate those ideas in a later lesson. For now, keep the simpler rule: <strong>pick the index that matches the pharmacology, then keep the units honest</strong>.</p>
 <p>Next: <a href="../learning/02-pta-cfr-virtual-populations.html">PTA, CFR, and virtual populations</a>.</p>
 
 
@@ -577,8 +1176,8 @@
 
 
 
-<p>Once you have an exposure index and an MIC, the next modeling question is not “does this patient hit the target?” It is: <strong>in a population with realistic variability, how often does the regimen succeed?</strong></p>
-<p>That is where <strong>virtual populations</strong>, <strong>PTA</strong>, and <strong>CFR</strong> enter.</p>
+<p>Once you have an exposure rule and an MIC, a single “typical patient” calculation is rarely enough. Real people differ in clearance, volume, kidney function, and body size. <strong>Virtual populations</strong>, <strong>PTA</strong>, and <strong>CFR</strong> are the tools we use to ask how often a regimen works across that spread.</p>
+<p>Think of it as moving from one drawn curve to a cloud of curves, then counting how many of those curves pass the test you chose.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -589,73 +1188,106 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Methodological intuition for simulation workflows — not a clinical decision tool.</p>
+<p>Method intuition for simulation. Not software documentation and not a bedside calculator.</p>
 </div>
 </div>
-<section id="virtual-populations-are-controlled-randomness" class="level2">
-<h2 class="anchored" data-anchor-id="virtual-populations-are-controlled-randomness">Virtual populations are controlled randomness</h2>
-<p>A virtual population is a set of simulated individuals whose PK parameters (clearance, volume, covariates such as renal function) are drawn from distributions that reflect interindividual variability.</p>
-<p>Good practice:</p>
+<section id="virtual-populations-are-controlled-variation" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-populations-are-controlled-variation">Virtual populations are controlled variation</h2>
+<p>A virtual population is a set of simulated individuals. For each person you draw pharmacokinetic parameters from distributions that are supposed to reflect interindividual variability. If the literature reports correlated clearances, or clearances that depend on eGFR, that structure belongs in the draw. If you invent tidy independent normals because they look neat, you are no longer studying the published system. You are studying your drawing habits.</p>
+<p>Useful discipline looks like this:</p>
 <ul>
-<li>Sample from <strong>published IIV / residual error</strong> when available.</li>
-<li>Keep covariate structure explicit (for example eGFR classes).</li>
-<li>Record seeds, sample size, and whether parameters are correlated.</li>
+<li>cite the IIV source,</li>
+<li>keep covariate rules explicit,</li>
+<li>record the random seed and the sample size,</li>
+<li>say which population the parameters came from (ICU, healthy volunteers, dialysis, and so on).</li>
 </ul>
-<p>Bad practice:</p>
-<ul>
-<li>Drawing “nice looking” normals with no provenance.</li>
-<li>Pooling incompatible populations (healthy volunteer PK used silently as ICU truth).</li>
-</ul>
+<details class="learn-think">
+<summary>
+Why sample size shows up in methods sections
+</summary>
+Too few virtual subjects and the PTA estimate jitters. Extremely large N can look impressive while hiding a bad structural assumption. Report both N and a quick stability check.
+</details>
 </section>
-<section id="pta-probability-of-target-attainment" class="level2">
-<h2 class="anchored" data-anchor-id="pta-probability-of-target-attainment">PTA: probability of target attainment</h2>
-<p><strong>PTA</strong> answers: <em>for a fixed MIC (or a fixed MIC grid), what fraction of virtual subjects meet the PK/PD target?</em></p>
-<p>Example framing:</p>
+<section id="pta-fix-the-mic-count-the-successes" class="level2">
+<h2 class="anchored" data-anchor-id="pta-fix-the-mic-count-the-successes">PTA: fix the MIC, count the successes</h2>
+<p><strong>Probability of target attainment (PTA)</strong> answers a conditional question:</p>
 <blockquote class="blockquote">
-<p>At MIC = 4 mg/L, what percentage of simulated ICU adults achieve 100% fT&gt;MIC on regimen X?</p>
+<p>If MIC equals this value, what fraction of virtual subjects meet the PK/PD target?</p>
 </blockquote>
-<p>Plot PTA against MIC to see where the regimen cliff starts.</p>
-<div class="learn-figure" aria-label="PTA declining as MIC increases">
-<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"></rect>
-  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <path d="M70,55 C140,55 180,58 220,70 C280,95 320,140 380,175 C450,210 520,218 590,218" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+<p>You usually compute PTA across a grid of MIC values and plot a declining curve. The interesting part is often the cliff: the MIC region where success falls apart.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-label="PTA falling as MIC rises">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
   <line x1="56" y1="70" x2="600" y2="70" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 5"></line>
   <text x="608" y="74" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="600">90%</text>
-  <circle cx="300" cy="118" r="5" fill="#F97316" stroke="#fff" stroke-width="2"></circle>
-  <text x="312" y="112" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="600">cliff</text>
-  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">MIC</text>
-  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">PTA</text>
+  <path d="M70,55 C145,55 185,58 230,72 C295,100 335,145 395,180 C465,215 530,225 595,226" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <circle cx="310" cy="120" r="5" fill="#F97316" stroke="#fff" stroke-width="2"></circle>
+  <text x="322" y="114" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="600">where the regimen weakens</text>
+  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">MIC</text>
+  <text x="22" y="145" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 145)" text-anchor="middle">PTA</text>
 </svg>
+<p class="learn-caption">PTA is a curve over MIC, not a single trophy number.</p>
 </div>
 </section>
-<section id="cfr-weighting-pta-by-the-real-mic-ecology" class="level2">
-<h2 class="anchored" data-anchor-id="cfr-weighting-pta-by-the-real-mic-ecology">CFR: weighting PTA by the real MIC ecology</h2>
-<p><strong>CFR</strong> (cumulative fraction of response) folds PTA over an <strong>MIC distribution</strong> from surveillance or local epidemiology:</p>
-<p>[ = _i (_i) P(_i) ]</p>
+<section id="cfr-bring-the-local-microbiology-back-in" class="level2">
+<h2 class="anchored" data-anchor-id="cfr-bring-the-local-microbiology-back-in">CFR: bring the local microbiology back in</h2>
+<p><strong>Cumulative fraction of response (CFR)</strong> folds PTA over an MIC distribution from surveillance or local epidemiology:</p>
+<p>[ = _i (_i)P(_i) ]</p>
 <p>PTA asks “what if MIC is X?”<br>
-CFR asks “given the MICs we actually see, how often do we succeed?”</p>
-<p>If your MIC weights come from a different region, year, or species complex than your clinical question, CFR becomes a precise answer to the wrong question.</p>
+CFR asks “given the MICs we actually see around here, how often do we succeed?”</p>
+<p>That second question is only as honest as the MIC weights. A distribution from another country, another year, or a mixed species group can make CFR look decisive while answering the wrong question.</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="pta">When PTA helps</button>
+    <button type="button" data-panel="cfr">When CFR helps</button>
+    <button type="button" data-panel="both">When you need both</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="pta">
+    <p>Use PTA when you want to see regimen strength across a MIC grid, compare dosing strategies, or find the MIC where performance collapses.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="cfr">
+    <p>Use CFR when you have a trustworthy local or regional MIC distribution and you want one summary of expected success under that ecology.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="both">
+    <p>Show PTA curves for mechanism insight, then report CFR under one or more dated MIC priors. Sensitivity to the prior is part of the scientific result.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="a-minimal-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="a-minimal-workflow">A minimal workflow</h2>
+<section id="a-minimal-workflow-you-can-defend" class="level2">
+<h2 class="anchored" data-anchor-id="a-minimal-workflow-you-can-defend">A minimal workflow you can defend</h2>
 <ol type="1">
-<li>Define regimen and PK model (with provenance).</li>
-<li>Define free-drug target(s).</li>
-<li>Simulate <img src="https://latex.codecogs.com/png.latex?N"> virtual subjects.</li>
-<li>Compute PTA on an MIC grid.</li>
-<li>Optionally weight by an MIC distribution → CFR.</li>
-<li>Report sensitivity to binding, IIV, and MIC source.</li>
+<li>Define regimen and PK model, with provenance.<br>
+</li>
+<li>Define free-drug target or targets.<br>
+</li>
+<li>Simulate N virtual subjects.<br>
+</li>
+<li>Compute PTA on an MIC grid.<br>
+</li>
+<li>Optionally weight by an MIC distribution to get CFR.<br>
+</li>
+<li>Stress-test the fragile inputs: binding, IIV, renal strata, MIC source.</li>
 </ol>
+<p>If the target is joint (two drugs, two conditions), success is the intersection inside each virtual subject. Averaging two separate PTA values is not the same thing. A later lesson walks through that case.</p>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li>PTA is a <strong>curve over MIC</strong>; CFR is a <strong>scalar under an epidemiology prior</strong>.</li>
-<li>Sample size and seed reporting are part of reproducibility, not decoration.</li>
-<li>Joint targets (two drugs, two conditions) need joint PTA — not the average of two separate success rates.</li>
-</ul>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Virtual populations turn “does this look fine on paper?” into “how often does this pass under realistic variability?” PTA keeps MIC fixed. CFR brings epidemiology back. Neither repairs a bad target choice or a mismatched population.</p>
 <p>Previous: <a href="../learning/01-pkpd-targets-and-mic.html">PK/PD targets and the MIC</a> · Next: <a href="../learning/03-resistance-tolerance-persistence.html">Resistance, tolerance, and persistence</a>.</p>
 
 
@@ -676,8 +1308,8 @@ CFR asks “given the MICs we actually see, how often do we succeed?”</p>
 
 
 
-<p>In clinical conversation, “the antibiotic did not work” is often collapsed into <strong>resistance</strong>. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.</p>
-<p>This lesson maps three survival ideas onto what a PK/PD model can and cannot see.</p>
+<p>In everyday talk, if an antibiotic fails people often say the bug was resistant. That shorthand is understandable. It is also expensive for modeling, because it points the simulator at the wrong object.</p>
+<p>This lesson separates three survival ideas and translates them into what a PK/PD model can see: a moved threshold, a slower kill, or a long surviving tail.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -688,86 +1320,118 @@ CFR asks “given the MICs we actually see, how often do we succeed?”</p>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Conceptual distinctions for simulation and evidence interpretation. Related preprint context: <a href="https://doi.org/10.1101/2025.02.12.637810">comparative modeling of resistance, tolerance, and persistence</a>.</p>
+<p>Concept map for simulation and reading papers. Related preprint context: <a href="https://doi.org/10.1101/2025.02.12.637810">comparative modeling of resistance, tolerance, and persistence</a>.</p>
 </div>
 </div>
-<section id="three-words-three-model-objects" class="level2">
-<h2 class="anchored" data-anchor-id="three-words-three-model-objects">Three words, three model objects</h2>
+<section id="three-words-that-should-not-be-synonyms" class="level2">
+<h2 class="anchored" data-anchor-id="three-words-that-should-not-be-synonyms">Three words that should not be synonyms</h2>
+<p><strong>Resistance</strong> usually means a heritable drop in susceptibility. In practice that often shows up as a higher MIC or a shifted pharmacodynamic curve. Genetics can sit underneath (target mutation, enzyme, efflux), but the PK/PD layer mainly notices the phenotype change.</p>
+<p><strong>Tolerance</strong> means a population can endure drug pressure longer without a large MIC shift. Time-kill curves look sluggish. The organism is not “fully susceptible in behavior” just because the MIC table looks polite.</p>
+<p><strong>Persistence</strong> points to a small subpopulation that survives much longer. The bulk may fall, then a refractory tail remains. Relapse risk lives in that tail more than in the first steep decline.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 21%">
-<col style="width: 61%">
+<col style="width: 15%">
+<col style="width: 31%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Concept</th>
-<th>Core idea</th>
-<th>What usually moves in a model</th>
+<th>Idea</th>
+<th>What moved</th>
+<th>What a model needs</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Resistance</strong></td>
-<td>Heritable reduced susceptibility</td>
-<td>Higher MIC / shifted PD curve</td>
+<td>Resistance</td>
+<td>Threshold / MIC</td>
+<td>Updated MIC or PD curve</td>
 </tr>
 <tr class="even">
-<td><strong>Tolerance</strong></td>
-<td>Population survives longer under drug stress without a large MIC shift</td>
-<td>Slower kill rate, longer time-kill shoulder</td>
+<td>Tolerance</td>
+<td>Kill speed of the population</td>
+<td>Time-kill or slower kill-rate terms</td>
 </tr>
 <tr class="odd">
-<td><strong>Persistence</strong></td>
-<td>Small subpopulation survives much longer</td>
-<td>Biphasic kill; a refractory fraction</td>
+<td>Persistence</td>
+<td>Long-lived fraction</td>
+<td>Biphasic kill or persister compartment</td>
 </tr>
 </tbody>
 </table>
-<p>Resistance changes the <strong>threshold</strong>.<br>
-Tolerance and persistence change the <strong>time course of killing</strong> even when the threshold looks acceptable.</p>
-<div class="learn-figure" aria-label="Time-kill curves for susceptible, tolerant, and persistent populations">
-<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="300" fill="#F8FAFC"></rect>
-  <line x1="56" y1="30" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
-  <path d="M70,50 C120,55 160,80 200,130 C260,200 300,220 360,225" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"></path>
-  <path d="M70,50 C140,60 200,90 260,130 C330,175 400,195 520,210" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"></path>
-  <path d="M70,50 C110,55 150,75 180,110 C210,145 230,160 250,168 C300,175 380,178 560,182" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"></path>
-  <text x="370" y="220" fill="#0D9488" font-family="Outfit, sans-serif" font-size="12" font-weight="700">susceptible kill</text>
-  <text x="470" y="200" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">tolerance</text>
-  <text x="430" y="168" fill="#7C3AED" font-family="Outfit, sans-serif" font-size="12" font-weight="700">persistence tail</text>
-  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time under drug pressure</text>
-  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Viable bacteria</text>
+<details class="learn-think">
+<summary>
+A quick self-check
+</summary>
+If changing the MIC fully explains the failure story, you are mostly in resistance territory. If MIC barely moved but killing stalled, look at tolerance or persistence before you keep tuning the dose in a PTA-only frame.
+</details>
+</section>
+<section id="what-the-curves-look-like" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-curves-look-like">What the curves look like</h2>
+<div class="learn-figure">
+<svg viewbox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" aria-label="Time-kill curves for susceptible, tolerant, and persistent populations">
+  <rect width="640" height="320" fill="#F8FAFC"></rect>
+  <line x1="56" y1="36" x2="56" y2="240" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="240" x2="600" y2="240" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <path d="M70,55 C125,60 165,90 205,145 C265,215 310,230 370,235" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,55 C145,65 205,100 270,145 C340,190 420,210 545,222" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,55 C115,60 155,85 185,120 C215,155 235,170 255,176 C310,184 400,188 580,192" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"></path>
+  <text x="380" y="228" fill="#0D9488" font-family="Outfit, sans-serif" font-size="12" font-weight="700">faster kill</text>
+  <text x="500" y="210" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">tolerance</text>
+  <text x="430" y="175" fill="#6D28D9" font-family="Outfit, sans-serif" font-size="12" font-weight="700">persistence tail</text>
+  <text x="320" y="275" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time under drug pressure</text>
+  <text x="22" y="150" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 150)" text-anchor="middle">Viable bacteria</text>
 </svg>
+<p class="learn-caption">Same starting inoculum, different survival stories. MIC alone may not separate these lines.</p>
 </div>
 </section>
-<section id="why-mic-only-pta-can-look-fine-and-still-fail" class="level2">
-<h2 class="anchored" data-anchor-id="why-mic-only-pta-can-look-fine-and-still-fail">Why MIC-only PTA can look “fine” and still fail</h2>
-<p>A regimen can show high PTA against the measured MIC distribution while:</p>
+<section id="why-a-strong-pta-can-still-disappoint" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-strong-pta-can-still-disappoint">Why a strong PTA can still disappoint</h2>
+<p>PTA asks whether exposure clears a threshold rule. That is a fair question. It is not every question.</p>
+<p>A regimen can look excellent against the measured MIC distribution while:</p>
 <ul>
-<li>a tolerant population dies too slowly for the treatment duration,</li>
-<li>a persistent fraction seeds relapse,</li>
-<li>or the assay MIC understates the relevant effect-site challenge.</li>
+<li>killing is too slow for the planned duration,</li>
+<li>a persistent fraction remains,</li>
+<li>or the assay MIC understates the real challenge at the infection site.</li>
 </ul>
-<p>That does not make PTA useless. It means PTA answers a <strong>specific question</strong> (exposure vs threshold), not the entire clinical narrative.</p>
+<p>None of that makes PTA useless. It means you should label what your simulation tested. “High PTA vs MIC grid” is not the same claim as “sterilizing cure in every biology.”</p>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="r">If resistance dominates</button>
+    <button type="button" data-panel="t">If tolerance dominates</button>
+    <button type="button" data-panel="p">If persistence dominates</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="r">
+    <p>Update the MIC distribution or PD curve. Re-run PTA/CFR. Mechanism matters later when you choose inhibitors or drug class switches.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="t">
+    <p>Bring in time-kill information or slower kill parameters. Duration and shape of exposure may matter more than another small dose bump in a MIC-only frame.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="p">
+    <p>Model a refractory fraction or biphasic kill. Ask whether your endpoint is inhibition, bulk kill, or durable clearance of the tail.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
 </section>
-<section id="practical-modeling-checklist" class="level2">
-<h2 class="anchored" data-anchor-id="practical-modeling-checklist">Practical modeling checklist</h2>
-<ol type="1">
-<li>Label whether your PD endpoint is <strong>inhibition</strong> (MIC-style) or <strong>killing</strong> (time-kill / CFU decline).</li>
-<li>If you only have MIC targets, say so explicitly in the limitations.</li>
-<li>When comparing pathogens, do not assume the same survival mode — <em>M. tuberculosis</em> and <em>S. aureus</em> are a useful contrast case in the preprint above.</li>
-<li>Keep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not.</li>
-</ol>
+<section id="pathogen-contrast-briefly" class="level2">
+<h2 class="anchored" data-anchor-id="pathogen-contrast-briefly">Pathogen contrast, briefly</h2>
+<p>Different organisms lean on different survival styles. In comparative modeling work, <em>Staphylococcus aureus</em> and <em>Mycobacterium tuberculosis</em> are a useful pair: one often shows a faster tolerance-like pattern, the other a longer persistence window. The lesson for the modeler is simple. Do not copy a kill structure from one species into another because the antibiotic name matches.</p>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li><strong>Resistance → move the MIC / PD curve.</strong></li>
-<li><strong>Tolerance / persistence → reshape kill kinetics and duration logic.</strong></li>
-<li>Report which of the three your simulation is actually testing.</li>
-</ul>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Resistance moves the threshold. Tolerance slows the population kill. Persistence leaves a long tail. Say which one your simulation is actually testing, especially when the clinical story is failure despite a tidy MIC.</p>
 <p>Previous: <a href="../learning/02-pta-cfr-virtual-populations.html">PTA, CFR, and virtual populations</a> · Next: <a href="../learning/05-free-drug-and-protein-binding.html">Free drug and protein binding</a> · Genetics: <a href="../learning/04-chromosome-vs-plasmid-resistance.html">Chromosome vs plasmid resistance</a>.</p>
 
 
@@ -788,8 +1452,8 @@ Tolerance and persistence change the <strong>time course of killing</strong> eve
 
 
 
-<p>PK/PD models rarely simulate DNA. They simulate <strong>exposure</strong> and a <strong>phenotype</strong> — often an MIC or a kill curve. Genetics still matters, because it tells you how stable that phenotype is and how it might spread between patients or species.</p>
-<p>This secondary-track lesson is a bridge: enough bacterial genetics to stop treating every MIC as the same kind of object.</p>
+<p>PK/PD models usually do not simulate DNA base by base. They simulate exposure and a phenotype, often an MIC. Genetics still belongs in the room, because it tells you how stable that phenotype is and how fast the local MIC ecology can shift.</p>
+<p>This lesson is a bridge for modelers. Enough bacterial genetics to stop treating every MIC cell in a table as the same kind of object.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -800,91 +1464,118 @@ Tolerance and persistence change the <strong>time course of killing</strong> eve
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Genetics-for-modelers, not a full genomics course. Pair with the PK/PD track starting at <a href="../learning/01-pkpd-targets-and-mic.html">targets and MIC</a>.</p>
+<p>Genetics for people who build exposure-response simulations. Not a full genomics course.</p>
 </div>
 </div>
-<section id="two-genomic-homes-for-resistance" class="level2">
-<h2 class="anchored" data-anchor-id="two-genomic-homes-for-resistance">Two genomic homes for resistance</h2>
+<section id="two-homes-for-resistance-genes" class="level2">
+<h2 class="anchored" data-anchor-id="two-homes-for-resistance-genes">Two homes for resistance genes</h2>
+<p>Resistance can live on the <strong>chromosome</strong> or on a <strong>plasmid</strong> (and related mobile elements). Both can raise an MIC. They do not raise it with the same epidemiological behavior.</p>
+<p>Chromosomal changes often travel mostly with the lineage: mother cell to daughter cell. Plasmid-borne resistance can move horizontally as well, sometimes across lineages or species. Plasmid copy number can also amplify expression, so “same gene” is not always “same burden.”</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 27%">
-<col style="width: 53%">
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Feature</th>
 <th>Chromosomal</th>
-<th>Plasmid-borne (typical)</th>
+<th>Plasmid-borne, typical case</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Inheritance</td>
-<td>Vertical (mother → daughter)</td>
-<td>Vertical <strong>and</strong> often horizontal</td>
+<td>Main inheritance</td>
+<td>Vertical</td>
+<td>Vertical and often horizontal</td>
 </tr>
 <tr class="even">
-<td>Dose effect</td>
-<td>Usually one/few copies per genome</td>
-<td>Copy number can amplify expression</td>
+<td>Dose / copy effect</td>
+<td>Usually limited copies</td>
+<td>Copy number can boost expression</td>
 </tr>
 <tr class="odd">
-<td>Mobility</td>
-<td>Mostly within lineage</td>
-<td>Can jump lineages / species</td>
+<td>Speed of ecological change</td>
+<td>Often slower within a hospital</td>
+<td>Can surge when a plasmid expands</td>
 </tr>
 <tr class="even">
-<td>Modeling implication</td>
-<td>Phenotype more lineage-stable</td>
-<td>MIC ecology can shift faster; local epidemiology ages quicker</td>
+<td>Modeling note</td>
+<td>Phenotype may be more lineage-stable</td>
+<td>MIC priors may age faster</td>
 </tr>
 </tbody>
 </table>
-<p>A chromosomal target-site mutation and a plasmid β-lactamase can produce the “same” higher MIC in a table — and very different public-health and uncertainty stories.</p>
+<details class="learn-think">
+<summary>
+Why this matters for CFR
+</summary>
+CFR needs P(MIC). If that distribution is shaped by a spreading plasmid, last year’s weights can quietly expire. Date-stamp the source and, when possible, separate mechanism strata.
+</details>
 </section>
-<section id="what-changes-inside-a-pkpd-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="what-changes-inside-a-pkpd-workflow">What changes inside a PK/PD workflow</h2>
-<ol type="1">
-<li><p><strong>MIC distribution provenance</strong><br>
-If resistance is plasmid-driven and locally epidemic, last year’s surveillance weights may be stale.</p></li>
-<li><p><strong>Heterogeneity inside “one MIC”</strong><br>
-Same categorical MIC breakpoint can hide different enzyme burdens or copy numbers.</p></li>
-<li><p><strong>Combination regimens</strong><br>
-Inhibitor partners (for example avibactam) are meaningful when the mechanism is enzyme-mediated; they are the wrong lever for some chromosomal target mutations.</p></li>
-<li><p><strong>Uncertainty labeling</strong><br>
-Mark whether MIC inputs reflect a stable clonal background or a mobile element–shaped ecology.</p></li>
-</ol>
-<div class="learn-figure" aria-label="Chromosome and plasmid both feeding an MIC input used by a PK/PD model">
-<svg viewbox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="260" fill="#F8FAFC"></rect>
-  <circle cx="120" cy="120" r="52" fill="none" stroke="#0D9488" stroke-width="3"></circle>
-  <text x="120" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">chromosome</text>
-  <ellipse cx="250" cy="120" rx="34" ry="22" fill="none" stroke="#F97316" stroke-width="3"></ellipse>
-  <text x="250" y="125" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid</text>
-  <path d="M175,120 L300,120" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"></path>
-  <defs>
-    <marker id="arrow" markerwidth="8" markerheight="8" refx="6" refy="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#94A3B8"></path>
-    </marker>
-  </defs>
-  <rect x="310" y="88" width="100" height="64" rx="12" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"></rect>
-  <text x="360" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">MIC</text>
-  <path d="M410,120 L470,120" stroke="#94A3B8" stroke-width="2"></path>
+<section id="same-mic-number-different-story" class="level2">
+<h2 class="anchored" data-anchor-id="same-mic-number-different-story">Same MIC number, different story</h2>
+<p>Imagine two isolates with MIC = 8 mg/L to the same drug.</p>
+<p>In isolate A, a chromosomal target mutation reduced binding. In isolate B, a plasmid beta-lactamase is chewing the drug. A PTA grid may treat them identically if it only sees “8”. A combination with an inhibitor may help B and do little for A. Your joint-target lesson later depends on knowing which world you are in.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" aria-label="Chromosome and plasmid both feeding MIC into a PK/PD model">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <circle cx="115" cy="120" r="54" fill="none" stroke="#0D9488" stroke-width="3"></circle>
+  <text x="115" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">chromosome</text>
+  <ellipse cx="245" cy="120" rx="36" ry="24" fill="none" stroke="#F97316" stroke-width="3"></ellipse>
+  <text x="245" y="125" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid</text>
+  <path d="M170,120 H300" stroke="#94A3B8" stroke-width="2"></path>
+  <rect x="300" y="88" width="100" height="64" rx="12" fill="#fff" stroke="#0D9488" stroke-width="2"></rect>
+  <text x="350" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">MIC</text>
+  <path d="M400,120 H470" stroke="#94A3B8" stroke-width="2"></path>
   <rect x="470" y="78" width="140" height="84" rx="12" fill="#0B1628"></rect>
-  <text x="540" y="115" text-anchor="middle" fill="#FFFFFF" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PK/PD</text>
+  <text x="540" y="115" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PK/PD</text>
   <text x="540" y="138" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="IBM Plex Sans, sans-serif" font-size="12">PTA / CFR</text>
-  <text x="320" y="230" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Genotype informs the phenotype input — the model still runs on exposure vs effect.</text>
+  <text x="320" y="220" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Genetics annotates the phenotype input. The model still runs on exposure versus effect.</text>
 </svg>
 </div>
 </section>
-<section id="takeaway-for-modelers" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
-<ul>
-<li>Do not ask genetics to replace PK/PD; ask it to <strong>annotate the MIC layer</strong>.</li>
-<li>Plasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.</li>
-<li>Chromosomal lineage structure → stability helps, but still verify assay and species ID.</li>
-</ul>
+<section id="what-to-change-in-a-pkpd-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-change-in-a-pkpd-workflow">What to change in a PK/PD workflow</h2>
+<ol type="1">
+<li><strong>Label MIC provenance</strong> with date, region, species, and method.<br>
+</li>
+<li><strong>Ask whether the mechanism is enzyme-mediated</strong> before you lean on inhibitor partners.<br>
+</li>
+<li><strong>Refresh local MIC weights more aggressively</strong> when plasmid epidemics are active.<br>
+</li>
+<li><strong>Keep genetics in the annotation layer</strong> unless you are explicitly building a genotype-to-phenotype model.</li>
+</ol>
+<div class="learn-toggle" data-learn-toggle="">
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="chrom">Chromosomal lens</button>
+    <button type="button" data-panel="plas">Plasmid lens</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="chrom">
+    <p>Expect more stability inside a clonal background, but still verify species ID and assay method. Target mutations may need a different therapeutic logic than enzyme blockade.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="plas">
+    <p>Expect mobility, possible copy-number effects, and faster change in hospital ecology. CFR priors deserve dates and sensitivity checks.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>Do not ask genetics to replace PK/PD. Ask it to annotate the MIC layer: how mobile is this phenotype, how old is the ecology prior, and which mechanism your target rule quietly assumes?</p>
 <p>Next genetics lesson: <a href="../learning/09-hgt-and-mic-ecology.html">HGT and MIC ecology</a> · PK/PD spine: <a href="../learning/03-resistance-tolerance-persistence.html">Resistance, tolerance, and persistence</a>.</p>
 
 

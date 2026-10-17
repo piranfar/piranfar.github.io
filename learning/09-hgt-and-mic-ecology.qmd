@@ -1,67 +1,92 @@
 ---
 title: "Horizontal gene transfer and MIC ecology"
-description: "Why plasmid-mediated resistance makes MIC distributions time-sensitive inputs — and how PK/PD modelers should refresh epidemiology priors."
+description: "Why plasmid-mediated resistance makes MIC distributions time-sensitive, and how PK/PD modelers should treat epidemiology priors as perishable."
 author: "Vahhab Piranfar"
 date: "2026-10-17"
 categories: [Learning, Bacterial Genetics]
 ---
 
-Horizontal gene transfer (HGT) is how resistance genes move sideways — across lineages and sometimes across species — often on plasmids, transposons, or integrative elements. For PK/PD, HGT matters because it can **rewire the MIC distribution faster than a cloned chromosomal mutation typically would**.
+Horizontal gene transfer (HGT) is sideways inheritance: genes moving between bacteria that are not simply parent and child. Plasmids, transposons, and related elements do a lot of that traffic for resistance.
+
+For PK/PD, you rarely need the full molecular soap opera. You need one consequence: **MIC distributions can change faster than a stable chromosomal lineage would suggest.** CFR depends on those distributions. So HGT is an aging clock on your epidemiology prior.
 
 ::: {.callout-note}
 ## Scope
-Genetics as annotation on the MIC layer used by PTA/CFR — not a full HGT mechanisms course.
+Genetics as annotation on the MIC layer used by PTA/CFR.
 :::
 
-## From gene traffic to simulation priors
+## From gene traffic to P(MIC)
 
-CFR needs $P(\mathrm{MIC})$. That probability mass is an ecological claim:
+CFR needs weights: how common is each MIC category in the population you care about? That is an ecological claim. It includes species, region, year, specimen mix, and which mechanisms are circulating.
 
-- which species / complex,
-- which region and year,
-- which specimen mix,
-- which mechanisms dominate locally.
-
-If a plasmid carrying a carbapenemase expands in your catchment, last year’s MIC weights can become a precise answer to an obsolete question.
+If a plasmid carrying a clinically important enzyme expands in a hospital network, the right-hand side of the MIC histogram can fatten within seasons. A CFR computed on last year's weights can remain numerically tidy and scientifically late.
 
 ```{=html}
-<div class="learn-figure" role="img" aria-label="Plasmid transfer shifting MIC distribution over time">
-<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="640" height="280" fill="#F8FAFC"/>
-  <text x="150" y="40" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T</text>
-  <text x="470" y="40" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T+Δ (HGT expansion)</text>
-  <rect x="70" y="180" width="28" height="40" fill="#0D9488"/>
-  <rect x="110" y="140" width="28" height="80" fill="#0D9488"/>
-  <rect x="150" y="110" width="28" height="110" fill="#0D9488"/>
-  <rect x="190" y="150" width="28" height="70" fill="#0D9488"/>
-  <rect x="230" y="190" width="28" height="30" fill="#0D9488"/>
-  <rect x="390" y="200" width="28" height="20" fill="#F97316"/>
-  <rect x="430" y="170" width="28" height="50" fill="#F97316"/>
-  <rect x="470" y="120" width="28" height="100" fill="#F97316"/>
-  <rect x="510" y="80" width="28" height="140" fill="#F97316"/>
-  <rect x="550" y="100" width="28" height="120" fill="#F97316"/>
-  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"/>
-  <path d="M280,130 L360,130" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#arr)"/>
-  <defs>
-    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#94A3B8"/>
-    </marker>
-  </defs>
-  <text x="320" y="252" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">MIC categories → probability mass used by CFR</text>
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MIC distribution shifting after HGT expansion">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <text x="150" y="42" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T</text>
+  <text x="470" y="42" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Year T after HGT expansion</text>
+  <rect x="70" y="190" width="28" height="40" fill="#0D9488"/>
+  <rect x="110" y="150" width="28" height="80" fill="#0D9488"/>
+  <rect x="150" y="120" width="28" height="110" fill="#0D9488"/>
+  <rect x="190" y="160" width="28" height="70" fill="#0D9488"/>
+  <rect x="230" y="200" width="28" height="30" fill="#0D9488"/>
+  <rect x="390" y="205" width="28" height="25" fill="#F97316"/>
+  <rect x="430" y="175" width="28" height="55" fill="#F97316"/>
+  <rect x="470" y="125" width="28" height="105" fill="#F97316"/>
+  <rect x="510" y="85" width="28" height="145" fill="#F97316"/>
+  <rect x="550" y="105" width="28" height="125" fill="#F97316"/>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M280,135 H360" stroke="#94A3B8" stroke-width="2.5"/>
+  <text x="320" y="270" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Same drug, different probability mass under CFR</text>
 </svg>
 </div>
 ```
 
-## Modeler habits that survive contact with HGT
+<details class="learn-think">
+<summary>What HGT does not do</summary>
+HGT does not replace pharmacometrics. Clearance, infusion mode, and free-drug targets still matter. HGT tells you when the MIC weights under those calculations need a fresh date stamp.
+</details>
 
-1. **Date-stamp MIC sources** in every CFR table.
-2. **Separate mechanism strata** when possible (enzyme class vs target mutation).
-3. **Recompute CFR** under alternative local distributions as sensitivity analysis.
-4. **Do not over-interpret** a single-hospital antibiogram as a universal prior.
-5. Link back to [chromosome vs plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd) when labeling stability vs mobility.
+## Habits that survive contact with mobile resistance
+
+1. Date-stamp every MIC source used in CFR.  
+2. Separate mechanism strata when the data allow (enzyme class versus target mutation).  
+3. Recompute CFR under alternate local distributions as sensitivity analysis.  
+4. Avoid promoting one ward antibiogram into a universal prior.  
+5. Keep the chromosome-versus-plasmid distinction nearby when you talk about stability.
+
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="stable">More stable prior</button>
+    <button type="button" data-panel="mobile">More perishable prior</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="stable">
+    <p>Chromosomal lineage-dominant resistance, slow local change, consistent species mix, recent surveillance with clear methods.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="mobile">
+    <p>Known plasmid outbreak potential, rapid MIC shifts in neighboring centers, mixed specimen sources, or an old surveillance table reused without comment.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
 
 ## Takeaway
 
-HGT does not replace pharmacometrics. It tells you when your **epidemiology prior** — the MIC weights under CFR — must be treated as perishable.
+Treat MIC ecology as perishable when mobile elements are in play. Your PTA curve can stay the same while CFR moves, simply because the weights under the curve changed.
 
-Previous genetics lesson: [Chromosome vs plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd) · PK/PD spine: [Uncertainty and provenance](08-uncertainty-and-provenance.qmd).
+Previous: [Chromosome vs plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd) · PK/PD: [Uncertainty and provenance](08-uncertainty-and-provenance.qmd) · Next: [Effect site versus plasma](10-effect-site-vs-plasma.qmd).

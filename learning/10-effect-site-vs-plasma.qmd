@@ -1,0 +1,100 @@
+---
+title: "Effect site versus plasma: where the bug actually lives"
+description: "Why plasma PK is a convenient proxy, when ELF, CSF, or tissue exposure changes the story, and how to keep site assumptions visible in a model."
+author: "Vahhab Piranfar"
+date: "2026-10-17"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+Most antibiotic PK models begin in plasma because plasma is what we can sample often. Many infections, though, are not happening in a blood vial. Pneumonia asks about lung concentrations. Meningitis asks about CSF. Abscesses and bone infections have their own stubborn geography.
+
+This lesson is about the gap between **what we measure** and **where the bacteria sit**, and how to keep that gap from becoming an invisible leap of faith.
+
+::: {.callout-note}
+## Scope
+Modeling intuition about site of infection. Not a catalog of tissue penetration coefficients for every drug.
+:::
+
+## Plasma is a proxy, sometimes a good one
+
+If free plasma exposure tracks free exposure at the effect site closely enough for your question, plasma-based PTA can be a fair first tool. If the site is protected, poorly perfused, or governed by transporters, plasma can flatter the regimen.
+
+A simple mental split helps:
+
+- **Plasma-centric question:** given systemic PK, how often do we clear a plasma free-drug target?
+- **Site-aware question:** given systemic PK plus a site model or site observations, how often does the effect-site exposure clear the relevant target?
+
+Those are different claims. Both can be useful. They should not share one sentence in the abstract as if they were identical.
+
+<details class="learn-think">
+<summary>A sentence worth refusing</summary>
+"Plasma fT>MIC was high, therefore lung exposure was adequate." That "therefore" needs evidence about penetration, timing, and free fraction at the site.
+</details>
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plasma curve versus delayed lower effect-site curve">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <line x1="56" y1="40" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M70,200 C120,70 170,45 230,55 C310,75 360,120 430,140 C500,100 545,80 600,75" fill="none" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70,215 C140,170 190,145 250,140 C330,132 390,155 460,170 C520,155 560,150 600,148" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="455" y="78" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasma</text>
+  <text x="470" y="188" fill="#0F766E" font-family="Outfit, sans-serif" font-size="12" font-weight="700">effect site</text>
+  <text x="320" y="265" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time</text>
+</svg>
+<p class="learn-caption">A site curve can be lower, delayed, or both. Plasma success does not automatically copy over.</p>
+</div>
+```
+
+## Common site stories modelers meet
+
+**Epithelial lining fluid (ELF)** for pneumonia work: ratios to plasma vary by drug and sampling time.  
+**CSF** for meningitis: barrier and inflammation change penetration.  
+**Tissue or abscess:** averages may hide necrotic cores where drug arrives late.
+
+In each case you need either direct site observations, a justified transfer model, or an honest plasma-only limitation statement.
+
+```{=html}
+<div class="learn-toggle" data-learn-toggle>
+  <div class="learn-toggle-tabs">
+    <button type="button" class="is-active" data-panel="plasma">Plasma-only model</button>
+    <button type="button" data-panel="ratio">Plasma plus site ratio</button>
+    <button type="button" data-panel="full">Site observations</button>
+  </div>
+  <div class="learn-toggle-panel is-active" data-panel="plasma">
+    <p>Defensible when you clearly claim a plasma free-drug endpoint. Weak when the abstract quietly upgrades that claim into site adequacy.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="ratio">
+    <p>Apply a published penetration ratio or time-varying factor, cite it, and sensitivity-test lower ratios. Keep free/total bookkeeping intact at the site if data allow.</p>
+  </div>
+  <div class="learn-toggle-panel" data-panel="full">
+    <p>Best case: measured site concentrations with timing. Still watch assay method, inflammation state, and whether samples represent the infected subcompartment.</p>
+  </div>
+</div>
+<script>
+document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
+  var buttons = root.querySelectorAll('.learn-toggle-tabs button');
+  var panels = root.querySelectorAll('.learn-toggle-panel');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.getAttribute('data-panel');
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.getAttribute('data-panel') === id); });
+    });
+  });
+});
+</script>
+```
+
+## How to write this without hand-waving
+
+In methods, name the compartment your target refers to. In limitations, say what you did not model. If donor ELF or CSF data come from a different population than your primary PK, treat them with the same provenance care you would use for a borrowed clearance equation.
+
+## Takeaway
+
+Bacteria live at an effect site. Plasma is often the ladder we climb to estimate that site, not the destination itself. Keep the proxy relationship visible, or your PTA will answer a cleaner question than the infection deserves.
+
+Previous: [HGT and MIC ecology](09-hgt-and-mic-ecology.qmd) · Next: [Renal function and eGFR strata](11-renal-function-egfr-strata.qmd).
