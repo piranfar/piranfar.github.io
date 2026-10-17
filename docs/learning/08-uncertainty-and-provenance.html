@@ -219,6 +219,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#label-every-input-like-it-might-be-audited" id="toc-label-every-input-like-it-might-be-audited" class="nav-link active" data-scroll-target="#label-every-input-like-it-might-be-audited">Label every input like it might be audited</a></li>
   <li><a href="#uncertainty-comes-in-layers" id="toc-uncertainty-comes-in-layers" class="nav-link" data-scroll-target="#uncertainty-comes-in-layers">Uncertainty comes in layers</a></li>
   <li><a href="#compatibility-is-a-scientific-decision" id="toc-compatibility-is-a-scientific-decision" class="nav-link" data-scroll-target="#compatibility-is-a-scientific-decision">Compatibility is a scientific decision</a></li>
+  <li><a href="#what-good-provenance-feels-like-in-a-meeting" id="toc-what-good-provenance-feels-like-in-a-meeting" class="nav-link" data-scroll-target="#what-good-provenance-feels-like-in-a-meeting">What good provenance feels like in a meeting</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
@@ -377,6 +378,11 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <section id="compatibility-is-a-scientific-decision" class="level2">
 <h2 class="anchored" data-anchor-id="compatibility-is-a-scientific-decision">Compatibility is a scientific decision</h2>
 <p>ICU continuous-infusion parameters are not automatically interchangeable with healthy-volunteer bolus data, CSF studies, or in vitro kill curves. Those sources can still help as donors or anchors. They should not be pooled as if they were one population. Write the compatibility rule in human language: what was allowed to enter the primary scenario, and what stayed outside with a label.</p>
+</section>
+<section id="what-good-provenance-feels-like-in-a-meeting" class="level2">
+<h2 class="anchored" data-anchor-id="what-good-provenance-feels-like-in-a-meeting">What good provenance feels like in a meeting</h2>
+<p>Someone asks why ICU PTA used a clearance relationship from a continuous-infusion critically ill study and an MIC table from a regional surveillance year. You can answer in one breath: primary PK from source A for scenario match, MIC weights from source B dated to that year, fu transformed from total using source C, inhibitor threshold from source D with a compatibility note. No scavenger hunt through forgotten spreadsheets.</p>
+<p>If you cannot give that breath-length answer, stop polishing the figure and rebuild the input table first. Most “mysterious” PTA sensitivity traces back to one unlabeled donor.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>

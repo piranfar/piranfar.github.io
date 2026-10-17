@@ -87,6 +87,16 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 
 Name the equation used for renal function, the class boundaries, the clearance relationship, and whether dialysis or renal replacement scenarios were excluded. Mixed populations without labels are hard to reuse and easy to over-interpret.
 
+## What changes in the figure when you stratify
+
+Overall PTA can hide a split world: strong attainment in low eGFR and fragile attainment in high eGFR on the same nominal dose. Or the reverse after renal dose reductions that overshoot. Stratified plots make that visible. A single pooled PTA can average the tension away.
+
+When you present, show at least one stratum contrast beside the overall number. Readers who treat ICU kidneys as one bin will misuse your result. Readers who see the bins can argue with you productively about class boundaries and clearance equations.
+
+If renal replacement therapy is excluded, say that in the first methods paragraph. Mixed RRT and non-RRT evidence is a classic provenance trap.
+
+Also write down which equation produced eGFR or creatinine clearance in your covariate chain. Switching formulas mid-project is a quiet way to invent a new population without noticing.
+
 ## Takeaway
 
 For renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.

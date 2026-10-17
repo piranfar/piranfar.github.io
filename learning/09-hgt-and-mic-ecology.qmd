@@ -85,6 +85,16 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 </script>
 ```
 
+## A concrete CFR story
+
+Your PTA curve looks reassuring through MIC 4 mg/L and then falls. Under last year's local distribution, most isolates sit at MIC 1 or 2, so CFR looks high. This year a plasmid-associated enzyme becomes common and the mass shifts toward MIC 4 and 8. The PTA curve did not change. CFR did, because the weights changed.
+
+That is why dating the MIC prior is not bureaucracy. It is part of naming the ecological world your summary number lives in. If you only have an old table, say so and show a harsher alternate prior beside it.
+
+Pair this habit with the chromosome-versus-plasmid lesson: mobility tells you how nervous to be about calendar age.
+
+When surveillance is sparse, you can still be useful. Report PTA as the main figure and treat CFR as exploratory under two or three stated priors. That is better than one confident CFR built on an undated convenience sample.
+
 ## Takeaway
 
 Treat MIC ecology as perishable when mobile elements are in play. Your PTA curve can stay the same while CFR moves, simply because the weights under the curve changed.

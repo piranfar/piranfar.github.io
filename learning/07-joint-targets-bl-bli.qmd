@@ -90,6 +90,20 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 
 Ceftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose.
 
+## A tiny counting example
+
+Imagine 100 virtual subjects.
+
+- 90 pass the beta-lactam rule.  
+- 80 pass the inhibitor rule.  
+- Only 70 pass both.
+
+Joint PTA is 70%. The average of 90% and 80% is 85%. That 15-point gap is exactly why intersection logic exists. If clearances are positively correlated, joint failures may cluster; if not, the overlap changes again. Either way, report the joint indicator you actually coded.
+
+When you write results, show component PTA only as supporting context. Lead with joint PTA if the clinical object is the combination.
+
+If you need a debugging view, plot the fraction failing A only, B only, and both. That split tells you whether the regimen is beta-lactam limited, inhibitor limited, or jointly fragile. A single joint number hides that diagnosis.
+
 ## Takeaway
 
 For BL/BLI pairs, protection failure is regimen failure. Joint PTA is an intersection inside each simulated person. Build it that way, then be transparent about thresholds, correlation, and which MIC the beta-lactam rule refers to.

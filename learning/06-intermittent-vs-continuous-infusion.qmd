@@ -85,6 +85,16 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 
 Suppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison.
 
+## How to talk about this without overselling
+
+A fair sentence sounds like this: "Under the same daily dose and the same virtual population, continuous infusion improved PTA at higher MIC values because trough undershoot disappeared; early coverage still depended on the loading dose."
+
+An unfair sentence sounds like this: "Continuous infusion is better," with no fixed daily dose, no population lock, and no target definition.
+
+Also remember pharmacy and line realities. A simulation can assume perfect continuous delivery. A ward may not. If your scenario ignores stability windows or access constraints, write that limitation in ordinary language. The PK/PD geometry lesson remains useful either way.
+
+One more practical tip: when two papers disagree about continuous infusion benefit, check whether they locked daily dose, population, free/total handling, and target definition. Many apparent contradictions dissolve once those four locks are compared side by side.
+
 ## Takeaway
 
 Infusion mode redraws the exposure path around the MIC. For time-driven beta-lactam targets, that redraw is part of the science. Compare shapes under controlled conditions, and say whether your endpoint was interval fT>MIC or steady-state coverage.

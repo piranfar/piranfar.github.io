@@ -81,6 +81,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 
 State the inoculum assumed by your PD target. If you borrowed in vitro high-inoculum data, mark them as donor evidence and check scenario compatibility. High-inoculum lab conditions are not automatically the same as an ICU pneumonia densitiy, but they are often closer to the worry you are trying to name.
 
+## How to keep the wording clean
+
+Say "high-inoculum scenario" when you worsened PD inputs based on cited in vitro density effects. Do not say "resistant" unless genetics or MIC category actually changed. Do not say "persistent" unless you modeled a refractory subpopulation. Inoculum effect can interact with those ideas, but the labels should stay separate so collaborators know which lever you moved.
+
+If the literature for your drug-bug pair is thin, it is better to list inoculum as an unquantified limitation than to invent a severity factor with no source. Empty honesty beats decorative precision.
+
 ## Takeaway
 
 Bacterial density can change the pharmacodynamic hill the drug must climb. When the literature flags an inoculum effect, put density into the scenario list beside MIC, binding, and renal function. Otherwise your clean PTA may describe a lighter fight than the infection.

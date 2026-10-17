@@ -93,6 +93,16 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 
 In methods, name the compartment your target refers to. In limitations, say what you did not model. If donor ELF or CSF data come from a different population than your primary PK, treat them with the same provenance care you would use for a borrowed clearance equation.
 
+## Two abstracts, only one is honest
+
+Honest: "We evaluated free plasma target attainment for regimen X in a virtual ICU population. Site-of-infection concentrations were not modeled."
+
+Overstated: "We showed regimen X provides adequate lung exposure," after only plasma PTA.
+
+The first abstract can still be scientifically valuable. The second asks readers to invent a penetration model you never wrote down. If you do have ELF or CSF data, bring them in with dates, methods, and sensitivity to lower penetration. If you do not, keep the claim inside plasma and sleep better.
+
+Timing matters too. A site-to-plasma ratio from a late sampling window may not describe early therapy. If your PTA question includes the first hours, a single steady ratio can be the wrong proxy.
+
 ## Takeaway
 
 Bacteria live at an effect site. Plasma is often the ladder we climb to estimate that site, not the destination itself. Keep the proxy relationship visible, or your PTA will answer a cleaner question than the infection deserves.

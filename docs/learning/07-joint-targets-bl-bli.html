@@ -219,6 +219,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#two-conditions-one-success-flag" id="toc-two-conditions-one-success-flag" class="nav-link active" data-scroll-target="#two-conditions-one-success-flag">Two conditions, one success flag</a></li>
   <li><a href="#mistakes-that-look-sophisticated" id="toc-mistakes-that-look-sophisticated" class="nav-link" data-scroll-target="#mistakes-that-look-sophisticated">Mistakes that look sophisticated</a></li>
   <li><a href="#why-this-shows-up-in-caz-avi-style-work" id="toc-why-this-shows-up-in-caz-avi-style-work" class="nav-link" data-scroll-target="#why-this-shows-up-in-caz-avi-style-work">Why this shows up in CAZ-AVI style work</a></li>
+  <li><a href="#a-tiny-counting-example" id="toc-a-tiny-counting-example" class="nav-link" data-scroll-target="#a-tiny-counting-example">A tiny counting example</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
@@ -351,6 +352,19 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <section id="why-this-shows-up-in-caz-avi-style-work" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-shows-up-in-caz-avi-style-work">Why this shows up in CAZ-AVI style work</h2>
 <p>Ceftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose.</p>
+</section>
+<section id="a-tiny-counting-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-tiny-counting-example">A tiny counting example</h2>
+<p>Imagine 100 virtual subjects.</p>
+<ul>
+<li>90 pass the beta-lactam rule.<br>
+</li>
+<li>80 pass the inhibitor rule.<br>
+</li>
+<li>Only 70 pass both.</li>
+</ul>
+<p>Joint PTA is 70%. The average of 90% and 80% is 85%. That 15-point gap is exactly why intersection logic exists. If clearances are positively correlated, joint failures may cluster; if not, the overlap changes again. Either way, report the joint indicator you actually coded.</p>
+<p>When you write results, show component PTA only as supporting context. Lead with joint PTA if the clinical object is the combination.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>

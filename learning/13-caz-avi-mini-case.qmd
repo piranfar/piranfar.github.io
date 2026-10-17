@@ -99,6 +99,17 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 
 A plasma free-drug joint PTA is not automatically ELF adequacy. A standard-inoculum MIC grid is not automatically a high-burden abscess story. Healthy-volunteer donor pieces are not automatically ICU truth. Write those limits in ordinary sentences. Readers forgive uncertainty. They distrust invisible upgrades.
 
+## Closing checklist you can read aloud
+
+1. Are both components simulated, with free/total stated?  
+2. Is success defined as an intersection, not an average?  
+3. Are eGFR strata in the population, with dosing rules named?  
+4. Are donor PK and MIC sources labeled and dated?  
+5. Did you show joint PTA across MIC, and CFR only under an explicit ecology prior?  
+6. Did you name what you did not model: effect site, inoculum, RRT, and so on?
+
+If you can answer those six without flipping through hidden notes, the teaching case did its job. A full research package will add more calibration and sensitivity detail, but the skeleton stays the same.
+
 ## Takeaway
 
 The CAZ-AVI style case is a checklist in narrative form: separate components, free-drug honesty, joint intersection, renal structure, provenance, then PTA/CFR. If you can explain those choices out loud without slides, the simulation is ready to be read by another scientist.

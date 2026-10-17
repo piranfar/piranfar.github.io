@@ -119,6 +119,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <li>If the effect site is not plasma, say so and move to the effect-site lesson with honest humility.</li>
 </ul>
 </section>
+<section id="walk-through-one-messy-case" class="level2">
+<h2 class="anchored" data-anchor-id="walk-through-one-messy-case">Walk through one messy case</h2>
+<p>You fit a model to total plasma concentrations. The target you want is 100% fT&gt;MIC. Literature fu is 0.25 in healthy volunteers, but your population is critically ill and often hypoalbuminemic. A first run uses fu = 0.25. A second run uses fu = 0.40 as a what-if for lower binding. A third run keeps total concentrations and “forgets” the f, which wrongly inflates attainment.</p>
+<p>Only the first two runs belong in a serious report, and both should be shown if binding is uncertain. The third run is a unit error dressed as optimism.</p>
+<p>When you present results, say the free/total conversion out loud before you show the PTA plot. If listeners cannot tell whether the curve is free or total, the figure is not ready.</p>
+</section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p>Binding is not cosmetic formatting. It decides which curve is allowed to talk to the MIC. Align the binding state of the PK output with the binding state of the PD target before you interpret attainment.</p>
@@ -230,6 +236,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <h2 class="anchored" data-anchor-id="a-classroom-example-without-fake-precision">A classroom example without fake precision</h2>
 <p>Suppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison.</p>
 </section>
+<section id="how-to-talk-about-this-without-overselling" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-talk-about-this-without-overselling">How to talk about this without overselling</h2>
+<p>A fair sentence sounds like this: “Under the same daily dose and the same virtual population, continuous infusion improved PTA at higher MIC values because trough undershoot disappeared; early coverage still depended on the loading dose.”</p>
+<p>An unfair sentence sounds like this: “Continuous infusion is better,” with no fixed daily dose, no population lock, and no target definition.</p>
+<p>Also remember pharmacy and line realities. A simulation can assume perfect continuous delivery. A ward may not. If your scenario ignores stability windows or access constraints, write that limitation in ordinary language. The PK/PD geometry lesson remains useful either way.</p>
+</section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p>Infusion mode redraws the exposure path around the MIC. For time-driven beta-lactam targets, that redraw is part of the science. Compare shapes under controlled conditions, and say whether your endpoint was interval fT&gt;MIC or steady-state coverage.</p>
@@ -338,6 +350,19 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <section id="why-this-shows-up-in-caz-avi-style-work" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-shows-up-in-caz-avi-style-work">Why this shows up in CAZ-AVI style work</h2>
 <p>Ceftazidime and avibactam are a teaching example because the beta-lactam exposure and the inhibitor exposure are not interchangeable. A regimen can clear a ceftazidime rule while avibactam is the limiting partner, or the reverse depending on the scenario. Component-level evidence reconstruction exists partly because papers report pieces of that system separately, and the modeler has to keep those pieces labeled until a joint rule is applied on purpose.</p>
+</section>
+<section id="a-tiny-counting-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-tiny-counting-example">A tiny counting example</h2>
+<p>Imagine 100 virtual subjects.</p>
+<ul>
+<li>90 pass the beta-lactam rule.<br>
+</li>
+<li>80 pass the inhibitor rule.<br>
+</li>
+<li>Only 70 pass both.</li>
+</ul>
+<p>Joint PTA is 70%. The average of 90% and 80% is 85%. That 15-point gap is exactly why intersection logic exists. If clearances are positively correlated, joint failures may cluster; if not, the overlap changes again. Either way, report the joint indicator you actually coded.</p>
+<p>When you write results, show component PTA only as supporting context. Lead with joint PTA if the clinical object is the combination.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -474,6 +499,11 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <h2 class="anchored" data-anchor-id="compatibility-is-a-scientific-decision">Compatibility is a scientific decision</h2>
 <p>ICU continuous-infusion parameters are not automatically interchangeable with healthy-volunteer bolus data, CSF studies, or in vitro kill curves. Those sources can still help as donors or anchors. They should not be pooled as if they were one population. Write the compatibility rule in human language: what was allowed to enter the primary scenario, and what stayed outside with a label.</p>
 </section>
+<section id="what-good-provenance-feels-like-in-a-meeting" class="level2">
+<h2 class="anchored" data-anchor-id="what-good-provenance-feels-like-in-a-meeting">What good provenance feels like in a meeting</h2>
+<p>Someone asks why ICU PTA used a clearance relationship from a continuous-infusion critically ill study and an MIC table from a regional surveillance year. You can answer in one breath: primary PK from source A for scenario match, MIC weights from source B dated to that year, fu transformed from total using source C, inhibitor threshold from source D with a compatibility note. No scavenger hunt through forgotten spreadsheets.</p>
+<p>If you cannot give that breath-length answer, stop polishing the figure and rebuild the input table first. Most “mysterious” PTA sensitivity traces back to one unlabeled donor.</p>
+</section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p>Reproducible PK/PD is less about fancier random draws and more about refusing to launder uncertain evidence into false certainty. If the trail of sources is clear, other people can challenge your result productively. That is a feature.</p>
@@ -581,6 +611,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
   });
 });
 </script>
+</section>
+<section id="a-concrete-cfr-story" class="level2">
+<h2 class="anchored" data-anchor-id="a-concrete-cfr-story">A concrete CFR story</h2>
+<p>Your PTA curve looks reassuring through MIC 4 mg/L and then falls. Under last year’s local distribution, most isolates sit at MIC 1 or 2, so CFR looks high. This year a plasmid-associated enzyme becomes common and the mass shifts toward MIC 4 and 8. The PTA curve did not change. CFR did, because the weights changed.</p>
+<p>That is why dating the MIC prior is not bureaucracy. It is part of naming the ecological world your summary number lives in. If you only have an old table, say so and show a harsher alternate prior beside it.</p>
+<p>Pair this habit with the chromosome-versus-plasmid lesson: mobility tells you how nervous to be about calendar age.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -691,6 +727,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <h2 class="anchored" data-anchor-id="how-to-write-this-without-hand-waving">How to write this without hand-waving</h2>
 <p>In methods, name the compartment your target refers to. In limitations, say what you did not model. If donor ELF or CSF data come from a different population than your primary PK, treat them with the same provenance care you would use for a borrowed clearance equation.</p>
 </section>
+<section id="two-abstracts-only-one-is-honest" class="level2">
+<h2 class="anchored" data-anchor-id="two-abstracts-only-one-is-honest">Two abstracts, only one is honest</h2>
+<p>Honest: “We evaluated free plasma target attainment for regimen X in a virtual ICU population. Site-of-infection concentrations were not modeled.”</p>
+<p>Overstated: “We showed regimen X provides adequate lung exposure,” after only plasma PTA.</p>
+<p>The first abstract can still be scientifically valuable. The second asks readers to invent a penetration model you never wrote down. If you do have ELF or CSF data, bring them in with dates, methods, and sensitivity to lower penetration. If you do not, keep the claim inside plasma and sleep better.</p>
+</section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p>Bacteria live at an effect site. Plasma is often the ladder we climb to estimate that site, not the destination itself. Keep the proxy relationship visible, or your PTA will answer a cleaner question than the infection deserves.</p>
@@ -798,6 +840,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <h2 class="anchored" data-anchor-id="what-to-report-so-readers-can-trust-you">What to report so readers can trust you</h2>
 <p>Name the equation used for renal function, the class boundaries, the clearance relationship, and whether dialysis or renal replacement scenarios were excluded. Mixed populations without labels are hard to reuse and easy to over-interpret.</p>
 </section>
+<section id="what-changes-in-the-figure-when-you-stratify" class="level2">
+<h2 class="anchored" data-anchor-id="what-changes-in-the-figure-when-you-stratify">What changes in the figure when you stratify</h2>
+<p>Overall PTA can hide a split world: strong attainment in low eGFR and fragile attainment in high eGFR on the same nominal dose. Or the reverse after renal dose reductions that overshoot. Stratified plots make that visible. A single pooled PTA can average the tension away.</p>
+<p>When you present, show at least one stratum contrast beside the overall number. Readers who treat ICU kidneys as one bin will misuse your result. Readers who see the bins can argue with you productively about class boundaries and clearance equations.</p>
+<p>If renal replacement therapy is excluded, say that in the first methods paragraph. Mixed RRT and non-RRT evidence is a classic provenance trap.</p>
+</section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
 <p>For renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.</p>
@@ -894,6 +942,11 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <section id="practical-reporting" class="level2">
 <h2 class="anchored" data-anchor-id="practical-reporting">Practical reporting</h2>
 <p>State the inoculum assumed by your PD target. If you borrowed in vitro high-inoculum data, mark them as donor evidence and check scenario compatibility. High-inoculum lab conditions are not automatically the same as an ICU pneumonia densitiy, but they are often closer to the worry you are trying to name.</p>
+</section>
+<section id="how-to-keep-the-wording-clean" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-keep-the-wording-clean">How to keep the wording clean</h2>
+<p>Say “high-inoculum scenario” when you worsened PD inputs based on cited in vitro density effects. Do not say “resistant” unless genetics or MIC category actually changed. Do not say “persistent” unless you modeled a refractory subpopulation. Inoculum effect can interact with those ideas, but the labels should stay separate so collaborators know which lever you moved.</p>
+<p>If the literature for your drug-bug pair is thin, it is better to list inoculum as an unquantified limitation than to invent a severity factor with no source. Empty honesty beats decorative precision.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -1011,6 +1064,23 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <section id="step-5-say-what-the-case-did-not-claim" class="level2">
 <h2 class="anchored" data-anchor-id="step-5-say-what-the-case-did-not-claim">Step 5: say what the case did not claim</h2>
 <p>A plasma free-drug joint PTA is not automatically ELF adequacy. A standard-inoculum MIC grid is not automatically a high-burden abscess story. Healthy-volunteer donor pieces are not automatically ICU truth. Write those limits in ordinary sentences. Readers forgive uncertainty. They distrust invisible upgrades.</p>
+</section>
+<section id="closing-checklist-you-can-read-aloud" class="level2">
+<h2 class="anchored" data-anchor-id="closing-checklist-you-can-read-aloud">Closing checklist you can read aloud</h2>
+<ol type="1">
+<li>Are both components simulated, with free/total stated?<br>
+</li>
+<li>Is success defined as an intersection, not an average?<br>
+</li>
+<li>Are eGFR strata in the population, with dosing rules named?<br>
+</li>
+<li>Are donor PK and MIC sources labeled and dated?<br>
+</li>
+<li>Did you show joint PTA across MIC, and CFR only under an explicit ecology prior?<br>
+</li>
+<li>Did you name what you did not model: effect site, inoculum, RRT, and so on?</li>
+</ol>
+<p>If you can answer those six without flipping through hidden notes, the teaching case did its job. A full research package will add more calibration and sensitivity detail, but the skeleton stays the same.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -1572,6 +1642,19 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
   });
 });
 </script>
+</section>
+<section id="a-short-example-conversation" class="level2">
+<h2 class="anchored" data-anchor-id="a-short-example-conversation">A short example conversation</h2>
+<p>Someone hands you an MIC table and asks for CFR. Before you run anything, ask three genetics-aware questions:</p>
+<ol type="1">
+<li>Are these isolates dominated by one clone, or is the lab seeing mixed plasmid traffic?<br>
+</li>
+<li>How old is the table, and has the hospital seen a recent enzyme-gene surge?<br>
+</li>
+<li>If we later evaluate an inhibitor combination, does the mechanism even match that idea?</li>
+</ol>
+<p>You may still proceed with a standard CFR. The difference is that your methods paragraph will say what kind of phenotype ecology you assumed, instead of pretending every MIC cell is interchangeable biology.</p>
+<p>If the answer to those questions is “we do not know,” that is still useful. Unknown mobility is itself a reason to run sensitivity CFR under a harsher MIC prior.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>

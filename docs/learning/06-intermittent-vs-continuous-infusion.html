@@ -219,6 +219,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#same-daily-dose-different-shape" id="toc-same-daily-dose-different-shape" class="nav-link active" data-scroll-target="#same-daily-dose-different-shape">Same daily dose, different shape</a></li>
   <li><a href="#what-the-simulator-must-keep-honest" id="toc-what-the-simulator-must-keep-honest" class="nav-link" data-scroll-target="#what-the-simulator-must-keep-honest">What the simulator must keep honest</a></li>
   <li><a href="#a-classroom-example-without-fake-precision" id="toc-a-classroom-example-without-fake-precision" class="nav-link" data-scroll-target="#a-classroom-example-without-fake-precision">A classroom example without fake precision</a></li>
+  <li><a href="#how-to-talk-about-this-without-overselling" id="toc-how-to-talk-about-this-without-overselling" class="nav-link" data-scroll-target="#how-to-talk-about-this-without-overselling">How to talk about this without overselling</a></li>
   <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
@@ -353,6 +354,12 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <section id="a-classroom-example-without-fake-precision" class="level2">
 <h2 class="anchored" data-anchor-id="a-classroom-example-without-fake-precision">A classroom example without fake precision</h2>
 <p>Suppose two regimens deliver the same daily free-drug amount, one as intermittent doses and one as continuous infusion after a load. At low MIC both may look fine. As MIC rises, the intermittent troughs fail first while continuous Css may still clear a Css/MIC rule. That pattern is exactly why people study infusion mode. It is also why you must keep daily dose and population fixed when you make the comparison.</p>
+</section>
+<section id="how-to-talk-about-this-without-overselling" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-talk-about-this-without-overselling">How to talk about this without overselling</h2>
+<p>A fair sentence sounds like this: “Under the same daily dose and the same virtual population, continuous infusion improved PTA at higher MIC values because trough undershoot disappeared; early coverage still depended on the loading dose.”</p>
+<p>An unfair sentence sounds like this: “Continuous infusion is better,” with no fixed daily dose, no population lock, and no target definition.</p>
+<p>Also remember pharmacy and line realities. A simulation can assume perfect continuous delivery. A ward may not. If your scenario ignores stability windows or access constraints, write that limitation in ordinary language. The PK/PD geometry lesson remains useful either way.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>

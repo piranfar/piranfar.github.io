@@ -93,6 +93,14 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 - For BL/BLI pairs, bind each component on its own terms.  
 - If the effect site is not plasma, say so and move to the effect-site lesson with honest humility.
 
+## Walk through one messy case
+
+You fit a model to total plasma concentrations. The target you want is 100% fT>MIC. Literature fu is 0.25 in healthy volunteers, but your population is critically ill and often hypoalbuminemic. A first run uses fu = 0.25. A second run uses fu = 0.40 as a what-if for lower binding. A third run keeps total concentrations and "forgets" the f, which wrongly inflates attainment.
+
+Only the first two runs belong in a serious report, and both should be shown if binding is uncertain. The third run is a unit error dressed as optimism.
+
+When you present results, say the free/total conversion out loud before you show the PTA plot. If listeners cannot tell whether the curve is free or total, the figure is not ready.
+
 ## Takeaway
 
 Binding is not cosmetic formatting. It decides which curve is allowed to talk to the MIC. Align the binding state of the PK output with the binding state of the PD target before you interpret attainment.

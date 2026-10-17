@@ -94,6 +94,18 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 </script>
 ```
 
+## A short example conversation
+
+Someone hands you an MIC table and asks for CFR. Before you run anything, ask three genetics-aware questions:
+
+1. Are these isolates dominated by one clone, or is the lab seeing mixed plasmid traffic?  
+2. How old is the table, and has the hospital seen a recent enzyme-gene surge?  
+3. If we later evaluate an inhibitor combination, does the mechanism even match that idea?
+
+You may still proceed with a standard CFR. The difference is that your methods paragraph will say what kind of phenotype ecology you assumed, instead of pretending every MIC cell is interchangeable biology.
+
+If the answer to those questions is "we do not know," that is still useful. Unknown mobility is itself a reason to run sensitivity CFR under a harsher MIC prior.
+
 ## Takeaway
 
 Do not ask genetics to replace PK/PD. Ask it to annotate the MIC layer: how mobile is this phenotype, how old is the ecology prior, and which mechanism your target rule quietly assumes?
