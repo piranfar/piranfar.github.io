@@ -95,6 +95,8 @@ Pair this habit with the chromosome-versus-plasmid lesson: mobility tells you ho
 
 When surveillance is sparse, you can still be useful. Report PTA as the main figure and treat CFR as exploratory under two or three stated priors. That is better than one confident CFR built on an undated convenience sample.
 
+Ask the microbiology lab what changed recently: outbreak notes, new carbapenemase detections, or shifted species mix. Informal context is not a substitute for surveillance tables, but it tells you whether yesterday's prior deserves extra suspicion.
+
 ## Takeaway
 
 Treat MIC ecology as perishable when mobile elements are in play. Your PTA curve can stay the same while CFR moves, simply because the weights under the curve changed.

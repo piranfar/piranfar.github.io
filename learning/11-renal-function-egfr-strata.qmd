@@ -97,6 +97,8 @@ If renal replacement therapy is excluded, say that in the first methods paragrap
 
 Also write down which equation produced eGFR or creatinine clearance in your covariate chain. Switching formulas mid-project is a quiet way to invent a new population without noticing.
 
+If body size and renal function both enter clearance, keep that structure intact in the virtual draws. Dropping weight while keeping eGFR, or the reverse, can warp the tails that decide PTA at higher MIC values.
+
 ## Takeaway
 
 For renally cleared antibiotics, eGFR is not a demographic decoration. It reshapes clearance, exposure geometry, and attainment. Put kidney function into the virtual population on purpose, then say whether dosing was fixed or adjusted.

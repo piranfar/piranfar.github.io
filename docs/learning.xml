@@ -241,6 +241,7 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <p>A fair sentence sounds like this: “Under the same daily dose and the same virtual population, continuous infusion improved PTA at higher MIC values because trough undershoot disappeared; early coverage still depended on the loading dose.”</p>
 <p>An unfair sentence sounds like this: “Continuous infusion is better,” with no fixed daily dose, no population lock, and no target definition.</p>
 <p>Also remember pharmacy and line realities. A simulation can assume perfect continuous delivery. A ward may not. If your scenario ignores stability windows or access constraints, write that limitation in ordinary language. The PK/PD geometry lesson remains useful either way.</p>
+<p>One more practical tip: when two papers disagree about continuous infusion benefit, check whether they locked daily dose, population, free/total handling, and target definition. Many apparent contradictions dissolve once those four locks are compared side by side.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -363,6 +364,7 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 </ul>
 <p>Joint PTA is 70%. The average of 90% and 80% is 85%. That 15-point gap is exactly why intersection logic exists. If clearances are positively correlated, joint failures may cluster; if not, the overlap changes again. Either way, report the joint indicator you actually coded.</p>
 <p>When you write results, show component PTA only as supporting context. Lead with joint PTA if the clinical object is the combination.</p>
+<p>If you need a debugging view, plot the fraction failing A only, B only, and both. That split tells you whether the regimen is beta-lactam limited, inhibitor limited, or jointly fragile. A single joint number hides that diagnosis.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -503,6 +505,7 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <h2 class="anchored" data-anchor-id="what-good-provenance-feels-like-in-a-meeting">What good provenance feels like in a meeting</h2>
 <p>Someone asks why ICU PTA used a clearance relationship from a continuous-infusion critically ill study and an MIC table from a regional surveillance year. You can answer in one breath: primary PK from source A for scenario match, MIC weights from source B dated to that year, fu transformed from total using source C, inhibitor threshold from source D with a compatibility note. No scavenger hunt through forgotten spreadsheets.</p>
 <p>If you cannot give that breath-length answer, stop polishing the figure and rebuild the input table first. Most “mysterious” PTA sensitivity traces back to one unlabeled donor.</p>
+<p>Keep a one-page input ledger beside the code: parameter, value or distribution, source, transformation, scenario role. It is unglamorous. It is also what makes the project reusable six months later.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -617,6 +620,8 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <p>Your PTA curve looks reassuring through MIC 4 mg/L and then falls. Under last year’s local distribution, most isolates sit at MIC 1 or 2, so CFR looks high. This year a plasmid-associated enzyme becomes common and the mass shifts toward MIC 4 and 8. The PTA curve did not change. CFR did, because the weights changed.</p>
 <p>That is why dating the MIC prior is not bureaucracy. It is part of naming the ecological world your summary number lives in. If you only have an old table, say so and show a harsher alternate prior beside it.</p>
 <p>Pair this habit with the chromosome-versus-plasmid lesson: mobility tells you how nervous to be about calendar age.</p>
+<p>When surveillance is sparse, you can still be useful. Report PTA as the main figure and treat CFR as exploratory under two or three stated priors. That is better than one confident CFR built on an undated convenience sample.</p>
+<p>Ask the microbiology lab what changed recently: outbreak notes, new carbapenemase detections, or shifted species mix. Informal context is not a substitute for surveillance tables, but it tells you whether yesterday’s prior deserves extra suspicion.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -732,6 +737,7 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <p>Honest: “We evaluated free plasma target attainment for regimen X in a virtual ICU population. Site-of-infection concentrations were not modeled.”</p>
 <p>Overstated: “We showed regimen X provides adequate lung exposure,” after only plasma PTA.</p>
 <p>The first abstract can still be scientifically valuable. The second asks readers to invent a penetration model you never wrote down. If you do have ELF or CSF data, bring them in with dates, methods, and sensitivity to lower penetration. If you do not, keep the claim inside plasma and sleep better.</p>
+<p>Timing matters too. A site-to-plasma ratio from a late sampling window may not describe early therapy. If your PTA question includes the first hours, a single steady ratio can be the wrong proxy.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
@@ -845,6 +851,8 @@ document.querySelectorAll('[data-learn-toggle]').forEach(function (root) {
 <p>Overall PTA can hide a split world: strong attainment in low eGFR and fragile attainment in high eGFR on the same nominal dose. Or the reverse after renal dose reductions that overshoot. Stratified plots make that visible. A single pooled PTA can average the tension away.</p>
 <p>When you present, show at least one stratum contrast beside the overall number. Readers who treat ICU kidneys as one bin will misuse your result. Readers who see the bins can argue with you productively about class boundaries and clearance equations.</p>
 <p>If renal replacement therapy is excluded, say that in the first methods paragraph. Mixed RRT and non-RRT evidence is a classic provenance trap.</p>
+<p>Also write down which equation produced eGFR or creatinine clearance in your covariate chain. Switching formulas mid-project is a quiet way to invent a new population without noticing.</p>
+<p>If body size and renal function both enter clearance, keep that structure intact in the virtual draws. Dropping weight while keeping eGFR, or the reverse, can warp the tails that decide PTA at higher MIC values.</p>
 </section>
 <section id="takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
