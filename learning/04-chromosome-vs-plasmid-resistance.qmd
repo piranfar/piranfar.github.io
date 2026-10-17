@@ -2,7 +2,7 @@
 title: "Chromosome vs plasmid resistance for PK/PD modelers"
 description: "How chromosomal and plasmid-borne resistance change the meaning of an MIC input, and what should stay fixed versus mobile in a pharmacometric scenario."
 author: "Vahhab Piranfar"
-date: "2026-10-16"
+date: "2026-09-11"
 categories: [Learning, Bacterial Genetics]
 ---
 

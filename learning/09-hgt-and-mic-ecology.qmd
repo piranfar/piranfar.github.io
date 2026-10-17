@@ -2,7 +2,7 @@
 title: "Horizontal gene transfer and MIC ecology"
 description: "Why plasmid-mediated resistance makes MIC distributions time-sensitive, and how PK/PD modelers should treat epidemiology priors as perishable."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-10-01"
 categories: [Learning, Bacterial Genetics]
 ---
 

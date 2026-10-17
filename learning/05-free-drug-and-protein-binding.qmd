@@ -2,7 +2,7 @@
 title: "Free drug and protein binding"
 description: "Why unbound concentration matters for antibiotic PK/PD targets, and how a small binding mistake can quietly inflate PTA."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-09-15"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

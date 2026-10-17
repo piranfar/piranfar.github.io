@@ -2,7 +2,7 @@
 title: "PTA, CFR, and virtual populations"
 description: "How Monte Carlo PK/PD simulations turn parameter variability into probability of target attainment and cumulative fraction of response."
 author: "Vahhab Piranfar"
-date: "2026-10-16"
+date: "2026-09-03"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

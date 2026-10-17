@@ -2,7 +2,7 @@
 title: "Inoculum effect: when bacterial density changes the drug story"
 description: "Why some antibiotics look weaker against denser bacterial populations, and how modelers should treat inoculum as a scenario variable rather than a footnote."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-10-13"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

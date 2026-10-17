@@ -2,7 +2,7 @@
 title: "Joint targets for beta-lactam / beta-lactamase inhibitor pairs"
 description: "Why BL/BLI combinations need simultaneous success rules, and why averaging two separate PTA values is not joint target attainment."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-09-23"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

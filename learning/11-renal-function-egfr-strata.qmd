@@ -2,7 +2,7 @@
 title: "Renal function and eGFR strata in antibiotic PK/PD"
 description: "How kidney function reshapes clearance and attainment, and why virtual populations should treat eGFR classes as first-class scenario structure."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-10-09"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

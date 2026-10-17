@@ -2,7 +2,7 @@
 title: "Intermittent vs continuous infusion for beta-lactams"
 description: "How infusion mode reshapes concentration-time curves, and why fT>MIC or Css/MIC results change when the same daily dose is delivered differently."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-09-19"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

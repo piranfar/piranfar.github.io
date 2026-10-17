@@ -2,7 +2,7 @@
 title: "Uncertainty and provenance in PK/PD evidence"
 description: "How to keep Monte Carlo outputs honest when clearance, MIC weights, and targets come from fragmented published sources."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-09-27"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

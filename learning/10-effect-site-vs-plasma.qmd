@@ -2,7 +2,7 @@
 title: "Effect site versus plasma: where the bug actually lives"
 description: "Why plasma PK is a convenient proxy, when ELF, CSF, or tissue exposure changes the story, and how to keep site assumptions visible in a model."
 author: "Vahhab Piranfar"
-date: "2026-10-17"
+date: "2026-10-05"
 categories: [Learning, Antibiotic PK/PD]
 ---
 

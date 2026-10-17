@@ -2,7 +2,7 @@
 title: "PK/PD targets and the MIC: what the indices actually mean"
 description: "A plain-language primer on MIC, fT>MIC, AUC/MIC, and Cmax/MIC, and how to pick an index that matches the biology you are modeling."
 author: "Vahhab Piranfar"
-date: "2026-10-16"
+date: "2026-08-30"
 categories: [Learning, Antibiotic PK/PD]
 ---
 
