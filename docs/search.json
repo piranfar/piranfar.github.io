@@ -196,32 +196,165 @@
     "text": "Final take\nThe most important message of the paper is that antibiotic survival is not a single phenomenon. Different pathogens may use different strategies, and different strategies may require different treatment approaches.\nFor me, the strongest takeaway is this:\nThe challenge is not only killing bacteria quickly, but understanding how they survive long enough to return."
   },
   {
-    "objectID": "GITHUB_PAGES.html",
-    "href": "GITHUB_PAGES.html",
-    "title": "GitHub Pages",
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
     "section": "",
-    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+    "text": "PK/PD models rarely simulate DNA. They simulate exposure and a phenotype — often an MIC or a kill curve. Genetics still matters, because it tells you how stable that phenotype is and how it might spread between patients or species.\nThis secondary-track lesson is a bridge: enough bacterial genetics to stop treating every MIC as the same kind of object."
   },
   {
-    "objectID": "GITHUB_PAGES.html#address",
-    "href": "GITHUB_PAGES.html#address",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#two-genomic-homes-for-resistance",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#two-genomic-homes-for-resistance",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "Two genomic homes for resistance",
+    "text": "Two genomic homes for resistance\n\n\n\n\n\n\n\n\nFeature\nChromosomal\nPlasmid-borne (typical)\n\n\n\n\nInheritance\nVertical (mother → daughter)\nVertical and often horizontal\n\n\nDose effect\nUsually one/few copies per genome\nCopy number can amplify expression\n\n\nMobility\nMostly within lineage\nCan jump lineages / species\n\n\nModeling implication\nPhenotype more lineage-stable\nMIC ecology can shift faster; local epidemiology ages quicker\n\n\n\nA chromosomal target-site mutation and a plasmid β-lactamase can produce the “same” higher MIC in a table — and very different public-health and uncertainty stories."
   },
   {
-    "objectID": "GITHUB_PAGES.html#features",
-    "href": "GITHUB_PAGES.html#features",
-    "title": "GitHub Pages",
-    "section": "",
-    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#what-changes-inside-a-pkpd-workflow",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#what-changes-inside-a-pkpd-workflow",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "What changes inside a PK/PD workflow",
+    "text": "What changes inside a PK/PD workflow\n\nMIC distribution provenance\nIf resistance is plasmid-driven and locally epidemic, last year’s surveillance weights may be stale.\nHeterogeneity inside “one MIC”\nSame categorical MIC breakpoint can hide different enzyme burdens or copy numbers.\nCombination regimens\nInhibitor partners (for example avibactam) are meaningful when the mechanism is enzyme-mediated; they are the wrong lever for some chromosomal target mutations.\nUncertainty labeling\nMark whether MIC inputs reflect a stable clonal background or a mobile element–shaped ecology.\n\n\n\n  \n  \n  chromosome\n  \n  plasmid\n  \n  \n    \n      \n    \n  \n  \n  MIC\n  \n  \n  PK/PD\n  PTA / CFR\n  Genotype informs the phenotype input — the model still runs on exposure vs effect."
   },
   {
-    "objectID": "GITHUB_PAGES.html#deployment",
-    "href": "GITHUB_PAGES.html#deployment",
-    "title": "GitHub Pages",
+    "objectID": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway-for-modelers",
+    "href": "learning/04-chromosome-vs-plasmid-resistance.html#takeaway-for-modelers",
+    "title": "Chromosome vs plasmid resistance for PK/PD modelers",
+    "section": "Takeaway for modelers",
+    "text": "Takeaway for modelers\n\nDo not ask genetics to replace PK/PD; ask it to annotate the MIC layer.\nPlasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.\nChromosomal lineage structure → stability helps, but still verify assay and species ID.\n\nBack to the PK/PD spine: Resistance, tolerance, and persistence."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html",
+    "href": "learning/02-pta-cfr-virtual-populations.html",
+    "title": "PTA, CFR, and virtual populations",
     "section": "",
-    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
+    "text": "Once you have an exposure index and an MIC, the next modeling question is not “does this patient hit the target?” It is: in a population with realistic variability, how often does the regimen succeed?\nThat is where virtual populations, PTA, and CFR enter."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-randomness",
+    "href": "learning/02-pta-cfr-virtual-populations.html#virtual-populations-are-controlled-randomness",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "Virtual populations are controlled randomness",
+    "text": "Virtual populations are controlled randomness\nA virtual population is a set of simulated individuals whose PK parameters (clearance, volume, covariates such as renal function) are drawn from distributions that reflect interindividual variability.\nGood practice:\n\nSample from published IIV / residual error when available.\nKeep covariate structure explicit (for example eGFR classes).\nRecord seeds, sample size, and whether parameters are correlated.\n\nBad practice:\n\nDrawing “nice looking” normals with no provenance.\nPooling incompatible populations (healthy volunteer PK used silently as ICU truth)."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#pta-probability-of-target-attainment",
+    "href": "learning/02-pta-cfr-virtual-populations.html#pta-probability-of-target-attainment",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "PTA: probability of target attainment",
+    "text": "PTA: probability of target attainment\nPTA answers: for a fixed MIC (or a fixed MIC grid), what fraction of virtual subjects meet the PK/PD target?\nExample framing:\n\nAt MIC = 4 mg/L, what percentage of simulated ICU adults achieve 100% fT&gt;MIC on regimen X?\n\nPlot PTA against MIC to see where the regimen cliff starts.\n\n\n  \n  \n  \n  \n  \n  90%\n  \n  cliff\n  MIC\n  PTA"
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#cfr-weighting-pta-by-the-real-mic-ecology",
+    "href": "learning/02-pta-cfr-virtual-populations.html#cfr-weighting-pta-by-the-real-mic-ecology",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "CFR: weighting PTA by the real MIC ecology",
+    "text": "CFR: weighting PTA by the real MIC ecology\nCFR (cumulative fraction of response) folds PTA over an MIC distribution from surveillance or local epidemiology:\n[ = _i (_i) P(_i) ]\nPTA asks “what if MIC is X?”\nCFR asks “given the MICs we actually see, how often do we succeed?”\nIf your MIC weights come from a different region, year, or species complex than your clinical question, CFR becomes a precise answer to the wrong question."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow",
+    "href": "learning/02-pta-cfr-virtual-populations.html#a-minimal-workflow",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "A minimal workflow",
+    "text": "A minimal workflow\n\nDefine regimen and PK model (with provenance).\nDefine free-drug target(s).\nSimulate \\(N\\) virtual subjects.\nCompute PTA on an MIC grid.\nOptionally weight by an MIC distribution → CFR.\nReport sensitivity to binding, IIV, and MIC source."
+  },
+  {
+    "objectID": "learning/02-pta-cfr-virtual-populations.html#takeaway-for-modelers",
+    "href": "learning/02-pta-cfr-virtual-populations.html#takeaway-for-modelers",
+    "title": "PTA, CFR, and virtual populations",
+    "section": "Takeaway for modelers",
+    "text": "Takeaway for modelers\n\nPTA is a curve over MIC; CFR is a scalar under an epidemiology prior.\nSample size and seed reporting are part of reproducibility, not decoration.\nJoint targets (two drugs, two conditions) need joint PTA — not the average of two separate success rates.\n\nPrevious: PK/PD targets and the MIC · Next: Resistance, tolerance, and persistence."
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Vahhab Piranfar",
+    "section": "Selected work",
+    "text": "Selected work\n\n\n\n CAZ-AVI PK/PD modeling\nProvenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.\n\n\n\n\n AI Bacteriology Hub\nResearch platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.\n\n\n\n\n Learning: antibiotic PK/PD\nShort lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence."
+  },
+  {
+    "objectID": "index.html#current-focus",
+    "href": "index.html#current-focus",
+    "title": "Vahhab Piranfar",
+    "section": "Current focus",
+    "text": "Current focus\nBased in Jersey City, New Jersey, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty."
+  },
+  {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Vahhab Piranfar",
+    "section": "",
+    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#acceptable-contributions",
+    "href": "CONTRIBUTING.html#acceptable-contributions",
+    "title": "Vahhab Piranfar",
+    "section": "Acceptable contributions",
+    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#not-acceptable",
+    "href": "CONTRIBUTING.html#not-acceptable",
+    "title": "Vahhab Piranfar",
+    "section": "Not acceptable",
+    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#how-to-contribute",
+    "href": "CONTRIBUTING.html#how-to-contribute",
+    "title": "Vahhab Piranfar",
+    "section": "How to contribute",
+    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Research & Discussion",
+    "section": "",
+    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "about.html#professional-profile",
+    "href": "about.html#professional-profile",
+    "title": "About",
+    "section": "",
+    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+  },
+  {
+    "objectID": "about.html#research-interests",
+    "href": "about.html#research-interests",
+    "title": "About",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
+  },
+  {
+    "objectID": "about.html#professional-journey",
+    "href": "about.html#professional-journey",
+    "title": "About",
+    "section": "Professional Journey",
+    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About",
+    "section": "Technical Skills",
+    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
+  },
+  {
+    "objectID": "about.html#selected-publications",
+    "href": "about.html#selected-publications",
+    "title": "About",
+    "section": "Selected Publications",
+    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications."
   },
   {
     "objectID": "CODE_OF_CONDUCT.html",
@@ -280,95 +413,123 @@
     "text": "This Code of Conduct is adapted from the Contributor Covenant, version 2.0, available at:\nhttps://www.contributor-covenant.org/version/2/0/code_of_conduct.html\nCommunity Impact Guidelines were inspired by Mozilla’s code of conduct enforcement ladder.\nFor answers to common questions about the Contributor Covenant, see:\nhttps://www.contributor-covenant.org/faq"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "GITHUB_PAGES.html",
+    "href": "GITHUB_PAGES.html",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+    "text": "GitHub Pages is a feature provided by GitHub that allows you to host static websites directly from a GitHub repository. Here are some key features and information about GitHub Pages:\n\n\nThis repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory.\n\n\n\n\nEasy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control.\n\n\n\n\nThe repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
   },
   {
-    "objectID": "about.html#professional-profile",
-    "href": "about.html#professional-profile",
-    "title": "About",
+    "objectID": "GITHUB_PAGES.html#address",
+    "href": "GITHUB_PAGES.html#address",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "I am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\n\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
+    "text": "This repository is configured as the GitHub user site for piranfar, published at the custom domain:\nhttps://vahhabpiranfar.com\nThe site is also reachable via https://piranfar.github.io. The Quarto source files live at the repository root and render into the docs directory."
   },
   {
-    "objectID": "about.html#research-interests",
-    "href": "about.html#research-interests",
-    "title": "About",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
-  },
-  {
-    "objectID": "about.html#professional-journey",
-    "href": "about.html#professional-journey",
-    "title": "About",
-    "section": "Professional Journey",
-    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
-  },
-  {
-    "objectID": "about.html#technical-skills",
-    "href": "about.html#technical-skills",
-    "title": "About",
-    "section": "Technical Skills",
-    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
-  },
-  {
-    "objectID": "about.html#selected-publications",
-    "href": "about.html#selected-publications",
-    "title": "About",
-    "section": "Selected Publications",
-    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Research & Discussion",
+    "objectID": "GITHUB_PAGES.html#features",
+    "href": "GITHUB_PAGES.html#features",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
+    "text": "Easy to Use: You can create a GitHub Pages site directly from your repository in a few simple steps.\nCustom Domains: You can link your GitHub Pages site to a custom domain if you wish.\nSupport for Jekyll: GitHub Pages supports Jekyll, a static site generator that can help simplify the creation of your site.\nFree Hosting: You can host your website for free using GitHub Pages without any costs.\nIntegration with GitHub: Since it is part of GitHub, you can easily manage your site through Git version control."
   },
   {
-    "objectID": "CONTRIBUTING.html",
-    "href": "CONTRIBUTING.html",
-    "title": "Vahhab Piranfar",
+    "objectID": "GITHUB_PAGES.html#deployment",
+    "href": "GITHUB_PAGES.html#deployment",
+    "title": "GitHub Pages",
     "section": "",
-    "text": "@’ # Contributing\nThank you for your interest in this repository.\nThis is a personal portfolio website for Vahhab Piranfar. Contributions are limited to corrections, technical improvements, broken-link fixes, accessibility improvements, and suggestions related to the website structure."
+    "text": "The repository includes a GitHub Actions workflow that renders the Quarto project and publishes the generated docs directory whenever changes are pushed to main.\nGitHub Pages is a great way to showcase your projects, create personal blogs, or share information with the world without needing extensive knowledge of web hosting."
   },
   {
-    "objectID": "CONTRIBUTING.html#acceptable-contributions",
-    "href": "CONTRIBUTING.html#acceptable-contributions",
-    "title": "Vahhab Piranfar",
-    "section": "Acceptable contributions",
-    "text": "Acceptable contributions\n\nFixing typographical errors\nReporting broken links\nImproving accessibility or responsiveness\nSuggesting improvements to project pages\nReporting technical issues with the website"
+    "objectID": "learning/01-pkpd-targets-and-mic.html",
+    "href": "learning/01-pkpd-targets-and-mic.html",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "",
+    "text": "Antibiotic PK/PD modeling starts with one awkward fact: bacteria do not “see” the dose. They see concentration over time at the effect site, relative to a susceptibility threshold — usually the MIC.\nThis lesson is for modelers and microbiologists who want the indices to stop feeling like slogans."
   },
   {
-    "objectID": "CONTRIBUTING.html#not-acceptable",
-    "href": "CONTRIBUTING.html#not-acceptable",
-    "title": "Vahhab Piranfar",
-    "section": "Not acceptable",
-    "text": "Not acceptable\n\nReusing personal images, CV content, biography, academic descriptions, or project descriptions without permission\nSubmitting unrelated promotional material\nMaking changes that misrepresent the author, projects, publications, or affiliations"
+    "objectID": "learning/01-pkpd-targets-and-mic.html#the-mic-is-a-threshold-not-a-full-phenotype",
+    "href": "learning/01-pkpd-targets-and-mic.html#the-mic-is-a-threshold-not-a-full-phenotype",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "The MIC is a threshold, not a full phenotype",
+    "text": "The MIC is a threshold, not a full phenotype\nThe minimum inhibitory concentration (MIC) is the lowest concentration that prevents visible growth under a defined assay. It is useful because it compresses susceptibility into a number we can put next to an exposure curve.\nIt is also incomplete:\n\nAssay conditions can move the measured floor.\nTolerance and persistence can leave survivors even when the MIC looks favorable.\nProtein binding means free (unbound) exposure often matters more than total concentration.\n\nFor simulation, treat MIC as a scenario input with uncertainty, not as biological truth."
   },
   {
-    "objectID": "CONTRIBUTING.html#how-to-contribute",
-    "href": "CONTRIBUTING.html#how-to-contribute",
-    "title": "Vahhab Piranfar",
-    "section": "How to contribute",
-    "text": "How to contribute\nPlease open an issue first to describe the proposed change. For small corrections, a pull request may be submitted directly.\nAll contributions should be respectful, accurate, and relevant to the purpose of this repository. ’@ | Set-Content -Encoding UTF8 CONTRIBUTING.md"
+    "objectID": "learning/01-pkpd-targets-and-mic.html#three-classic-indices",
+    "href": "learning/01-pkpd-targets-and-mic.html#three-classic-indices",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "Three classic indices",
+    "text": "Three classic indices\nMost antibacterial PK/PD targets fall into one of three families:\n\n\n\n\n\n\n\n\nIndex\nRough idea\nTypical drug classes\n\n\n\n\nfT&gt;MIC\nFraction of the dosing interval that free concentration stays above MIC\nMany β-lactams\n\n\nfAUC/MIC\nIntegrated free exposure scaled by MIC\nFluoroquinolones, vancomycin (often)\n\n\nfCmax/MIC\nPeak free concentration relative to MIC\nSome concentration-dependent agents\n\n\n\nThe leading f means unbound fraction. If you simulate total concentrations but apply a free-drug target, you are mixing units.\n\n\n  \n  \n  \n  \n  MIC\n  \n  \n  fT &gt; MIC\n  Time after dose\n  Free concentration"
   },
   {
-    "objectID": "index.html#selected-work",
-    "href": "index.html#selected-work",
-    "title": "Publications",
-    "section": "Selected work",
-    "text": "Selected work\n\n\n\n CAZ-AVI PK/PD modeling\nProvenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.\n\n\n\n\n AI Bacteriology Hub\nResearch platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.\n\n\n\n\n Under publishing\nSole-author manuscripts on rifampicin tolerance, CAZ-AVI TDM, and resistance modeling."
+    "objectID": "learning/01-pkpd-targets-and-mic.html#how-to-choose-an-index-in-a-model",
+    "href": "learning/01-pkpd-targets-and-mic.html#how-to-choose-an-index-in-a-model",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "How to choose an index in a model",
+    "text": "How to choose an index in a model\nAsk three questions before coding a target:\n\nIs killing time-dependent or concentration-dependent for this class in the literature you trust?\nAre you modeling free or total drug? Align the PK output with the PD target.\nIs the target joint? Combinations (for example β-lactam + inhibitor) may need two simultaneous conditions.\n\nIf the literature reports a target as “100% fT&gt;MIC” or “fAUC/MIC ≥ 125,” that is a decision rule for simulation, not proof that every patient at that threshold is cured."
   },
   {
-    "objectID": "index.html#current-focus",
-    "href": "index.html#current-focus",
-    "title": "Publications",
-    "section": "Current focus",
-    "text": "Current focus\nBased in Jersey City, New Jersey, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty."
+    "objectID": "learning/01-pkpd-targets-and-mic.html#takeaway-for-modelers",
+    "href": "learning/01-pkpd-targets-and-mic.html#takeaway-for-modelers",
+    "title": "PK/PD targets and the MIC: what the indices actually mean",
+    "section": "Takeaway for modelers",
+    "text": "Takeaway for modelers\n\nPut units and binding next to every target.\nSample MIC from a distribution when you care about population performance.\nKeep the index choice traceable to a cited source, the same way you would cite a clearance equation.\n\nNext: PTA, CFR, and virtual populations."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html",
+    "href": "learning/03-resistance-tolerance-persistence.html",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "",
+    "text": "In clinical conversation, “the antibiotic did not work” is often collapsed into resistance. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.\nThis lesson maps three survival ideas onto what a PK/PD model can and cannot see."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#three-words-three-model-objects",
+    "href": "learning/03-resistance-tolerance-persistence.html#three-words-three-model-objects",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Three words, three model objects",
+    "text": "Three words, three model objects\n\n\n\n\n\n\n\n\nConcept\nCore idea\nWhat usually moves in a model\n\n\n\n\nResistance\nHeritable reduced susceptibility\nHigher MIC / shifted PD curve\n\n\nTolerance\nPopulation survives longer under drug stress without a large MIC shift\nSlower kill rate, longer time-kill shoulder\n\n\nPersistence\nSmall subpopulation survives much longer\nBiphasic kill; a refractory fraction\n\n\n\nResistance changes the threshold.\nTolerance and persistence change the time course of killing even when the threshold looks acceptable.\n\n\n  \n  \n  \n  \n  \n  \n  susceptible kill\n  tolerance\n  persistence tail\n  Time under drug pressure\n  Viable bacteria"
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#why-mic-only-pta-can-look-fine-and-still-fail",
+    "href": "learning/03-resistance-tolerance-persistence.html#why-mic-only-pta-can-look-fine-and-still-fail",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Why MIC-only PTA can look “fine” and still fail",
+    "text": "Why MIC-only PTA can look “fine” and still fail\nA regimen can show high PTA against the measured MIC distribution while:\n\na tolerant population dies too slowly for the treatment duration,\na persistent fraction seeds relapse,\nor the assay MIC understates the relevant effect-site challenge.\n\nThat does not make PTA useless. It means PTA answers a specific question (exposure vs threshold), not the entire clinical narrative."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#practical-modeling-checklist",
+    "href": "learning/03-resistance-tolerance-persistence.html#practical-modeling-checklist",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Practical modeling checklist",
+    "text": "Practical modeling checklist\n\nLabel whether your PD endpoint is inhibition (MIC-style) or killing (time-kill / CFU decline).\nIf you only have MIC targets, say so explicitly in the limitations.\nWhen comparing pathogens, do not assume the same survival mode — M. tuberculosis and S. aureus are a useful contrast case in the preprint above.\nKeep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not."
+  },
+  {
+    "objectID": "learning/03-resistance-tolerance-persistence.html#takeaway-for-modelers",
+    "href": "learning/03-resistance-tolerance-persistence.html#takeaway-for-modelers",
+    "title": "Resistance, tolerance, and persistence in PK/PD language",
+    "section": "Takeaway for modelers",
+    "text": "Takeaway for modelers\n\nResistance → move the MIC / PD curve.\nTolerance / persistence → reshape kill kinetics and duration logic.\nReport which of the three your simulation is actually testing.\n\nPrevious: PTA, CFR, and virtual populations · Related track: Chromosome vs plasmid resistance."
+  },
+  {
+    "objectID": "learning.html",
+    "href": "learning.html",
+    "title": "Learning",
+    "section": "",
+    "text": "Tutorials · Modeling intuition · Not clinical advice\n\nShort, modeler-oriented notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate."
+  },
+  {
+    "objectID": "learning.html#learning-tracks",
+    "href": "learning.html#learning-tracks",
+    "title": "Learning",
+    "section": "Learning tracks",
+    "text": "Learning tracks\n\n\nPrimary track\n\nAntibiotic PK/PD essentials\nMIC, exposure indices, PTA/CFR, virtual populations, and how resistance, tolerance, and persistence change what “target attainment” means.\n\n\n\nSecondary track\n\nBacterial genetics for modelers\nChromosome vs plasmid resistance, copy number, and mobility — as inputs to phenotype uncertainty in PK/PD models."
+  },
+  {
+    "objectID": "learning.html#lessons",
+    "href": "learning.html#lessons",
+    "title": "Learning",
+    "section": "Lessons",
+    "text": "Lessons\n\n\n    \n      \n      \n    \n\n\n\n\n\nPK/PD targets and the MIC: what the indices actually mean\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nA compact primer on MIC, fT&gt;MIC, AUC/MIC, and Cmax/MIC — and how to choose the right index for antibiotic modeling.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nPTA, CFR, and virtual populations\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nHow Monte Carlo PK/PD simulations turn parameter uncertainty into probability of target attainment and cumulative fraction of response.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nResistance, tolerance, and persistence in PK/PD language\n\n\n\nLearning\n\nAntibiotic PK/PD\n\n\n\nSeparate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\n\n\nChromosome vs plasmid resistance for PK/PD modelers\n\n\n\nLearning\n\nBacterial Genetics\n\n\n\nHow chromosomal and plasmid-borne resistance change MIC inputs, uncertainty, and what a pharmacometric model should treat as fixed versus mobile.\n\n\n\n\n\nOct 16, 2026\n\n3 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/caz-avi-evidence-reconstruction.html",
@@ -534,90 +695,6 @@
   {
     "objectID": "publications.html#selected-publications",
     "href": "publications.html#selected-publications",
-    "title": "Publications",
-    "section": "Selected Publications",
-    "text": "Selected Publications\n\nFeatured Articles\n\n\n01 · Pars J Med Sci 2022\n\n\nIdentification of Enterococcus faecalis and E. faecium pathogens in Tehran hospital clinical samples\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nPars Journal of Medical Sciences · 2022\n\n\n\n\n02 · JOGCR 2022\n\n\nInterleukin 6 (IL-6) in patients with COVID-19 infection: a cross-sectional study\n\n\nKarpians G, Piranfar V., et al.\n\n\nJournal of Obstetrics, Gynecology and Cancer Research · 2022\n\n\n\n\n03 · IJMM 2021\n\n\nLeukocyte parameters, CRP, and ferritin in Iranian patients with COVID-19 infection\n\n\nKarpians G, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2021\n\n\n\n\n04 · Iranian J Pathol 2021\n\n\nProtective effect of selenium and vitamin C on liver and kidney toxicity of cadmium\n\n\nZamani MM, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2021\n\n\n\n\n05 · JAMBS 2020\n\n\nCoronavirus: discovering the structure of global knowledge\n\n\nDanesh F, GhaviDel S, Piranfar V.\n\n\nJournal of Applied Mathematics and Biosciences · 2020\n\n\n\n\n06 · Iranian J Pathol 2020\n\n\nGenetic diversity of the ctxB gene among strains of Vibrio cholerae\n\n\nMahboobi M, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n07 · Iranian J Pathol 2020\n\n\nResistance pattern in clinical Enterococcus isolates\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n08 · Mod Med Lab J 2017\n\n\nGene polymorphism and genetic predisposition of HPV in patients with cervical cancer\n\n\nSajjadi N, et al. (incl. Piranfar V.)\n\n\nModern Medical Laboratory Journal · 2017\n\n\n\n\n09 · Curr Chem Biol 2017\n\n\nDose-response effects of CM11 as a short cationic antimicrobial peptide\n\n\nRamandi M, et al. (incl. Piranfar V.)\n\n\nCurrent Chemical Biology · 2017\n\n\n\n\n\n\n\n\nNoteAdditional Research (Articles 10–32)\n\n\n\n\n\n\n\n10 · Iranian J Pathol 2017\n\n\nEvaluation of ELISA, PCR, and serum agglutination tests for diagnosis of Brucella\n\n\nMohseni K, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2017\n\n\n\n\n11 · LaboratoriumsMedizin 2017\n\n\nReal-time PCR and HRM analysis for detection of pathogenic species of Brucella\n\n\nJazi FM, et al. (incl. Piranfar V.)\n\n\nLaboratoriumsMedizin · 2017\n\n\n\n\n12 · IJMM 2017\n\n\nIdentification of streptomycin resistance genes among Enterococcus spp.\n\n\nSajjadi N, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2017\n\n\n\n\n13 · JJUMS 2016\n\n\nEvaluation of antimicrobial susceptibility in 2016\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJournal of Jahrom University of Medical Sciences · 2016\n\n\n\n\n14 · Infez Med 2016\n\n\nIdentification of aminoglycoside resistance genes by triplex PCR in Enterococcus spp.\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nInfezioni in Medicina · 2016\n\n\n\n\n15 · Electronic Physician 2016\n\n\nMicroarray-based long oligonucleotide probe designed for Brucella spp. detection\n\n\nKhazaei Z, et al. (incl. Piranfar V.)\n\n\nElectronic Physician · 2016\n\n\n\n\n16 · Iranian J Pathol 2016\n\n\nSpecific detection of Brucella by PCR-ELISA and multiplex PCR\n\n\nMohammad Hasani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n17 · Iranian J Pathol 2016\n\n\nSpecies-specific PCR for diagnosis of Brucella strains\n\n\nIrajian GR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n18 · JJMUS 2016\n\n\nPhenotypic and genotypic methods for E. faecalis\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJJMUS · 2016\n\n\n\n\n19 · SJKU 2015\n\n\nSimultaneous identification of pathogenic Brucella species by multiplex PCR\n\n\nAkbarzadeh E, et al. (incl. Piranfar V.)\n\n\nScientific Journal of Kurdistan University of Medical Sciences · 2015\n\n\n\n\n20 · IJBMS 2015\n\n\nDetection and discrimination of two Brucella species by multiplex real-time PCR and HRM\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Basic Medical Sciences · 2015\n\n\n\n\n21 · Curr Med Mycol 2015\n\n\nPCR-RFLP patterns for the differentiation of Fusarium species\n\n\nKachuei R, et al. (incl. Piranfar V.)\n\n\nCurrent Medical Mycology · 2015\n\n\n\n\n22 · IJB 2015\n\n\nAntimicrobial effect of imipenem-functionalized Fe₂O₃ nanoparticles on P. aeruginosa\n\n\nKhataminejad MR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Biotechnology · 2015\n\n\n\n\n23 · CRB 2015\n\n\nIncidence and antibiotic susceptibility of Staphylococcus spp. in UTI\n\n\nErfani M, et al. (incl. Piranfar V.)\n\n\nCell Research and Biotechnology · 2015\n\n\n\n\n24 · IJEP 2014\n\n\nIncidence and antibiotic susceptibility of bacterial pathogens causing UTI\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Epidemiology · 2014\n\n\n\n\n25 · IJMM 2014\n\n\nEffect of selective oropharyngeal decontamination on colonization\n\n\nRasoulinezhad F, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Medical Microbiology · 2014\n\n\n\n\n26 · IRCMJ 2013\n\n\nAntimicrobial effect of Lactobacillus casei against MDR Shigella\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nIranian Red Crescent Medical Journal · 2013\n\n\n\n\n27 · ZJRMS 2013\n\n\nDetection of Brucella abortus and Brucella melitensis from human blood samples\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nZahedan Journal of Research in Medical Sciences · 2013\n\n\n\n\n28 · APJTM 2013\n\n\nA duplex PCR for rapid and simultaneous detection of Brucella spp. in human blood\n\n\nMirnejad R, Piranfar V., et al.\n\n\nAsian Pacific Journal of Tropical Medicine · 2013\n\n\n\n\n29 · JJM 2013\n\n\nMolecular typing of Brucella melitensis and B. abortus using PCR-RFLP\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJundishapur Journal of Microbiology · 2013\n\n\n\n\n30 · JSUMS 2013\n\n\nSynergistic effect of silver nanoparticles with streptomycin on Brucella abortus\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJournal of Semnan University of Medical Sciences · 2013\n\n\n\n\n31 · IJMS 2012\n\n\nAntimicrobial nature of Lactobacillus casei against MDR Shigella\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Medical Sciences · 2012\n\n\n\n\n32 · JICS 2009\n\n\nD3–D5 dopamine receptor expression in paranoid schizophrenia patients\n\n\nPiranfar V.\n\n\nJournal of Iranian Chemical Society · 2009\n\n\n\n\n\n\n\nPublished Books\n\n\nBook · Persian\n\n\nMetal Nanoparticles in Microbiology\n\n\nPiranfar V.\n\n\nISBN: 978-964-504-228-8"
-  },
-  {
-    "objectID": "index.html#professional-profile",
-    "href": "index.html#professional-profile",
-    "title": "Publications",
-    "section": "Professional Profile",
-    "text": "Professional Profile\nI am a researcher specializing in medical and clinical microbiology, antimicrobial resistance, and antibiotic PK/PD modeling. Based in Jersey City, New Jersey, I combine clinical laboratory experience with bacterial-response modeling and computational evidence synthesis to study how bacterial pathogens, antibiotic exposure, and resistance interact. My work is supported by a foundation in molecular biology and bioinformatics, which I apply to translational research that connects the bench with reproducible, data-driven models.\n\nVision Statement\n\n“In the modern era of microbiology, the microscope is no longer our only lens. By integrating computational data analysis with molecular techniques, we can decode pathogen behavior at a scale that was previously unimaginable.”\n— Vahhab Piranfar"
-  },
-  {
-    "objectID": "index.html#research-interests",
-    "href": "index.html#research-interests",
-    "title": "Publications",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nAntimicrobial resistance and bacterial adaptation — mechanisms of resistance and adaptation across clinical pathogens.\nAntibiotic PK/PD and pharmacometric simulation — modeling antibiotic exposure, target attainment, and treatment response.\nBacterial growth, killing, persistence, and resistance modeling — quantitative description of bacterial dynamics under drug pressure.\nMolecular diagnostics and pathogen genomics — resistance mechanisms in Brucella, Pseudomonas, and Staphylococcus.\nReproducible evidence-composite modeling — provenance-aware synthesis of fragmented evidence into simulation-ready components."
-  },
-  {
-    "objectID": "index.html#professional-journey",
-    "href": "index.html#professional-journey",
-    "title": "Publications",
-    "section": "Professional Journey",
-    "text": "Professional Journey\n\nExperienceEducationStrengths\n\n\nCEO · Farname Inc. January 2018 – Present Directing strategy, scientific collaboration, and research-focused initiatives at the intersection of technology and life sciences.\n\nLaboratory Technician · Imam Khomeini Hospital 2019 – 2024 Performed high-volume diagnostic testing, including MALDI-TOF, microbial identification, and clinical reporting.\n\n\nM.S. in Microbiology Islamic Azad University · 2015 Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy against resistant clinical isolates.\n\n\n\nOver a decade of laboratory experience in clinical and research microbiology.\nScientific communication and editorial experience across peer-reviewed international journals.\nCo-inventor of a diagnostic assay for rapid Brucella detection from human blood.\nEB-1A recognized expertise in molecular diagnostics and pathogen genomics."
-  },
-  {
-    "objectID": "index.html#technical-skills",
-    "href": "index.html#technical-skills",
-    "title": "Publications",
-    "section": "Technical Skills",
-    "text": "Technical Skills\nMolecular Assays\n\nPCR Real-time PCR HRM Genotyping RFLP Multiplex PCR MALDI-TOF ELISA\n\nModeling & Simulation\n\nMonte Carlo Simulation PK/PD Modeling Pharmacometric Modeling Virtual Population Generation Sensitivity Analysis Provenance-Aware Data Modeling\n\nComputational Tools\n\nGROMACS VMD CLC Genomics Workbench Molecular Dynamics\n\nData Analysis & Programming\n\nScientific Python SPSS Data Visualization Bioinformatics Pipelines"
-  },
-  {
-    "objectID": "index.html#selected-publications",
-    "href": "index.html#selected-publications",
-    "title": "Publications",
-    "section": "Selected Publications",
-    "text": "Selected Publications\n\nPiranfar V. (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates. SSRN (under review). 10.2139/ssrn.7533152\nPiranfar V. (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. Research Square (under review).\nPiranfar V. (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus. bioRxiv.\nMirnejad R, Piranfar V, et al. (2013). A duplex PCR for rapid detection of Brucella in human blood. Asian Pacific Journal of Tropical Medicine.\nBook: Metal Nanoparticles in Microbiology (Persian). ISBN: 978-964-504-228-8.\n\nFull list: Publications.\n\nResearch · Software · Knowledge Systems\n\nSelected work across antimicrobial resistance, antibiotic PK/PD modeling, computational microbiology platforms, and research tools — from simulation frameworks to live products."
-  },
-  {
-    "objectID": "index.html#research-spotlight",
-    "href": "index.html#research-spotlight",
-    "title": "Publications",
-    "section": "Research Spotlight",
-    "text": "Research Spotlight\n\n\n\nActive Research · Under Submission Antimicrobial Pharmacometrics\n\n\nCeftazidime–Avibactam Evidence-Composite PK/PD Modeling\nA provenance-aware Monte Carlo framework that turns fragmented ceftazidime–avibactam evidence into simulation-ready PK/PD components — virtual populations, joint targets, PTA/CFR, calibration, and uncertainty analysis.\n\nAntibiotic PK/PD AMR Monte Carlo Virtual Populations Python\n\n\nDeep Dive → Repository →\n\n\nMethodological research framework — not a clinical dosing or decision-support tool.\n\n\n\n\n\nActive AI · Full-Stack Platform\n\n\nAI Bacteriology Hub\nA production-grade research platform combining a curated bacteriology knowledge base, an AI Research Layer for interactive AMR reasoning, and manifest-driven Python lab tools running inside a Docker sandbox on Google Cloud Run.\n\nDjango + DRF React 18 AI Research Layer Docker Sandbox AMR\n\n\nDeep Dive → Live Site →"
-  },
-  {
-    "objectID": "index.html#platforms-tools",
-    "href": "index.html#platforms-tools",
-    "title": "Publications",
-    "section": "Platforms & Tools",
-    "text": "Platforms & Tools\n\n\n\n\nActive Knowledge Base\n\n\nMicrobiology Encyclopedia\nGraph-linked medical microbiology notes — organisms, lab methods, clinical maps, AMR, bioinformatics, and AI — organized through Maps of Content and published with Quartz.\n\nMedical Microbiology AMR Quartz Obsidian\n\n\nExplore Encyclopedia →\n\n\n\n\n\n\n\nActive AI · Education\n\n\nFluentBridge AI\nLocal-first AI English tutor for Persian-speaking learners — grammar, reading, listening, writing, speaking, shadowing, and a Mistake Clinic with a provider-agnostic AI layer.\n\nDjango + DRF React 19 Ollama TOEFL Prep\n\n\nView on GitHub →\n\n\n\n\n\n\n\nActive Research Tools\n\n\nCrossref Reference Formatter\nPaste Crossref references and export Vancouver-style linked citations as rich text, Word, or HTML.\n\nJavaScript Crossref API Citations\n\n\nView Project →\n\n\n\n\n\n\n\nArchived Data Science\n\n\nUSCIS Case Tracker\nAutomated USCIS case monitoring with real-time status updates, dashboards, and historical trend analysis.\n\nPython Data Visualization\n\n\nView Project →"
-  },
-  {
-    "objectID": "index.html#earlier-work",
-    "href": "index.html#earlier-work",
-    "title": "Publications",
-    "section": "Earlier Work",
-    "text": "Earlier Work\n\n  \n    Molecular Dynamics Studies\n    Bioinformatics\n    GROMACS simulations of drug-resistant pathogen interactions\n  \n  \n    Clinical Diagnostics Pipeline\n    Microbiology\n    Automated pathogen identification and reporting systems"
-  },
-  {
-    "objectID": "index.html#collaborate",
-    "href": "index.html#collaborate",
-    "title": "Publications",
-    "section": "Collaborate",
-    "text": "Collaborate\n\nInterested in antimicrobial resistance modeling, computational microbiology platforms, or research software? Reach out on LinkedIn or see more on GitHub.\nPublications →"
-  },
-  {
-    "objectID": "index.html#academic-profiles",
-    "href": "index.html#academic-profiles",
-    "title": "Publications",
-    "section": "Academic Profiles",
-    "text": "Academic Profiles\n\n  LinkedIn    Google Scholar · 650+ citations    ORCID    ResearchGate"
-  },
-  {
-    "objectID": "index.html#under-publishing-1",
-    "href": "index.html#under-publishing-1",
-    "title": "Publications",
-    "section": "Under Publishing",
-    "text": "Under Publishing\n\n\nSSRN · Under Review\n\n\nRifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates\n\n\nPiranfar V.\n\n\nSSRN · 2026 · 10.2139/ssrn.7533152\n\n\n\n\nResearch Square · Under Review\n\n\nImplications of Ceftazidime-Avibactam Clearance Correlation for Target Selection and Single-Analyte Therapeutic Drug Monitoring During Continuous Infusion: A Pharmacometric Simulation and Individual Patient Data Analysis\n\n\nPiranfar V.\n\n\nResearch Square · 2026 · 10.21203/rs.3.rs-10713786/v1\n\n\n\n\nbioRxiv · Preprint\n\n\nComparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus\n\n\nPiranfar V.\n\n\nbioRxiv · 2025 · 10.1101/2025.02.12.637810"
-  },
-  {
-    "objectID": "index.html#selected-publications-1",
-    "href": "index.html#selected-publications-1",
     "title": "Publications",
     "section": "Selected Publications",
     "text": "Selected Publications\n\nFeatured Articles\n\n\n01 · Pars J Med Sci 2022\n\n\nIdentification of Enterococcus faecalis and E. faecium pathogens in Tehran hospital clinical samples\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nPars Journal of Medical Sciences · 2022\n\n\n\n\n02 · JOGCR 2022\n\n\nInterleukin 6 (IL-6) in patients with COVID-19 infection: a cross-sectional study\n\n\nKarpians G, Piranfar V., et al.\n\n\nJournal of Obstetrics, Gynecology and Cancer Research · 2022\n\n\n\n\n03 · IJMM 2021\n\n\nLeukocyte parameters, CRP, and ferritin in Iranian patients with COVID-19 infection\n\n\nKarpians G, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2021\n\n\n\n\n04 · Iranian J Pathol 2021\n\n\nProtective effect of selenium and vitamin C on liver and kidney toxicity of cadmium\n\n\nZamani MM, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2021\n\n\n\n\n05 · JAMBS 2020\n\n\nCoronavirus: discovering the structure of global knowledge\n\n\nDanesh F, GhaviDel S, Piranfar V.\n\n\nJournal of Applied Mathematics and Biosciences · 2020\n\n\n\n\n06 · Iranian J Pathol 2020\n\n\nGenetic diversity of the ctxB gene among strains of Vibrio cholerae\n\n\nMahboobi M, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n07 · Iranian J Pathol 2020\n\n\nResistance pattern in clinical Enterococcus isolates\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2020\n\n\n\n\n08 · Mod Med Lab J 2017\n\n\nGene polymorphism and genetic predisposition of HPV in patients with cervical cancer\n\n\nSajjadi N, et al. (incl. Piranfar V.)\n\n\nModern Medical Laboratory Journal · 2017\n\n\n\n\n09 · Curr Chem Biol 2017\n\n\nDose-response effects of CM11 as a short cationic antimicrobial peptide\n\n\nRamandi M, et al. (incl. Piranfar V.)\n\n\nCurrent Chemical Biology · 2017\n\n\n\n\n\n\n\n\nNoteAdditional Research (Articles 10–32)\n\n\n\n\n\n\n\n10 · Iranian J Pathol 2017\n\n\nEvaluation of ELISA, PCR, and serum agglutination tests for diagnosis of Brucella\n\n\nMohseni K, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2017\n\n\n\n\n11 · LaboratoriumsMedizin 2017\n\n\nReal-time PCR and HRM analysis for detection of pathogenic species of Brucella\n\n\nJazi FM, et al. (incl. Piranfar V.)\n\n\nLaboratoriumsMedizin · 2017\n\n\n\n\n12 · IJMM 2017\n\n\nIdentification of streptomycin resistance genes among Enterococcus spp.\n\n\nSajjadi N, Piranfar V., et al.\n\n\nIranian Journal of Medical Microbiology · 2017\n\n\n\n\n13 · JJUMS 2016\n\n\nEvaluation of antimicrobial susceptibility in 2016\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJournal of Jahrom University of Medical Sciences · 2016\n\n\n\n\n14 · Infez Med 2016\n\n\nIdentification of aminoglycoside resistance genes by triplex PCR in Enterococcus spp.\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nInfezioni in Medicina · 2016\n\n\n\n\n15 · Electronic Physician 2016\n\n\nMicroarray-based long oligonucleotide probe designed for Brucella spp. detection\n\n\nKhazaei Z, et al. (incl. Piranfar V.)\n\n\nElectronic Physician · 2016\n\n\n\n\n16 · Iranian J Pathol 2016\n\n\nSpecific detection of Brucella by PCR-ELISA and multiplex PCR\n\n\nMohammad Hasani S, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n17 · Iranian J Pathol 2016\n\n\nSpecies-specific PCR for diagnosis of Brucella strains\n\n\nIrajian GR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Pathology · 2016\n\n\n\n\n18 · JJMUS 2016\n\n\nPhenotypic and genotypic methods for E. faecalis\n\n\nMasoumi Zavaryani S, et al. (incl. Piranfar V.)\n\n\nJJMUS · 2016\n\n\n\n\n19 · SJKU 2015\n\n\nSimultaneous identification of pathogenic Brucella species by multiplex PCR\n\n\nAkbarzadeh E, et al. (incl. Piranfar V.)\n\n\nScientific Journal of Kurdistan University of Medical Sciences · 2015\n\n\n\n\n20 · IJBMS 2015\n\n\nDetection and discrimination of two Brucella species by multiplex real-time PCR and HRM\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Basic Medical Sciences · 2015\n\n\n\n\n21 · Curr Med Mycol 2015\n\n\nPCR-RFLP patterns for the differentiation of Fusarium species\n\n\nKachuei R, et al. (incl. Piranfar V.)\n\n\nCurrent Medical Mycology · 2015\n\n\n\n\n22 · IJB 2015\n\n\nAntimicrobial effect of imipenem-functionalized Fe₂O₃ nanoparticles on P. aeruginosa\n\n\nKhataminejad MR, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Biotechnology · 2015\n\n\n\n\n23 · CRB 2015\n\n\nIncidence and antibiotic susceptibility of Staphylococcus spp. in UTI\n\n\nErfani M, et al. (incl. Piranfar V.)\n\n\nCell Research and Biotechnology · 2015\n\n\n\n\n24 · IJEP 2014\n\n\nIncidence and antibiotic susceptibility of bacterial pathogens causing UTI\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Epidemiology · 2014\n\n\n\n\n25 · IJMM 2014\n\n\nEffect of selective oropharyngeal decontamination on colonization\n\n\nRasoulinezhad F, et al. (incl. Piranfar V.)\n\n\nIranian Journal of Medical Microbiology · 2014\n\n\n\n\n26 · IRCMJ 2013\n\n\nAntimicrobial effect of Lactobacillus casei against MDR Shigella\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nIranian Red Crescent Medical Journal · 2013\n\n\n\n\n27 · ZJRMS 2013\n\n\nDetection of Brucella abortus and Brucella melitensis from human blood samples\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nZahedan Journal of Research in Medical Sciences · 2013\n\n\n\n\n28 · APJTM 2013\n\n\nA duplex PCR for rapid and simultaneous detection of Brucella spp. in human blood\n\n\nMirnejad R, Piranfar V., et al.\n\n\nAsian Pacific Journal of Tropical Medicine · 2013\n\n\n\n\n29 · JJM 2013\n\n\nMolecular typing of Brucella melitensis and B. abortus using PCR-RFLP\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJundishapur Journal of Microbiology · 2013\n\n\n\n\n30 · JSUMS 2013\n\n\nSynergistic effect of silver nanoparticles with streptomycin on Brucella abortus\n\n\nMirnejad R, et al. (incl. Piranfar V.)\n\n\nJournal of Semnan University of Medical Sciences · 2013\n\n\n\n\n31 · IJMS 2012\n\n\nAntimicrobial nature of Lactobacillus casei against MDR Shigella\n\n\nPiranfar V., et al.\n\n\nIranian Journal of Medical Sciences · 2012\n\n\n\n\n32 · JICS 2009\n\n\nD3–D5 dopamine receptor expression in paranoid schizophrenia patients\n\n\nPiranfar V.\n\n\nJournal of Iranian Chemical Society · 2009\n\n\n\n\n\n\n\nPublished Books\n\n\nBook · Persian\n\n\nMetal Nanoparticles in Microbiology\n\n\nPiranfar V.\n\n\nISBN: 978-964-504-228-8"

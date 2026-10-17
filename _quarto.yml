@@ -21,6 +21,8 @@ website:
         text: Home
       - href: projects.qmd
         text: Projects
+      - href: learning.qmd
+        text: Learning
       - href: blog.qmd
         text: Discuss & Review
       - href: about.qmd

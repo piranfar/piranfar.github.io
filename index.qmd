@@ -148,8 +148,8 @@ Research platform for bacteriology knowledge, AMR reasoning, and sandboxed lab t
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-journal-richtext"></i></span> [Under publishing](publications.qmd#under-publishing)
-Sole-author manuscripts on rifampicin tolerance, CAZ-AVI TDM, and resistance modeling.
+### <span class="feature-icon"><i class="bi bi-lightbulb"></i></span> [Learning: antibiotic PK/PD](learning.qmd)
+Short lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence.
 :::
 :::
 :::

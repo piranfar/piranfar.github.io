@@ -19,10 +19,18 @@ LinkedIn: https://www.linkedin.com/in/vahhab-piranfar/
 
 - [Home](https://vahhabpiranfar.com/): research profile and scientific overview
 - [Projects](https://vahhabpiranfar.com/projects.html): research software and platforms
+- [Learning](https://vahhabpiranfar.com/learning.html): short lessons on antibiotic PK/PD and bacterial genetics for modelers
 - [Publications](https://vahhabpiranfar.com/publications.html): peer-reviewed work and under-review manuscripts
 - [About](https://vahhabpiranfar.com/about.html): background, interests, and skills
 - [Discuss & Review](https://vahhabpiranfar.com/blog.html): research notes and paper discussions
 - [Microbiology Encyclopedia](https://vahhabpiranfar.com/Microbiology_Encyclopedia/): curated medical microbiology knowledge base
+
+## Learning lessons
+
+- PK/PD targets and the MIC — https://vahhabpiranfar.com/learning/01-pkpd-targets-and-mic.html
+- PTA, CFR, and virtual populations — https://vahhabpiranfar.com/learning/02-pta-cfr-virtual-populations.html
+- Resistance, tolerance, and persistence — https://vahhabpiranfar.com/learning/03-resistance-tolerance-persistence.html
+- Chromosome vs plasmid resistance for modelers — https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html
 
 ## Selected research (sole author unless noted)
 

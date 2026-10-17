@@ -1,0 +1,51 @@
+---
+title: "Learning"
+pagetitle: "Learning | Vahhab Piranfar"
+description: "Short lessons on antibiotic PK/PD modeling and the bacterial genetics that shape resistance phenotypes used in simulation."
+toc: false
+listing:
+  id: learning-posts
+  contents: learning
+  sort: "date asc"
+  type: default
+  categories: true
+  feed: true
+  fields: [date, title, description, categories, reading-time]
+  sort-ui: false
+  filter-ui: true
+  page-size: 12
+page-layout: full
+---
+
+::: {.learning-intro}
+<span class="learning-eyebrow">Tutorials · Modeling intuition · Not clinical advice</span>
+
+<p class="learning-lead">Short, modeler-oriented notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate.</p>
+:::
+
+## Learning tracks
+
+::: {.learning-tracks}
+
+::: {.learning-track .learning-track--primary}
+<span class="learning-track-label">Primary track</span>
+
+### Antibiotic PK/PD essentials
+
+MIC, exposure indices, PTA/CFR, virtual populations, and how resistance, tolerance, and persistence change what “target attainment” means.
+:::
+
+::: {.learning-track}
+<span class="learning-track-label">Secondary track</span>
+
+### Bacterial genetics for modelers
+
+Chromosome vs plasmid resistance, copy number, and mobility — as inputs to phenotype uncertainty in PK/PD models.
+:::
+
+:::
+
+## Lessons
+
+:::{#learning-posts}
+:::

@@ -1,0 +1,70 @@
+---
+title: "Resistance, tolerance, and persistence in PK/PD language"
+description: "Separate genetic resistance from tolerance and persistence — and see why a single MIC-based target can misread treatment failure."
+author: "Vahhab Piranfar"
+date: "2026-10-16"
+categories: [Learning, Antibiotic PK/PD]
+---
+
+In clinical conversation, “the antibiotic did not work” is often collapsed into **resistance**. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.
+
+This lesson maps three survival ideas onto what a PK/PD model can and cannot see.
+
+::: {.callout-note}
+## Scope
+Conceptual distinctions for simulation and evidence interpretation. Related preprint context: [comparative modeling of resistance, tolerance, and persistence](https://doi.org/10.1101/2025.02.12.637810).
+:::
+
+## Three words, three model objects
+
+| Concept | Core idea | What usually moves in a model |
+|---------|-----------|--------------------------------|
+| **Resistance** | Heritable reduced susceptibility | Higher MIC / shifted PD curve |
+| **Tolerance** | Population survives longer under drug stress without a large MIC shift | Slower kill rate, longer time-kill shoulder |
+| **Persistence** | Small subpopulation survives much longer | Biphasic kill; a refractory fraction |
+
+Resistance changes the **threshold**.  
+Tolerance and persistence change the **time course of killing** even when the threshold looks acceptable.
+
+```{=html}
+<div class="learn-figure" role="img" aria-label="Time-kill curves for susceptible, tolerant, and persistent populations">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="300" fill="#F8FAFC"/>
+  <line x1="56" y1="30" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M70,50 C120,55 160,80 200,130 C260,200 300,220 360,225" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70,50 C140,60 200,90 260,130 C330,175 400,195 520,210" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70,50 C110,55 150,75 180,110 C210,145 230,160 250,168 C300,175 380,178 560,182" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+  <text x="370" y="220" fill="#0D9488" font-family="Outfit, sans-serif" font-size="12" font-weight="700">susceptible kill</text>
+  <text x="470" y="200" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">tolerance</text>
+  <text x="430" y="168" fill="#7C3AED" font-family="Outfit, sans-serif" font-size="12" font-weight="700">persistence tail</text>
+  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time under drug pressure</text>
+  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Viable bacteria</text>
+</svg>
+</div>
+```
+
+## Why MIC-only PTA can look “fine” and still fail
+
+A regimen can show high PTA against the measured MIC distribution while:
+
+- a tolerant population dies too slowly for the treatment duration,
+- a persistent fraction seeds relapse,
+- or the assay MIC understates the relevant effect-site challenge.
+
+That does not make PTA useless. It means PTA answers a **specific question** (exposure vs threshold), not the entire clinical narrative.
+
+## Practical modeling checklist
+
+1. Label whether your PD endpoint is **inhibition** (MIC-style) or **killing** (time-kill / CFU decline).
+2. If you only have MIC targets, say so explicitly in the limitations.
+3. When comparing pathogens, do not assume the same survival mode — *M. tuberculosis* and *S. aureus* are a useful contrast case in the preprint above.
+4. Keep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not.
+
+## Takeaway for modelers
+
+- **Resistance → move the MIC / PD curve.**
+- **Tolerance / persistence → reshape kill kinetics and duration logic.**
+- Report which of the three your simulation is actually testing.
+
+Previous: [PTA, CFR, and virtual populations](02-pta-cfr-virtual-populations.qmd) · Related track: [Chromosome vs plasmid resistance](04-chromosome-vs-plasmid-resistance.qmd).

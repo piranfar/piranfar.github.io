@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Vahhab Piranfar</title>
+<link>https://vahhabpiranfar.com/learning.html</link>
+<atom:link href="https://vahhabpiranfar.com/learning.xml" rel="self" type="application/rss+xml"/>
+<description>Short lessons on antibiotic PK/PD modeling and the bacterial genetics that shape resistance phenotypes used in simulation.</description>
+<image>
+<url>https://vahhabpiranfar.com/profile.jpg</url>
+<title>Vahhab Piranfar</title>
+<link>https://vahhabpiranfar.com/learning.html</link>
+</image>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Fri, 16 Oct 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>PK/PD targets and the MIC: what the indices actually mean</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/01-pkpd-targets-and-mic.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Antibiotic PK/PD modeling starts with one awkward fact: bacteria do not “see” the dose. They see <strong>concentration over time</strong> at the effect site, relative to a susceptibility threshold — usually the <strong>MIC</strong>.</p>
+<p>This lesson is for modelers and microbiologists who want the indices to stop feeling like slogans.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Educational modeling intuition — not a dosing guide and not a substitute for clinical guidelines.</p>
+</div>
+</div>
+<section id="the-mic-is-a-threshold-not-a-full-phenotype" class="level2">
+<h2 class="anchored" data-anchor-id="the-mic-is-a-threshold-not-a-full-phenotype">The MIC is a threshold, not a full phenotype</h2>
+<p>The <strong>minimum inhibitory concentration (MIC)</strong> is the lowest concentration that prevents visible growth under a defined assay. It is useful because it compresses susceptibility into a number we can put next to an exposure curve.</p>
+<p>It is also incomplete:</p>
+<ul>
+<li>Assay conditions can move the measured floor.</li>
+<li>Tolerance and persistence can leave survivors even when the MIC looks favorable.</li>
+<li>Protein binding means free (unbound) exposure often matters more than total concentration.</li>
+</ul>
+<p>For simulation, treat MIC as a <strong>scenario input with uncertainty</strong>, not as biological truth.</p>
+</section>
+<section id="three-classic-indices" class="level2">
+<h2 class="anchored" data-anchor-id="three-classic-indices">Three classic indices</h2>
+<p>Most antibacterial PK/PD targets fall into one of three families:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 29%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Rough idea</th>
+<th>Typical drug classes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>fT&gt;MIC</strong></td>
+<td>Fraction of the dosing interval that free concentration stays above MIC</td>
+<td>Many β-lactams</td>
+</tr>
+<tr class="even">
+<td><strong>fAUC/MIC</strong></td>
+<td>Integrated free exposure scaled by MIC</td>
+<td>Fluoroquinolones, vancomycin (often)</td>
+</tr>
+<tr class="odd">
+<td><strong>fCmax/MIC</strong></td>
+<td>Peak free concentration relative to MIC</td>
+<td>Some concentration-dependent agents</td>
+</tr>
+</tbody>
+</table>
+<p>The leading <strong>f</strong> means unbound fraction. If you simulate total concentrations but apply a free-drug target, you are mixing units.</p>
+<div class="learn-figure" aria-label="Concentration-time curve with MIC line and shaded time above MIC">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="150" x2="600" y2="150" stroke="#F97316" stroke-width="2" stroke-dasharray="7 6"></line>
+  <text x="608" y="154" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="700">MIC</text>
+  <path d="M120,150 C150,90 170,70 190,68 C280,60 360,120 420,150 C470,120 510,90 560,85 L560,150 L120,150 Z" fill="rgba(20,184,166,0.22)"></path>
+  <path d="M56,210 C100,205 120,150 150,90 C170,55 190,48 220,55 C300,80 340,140 390,170 C440,130 500,70 600,60" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <text x="250" y="125" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="600">fT &gt; MIC</text>
+  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
+  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Free concentration</text>
+</svg>
+</div>
+</section>
+<section id="how-to-choose-an-index-in-a-model" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-choose-an-index-in-a-model">How to choose an index in a model</h2>
+<p>Ask three questions before coding a target:</p>
+<ol type="1">
+<li><strong>Is killing time-dependent or concentration-dependent</strong> for this class in the literature you trust?</li>
+<li><strong>Are you modeling free or total drug?</strong> Align the PK output with the PD target.</li>
+<li><strong>Is the target joint?</strong> Combinations (for example β-lactam + inhibitor) may need two simultaneous conditions.</li>
+</ol>
+<p>If the literature reports a target as “100% fT&gt;MIC” or “fAUC/MIC ≥ 125,” that is a <strong>decision rule for simulation</strong>, not proof that every patient at that threshold is cured.</p>
+</section>
+<section id="takeaway-for-modelers" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
+<ul>
+<li>Put <strong>units and binding</strong> next to every target.</li>
+<li>Sample MIC from a distribution when you care about population performance.</li>
+<li>Keep the index choice <strong>traceable to a cited source</strong>, the same way you would cite a clearance equation.</li>
+</ul>
+<p>Next: <a href="../learning/02-pta-cfr-virtual-populations.html">PTA, CFR, and virtual populations</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/01-pkpd-targets-and-mic.html</guid>
+  <pubDate>Fri, 16 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>PTA, CFR, and virtual populations</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/02-pta-cfr-virtual-populations.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Once you have an exposure index and an MIC, the next modeling question is not “does this patient hit the target?” It is: <strong>in a population with realistic variability, how often does the regimen succeed?</strong></p>
+<p>That is where <strong>virtual populations</strong>, <strong>PTA</strong>, and <strong>CFR</strong> enter.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Methodological intuition for simulation workflows — not a clinical decision tool.</p>
+</div>
+</div>
+<section id="virtual-populations-are-controlled-randomness" class="level2">
+<h2 class="anchored" data-anchor-id="virtual-populations-are-controlled-randomness">Virtual populations are controlled randomness</h2>
+<p>A virtual population is a set of simulated individuals whose PK parameters (clearance, volume, covariates such as renal function) are drawn from distributions that reflect interindividual variability.</p>
+<p>Good practice:</p>
+<ul>
+<li>Sample from <strong>published IIV / residual error</strong> when available.</li>
+<li>Keep covariate structure explicit (for example eGFR classes).</li>
+<li>Record seeds, sample size, and whether parameters are correlated.</li>
+</ul>
+<p>Bad practice:</p>
+<ul>
+<li>Drawing “nice looking” normals with no provenance.</li>
+<li>Pooling incompatible populations (healthy volunteer PK used silently as ICU truth).</li>
+</ul>
+</section>
+<section id="pta-probability-of-target-attainment" class="level2">
+<h2 class="anchored" data-anchor-id="pta-probability-of-target-attainment">PTA: probability of target attainment</h2>
+<p><strong>PTA</strong> answers: <em>for a fixed MIC (or a fixed MIC grid), what fraction of virtual subjects meet the PK/PD target?</em></p>
+<p>Example framing:</p>
+<blockquote class="blockquote">
+<p>At MIC = 4 mg/L, what percentage of simulated ICU adults achieve 100% fT&gt;MIC on regimen X?</p>
+</blockquote>
+<p>Plot PTA against MIC to see where the regimen cliff starts.</p>
+<div class="learn-figure" aria-label="PTA declining as MIC increases">
+<svg viewbox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="280" fill="#F8FAFC"></rect>
+  <line x1="56" y1="36" x2="56" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="220" x2="600" y2="220" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <path d="M70,55 C140,55 180,58 220,70 C280,95 320,140 380,175 C450,210 520,218 590,218" fill="none" stroke="#0D9488" stroke-width="3.5" stroke-linecap="round"></path>
+  <line x1="56" y1="70" x2="600" y2="70" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4 5"></line>
+  <text x="608" y="74" fill="#64748B" font-family="Outfit, sans-serif" font-size="12" font-weight="600">90%</text>
+  <circle cx="300" cy="118" r="5" fill="#F97316" stroke="#fff" stroke-width="2"></circle>
+  <text x="312" y="112" fill="#EA580C" font-family="Outfit, sans-serif" font-size="13" font-weight="600">cliff</text>
+  <text x="320" y="252" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">MIC</text>
+  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">PTA</text>
+</svg>
+</div>
+</section>
+<section id="cfr-weighting-pta-by-the-real-mic-ecology" class="level2">
+<h2 class="anchored" data-anchor-id="cfr-weighting-pta-by-the-real-mic-ecology">CFR: weighting PTA by the real MIC ecology</h2>
+<p><strong>CFR</strong> (cumulative fraction of response) folds PTA over an <strong>MIC distribution</strong> from surveillance or local epidemiology:</p>
+<p>[ = _i (_i) P(_i) ]</p>
+<p>PTA asks “what if MIC is X?”<br>
+CFR asks “given the MICs we actually see, how often do we succeed?”</p>
+<p>If your MIC weights come from a different region, year, or species complex than your clinical question, CFR becomes a precise answer to the wrong question.</p>
+</section>
+<section id="a-minimal-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-minimal-workflow">A minimal workflow</h2>
+<ol type="1">
+<li>Define regimen and PK model (with provenance).</li>
+<li>Define free-drug target(s).</li>
+<li>Simulate <img src="https://latex.codecogs.com/png.latex?N"> virtual subjects.</li>
+<li>Compute PTA on an MIC grid.</li>
+<li>Optionally weight by an MIC distribution → CFR.</li>
+<li>Report sensitivity to binding, IIV, and MIC source.</li>
+</ol>
+</section>
+<section id="takeaway-for-modelers" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
+<ul>
+<li>PTA is a <strong>curve over MIC</strong>; CFR is a <strong>scalar under an epidemiology prior</strong>.</li>
+<li>Sample size and seed reporting are part of reproducibility, not decoration.</li>
+<li>Joint targets (two drugs, two conditions) need joint PTA — not the average of two separate success rates.</li>
+</ul>
+<p>Previous: <a href="../learning/01-pkpd-targets-and-mic.html">PK/PD targets and the MIC</a> · Next: <a href="../learning/03-resistance-tolerance-persistence.html">Resistance, tolerance, and persistence</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/02-pta-cfr-virtual-populations.html</guid>
+  <pubDate>Fri, 16 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Resistance, tolerance, and persistence in PK/PD language</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/03-resistance-tolerance-persistence.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In clinical conversation, “the antibiotic did not work” is often collapsed into <strong>resistance</strong>. For modeling, that collapse is expensive: it points the simulator at the wrong mechanism.</p>
+<p>This lesson maps three survival ideas onto what a PK/PD model can and cannot see.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Conceptual distinctions for simulation and evidence interpretation. Related preprint context: <a href="https://doi.org/10.1101/2025.02.12.637810">comparative modeling of resistance, tolerance, and persistence</a>.</p>
+</div>
+</div>
+<section id="three-words-three-model-objects" class="level2">
+<h2 class="anchored" data-anchor-id="three-words-three-model-objects">Three words, three model objects</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 21%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Core idea</th>
+<th>What usually moves in a model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Resistance</strong></td>
+<td>Heritable reduced susceptibility</td>
+<td>Higher MIC / shifted PD curve</td>
+</tr>
+<tr class="even">
+<td><strong>Tolerance</strong></td>
+<td>Population survives longer under drug stress without a large MIC shift</td>
+<td>Slower kill rate, longer time-kill shoulder</td>
+</tr>
+<tr class="odd">
+<td><strong>Persistence</strong></td>
+<td>Small subpopulation survives much longer</td>
+<td>Biphasic kill; a refractory fraction</td>
+</tr>
+</tbody>
+</table>
+<p>Resistance changes the <strong>threshold</strong>.<br>
+Tolerance and persistence change the <strong>time course of killing</strong> even when the threshold looks acceptable.</p>
+<div class="learn-figure" aria-label="Time-kill curves for susceptible, tolerant, and persistent populations">
+<svg viewbox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="300" fill="#F8FAFC"></rect>
+  <line x1="56" y1="30" x2="56" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <line x1="56" y1="230" x2="600" y2="230" stroke="#CBD5E1" stroke-width="1.5"></line>
+  <path d="M70,50 C120,55 160,80 200,130 C260,200 300,220 360,225" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,50 C140,60 200,90 260,130 C330,175 400,195 520,210" fill="none" stroke="#F97316" stroke-width="3" stroke-linecap="round"></path>
+  <path d="M70,50 C110,55 150,75 180,110 C210,145 230,160 250,168 C300,175 380,178 560,182" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"></path>
+  <text x="370" y="220" fill="#0D9488" font-family="Outfit, sans-serif" font-size="12" font-weight="700">susceptible kill</text>
+  <text x="470" y="200" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">tolerance</text>
+  <text x="430" y="168" fill="#7C3AED" font-family="Outfit, sans-serif" font-size="12" font-weight="700">persistence tail</text>
+  <text x="320" y="262" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" text-anchor="middle">Time under drug pressure</text>
+  <text x="22" y="140" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13" transform="rotate(-90 22 140)" text-anchor="middle">Viable bacteria</text>
+</svg>
+</div>
+</section>
+<section id="why-mic-only-pta-can-look-fine-and-still-fail" class="level2">
+<h2 class="anchored" data-anchor-id="why-mic-only-pta-can-look-fine-and-still-fail">Why MIC-only PTA can look “fine” and still fail</h2>
+<p>A regimen can show high PTA against the measured MIC distribution while:</p>
+<ul>
+<li>a tolerant population dies too slowly for the treatment duration,</li>
+<li>a persistent fraction seeds relapse,</li>
+<li>or the assay MIC understates the relevant effect-site challenge.</li>
+</ul>
+<p>That does not make PTA useless. It means PTA answers a <strong>specific question</strong> (exposure vs threshold), not the entire clinical narrative.</p>
+</section>
+<section id="practical-modeling-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="practical-modeling-checklist">Practical modeling checklist</h2>
+<ol type="1">
+<li>Label whether your PD endpoint is <strong>inhibition</strong> (MIC-style) or <strong>killing</strong> (time-kill / CFU decline).</li>
+<li>If you only have MIC targets, say so explicitly in the limitations.</li>
+<li>When comparing pathogens, do not assume the same survival mode — <em>M. tuberculosis</em> and <em>S. aureus</em> are a useful contrast case in the preprint above.</li>
+<li>Keep genetics in a separate layer: a plasmid-borne β-lactamase may raise MIC; a persistence program may not.</li>
+</ol>
+</section>
+<section id="takeaway-for-modelers" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
+<ul>
+<li><strong>Resistance → move the MIC / PD curve.</strong></li>
+<li><strong>Tolerance / persistence → reshape kill kinetics and duration logic.</strong></li>
+<li>Report which of the three your simulation is actually testing.</li>
+</ul>
+<p>Previous: <a href="../learning/02-pta-cfr-virtual-populations.html">PTA, CFR, and virtual populations</a> · Related track: <a href="../learning/04-chromosome-vs-plasmid-resistance.html">Chromosome vs plasmid resistance</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Antibiotic PK/PD</category>
+  <guid>https://vahhabpiranfar.com/learning/03-resistance-tolerance-persistence.html</guid>
+  <pubDate>Fri, 16 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Chromosome vs plasmid resistance for PK/PD modelers</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>PK/PD models rarely simulate DNA. They simulate <strong>exposure</strong> and a <strong>phenotype</strong> — often an MIC or a kill curve. Genetics still matters, because it tells you how stable that phenotype is and how it might spread between patients or species.</p>
+<p>This secondary-track lesson is a bridge: enough bacterial genetics to stop treating every MIC as the same kind of object.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Genetics-for-modelers, not a full genomics course. Pair with the PK/PD track starting at <a href="../learning/01-pkpd-targets-and-mic.html">targets and MIC</a>.</p>
+</div>
+</div>
+<section id="two-genomic-homes-for-resistance" class="level2">
+<h2 class="anchored" data-anchor-id="two-genomic-homes-for-resistance">Two genomic homes for resistance</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Chromosomal</th>
+<th>Plasmid-borne (typical)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inheritance</td>
+<td>Vertical (mother → daughter)</td>
+<td>Vertical <strong>and</strong> often horizontal</td>
+</tr>
+<tr class="even">
+<td>Dose effect</td>
+<td>Usually one/few copies per genome</td>
+<td>Copy number can amplify expression</td>
+</tr>
+<tr class="odd">
+<td>Mobility</td>
+<td>Mostly within lineage</td>
+<td>Can jump lineages / species</td>
+</tr>
+<tr class="even">
+<td>Modeling implication</td>
+<td>Phenotype more lineage-stable</td>
+<td>MIC ecology can shift faster; local epidemiology ages quicker</td>
+</tr>
+</tbody>
+</table>
+<p>A chromosomal target-site mutation and a plasmid β-lactamase can produce the “same” higher MIC in a table — and very different public-health and uncertainty stories.</p>
+</section>
+<section id="what-changes-inside-a-pkpd-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="what-changes-inside-a-pkpd-workflow">What changes inside a PK/PD workflow</h2>
+<ol type="1">
+<li><p><strong>MIC distribution provenance</strong><br>
+If resistance is plasmid-driven and locally epidemic, last year’s surveillance weights may be stale.</p></li>
+<li><p><strong>Heterogeneity inside “one MIC”</strong><br>
+Same categorical MIC breakpoint can hide different enzyme burdens or copy numbers.</p></li>
+<li><p><strong>Combination regimens</strong><br>
+Inhibitor partners (for example avibactam) are meaningful when the mechanism is enzyme-mediated; they are the wrong lever for some chromosomal target mutations.</p></li>
+<li><p><strong>Uncertainty labeling</strong><br>
+Mark whether MIC inputs reflect a stable clonal background or a mobile element–shaped ecology.</p></li>
+</ol>
+<div class="learn-figure" aria-label="Chromosome and plasmid both feeding an MIC input used by a PK/PD model">
+<svg viewbox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="260" fill="#F8FAFC"></rect>
+  <circle cx="120" cy="120" r="52" fill="none" stroke="#0D9488" stroke-width="3"></circle>
+  <text x="120" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">chromosome</text>
+  <ellipse cx="250" cy="120" rx="34" ry="22" fill="none" stroke="#F97316" stroke-width="3"></ellipse>
+  <text x="250" y="125" text-anchor="middle" fill="#EA580C" font-family="Outfit, sans-serif" font-size="12" font-weight="700">plasmid</text>
+  <path d="M175,120 L300,120" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"></path>
+  <defs>
+    <marker id="arrow" markerwidth="8" markerheight="8" refx="6" refy="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#94A3B8"></path>
+    </marker>
+  </defs>
+  <rect x="310" y="88" width="100" height="64" rx="12" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"></rect>
+  <text x="360" y="125" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">MIC</text>
+  <path d="M410,120 L470,120" stroke="#94A3B8" stroke-width="2"></path>
+  <rect x="470" y="78" width="140" height="84" rx="12" fill="#0B1628"></rect>
+  <text x="540" y="115" text-anchor="middle" fill="#FFFFFF" font-family="Outfit, sans-serif" font-size="13" font-weight="700">PK/PD</text>
+  <text x="540" y="138" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="IBM Plex Sans, sans-serif" font-size="12">PTA / CFR</text>
+  <text x="320" y="230" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Genotype informs the phenotype input — the model still runs on exposure vs effect.</text>
+</svg>
+</div>
+</section>
+<section id="takeaway-for-modelers" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway-for-modelers">Takeaway for modelers</h2>
+<ul>
+<li>Do not ask genetics to replace PK/PD; ask it to <strong>annotate the MIC layer</strong>.</li>
+<li>Plasmid ecology → refresh surveillance weights and mechanism assumptions more aggressively.</li>
+<li>Chromosomal lineage structure → stability helps, but still verify assay and species ID.</li>
+</ul>
+<p>Back to the PK/PD spine: <a href="../learning/03-resistance-tolerance-persistence.html">Resistance, tolerance, and persistence</a>.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Learning</category>
+  <category>Bacterial Genetics</category>
+  <guid>https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html</guid>
+  <pubDate>Fri, 16 Oct 2026 04:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

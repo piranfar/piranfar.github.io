@@ -2130,3 +2130,111 @@ blockquote {
   .viz-bug { opacity: 1; animation: none; }
   .viz-bug-clear { opacity: 0.4; }
 }
+
+/* =============================================
+   LEARNING
+   ============================================= */
+.learning-intro {
+  position: relative;
+  margin: 0.25rem 0 2rem;
+  padding: 1.6rem 1.75rem;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 70% 120% at 100% 0%, rgba(13, 148, 136, 0.16), transparent 55%),
+    linear-gradient(145deg, #0B1628 0%, #0F2137 60%, #0A2A3C 100%);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.learning-eyebrow {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  margin-bottom: 0.55rem;
+}
+
+.learning-intro > p:has(.learning-eyebrow) {
+  margin: 0 0 0.55rem;
+}
+
+.learning-lead {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 42rem;
+  color: rgba(248, 250, 252, 0.9);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.learning-tracks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2.25rem;
+}
+
+.learning-track {
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.learning-track--primary {
+  border-color: rgba(13, 148, 136, 0.35);
+  background: linear-gradient(180deg, rgba(13, 148, 136, 0.06), var(--surface) 55%);
+}
+
+.learning-track-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  margin-bottom: 0.45rem;
+}
+
+.learning-track h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.learning-track p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.learn-figure {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.learn-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .learning-tracks {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-intro {
+    padding: 1.35rem 1.25rem;
+  }
+}

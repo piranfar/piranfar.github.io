@@ -7,5 +7,14 @@
       "/posts/unemployment-paradox.html",
       "/posts/discuss.html"
     ]
+  },
+  {
+    "listing": "/learning.html",
+    "items": [
+      "/learning/01-pkpd-targets-and-mic.html",
+      "/learning/02-pta-cfr-virtual-populations.html",
+      "/learning/03-resistance-tolerance-persistence.html",
+      "/learning/04-chromosome-vs-plasmid-resistance.html"
+    ]
   }
 ]
