@@ -1,10 +1,10 @@
 ---
 title: "Vahhab Piranfar"
 pagetitle: "Vahhab Piranfar | Antimicrobial Resistance and Antibiotic PK/PD Modeling"
-subtitle: "Microbiologist · Antimicrobial Resistance Researcher · Computational Modeler"
 description: "Vahhab Piranfar is a molecular microbiologist and computational researcher working on antimicrobial resistance, bacterial modeling, antibiotic PK/PD simulation, pharmacometrics, and reproducible evidence synthesis."
 keywords: "antimicrobial resistance, bacterial modeling, antibiotic PK/PD, antimicrobial pharmacometrics, Monte Carlo simulation, virtual populations, clinical microbiology, reproducible research"
 toc: false
+title-block-style: none
 include-in-header: gtm-head.html
 include-before-body: gtm-body.html
 ---
@@ -30,47 +30,42 @@ include-before-body: gtm-body.html
 </svg>
 ```
 
-::: {.grid .align-items-center}
-::: {.g-col-12 .g-col-md-4}
+::: {.hero-layout}
+::: {.hero-photo-col}
 ![](profile.jpg){.hero-photo fig-alt="Portrait of Vahhab Piranfar"}
 :::
 
-::: {.g-col-12 .g-col-md-8}
+::: {.hero-copy}
 <span class="hero-eyebrow">Molecular Microbiologist · EB-1A Recipient</span>
 
-## Modeling bacterial pathogens, antibiotic exposure, and antimicrobial resistance
+# Vahhab Piranfar
 
-<p class="hero-body">I work at the intersection of <strong>clinical microbiology</strong>, <strong>antimicrobial resistance</strong>, and <strong>computational modeling</strong>. My research combines bacterial evidence, antibiotic PK/PD, virtual populations, and reproducible simulation to investigate pathogen behavior, treatment response, and resistance.</p>
+<p class="hero-headline">Modeling bacterial pathogens, antibiotic exposure, and antimicrobial resistance</p>
 
-<div class="hero-badges">
-<span class="hero-pill">🦠 Antimicrobial Resistance</span>
-<span class="hero-pill">📈 Bacterial Modeling</span>
-<span class="hero-pill">💊 Antibiotic PK/PD</span>
-<span class="hero-pill">🔬 Clinical Microbiology</span>
-</div>
+<p class="hero-body">I work at the intersection of clinical microbiology, antimicrobial resistance, and computational modeling — turning bacterial evidence and antibiotic PK/PD into reproducible simulations of treatment response and resistance.</p>
 
-[Explore my projects](projects.qmd){.btn .btn-light}  [Read my publications](publications.qmd){.btn .btn-outline-light}
-
-<div class="hero-stats">
-<div>
-<span class="hero-stat-number">33+</span>
-<span class="hero-stat-label">Publications</span>
-</div>
-<div>
-<span class="hero-stat-number">650+</span>
-<span class="hero-stat-label">Citations</span>
-</div>
-<div>
-<span class="hero-stat-number">15+</span>
-<span class="hero-stat-label">Yrs Experience</span>
-</div>
-<div>
-<span class="hero-stat-number">EB-1A</span>
-<span class="hero-stat-label">Recognition</span>
-</div>
-</div>
+[Explore my projects](projects.qmd){.btn .btn-light} [Read my publications](publications.qmd){.btn .btn-outline-light}
 :::
 :::
+:::
+
+::: {.home-metrics}
+<div class="home-metric">
+<span class="home-metric-number">33+</span>
+<span class="home-metric-label">Publications</span>
+</div>
+<div class="home-metric">
+<span class="home-metric-number">650+</span>
+<span class="home-metric-label">Citations</span>
+</div>
+<div class="home-metric">
+<span class="home-metric-number">15+</span>
+<span class="home-metric-label">Yrs Experience</span>
+</div>
+<div class="home-metric">
+<span class="home-metric-number">EB-1A</span>
+<span class="home-metric-label">Recognition</span>
+</div>
 :::
 
 ::: {.signature-viz}
@@ -125,8 +120,8 @@ include-before-body: gtm-body.html
 <rect class="viz-bug viz-bug-clear" x="510" y="116" width="16" height="6.5" rx="3.25" transform="rotate(40 518 119)"/>
 </g>
 <text x="360" y="150" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="600">fT &gt; MIC</text>
-<text x="24" y="160" fill="#64748B" font-family="Inter, sans-serif" font-size="13" transform="rotate(-90 24 160)" text-anchor="middle">Concentration</text>
-<text x="327" y="304" fill="#64748B" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
+<text x="24" y="160" fill="#64748B" font-family="Outfit, sans-serif" font-size="13" transform="rotate(-90 24 160)" text-anchor="middle">Concentration</text>
+<text x="327" y="304" fill="#64748B" font-family="Outfit, sans-serif" font-size="13" text-anchor="middle">Time after dose</text>
 </svg>
 </div>
 ```
@@ -134,36 +129,31 @@ include-before-body: gtm-body.html
 :::
 :::
 
+## Selected work
+
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-bug"></i></span> Clinical Microbiology
-Pathogen detection, molecular diagnostics, antimicrobial susceptibility, and resistance research across clinical and translational settings.
+### <span class="feature-icon"><i class="bi bi-graph-up"></i></span> [CAZ-AVI PK/PD modeling](projects/caz-avi-evidence-composite-pkpd.qmd)
+Provenance-aware Monte Carlo framework for antibiotic exposure, joint targets, and uncertainty analysis.
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-diagram-3"></i></span> Antibiotic & Bacterial Modeling
-PK/PD simulation, virtual populations, bacterial-response modeling, and quantitative analysis of antibiotic exposure and target attainment.
+### <span class="feature-icon"><i class="bi bi-cpu"></i></span> [AI Bacteriology Hub](projects/ai-bacteriology-hub.qmd)
+Research platform for bacteriology knowledge, AMR reasoning, and sandboxed lab tools.
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
-### <span class="feature-icon"><i class="bi bi-globe2"></i></span> Reproducible Research Systems
-Provenance-aware evidence synthesis, scientific software, simulation workflows, and transparent computational research packages.
+### <span class="feature-icon"><i class="bi bi-journal-richtext"></i></span> [Under publishing](publications.qmd#under-publishing)
+Sole-author manuscripts on rifampicin tolerance, CAZ-AVI TDM, and resistance modeling.
 :::
 :::
 :::
 
 ## Current focus
 
-I am a molecular microbiologist and computational researcher working on antimicrobial resistance, bacterial pathogens, and antibiotic PK/PD modeling. Based in **Jersey City, New Jersey**, I combine clinical laboratory experience with pharmacometric simulation, bioinformatics, molecular modeling, and provenance-aware evidence synthesis. My current research focuses on converting fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty.
-
-::: {.info-card}
-### Vision Statement
-> "The microscope remains essential, but it is no longer our only lens. By combining microbiology with computational modeling, we can study how bacterial pathogens, antibiotic exposure, and resistance interact across scales."
->
-> — **Vahhab Piranfar**
-:::
+Based in **Jersey City, New Jersey**, I convert fragmented antimicrobial evidence into reproducible models of antibiotic exposure, bacterial response, target attainment, and resistance-related uncertainty.

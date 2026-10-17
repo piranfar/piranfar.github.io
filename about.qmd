@@ -97,6 +97,10 @@ Thesis focused on nanoparticle-based antimicrobial strategies and their efficacy
 
 ## Selected Publications
 
-- **Piranfar V.** (2025). Comparative modeling of antibiotic resistance in *Mycobacterium tuberculosis*. *bioRxiv*.
+- **Piranfar V.** (2026). Rifampicin tolerance classification is bounded by assay detection floor among clinical *Mycobacterium tuberculosis* isolates. *SSRN* (under review). [10.2139/ssrn.7533152](https://doi.org/10.2139/ssrn.7533152)
+- **Piranfar V.** (2026). Implications of ceftazidime-avibactam clearance correlation for target selection and single-analyte TDM. *Research Square* (under review).
+- **Piranfar V.** (2025). Comparative modeling of antibiotic resistance, tolerance, and persistence in *Mycobacterium tuberculosis* and *Staphylococcus aureus*. *bioRxiv*.
 - **Mirnejad R, Piranfar V, et al.** (2013). A duplex PCR for rapid detection of *Brucella* in human blood. *Asian Pacific Journal of Tropical Medicine*.
 - **Book**: *Metal Nanoparticles in Microbiology* (Persian). ISBN: 978-964-504-228-8.
+
+Full list: [Publications](publications.qmd).

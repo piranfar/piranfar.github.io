@@ -1,0 +1,40 @@
+# Vahhab Piranfar
+
+> Molecular microbiologist and computational researcher working on antimicrobial resistance (AMR), antibiotic PK/PD modeling, bacterial modeling, and reproducible evidence synthesis. Based in Jersey City, New Jersey, USA. EB-1A recipient.
+
+Website: https://vahhabpiranfar.com/
+ORCID: https://orcid.org/0000-0003-3653-5739
+Google Scholar: https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en
+GitHub: https://github.com/piranfar
+LinkedIn: https://www.linkedin.com/in/vahhab-piranfar/
+
+## Focus
+
+- Antimicrobial resistance and bacterial adaptation
+- Antibiotic PK/PD and pharmacometric simulation (virtual populations, PTA/CFR, Monte Carlo)
+- Provenance-aware evidence-composite modeling for fragmented antimicrobial evidence
+- Clinical microbiology and molecular diagnostics
+
+## Key pages
+
+- [Home](https://vahhabpiranfar.com/): research profile and scientific overview
+- [Projects](https://vahhabpiranfar.com/projects.html): research software and platforms
+- [Publications](https://vahhabpiranfar.com/publications.html): peer-reviewed work and under-review manuscripts
+- [About](https://vahhabpiranfar.com/about.html): background, interests, and skills
+- [Discuss & Review](https://vahhabpiranfar.com/blog.html): research notes and paper discussions
+- [Microbiology Encyclopedia](https://vahhabpiranfar.com/Microbiology_Encyclopedia/): curated medical microbiology knowledge base
+
+## Selected research (sole author unless noted)
+
+- Rifampicin tolerance classification is bounded by assay detection floor among clinical Mycobacterium tuberculosis isolates — SSRN, under review — https://doi.org/10.2139/ssrn.7533152
+- Implications of Ceftazidime-Avibactam Clearance Correlation for Target Selection and Single-Analyte TDM — Research Square, under review — https://doi.org/10.21203/rs.3.rs-10713786/v1
+- Comparative modeling of antibiotic resistance, tolerance, and persistence in Mycobacterium tuberculosis and Staphylococcus aureus — bioRxiv preprint — https://doi.org/10.1101/2025.02.12.637810
+
+## Flagship projects
+
+- Ceftazidime–Avibactam Evidence-Composite PK/PD Modeling — https://vahhabpiranfar.com/projects/caz-avi-evidence-composite-pkpd.html
+- AI Bacteriology Hub — https://ai-bacteriology.vahhabpiranfar.com/
+
+## Contact
+
+Collaboration, peer review, and research software inquiries: LinkedIn (https://www.linkedin.com/in/vahhab-piranfar/) or GitHub (https://github.com/piranfar).
