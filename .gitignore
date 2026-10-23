@@ -30,3 +30,7 @@ env/
 
 /.quarto/
 **/*.quarto_ipynb
+
+# YouTube shorts pipeline: large extension zip and render outputs
+youtube-shorts/tools/
+youtube-shorts/render/
