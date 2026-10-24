@@ -26,6 +26,7 @@ os.makedirs(OUT, exist_ok=True)
 BOX_Z = 183.405            # MemProtMD box C (A)
 BILAYER_CENTER_LOCAL = 105.0   # DPPC z-centre in the MemProtMD file (A)
 ACRB_XY_LOCAL = (73.7, 80.7)   # AcrB xy centroid in the MemProtMD file (A)
+DARPIN_FIRST_RES = 3111        # first non-AcrB residue in the MemProtMD numbering
 
 OM_BOTTOM_Z = 36.0         # scene: lowest OM phospholipid atom (A)
 PERIPLASM = 210.0          # scene: OM inner leaflet to IM outer leaflet (A)
@@ -52,8 +53,15 @@ with open(SRC_IM) as fh:
             continue
         x, y, z = parse(line)
         is_lipid = line[17:20] == 'DPP'
-        if not is_lipid and z > 145.0:       # wrapped periplasmic-domain atoms
-            z -= BOX_Z
+        # 4DX5 was crystallised with two DARPin binders (chains D, E); MemProtMD
+        # renumbers all protein residues consecutively and the DARPins are
+        # residues 3111-3418 (AcrB chains A-C end at 3110). Drop them.
+        if not is_lipid and int(line[22:26]) >= DARPIN_FIRST_RES:
+            continue
+        if not is_lipid and z > 145.0:
+            # a single wrapped tail atom (Ser1043) sits beyond the cytoplasmic
+            # face; unwrapping it put a 3 nm spike on the periplasmic tip, so drop it
+            continue
         # rotate 180 deg about x, then translate
         x2, y2, z2 = x, -y, -z
         x2 += ACRB_XY[0] - ACRB_XY_LOCAL[0]
@@ -73,6 +81,38 @@ tmy = sum(p[1] for p in tm) / len(tm)
 dx, dy, dz = PBP_XY[0] - tmx, PBP_XY[1] - tmy, IM_CENTER_Z
 pbp = [fmt(line, x + dx, y + dy, z + dz) for line, (x, y, z) in pbp_raw]
 
+# ---------- patched lipid sheet for the tiles that carry no AcrB ----------
+# The MemProtMD sheet has a hole where AcrB sits. For the neighbouring tiles we
+# fill it with a disk of lipids borrowed from the opposite corner of the periodic
+# box (which is pure lipid), so AcrB appears only once in the scene.
+BOX_XY = (150.575, 159.290)
+HOLE_R = 52.0
+donor = (ACRB_XY[0] + BOX_XY[0] / 2, ACRB_XY[1] + BOX_XY[1] / 2)
+res_lines, res_xy = {}, {}
+for line in lip:
+    key = line[21:27]
+    x, y, z = parse(line)
+    res_lines.setdefault(key, []).append(line)
+    res_xy.setdefault(key, []).append((x, y))
+disk = []
+for key, pts in res_xy.items():
+    cx = sum(p[0] for p in pts) / len(pts)
+    cy = sum(p[1] for p in pts) / len(pts)
+    best = None
+    for i in (-1, 0, 1):
+        for j in (-1, 0, 1):
+            d = math.hypot(cx + i * BOX_XY[0] - donor[0], cy + j * BOX_XY[1] - donor[1])
+            if best is None or d < best[0]:
+                best = (d, i, j)
+    if best[0] < HOLE_R:
+        sx = best[1] * BOX_XY[0] + ACRB_XY[0] - donor[0]
+        sy = best[2] * BOX_XY[1] + ACRB_XY[1] - donor[1]
+        for line in res_lines[key]:
+            x, y, z = parse(line)
+            disk.append(fmt(line, x + sx, y + sy, z))
+lip_patched = lip + disk
+print('patch disk lipids (atoms):', len(disk))
+
 # remove lipids overlapping the PBP transmembrane helix (whole residues)
 keep, drop_res = [], set()
 for line in lip:
@@ -82,7 +122,8 @@ for line in lip:
 lip = [l for l in lip if l[21:27] not in drop_res]
 
 box = 'CRYST1  150.575  159.290  183.405  90.00  90.00  90.00 P 1           1\n'
-for name, lines in (('im_lipids.pdb', lip), ('im_acrb.pdb', prot), ('im_pbp1b.pdb', pbp)):
+for name, lines in (('im_lipids.pdb', lip), ('im_lipids_patched.pdb', lip_patched),
+                    ('im_acrb.pdb', prot), ('im_pbp1b.pdb', pbp)):
     with open(os.path.join(OUT, name), 'w') as fh:
         fh.write(box)
         fh.writelines(lines)
