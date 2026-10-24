@@ -53,8 +53,11 @@ def drawtexts(captions, offset, h):
         alpha = "if(lt(t\\,%.2f)\\,(t-%.2f)/0.4\\,if(gt(t\\,%.2f)\\,(%.2f-t)/0.4\\,1))" % (a + 0.4, a, b - 0.4, b)
         common = "enable='between(t\\,%.2f\\,%.2f)':alpha='%s':x=(w-text_w)/2:borderw=3:bordercolor=black@0.6" % (a, b, alpha)
         y_en = int(h * 0.17) if WITH_PERSIAN else int(h * 0.13)
+        # shrink long captions so they fit within 90 % of the frame width (9:16 frame)
+        w = h * 9 / 16
+        fs_en = min(int(h * 0.034), int(w * 0.9 / (0.56 * max(len(en), 1))))
         parts.append("drawtext=fontfile='%s':text='%s':fontsize=%d:fontcolor=white:y=h-%d:%s"
-                     % (fontpath(FONT_EN), esc(en), int(h * 0.034), y_en, common))
+                     % (fontpath(FONT_EN), esc(en), fs_en, y_en, common))
         if WITH_PERSIAN:
             parts.append("drawtext=fontfile='%s':text='%s':fontsize=%d:fontcolor=0xffd27a:y=h-%d:%s"
                          % (fontpath(FONT_FA), esc(fa), int(h * 0.030), int(h * 0.12), common))
