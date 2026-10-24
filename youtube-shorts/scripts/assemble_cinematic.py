@@ -43,15 +43,17 @@ def main():
     w = int(probe(tour, 'width'))
     d_tour = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of',
                                    'default=nw=1:nk=1', tour], capture_output=True, text=True).stdout.strip())
+    XF = 0.6                                   # crossfade between the two clips (s)
     heads = []
-    for clip, off in ((tour, 0.0), (entry, d_tour)):
+    for clip, off in ((tour, 0.0), (entry, d_tour - XF)):
         js = clip.replace('.mp4', '_headlines.json')
         if os.path.exists(js):
             with open(js, encoding='utf-8') as fh:
                 heads += headline_filters(json.load(fh), off, h, w)
     title = ("drawtext=fontfile='%s':text='%s':fontsize=%d:fontcolor=white@0.85:x=(w-text_w)/2:y=h*0.045"
              ":borderw=3:bordercolor=black@0.6" % (fontpath(FONT), esc(TITLE), int(h * 0.022)))
-    graph = "[0:v][1:v]concat=n=2:v=1:a=0[v0];[v0]" + ",".join([title] + heads) + "[v]"
+    graph = ("[0:v][1:v]xfade=transition=fade:duration=%.2f:offset=%.3f[v0];[v0]" % (XF, d_tour - XF)
+             + ",".join([title] + heads) + "[v]")
     with tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False, encoding='utf-8') as fh:
         fh.write(graph)
         script = fh.name

@@ -174,10 +174,11 @@ if MODE == 'tour':
         ('om', P(porin.x - 2, 10.5), 32.0, P(porin.x - 7, 13.0), 'OUTER MEMBRANE', 'LPS + PHOSPHOLIPIDS', 'bottom', 'left', None),
         ('porin', P(porin.x, porin.z + 1.5), 21.0, P(porin.x + 0.5, porin.z + 0.5), 'PORIN  OmpF', 'THE WAY IN', 'top', 'left', 'THE ONLY WAY IN'),
         ('pg', P(porin.x + 2, -1.5), 22.0, P(porin.x + 5.0, -2.4), 'PEPTIDOGLYCAN', 'THE THIN WALL', 'top', 'left', None),
-        ('tem1', P(tem.x, tem.z), 18.0, P(tem.x + 0.5, tem.z + 0.5), 'BETA-LACTAMASE  TEM-1', 'DESTROYS THE DRUG', 'top', 'left', 'THIS ENZYME DESTROYS ANTIBIOTICS'),
+        ('tem1', P(tem.x, tem.z + 0.5), 19.0, P(tem.x + 0.5, tem.z + 0.5), 'TEM-1', 'BETA-LACTAMASE', 'top', 'left', 'THIS ENZYME DESTROYS ANTIBIOTICS'),
         ('im', P(porin.x + 4, -19.0), 34.0, P(porin.x + 9, -19.8), 'INNER MEMBRANE', '', 'top', 'right', None),
-        ('pbp', P(pbp.x, pbp.z - 1.0), 26.0, P(pbp.x, pbp.z + 2.0), 'PBP1b', 'THE REAL TARGET', 'top', 'right', 'THE REAL TARGET'),
-        ('acrb', P(acrb.x, acrb.z), 34.0, P(acrb.x, acrb.z + 3.0), 'EFFLUX PUMP  AcrB', 'THROWS DRUGS OUT', 'top', 'left', 'AND THIS ONE THROWS THEM OUT'),
+        # PBP sits screen-left of centre so the label has clear space on the screen-right side
+        ('pbp', P(pbp.x - 2.5, pbp.z - 1.0), 30.0, P(pbp.x, pbp.z + 2.0), 'PBP1b', 'THE REAL TARGET', 'top', 'right', 'THE REAL TARGET'),
+        ('acrb', P(acrb.x, acrb.z), 38.0, P(acrb.x, acrb.z + 3.0), 'EFFLUX PUMP  AcrB', 'THROWS DRUGS OUT', 'top', 'left', 'AND THIS ONE THROWS THEM OUT'),
     ]
     cam_key(1, center, 72.0, dz=6.0)
     cam_key(LEAD, center, 62.0, dz=5.0)
@@ -221,7 +222,7 @@ elif MODE == 'entry':
     mid_t = (targets[380] + targets[450]) / 2
     lab_p = make_label('porin', P(porin.x + 0.5, porin.z + 0.5), 'PORIN  OmpF', 'THE WAY IN', mid_p, DIST, 'top', 'left')
     pop(lab_p, 150, 320)
-    lab_t = make_label('tem1', P(tem.x + 0.5, tem.z + 0.5), 'BETA-LACTAMASE  TEM-1', 'DESTROYS THE DRUG', mid_t, DIST, 'top', 'right')
+    lab_t = make_label('tem1', P(tem.x + 0.5, tem.z + 0.5), 'TEM-1', 'BETA-LACTAMASE', mid_t, DIST, 'bottom', 'right')
     pop(lab_t, 380, 480)
     headlines = [(20 / FPS, 110 / FPS, 'A BETA-LACTAM ARRIVES'), (200 / FPS, 300 / FPS, 'THROUGH THE PORIN'),
                  (330 / FPS, 450 / FPS, 'INTO THE PERIPLASM')]
