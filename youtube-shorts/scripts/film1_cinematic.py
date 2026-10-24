@@ -102,7 +102,10 @@ def make_label(name, anchor, title, sub, target, dist, side='top', align='left',
         x = target.x + 0.44 * W if align == 'left' else target.x - 0.44 * W + tw
         z = target.z + 0.30 * H if side == 'top' else target.z - 0.30 * H
         pos = Vector((x, cut_y + 0.3, z))
-    tw = 0.62 * size * len(title)
+    # width of the widest line (the subtitle is 0.6x the size but may be longer)
+    tw = 0.62 * size * max(len(title), 0.6 * len(sub) if sub else 0)
+    if follow is None and align == 'right':
+        pos.x = target.x - 0.44 * W + tw
     t = text_obj('HUD_' + name, title, size, MAT_TEXT)
     t.location = pos
     trk = t.constraints.new('TRACK_TO')
@@ -260,9 +263,9 @@ elif MODE == 'entry':
     mid_p = (targets[220] + targets[300]) / 2
     mid_t = (targets[380] + targets[450]) / 2
     lab_p = make_label('porin', P(porin.x + 0.5, porin.z + 0.5), 'PORIN  OmpF', 'THE WAY IN', mid_p, DIST, 'top', 'left')
-    pop(lab_p, 150, 320)
+    pop(lab_p, 210, 330)       # after the ceftazidime tag has gone, so the two never overlap
     lab_t = make_label('tem1', P(tem.x + 0.5, tem.z + 0.5), 'TEM-1', 'BETA-LACTAMASE', mid_t, DIST, 'bottom', 'right')
-    pop(lab_t, 380, 500)
+    pop(lab_t, 380, 470)       # gone before the camera pushes in on the reaction
     headlines = [(20 / FPS, 110 / FPS, 'A BETA-LACTAM ARRIVES'), (200 / FPS, 300 / FPS, 'THROUGH THE PORIN'),
                  (330 / FPS, 450 / FPS, 'INTO THE PERIPLASM'), (500 / FPS, 560 / FPS, 'CAUGHT BY THE ENZYME'),
                  (570 / FPS, 650 / FPS, 'THE BETA-LACTAM RING IS BROKEN'), (660 / FPS, 735 / FPS, 'DESTROYED. NOW HARMLESS.')]
