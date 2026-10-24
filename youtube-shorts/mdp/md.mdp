@@ -1,0 +1,26 @@
+; Production MD — 10 ns, 300 K, 1 bar, frames every 10 ps (1000 frames)
+integrator      = md
+dt              = 0.002
+nsteps          = 5000000
+cutoff-scheme   = Verlet
+coulombtype     = PME
+rcoulomb        = 1.0
+rvdw            = 1.0
+pbc             = xyz
+tcoupl          = V-rescale
+tc-grps         = System
+tau_t           = 0.1
+ref_t           = 300
+pcoupl          = C-rescale
+pcoupltype      = isotropic
+tau_p           = 2.0
+ref_p           = 1.0
+compressibility = 4.5e-5
+gen_vel         = no
+constraints     = h-bonds
+constraint_algorithm = lincs
+continuation    = yes
+nstxout-compressed = 5000
+compressed-x-grps   = System
+nstenergy       = 5000
+nstlog          = 5000

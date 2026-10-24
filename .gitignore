@@ -34,3 +34,7 @@ env/
 # YouTube shorts pipeline: large extension zip and render outputs
 youtube-shorts/tools/
 youtube-shorts/render/
+youtube-shorts/pdb/memprotmd/
+youtube-shorts/traj/
+youtube-shorts/blend/*.blend1
+youtube-shorts/blend/*.MNSession
