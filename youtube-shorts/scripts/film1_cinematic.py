@@ -75,23 +75,34 @@ def text_obj(name, body, size, mat):
 
 
 def pop(obj, f_in, f_out, rise=10):
-    for f, s in ((f_in - 1, 0.0), (f_in + rise, 1.0), (f_out - rise, 1.0), (f_out, 0.0)):
-        obj.scale = (s, s, s)
-        obj.keyframe_insert('scale', frame=f)
+    """scale 0 -> 1 at f_in, 1 -> 0 at f_out, applied to the label and its leader/dot."""
+    for o in [obj] + list(obj.get('_hud_parts', []) and [objs[n] for n in obj['_hud_parts']]):
+        for f, s in ((f_in - 1, 0.0), (f_in + rise, 1.0), (f_out - rise, 1.0), (f_out, 0.0)):
+            o.scale = (s, s, s)
+            o.keyframe_insert('scale', frame=f)
 
 
-def make_label(name, anchor, title, sub, target, dist, side='top', align='left'):
+def make_label(name, anchor, title, sub, target, dist, side='top', align='left', follow=None):
     """Label placed in a free corner of the frame (relative to the camera target at
-    distance 'dist'), sized to span <= 80 % of the frame width, with a leader to 'anchor'."""
+    distance 'dist'), sized to span <= 80 % of the frame width, with a leader to 'anchor'.
+    With follow=<object>, the whole label rides along with that object (world offset kept)."""
     H, W = frame_size(dist)
-    longest = max(len(title), int(len(sub) * 0.6) if sub else 0)
-    size = min(0.80 * W / (0.62 * max(longest, 1)), 0.075 * H)
+    if follow is not None:
+        # a tag riding on a moving molecule. The molecule travels well in front of the cut
+        # plane (closer to the camera than the camera target), so the visible frame around
+        # it is small: keep the tag small and centred just below it
+        size = 0.55
+        pos = anchor + Vector((0.62 * size * len(title) / 2.0, 0.0, -1.6))
+    else:
+        longest = max(len(title), int(len(sub) * 0.6) if sub else 0)
+        size = min(0.80 * W / (0.62 * max(longest, 1)), 0.075 * H)
+        tw = 0.62 * size * len(title)
+        # the camera sits on +Y looking toward -Y, so screen-right is world -X:
+        # text starts at the screen-left edge and runs toward decreasing world x
+        x = target.x + 0.44 * W if align == 'left' else target.x - 0.44 * W + tw
+        z = target.z + 0.30 * H if side == 'top' else target.z - 0.30 * H
+        pos = Vector((x, cut_y + 0.3, z))
     tw = 0.62 * size * len(title)
-    # the camera sits on +Y looking toward -Y, so screen-right is world -X:
-    # text starts at the screen-left edge and runs toward decreasing world x
-    x = target.x + 0.44 * W if align == 'left' else target.x - 0.44 * W + tw
-    z = target.z + 0.30 * H if side == 'top' else target.z - 0.30 * H
-    pos = Vector((x, cut_y + 0.3, z))
     t = text_obj('HUD_' + name, title, size, MAT_TEXT)
     t.location = pos
     trk = t.constraints.new('TRACK_TO')
@@ -102,20 +113,7 @@ def make_label(name, anchor, title, sub, target, dist, side='top', align='left')
         s = text_obj('HUD_' + name + '_sub', sub, size * 0.6, MAT_SUB)
         s.parent = t
         s.location = (0.0, -size * 0.95, 0.0)
-    # leader: from the anchor to the nearer end of the text baseline
-    end_x = pos.x + size * 0.25 if abs(anchor.x - pos.x) < abs(anchor.x - (pos.x - tw)) else pos.x - tw - size * 0.25
-    lc = bpy.data.curves.new('L_' + name, 'CURVE')
-    lc.dimensions = '3D'
-    lc.bevel_depth = size * 0.05
-    sp = lc.splines.new('POLY')
-    sp.points.add(1)
-    sp.points[0].co = (*anchor, 1.0)
-    sp.points[1].co = (end_x, pos.y, pos.z - size * 0.15, 1.0)
-    line = bpy.data.objects.new('HUD_' + name + '_line', lc)
-    coll.objects.link(line)
-    line.data.materials.append(MAT_LINE)
-    line.parent = t
-    line.matrix_parent_inverse = t.matrix_world.inverted()
+    # anchor dot (no rotation of its own, so the leader parented to it stays put)
     bpy.ops.mesh.primitive_uv_sphere_add(radius=size * 0.18, location=anchor, segments=16, ring_count=8)
     dot = bpy.context.active_object
     dot.name = 'HUD_' + name + '_dot'
@@ -123,8 +121,30 @@ def make_label(name, anchor, title, sub, target, dist, side='top', align='left')
         c.objects.unlink(dot)
     coll.objects.link(dot)
     dot.data.materials.append(MAT_DOT)
-    dot.parent = t
-    dot.matrix_parent_inverse = t.matrix_world.inverted()
+    # leader: from the dot to the nearer end of the text baseline, in dot-local coordinates
+    if follow is not None:
+        end = Vector((0.0, 0.0, pos.z - anchor.z + size * 1.15))      # straight down to the tag
+    else:
+        end_x = pos.x + size * 0.25 if abs(anchor.x - pos.x) < abs(anchor.x - (pos.x - tw)) else pos.x - tw - size * 0.25
+        end = Vector((end_x, pos.y, pos.z - size * 0.15)) - anchor
+    lc = bpy.data.curves.new('L_' + name, 'CURVE')
+    lc.dimensions = '3D'
+    lc.bevel_depth = size * 0.05
+    sp = lc.splines.new('POLY')
+    sp.points.add(1)
+    sp.points[0].co = (0.0, 0.0, 0.0, 1.0)
+    sp.points[1].co = (*end, 1.0)
+    line = bpy.data.objects.new('HUD_' + name + '_line', lc)
+    coll.objects.link(line)
+    line.data.materials.append(MAT_LINE)
+    line.parent = dot
+    if follow is not None:
+        for o, off in ((t, pos - anchor), (dot, Vector((0.0, 0.0, 0.0)))):
+            cl = o.constraints.new('COPY_LOCATION')
+            cl.target = follow
+            cl.use_offset = True
+            o.location = off
+    t['_hud_parts'] = [dot.name, line.name]
     return t
 
 
@@ -199,34 +219,54 @@ elif MODE == 'entry':
     for o in objs:
         if o.name.startswith('Drug_') or o.name.startswith('Path_drug'):
             o.hide_render = o.name.startswith('Path_drug')
-    for name, strength in (('MAT_drug_travel', 6.0), ('MAT_drug_docked', 4.0), ('MAT_drug_product', 2.0)):
+    # constant glow, but keep the cross-fades (travel -> docked -> hydrolyzed product)
+    fades = {'MAT_drug_travel': {1: 1.0, 470: 1.0, 484: 0.0},
+             'MAT_drug_docked': {1: 0.0, 470: 0.0, 484: 1.0, 548: 1.0, 562: 0.0},
+             'MAT_drug_product': {1: 0.0, 548: 0.0, 562: 1.0, 700: 1.0, 730: 0.0}}
+    # the reaction is filmed close, so the bound forms glow gently and keep their structure visible
+    for name, strength in (('MAT_drug_travel', 6.0), ('MAT_drug_docked', 1.6), ('MAT_drug_product', 0.9)):
         mat = bpy.data.materials[name]
         tree = mat.node_tree
         if tree.animation_data:
             tree.animation_data_clear()
         b = tree.nodes['Principled BSDF']
         b.inputs['Emission Strength'].default_value = strength
-        b.inputs['Alpha'].default_value = 1.0 if name == 'MAT_drug_travel' else 0.0
+        a = b.inputs['Alpha']
+        for f, v in sorted(fades[name].items()):
+            a.default_value = v
+            a.keyframe_insert('default_value', frame=f)
     drug = objs['Drug_ceftazidime']
+    site = objs['Target_TEM1_site'].matrix_world.translation.copy()
     DIST = 26.0
     cam_key(1, center, 72.0, dz=6.0)
     cam_key(90, Vector((porin.x, cut_y, 12.0)), 40.0, dz=6.0)
     targets = {}
-    for fr in (150, 220, 300, 380, 450, 480):
+    for fr in (150, 220, 300, 380, 450):
         sc.frame_set(fr)
         d = drug.matrix_world.translation
         targets[fr] = Vector((d.x, cut_y, d.z))
         cam_key(fr, targets[fr], DIST, dx=1.5, dz=2.0)
-    # the camera keeps moving while a label is up: place it for the mid-point of its window
+    # reaction close-up: push in on the active site while the ring is opened, then ease out
+    site_t = Vector((site.x, cut_y, site.z))
+    cam_key(520, site_t, 17.0, dx=0.8, dz=1.0)
+    cam_key(600, site_t, 15.0, dx=0.4, dz=0.8)
+    cam_key(690, site_t, 16.0, dx=-0.3, dz=1.2)
+    cam_key(740, site_t, 24.0, dx=-1.0, dz=2.5)
+    # labels (camera keeps moving: place each for the mid-point of its window)
+    sc.frame_set(165)
+    lab_d = make_label('drug', drug.matrix_world.translation.copy(), 'CEFTAZIDIME', 'A BETA-LACTAM ANTIBIOTIC',
+                       (targets[150] + targets[220]) / 2, DIST, 'bottom', 'right', follow=drug)
+    pop(lab_d, 100, 205)       # ends before the porin label's leader crosses it
     mid_p = (targets[220] + targets[300]) / 2
     mid_t = (targets[380] + targets[450]) / 2
     lab_p = make_label('porin', P(porin.x + 0.5, porin.z + 0.5), 'PORIN  OmpF', 'THE WAY IN', mid_p, DIST, 'top', 'left')
     pop(lab_p, 150, 320)
     lab_t = make_label('tem1', P(tem.x + 0.5, tem.z + 0.5), 'TEM-1', 'BETA-LACTAMASE', mid_t, DIST, 'bottom', 'right')
-    pop(lab_t, 380, 480)
+    pop(lab_t, 380, 500)
     headlines = [(20 / FPS, 110 / FPS, 'A BETA-LACTAM ARRIVES'), (200 / FPS, 300 / FPS, 'THROUGH THE PORIN'),
-                 (330 / FPS, 450 / FPS, 'INTO THE PERIPLASM')]
-    END = 480
+                 (330 / FPS, 450 / FPS, 'INTO THE PERIPLASM'), (500 / FPS, 560 / FPS, 'CAUGHT BY THE ENZYME'),
+                 (570 / FPS, 650 / FPS, 'THE BETA-LACTAM RING IS BROKEN'), (660 / FPS, 735 / FPS, 'DESTROYED. NOW HARMLESS.')]
+    END = 740
     OUT = 'film1_cin_entry'
 else:
     raise SystemExit('MODE must be tour or entry')
