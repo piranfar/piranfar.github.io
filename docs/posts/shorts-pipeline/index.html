@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Vahhab Piranfar">
-<meta name="dcterms.date" content="2026-10-25">
-<meta name="description" content="A step-by-step account of producing a 60-second science Short from real protein structures and molecular dynamics, with the design decisions and the mistakes along the way.">
+<meta name="dcterms.date" content="2026-10-24">
+<meta name="description" content="A plain account of making the first antibiotic Short from real structures and short molecular dynamics, including the hydrolyzed-ligand approximation and the renders that failed.">
 
-<title>Building a Gram-Negative Cell Envelope for YouTube Shorts, From Real Structures – Vahhab Piranfar</title>
+<title>How I Built the Gram-Negative Envelope for a YouTube Short – Vahhab Piranfar</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -47,8 +47,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-867ec05194674b9d02258e23c81cfb12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -151,12 +149,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Building a Gram-Negative Cell Envelope for YouTube Shorts, From Real Structures – Vahhab Piranfar">
-<meta property="og:description" content="A step-by-step account of producing a 60-second science Short from real protein structures and molecular dynamics, with the design decisions and the mistakes along the way.">
+<meta property="og:title" content="How I Built the Gram-Negative Envelope for a YouTube Short – Vahhab Piranfar">
+<meta property="og:description" content="A plain account of making the first antibiotic Short from real structures and short molecular dynamics, including the hydrolyzed-ligand approximation and the renders that failed.">
 <meta property="og:image" content="https://vahhabpiranfar.com/posts/shorts-pipeline/cover.jpg">
 <meta property="og:site_name" content="Vahhab Piranfar">
-<meta name="twitter:title" content="Building a Gram-Negative Cell Envelope for YouTube Shorts, From Real Structures – Vahhab Piranfar">
-<meta name="twitter:description" content="A step-by-step account of producing a 60-second science Short from real protein structures and molecular dynamics, with the design decisions and the mistakes along the way.">
+<meta name="twitter:title" content="How I Built the Gram-Negative Envelope for a YouTube Short – Vahhab Piranfar">
+<meta name="twitter:description" content="A plain account of making the first antibiotic Short from real structures and short molecular dynamics, including the hydrolyzed-ligand approximation and the renders that failed.">
 <meta name="twitter:image" content="https://vahhabpiranfar.com/posts/shorts-pipeline/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -218,16 +216,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-build-it-this-way" id="toc-why-build-it-this-way" class="nav-link active" data-scroll-target="#why-build-it-this-way">Why build it this way</a></li>
-  <li><a href="#the-pipeline-at-a-glance" id="toc-the-pipeline-at-a-glance" class="nav-link" data-scroll-target="#the-pipeline-at-a-glance">The pipeline at a glance</a></li>
-  <li><a href="#step-1-structures" id="toc-step-1-structures" class="nav-link" data-scroll-target="#step-1-structures">Step 1: structures</a></li>
-  <li><a href="#step-2-molecular-dynamics" id="toc-step-2-molecular-dynamics" class="nav-link" data-scroll-target="#step-2-molecular-dynamics">Step 2: molecular dynamics</a></li>
-  <li><a href="#step-3-the-base-scene" id="toc-step-3-the-base-scene" class="nav-link" data-scroll-target="#step-3-the-base-scene">Step 3: the base scene</a></li>
-  <li><a href="#step-4-directing-it" id="toc-step-4-directing-it" class="nav-link" data-scroll-target="#step-4-directing-it">Step 4: directing it</a></li>
-  <li><a href="#step-5-the-edit" id="toc-step-5-the-edit" class="nav-link" data-scroll-target="#step-5-the-edit">Step 5: the edit</a></li>
-  <li><a href="#process-gallery" id="toc-process-gallery" class="nav-link" data-scroll-target="#process-gallery">Process gallery</a></li>
-  <li><a href="#what-i-would-do-differently" id="toc-what-i-would-do-differently" class="nav-link" data-scroll-target="#what-i-would-do-differently">What I would do differently</a></li>
-  <li><a href="#reuse" id="toc-reuse" class="nav-link" data-scroll-target="#reuse">Reuse</a></li>
+  <li><a href="#why-i-did-not-draw-the-cell" id="toc-why-i-did-not-draw-the-cell" class="nav-link active" data-scroll-target="#why-i-did-not-draw-the-cell">Why I did not draw the cell</a></li>
+  <li><a href="#the-steps" id="toc-the-steps" class="nav-link" data-scroll-target="#the-steps">The steps</a></li>
+  <li><a href="#where-each-object-came-from" id="toc-where-each-object-came-from" class="nav-link" data-scroll-target="#where-each-object-came-from">Where each object came from</a></li>
+  <li><a href="#the-simulations" id="toc-the-simulations" class="nav-link" data-scroll-target="#the-simulations">The simulations</a></li>
+  <li><a href="#the-scene" id="toc-the-scene" class="nav-link" data-scroll-target="#the-scene">The scene</a></li>
+  <li><a href="#what-was-wrong-with-the-first-cut" id="toc-what-was-wrong-with-the-first-cut" class="nav-link" data-scroll-target="#what-was-wrong-with-the-first-cut">What was wrong with the first cut</a></li>
+  <li><a href="#the-edit" id="toc-the-edit" class="nav-link" data-scroll-target="#the-edit">The edit</a></li>
+  <li><a href="#frames-from-the-build" id="toc-frames-from-the-build" class="nav-link" data-scroll-target="#frames-from-the-build">Frames from the build</a></li>
+  <li><a href="#what-i-would-change-next-time" id="toc-what-i-would-change-next-time" class="nav-link" data-scroll-target="#what-i-would-change-next-time">What I would change next time</a></li>
+  <li><a href="#what-stays-fixed" id="toc-what-stays-fixed" class="nav-link" data-scroll-target="#what-stays-fixed">What stays fixed</a></li>
   </ul>
 </nav>
     </div>
@@ -236,8 +234,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Building a Gram-Negative Cell Envelope for YouTube Shorts, From Real Structures</h1>
-<p class="subtitle lead">How episode 1 of the antibiotic series was made: PDB structures, molecular dynamics in WSL, Blender with Molecular Nodes, and a scripted edit.</p>
+<h1 class="title">How I Built the Gram-Negative Envelope for a YouTube Short</h1>
+<p class="subtitle lead">PDB structures, two GROMACS runs, a scripted Blender scene, and the cuts I threw away.</p>
   <div class="quarto-categories">
     <div class="quarto-category">Microbiology</div>
     <div class="quarto-category">Antibiotics</div>
@@ -248,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    A step-by-step account of producing a 60-second science Short from real protein structures and molecular dynamics, with the design decisions and the mistakes along the way.
+    A plain account of making the first antibiotic Short from real structures and short molecular dynamics, including the hydrolyzed-ligand approximation and the renders that failed.
   </div>
 </div>
 
@@ -265,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 25, 2026</p>
+      <p class="date">October 24, 2026</p>
     </div>
   </div>
   
@@ -278,30 +276,29 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="paper-cover">
-<p><img src="cover.jpg" class="img-fluid" alt="Three frames from the Short: the whole Gram-negative envelope in cross-section, the OmpF porin with a pointer label, and ceftazidime being hydrolyzed inside TEM-1 beta-lactamase"></p>
+<p><img src="cover.jpg" class="img-fluid" alt="Three frames from the finished Short: the envelope, the porin label, and the hydrolysis shot"></p>
 </div>
-<p>The first episode of a short-video series on how antibiotics enter, and fail inside, a Gram-negative bacterium is now on YouTube. Every object in it is a real structure, and every motion of the proteins comes from a molecular dynamics simulation. This post describes how it was built, what the pipeline looks like, and what I would do differently.</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://youtube.com/shorts/kJKye8xqjRg"></video></div>
-<p>Watch it on YouTube: <a href="https://youtube.com/shorts/kJKye8xqjRg">Inside a Gram-Negative Bacterium: How a Beta-Lactam Gets In and Gets Destroyed</a>. The series playlist is <a href="https://www.youtube.com/playlist?list=PLbsoyL1U-sWc">here</a>.</p>
-<section id="why-build-it-this-way" class="level2">
-<h2 class="anchored" data-anchor-id="why-build-it-this-way">Why build it this way</h2>
-<p>Most short science animations are drawn. That is fine for a cartoon of a cell, but for antibiotics the geometry is the story: a beta-lactam has to cross an outer membrane that is covered in lipopolysaccharide, find a porin, survive the periplasm, and reach a penicillin-binding protein. If the drawing puts the drug straight through the membrane, the video is teaching something false.</p>
-<p>So the rule for the series was simple. Proteins come from the Protein Data Bank, membranes come from a physically built lipid bilayer, the drug is the real molecule, and the only stylized element is the peptidoglycan mesh, which has no single atomic structure to import. Labels and camera work can be as cinematic as needed, but nothing in the frame is invented.</p>
+<p>The science of the first episode is in a <a href="../beta-lactam-gets-in/">separate post</a>. This note is only about how the film was made.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/kJKye8xqjRg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>The upload is <a href="https://youtube.com/shorts/kJKye8xqjRg">here</a>.</p>
+<section id="why-i-did-not-draw-the-cell" class="level2">
+<h2 class="anchored" data-anchor-id="why-i-did-not-draw-the-cell">Why I did not draw the cell</h2>
+<p>A drawn cell is fine until the drawing invents a path. A beta-lactam has to get past lipopolysaccharide, find a porin, cross the periplasm, and reach a penicillin-binding protein. A line that goes straight through the membrane teaches a mechanism the cell does not use.</p>
+<p>So I set one rule. Proteins come from the Protein Data Bank. Membranes come from a built bilayer. The drug is the real molecule. The peptidoglycan mesh is the only object I stylized, because there is no single atomic structure to import. Labels and camera moves can be designed. The atoms are not invented.</p>
 </section>
-<section id="the-pipeline-at-a-glance" class="level2">
-<h2 class="anchored" data-anchor-id="the-pipeline-at-a-glance">The pipeline at a glance</h2>
+<section id="the-steps" class="level2">
+<h2 class="anchored" data-anchor-id="the-steps">The steps</h2>
 <ol type="1">
-<li>Collect structures and build membranes (PDB, OPM, MemProtMD, CHARMM-GUI).</li>
-<li>Run molecular dynamics so the membrane and the enzyme move (GROMACS on a GPU under WSL).</li>
-<li>Assemble a reusable base scene in Blender with Molecular Nodes.</li>
-<li>Script the shots: a camera journey, labels anchored to the objects, a drug path with a docking and hydrolysis event.</li>
-<li>Render, overlay the pointers in 2D, cut, add music and a sound effect (ffmpeg).</li>
+<li>Collect structures and build the membranes.</li>
+<li>Run short molecular dynamics so the membrane and the enzyme move.</li>
+<li>Build one base scene in Blender with Molecular Nodes.</li>
+<li>Script the camera, the drug path, and the hydrolysis shot.</li>
+<li>Render, draw the labels in 2D, cut, and add sound with ffmpeg.</li>
 </ol>
-<p>Everything is scripted. The base scene and the shots are Python files run against Blender in background mode, so a change to a label or a camera move is a one-line edit and a 20-minute re-render, not an afternoon in the viewport.</p>
+<p>The base scene and the shots are Python files. Blender runs them in the background. Changing a label is an edit and a re-render, not an afternoon of clicking.</p>
 </section>
-<section id="step-1-structures" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-structures">Step 1: structures</h2>
-<p>The envelope needs seven kinds of object. Each came from a different place.</p>
+<section id="where-each-object-came-from" class="level2">
+<h2 class="anchored" data-anchor-id="where-each-object-came-from">Where each object came from</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -312,215 +309,197 @@ ul.task-list li input[type="checkbox"] {
 <tr class="header">
 <th>Component</th>
 <th>Source</th>
-<th>Notes</th>
+<th>What I used it for</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>OmpF porin trimer</td>
-<td>PDB 3POX, oriented by OPM</td>
-<td>The way in for small hydrophilic drugs</td>
+<td>PDB 3POX, oriented with OPM</td>
+<td>The channel</td>
 </tr>
 <tr class="even">
 <td>Outer membrane with LPS</td>
 <td>CHARMM-GUI Membrane Builder</td>
-<td>45 E. coli LPS (lipid A, R1 core, O1 antigen) on the outer leaflet; PE/PG/cardiolipin inside</td>
+<td>45 <em>E. coli</em> LPS molecules (lipid A, R1 core, O1 antigen) on the outer leaflet. PE, PG, and cardiolipin on the inner leaflet</td>
 </tr>
 <tr class="odd">
-<td>TEM-1 beta-lactamase</td>
+<td>TEM-1</td>
 <td>PDB 1XPB</td>
-<td>The classic plasmid enzyme</td>
+<td>The enzyme in the periplasm</td>
 </tr>
 <tr class="even">
 <td>PBP1b</td>
-<td>PDB 3VMA, oriented by OPM</td>
-<td>The real target of the drug</td>
+<td>PDB 3VMA, oriented with OPM</td>
+<td>The target the drug does not reach</td>
 </tr>
 <tr class="odd">
-<td>AcrB efflux pump in a bilayer</td>
+<td>AcrB in a bilayer</td>
 <td>MemProtMD 4DX5</td>
-<td>Crystallization DARPins removed</td>
+<td>The pump. I removed the DARPins used for crystallization</td>
 </tr>
 <tr class="even">
 <td>Inner membrane</td>
-<td>MemProtMD bilayer, re-used</td>
-<td>Patched so the pump appears once</td>
+<td>The same MemProtMD bilayer, patched</td>
+<td>So the pump appears once</td>
 </tr>
 <tr class="odd">
 <td>Ceftazidime</td>
 <td>RCSB ideal coordinates (CAZ)</td>
-<td>Bonds kept for ball-and-stick</td>
+<td>Ball-and-stick, bonds kept</td>
 </tr>
 </tbody>
 </table>
-<p>The hydrolyzed product pose came from a different enzyme. There is no PDB entry with hydrolyzed ceftazidime in a class A beta-lactamase, so I superposed KPC-2 with hydrolyzed cefotaxime (5UJ3) onto the TEM-1 frame using the active-site Ambler residues and transferred the ligand. The two cephalosporins share the core that opens, and the side-chain difference is invisible at this scale, but the limitation is real and worth stating.</p>
+<p>The opened-ring pose is not from TEM-1. No PDB entry has hydrolyzed ceftazidime in a class A active site. I superposed KPC-2 with hydrolyzed cefotaxime (PDB 5UJ3) onto TEM-1 using the Ambler active-site residues, then copied the ligand. The two drugs share the ring that opens. The side chains differ. At this scale the difference is easy to miss, so I state it here and in the <a href="../beta-lactam-gets-in/">science post</a>.</p>
 </section>
-<section id="step-2-molecular-dynamics" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-molecular-dynamics">Step 2: molecular dynamics</h2>
-<p>Two systems were simulated with GROMACS 2026 and the CHARMM36m force field.</p>
-<p>The first was TEM-1 in water, 10 nanoseconds, so that the enzyme breathes on screen instead of sitting still. The second was the OmpF porin in the LPS outer membrane, about 229,000 atoms, taken through the six CHARMM-GUI equilibration stages and a 5-nanosecond production run.</p>
+<section id="the-simulations" class="level2">
+<h2 class="anchored" data-anchor-id="the-simulations">The simulations</h2>
+<p>I ran two systems in GROMACS 2026 with CHARMM36m.</p>
+<p>TEM-1 in water ran for 10 ns. That is enough for the enzyme to move a little on screen instead of sitting as a frozen crystal.</p>
+<p>OmpF in the LPS outer membrane is about 229,000 atoms. I took it through the six CHARMM-GUI equilibration stages and then 5 ns of production.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig-membrane-md.jpg" class="img-fluid figure-img" alt="Side-by-side renders of the outer membrane before and after molecular dynamics"></p>
-<figcaption>Outer membrane as built by CHARMM-GUI (left) and after 5 ns of molecular dynamics (right). Orange is LPS, teal is OmpF, grey is the inner leaflet.</figcaption>
+<p><img src="fig-membrane-md.jpg" class="img-fluid figure-img" alt="Two square renders of the outer membrane, before and after 5 ns of molecular dynamics"></p>
+<figcaption>The outer membrane as CHARMM-GUI built it, and the same membrane after 5 ns. Orange is LPS, teal is OmpF, grey is the inner leaflet.</figcaption>
 </figure>
 </div>
-<p>An honest note on that second system. Five nanoseconds is nowhere near enough to relax a brush of O-antigen sugars; the before and after frames look similar. The simulation is there to make the membrane alive in the video and to give the proteins realistic local motion, not to make any claim about LPS dynamics.</p>
-<p>One practical lesson: the conda-forge GROMACS build uses OpenCL, which cannot see an NVIDIA card under WSL. The CUDA build (<code>nompi_cuda</code>) runs the same simulation about ten times faster. The first production run started on the CPU at 41 ns/day and finished on the GPU at 384 ns/day after a checkpoint restart.</p>
+<p>Five nanoseconds does not relax an O-antigen brush. The two frames look alike, and they should. I am not making a claim about LPS dynamics. The run is there so the membrane is not a still picture, and so the protein has local motion.</p>
+<p>One practical note. The conda-forge GROMACS build uses OpenCL, and that build did not see the NVIDIA card under WSL. The CUDA build (<code>nompi_cuda</code>) ran the same system much faster. The production run started on the CPU at 41 ns/day. After a checkpoint restart on the GPU it ran at 384 ns/day.</p>
 </section>
-<section id="step-3-the-base-scene" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-the-base-scene">Step 3: the base scene</h2>
-<p>The scene is a cross-section. A geometry-nodes clip removes the half of every membrane nearest the camera, so the porin channel, the periplasm and the inner membrane are visible in profile. The outer membrane is tiled three times along its periodic box vector, which gives three porins at realistic density without any seam.</p>
+<section id="the-scene" class="level2">
+<h2 class="anchored" data-anchor-id="the-scene">The scene</h2>
+<p>The camera looks at a cut. A geometry-nodes clip removes the half of each membrane nearest the camera, so the porin, the periplasm, and the inner membrane read in profile. I tiled the outer membrane three times along its periodic box vector. That gives three porins without a visible seam.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig-envelope.jpg" class="img-fluid figure-img" alt="Vertical frame showing all three layers of the Gram-negative envelope"></p>
-<figcaption>The full envelope in cross-section: LPS and OmpF above, peptidoglycan and TEM-1 in the periplasm, PBP1b and AcrB in the inner membrane.</figcaption>
+<p><img src="fig-envelope.jpg" class="img-fluid figure-img" alt="Full vertical cross-section of the Gram-negative envelope"></p>
+<figcaption>The envelope after the third layer was in place.</figcaption>
 </figure>
 </div>
-<p>Dimensions were checked against the literature before anything was animated: a 21 nm periplasm, peptidoglycan 6 nm under the outer membrane, a 13.6 nm AcrB that matches the OPM reference, and a 5 nm bilayer. A pleasant coincidence: the distance from the top of AcrB to the bottom of the outer membrane is 13.9 nm, which is the length of TolC, so the full efflux assembly can be added later without moving anything.</p>
-<p>The molecular dynamics trajectories are wired to the Blender timeline through Molecular Nodes, with the three TEM-1 copies offset in time so they do not move in sync.</p>
+<p>I checked a few lengths against published values before animating. The periplasm is 21 nm. The peptidoglycan sits 6 nm under the outer membrane. AcrB is 13.6 nm, which matches the OPM placement. The bilayer is about 5 nm thick. The gap from the top of AcrB to the underside of the outer membrane came out at 13.9 nm. TolC is about that long, so a later episode can add the full efflux assembly without moving the membranes.</p>
+<p>Molecular Nodes reads the trajectories on the Blender timeline. The three TEM-1 copies are offset in time so they do not breathe together.</p>
 </section>
-<section id="step-4-directing-it" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-directing-it">Step 4: directing it</h2>
-<p>The first cut had the right science and the wrong film grammar: a static camera, flat layers, and captions at the bottom of the frame. Reviewing it frame by frame against the kind of Shorts that actually hold attention produced a list of 26 problems. They fell into three groups, and each got its own pass.</p>
-<p><strong>Pointing instead of writing.</strong> Labels moved out of the 3D scene entirely. The render exports the screen position of each anchor per frame, and a small 2D pass draws a pulsing ring on the object, a leader line that draws itself toward the label, and a single word. Text can never end up behind geometry this way. While a component is introduced, everything else is dimmed and desaturated.</p>
+<section id="what-was-wrong-with-the-first-cut" class="level2">
+<h2 class="anchored" data-anchor-id="what-was-wrong-with-the-first-cut">What was wrong with the first cut</h2>
+<p>The first cut had the right objects and a bad film. The camera barely moved. The layers looked flat. Captions sat at the bottom. I went through it frame by frame and wrote down 26 problems. They fell into three jobs.</p>
+<p><strong>Labels left the 3D scene.</strong> The render writes the screen position of each anchor for every frame. A 2D pass then draws a ring, a line, and one word. Text cannot end up behind the atoms. While one part is introduced, the rest of the frame is dimmed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig-pointer.jpg" class="img-fluid figure-img" alt="Frame with the OmpF porin highlighted and a leader line to the word PORIN"></p>
-<figcaption>The pointer system: ring on the subject, a drawn leader, one word, everything else dimmed.</figcaption>
+<p><img src="fig-pointer.jpg" class="img-fluid figure-img" alt="Porin with a ring and a leader line to the word PORIN"></p>
+<figcaption>The porin shot after the labels moved to 2D.</figcaption>
 </figure>
 </div>
-<p><strong>One continuous camera journey.</strong> Instead of seven jump cuts, the camera starts on the LPS surface with a question, pulls out to the whole envelope, and descends layer by layer with gentle arcs and changes of height. Dwell times vary between 3.5 and 5.5 seconds. The peptidoglycan is seen from above so that it reads as a mesh.</p>
-<p><strong>A real climax.</strong> The moment the beta-lactam ring opens is the point of the episode, and in the first cut it was almost invisible. It now gets a macro shot, a slower transformation, a flash at the bond, expanding rings drawn in 2D, a short synthesized impact sound, and a dip in the music.</p>
+<p><strong>One camera move instead of jump cuts.</strong> The camera starts on the LPS surface, pulls back to the whole envelope, and goes down layer by layer. Each stop lasts about 3.5 to 5.5 seconds. The peptidoglycan is shown from above so it reads as a mesh.</p>
+<p><strong>The ring opening was too small.</strong> In the first cut the chemical event was easy to miss. The new shot is closer, slower, and has a flash on the bond, rings drawn in 2D, a short impact sound, and a dip in the music.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig-hydrolysis.jpg" class="img-fluid figure-img" alt="Close frame of TEM-1 with the drug glowing in the active site"></p>
-<figcaption>The climax: ceftazidime in the TEM-1 active site at the moment the ring is opened.</figcaption>
+<p><img src="fig-hydrolysis.jpg" class="img-fluid figure-img" alt="Close frame of TEM-1 with the drug lit in the active site"></p>
+<figcaption>Ceftazidime in the TEM-1 site at the flash.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig-v1-v2.jpg" class="img-fluid figure-img" alt="Side-by-side comparison of the same enzyme shot in the first and final versions"></p>
-<figcaption>Left: first cut, 3D text and a static front view. Right: final, dimmed context, 2D pointer, camera in motion.</figcaption>
+<p><img src="fig-v1-v2.jpg" class="img-fluid figure-img" alt="The same enzyme shot in the first cut and in the later cut"></p>
+<figcaption>Left: first cut, with 3D text and a fixed camera. Right: later cut, with a 2D label and a moving camera.</figcaption>
 </figure>
 </div>
 </section>
-<section id="step-5-the-edit" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-the-edit">Step 5: the edit</h2>
-<p>The two rendered parts (the tour and the drug’s entry) are joined with a crossfade, the title and gold headlines are burned in by ffmpeg, and the music track is normalized to the YouTube loudness target with fades at both ends. A one-second cross-fade at the join and a 0.6-second duck under the impact sound are the only two audio events. Full-resolution rendering of the whole film takes about 20 minutes on a laptop GPU with EEVEE, so iterating was cheap once the scene existed.</p>
+<section id="the-edit" class="level2">
+<h2 class="anchored" data-anchor-id="the-edit">The edit</h2>
+<p>I rendered the tour and the drug entry as two pieces and joined them with a one-second crossfade. ffmpeg burns in the title and the gold lines. The music is normalized to the YouTube loudness target, with fades at both ends. The impact sound ducks the music for 0.6 seconds. Those are the only two audio edits. A full-resolution pass of the whole film takes about 20 minutes on a laptop GPU in EEVEE.</p>
 </section>
-<section id="process-gallery" class="level2">
-<h2 class="anchored" data-anchor-id="process-gallery">Process gallery</h2>
-<p>The frames below are the actual intermediate outputs, in the order they were produced. They are not polished; they are what the pipeline looked like while it was being built.</p>
+<section id="frames-from-the-build" class="level2">
+<h2 class="anchored" data-anchor-id="frames-from-the-build">Frames from the build</h2>
+<p>These are intermediate renders, in the order I made them.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Structures and scene</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Animation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Checking</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-01-first-render.jpg" class="img-fluid figure-img" alt="Early render of TEM-1 as a teal cartoon"></p>
-<figcaption>First smoke test: TEM-1 cartoon imported from the local PDB file with Molecular Nodes. Teal material, EEVEE, one light.</figcaption>
+<p><img src="proc-01-first-render.jpg" class="img-fluid figure-img" alt="Early teal cartoon render of TEM-1"></p>
+<figcaption>First test: TEM-1 imported from the local PDB with Molecular Nodes.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-02-membrane-import.jpg" class="img-fluid figure-img" alt="Raw sphere render of the OmpF and LPS membrane"></p>
-<figcaption>The CHARMM-GUI outer membrane loaded as spheres: 82,894 atoms of LPS, phospholipid and porin, before any colouring.</figcaption>
+<p><img src="proc-02-membrane-import.jpg" class="img-fluid figure-img" alt="Uncoloured sphere render of the outer membrane"></p>
+<figcaption>The CHARMM-GUI membrane as spheres, before colouring. 82,894 atoms of LPS, phospholipid, and porin.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-03-base-scene-v0.jpg" class="img-fluid figure-img" alt="Cross-section of the outer membrane with the porin visible"></p>
-<figcaption>Base scene, layer one: the outer membrane alone in cross-section, vertical format.</figcaption>
+<p><img src="proc-03-base-scene-v0.jpg" class="img-fluid figure-img" alt="Outer membrane cross-section with one porin"></p>
+<figcaption>First cross-section: outer membrane only, vertical frame.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-04-periplasm.jpg" class="img-fluid figure-img" alt="Outer membrane with peptidoglycan and enzymes below"></p>
-<figcaption>Layer two added: the membrane tiled three times, a stylized peptidoglycan mesh, and three copies of TEM-1 in the periplasm.</figcaption>
+<p><img src="proc-04-periplasm.jpg" class="img-fluid figure-img" alt="Outer membrane, peptidoglycan, and periplasmic enzymes"></p>
+<figcaption>Second layer: the membrane tiled three times, a peptidoglycan mesh, and three TEM-1 copies.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="proc-05-envelope-v2.jpg" class="img-fluid figure-img" alt="Complete envelope cross-section"></p>
-<figcaption>Layer three and the cosmetic pass: inner membrane with a single AcrB pump, PBP1b embedded, porins rotated individually.</figcaption>
+<figcaption>Third layer: inner membrane, one AcrB, and PBP1b.</figcaption>
 </figure>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-06-drug-path.jpg" class="img-fluid figure-img" alt="Four wide frames with the drug as a small glowing point"></p>
-<figcaption>The first drug path, four frames from the wide camera: at this scale the 1.5 nm molecule is a glowing dot, which is why the close shots exist.</figcaption>
+<p><img src="proc-06-drug-path.jpg" class="img-fluid figure-img" alt="Four wide frames with the drug as a small bright point"></p>
+<figcaption>Four frames of the first drug path. At this distance the molecule is a dot, which is why the close shots exist.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-07-hydrolysis-previews.jpg" class="img-fluid figure-img" alt="Four close frames of TEM-1 with the drug"></p>
-<figcaption>Early previews of the hydrolysis shot before the camera was pulled back and set to orbit.</figcaption>
+<p><img src="proc-07-hydrolysis-previews.jpg" class="img-fluid figure-img" alt="Four close frames of TEM-1 and the drug"></p>
+<figcaption>Early hydrolysis previews, before the camera was pulled back and set to orbit.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-08-look-test.jpg" class="img-fluid figure-img" alt="Wide frame with 3D labels on every component"></p>
-<figcaption>Look test for the cinematic pass: 3D labels with leaders and depth of field. Readable, but the labels still lived in the scene and could hide behind geometry.</figcaption>
+<p><img src="proc-08-look-test.jpg" class="img-fluid figure-img" alt="Wide frame with 3D labels on each component"></p>
+<figcaption>A look test with 3D labels. They were readable, and they could still hide behind geometry.</figcaption>
 </figure>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-09-check-stills.jpg" class="img-fluid figure-img" alt="Seven small frames from the tour used to validate framing"></p>
-<figcaption>Check stills rendered before a long sequence. Several rounds like this caught labels off frame, a mirrored screen direction, and shots framed too tight.</figcaption>
+<p><img src="proc-09-check-stills.jpg" class="img-fluid figure-img" alt="Seven small check frames from the tour"></p>
+<figcaption>Stills I rendered before a long sequence. These caught labels off the frame, a mirrored direction, and shots that were too tight.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-10-review-sheet.jpg" class="img-fluid figure-img" alt="Grid of 42 frames from the first cut"></p>
-<figcaption>A contact sheet of the first cut at 1.5-second intervals. Reviewing the film this way produced the list of 26 problems that drove the final three passes.</figcaption>
+<p><img src="proc-10-review-sheet.jpg" class="img-fluid figure-img" alt="Grid of frames from the first cut"></p>
+<figcaption>A contact sheet of the first cut, one frame every 1.5 seconds. The list of 26 problems came from this sheet.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="proc-11-thumbnails.jpg" class="img-fluid figure-img" alt="Three vertical thumbnail designs"></p>
-<figcaption>Three thumbnail candidates built from clean frames of the render.</figcaption>
+<p><img src="proc-11-thumbnails.jpg" class="img-fluid figure-img" alt="Three vertical thumbnail layouts"></p>
+<figcaption>Three thumbnail tests from clean frames.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="what-i-would-do-differently" class="level2">
-<h2 class="anchored" data-anchor-id="what-i-would-do-differently">What I would do differently</h2>
+<section id="what-i-would-change-next-time" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-would-change-next-time">What I would change next time</h2>
 <ul>
-<li>Validate every shot with still frames before rendering the sequence. Almost every wasted render in this project came from skipping that step.</li>
-<li>Place label anchors on geometry that is actually visible from the camera, not on the cut plane. With an elevated camera the two can differ by several nanometers on screen.</li>
-<li>Decide early that the climax deserves a third of the effort. It is the frame people remember.</li>
-<li>Keep the lipids as spheres for now, but switch the large proteins to a surface representation for the close shots in the next episode. Ribbons get busy at 10 nm.</li>
+<li>Render a still of every shot before rendering the sequence. Most of the wasted renders came from skipping that.</li>
+<li>Put label anchors on geometry the camera can actually see. With a high camera, an anchor on the cut plane can sit several nanometers away from the visible surface.</li>
+<li>Spend the time on the shot that carries the point. Here that shot is the ring opening.</li>
+<li>Keep lipids as spheres for wide shots. For close shots of the large proteins, a surface will be easier to read than ribbons.</li>
 </ul>
 </section>
-<section id="reuse" class="level2">
-<h2 class="anchored" data-anchor-id="reuse">Reuse</h2>
-<p>The scene is a kit. The next episodes change only the drug path, the binding pose and the labels: a beta-lactam reaching PBP1b when no beta-lactamase is present, avibactam protecting ceftazidime, a porin loss, and the efflux pump throwing the drug out. The scripts, structures and simulation inputs live in the <a href="https://github.com/piranfar/piranfar.github.io/tree/main/youtube-shorts">site repository</a>; the large renders and trajectories are not committed.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key points
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Every protein, membrane and drug in the video is a real structure; only the peptidoglycan mesh is stylized.</li>
-<li>Protein motion comes from GROMACS simulations run on a GPU under WSL.</li>
-<li>The scene is scripted end to end in Blender with Molecular Nodes, so edits are cheap.</li>
-<li>Labels are drawn in 2D from exported anchor positions, so they never hide behind the scene.</li>
-<li>The hydrolyzed product pose is borrowed from KPC-2 with cefotaxime, a stated approximation.</li>
-</ul>
-</div>
-</div>
+<section id="what-stays-fixed" class="level2">
+<h2 class="anchored" data-anchor-id="what-stays-fixed">What stays fixed</h2>
+<p>The next episodes keep this scene. They change the drug path, the binding pose, and the labels: the drug reaching PBP1b when no beta-lactamase is present, avibactam with ceftazidime, a closed porin, and the pump throwing the drug out. Scripts and small structure files are in the <a href="https://github.com/piranfar/piranfar.github.io/tree/main/youtube-shorts">site repository</a>. The large renders and trajectories are not committed.</p>
 
 
 </section>
@@ -959,7 +938,6 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
-<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

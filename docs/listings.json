@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/beta-lactam-gets-in/index.html",
       "/posts/shorts-pipeline/index.html",
       "/posts/caz-avi-evidence-reconstruction.html",
       "/posts/antibiotic-persistence.html",
@@ -12,20 +13,20 @@
   {
     "listing": "/learning.html",
     "items": [
-      "/learning/01-pkpd-targets-and-mic.html",
-      "/learning/02-pta-cfr-virtual-populations.html",
-      "/learning/03-resistance-tolerance-persistence.html",
-      "/learning/04-chromosome-vs-plasmid-resistance.html",
-      "/learning/05-free-drug-and-protein-binding.html",
-      "/learning/06-intermittent-vs-continuous-infusion.html",
-      "/learning/07-joint-targets-bl-bli.html",
-      "/learning/08-uncertainty-and-provenance.html",
-      "/learning/09-hgt-and-mic-ecology.html",
-      "/learning/10-effect-site-vs-plasma.html",
-      "/learning/11-renal-function-egfr-strata.html",
-      "/learning/12-inoculum-effect.html",
+      "/learning/14-plasmid-detection-vs-reconstruction.html",
       "/learning/13-caz-avi-mini-case.html",
-      "/learning/14-plasmid-detection-vs-reconstruction.html"
+      "/learning/12-inoculum-effect.html",
+      "/learning/11-renal-function-egfr-strata.html",
+      "/learning/10-effect-site-vs-plasma.html",
+      "/learning/09-hgt-and-mic-ecology.html",
+      "/learning/08-uncertainty-and-provenance.html",
+      "/learning/07-joint-targets-bl-bli.html",
+      "/learning/06-intermittent-vs-continuous-infusion.html",
+      "/learning/05-free-drug-and-protein-binding.html",
+      "/learning/04-chromosome-vs-plasmid-resistance.html",
+      "/learning/03-resistance-tolerance-persistence.html",
+      "/learning/02-pta-cfr-virtual-populations.html",
+      "/learning/01-pkpd-targets-and-mic.html"
     ]
   }
 ]

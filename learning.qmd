@@ -6,7 +6,7 @@ toc: false
 listing:
   id: learning-posts
   contents: learning
-  sort: "date asc"
+  sort: "date desc"
   type: default
   categories: true
   feed: true

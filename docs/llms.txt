@@ -23,6 +23,8 @@ LinkedIn: https://www.linkedin.com/in/vahhab-piranfar/
 - [Publications](https://vahhabpiranfar.com/publications.html): peer-reviewed work and under-review manuscripts
 - [About](https://vahhabpiranfar.com/about.html): background, interests, and skills
 - [Discuss & Review](https://vahhabpiranfar.com/blog.html): research notes and paper discussions
+- [How a beta-lactam gets in](https://vahhabpiranfar.com/posts/beta-lactam-gets-in/): episode 1, porin entry and periplasmic hydrolysis
+- [How the Short was built](https://vahhabpiranfar.com/posts/shorts-pipeline/): PDB, GROMACS, Blender, and the edit
 - [Microbiology Encyclopedia](https://vahhabpiranfar.com/Microbiology_Encyclopedia/): curated medical microbiology knowledge base
 
 ## Learning lessons
