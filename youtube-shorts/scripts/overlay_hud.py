@@ -23,8 +23,11 @@ sx, sy = W / A['size'][0], H / A['size'][1]
 f_label = ImageFont.truetype(FONT_B, int(H * 0.036))
 f_head = ImageFont.truetype(FONT_B, int(H * 0.040))
 f_title = ImageFont.truetype(FONT_B, int(H * 0.024))
-M = int(W * 0.06)                     # screen margin
-CORNERS = {'tl': (M, int(H * 0.16)), 'tr': (W - M, int(H * 0.16)), 'bl': (M, int(H * 0.78)), 'br': (W - M, int(H * 0.78))}
+# Safe area for Shorts: phones crop a few percent from each side and YouTube's UI
+# covers the bottom ~25 % and a right-hand column. Everything we draw stays inside.
+MX = int(W * 0.11)                    # side margin (was 6 %)
+CORNERS = {'tl': (MX, int(H * 0.15)), 'tr': (W - MX, int(H * 0.15)), 'bl': (MX, int(H * 0.66)), 'br': (W - MX, int(H * 0.66))}
+HEAD_Y = 0.60                         # headline band (was 0.70)
 
 
 def ease(t):
@@ -79,10 +82,14 @@ def draw_label(img, fr, lab):
     cx, cy = CORNERS[lab['corner']]
     right = lab['corner'].endswith('r')
     tw = d.textlength(lab['text'], font=f_label)
+    fl = f_label
+    if tw > W - 2 * MX:                                   # long label: shrink to the safe width
+        fl = ImageFont.truetype(FONT_B, int(f_label.size * (W - 2 * MX) / tw))
+        tw = d.textlength(lab['text'], font=fl)
     tx = cx - tw if right else cx
     ty = cy
     end_x = (tx + tw + 14) if right else (tx - 14)
-    end = (end_x, ty + f_label.size * 0.55)
+    end = (end_x, ty + fl.size * 0.55)
     elbow = (end_x + (40 if right else -40), end[1])
     # draw the leader progressively: anchor -> elbow -> end
     seg1 = math.hypot(elbow[0] - ax, elbow[1] - ay)
@@ -98,7 +105,7 @@ def draw_label(img, fr, lab):
         k = (drawn - seg1) / max(seg2, 1e-6)
         d.line([elbow, (elbow[0] + (end[0] - elbow[0]) * k, elbow[1])], fill=(235, 245, 255, a), width=lw)
     if drawn >= total * 0.95:
-        text_halo(d, (tx, ty), lab['text'], f_label, (255, 255, 255, a))
+        text_halo(d, (tx, ty), lab['text'], fl, (255, 255, 255, a))
     img.alpha_composite(ov)
 
 
@@ -110,21 +117,21 @@ def draw_headlines(img, fr):
         if a0 <= t <= a1:
             vis = min(ease((t - a0) / 0.35), ease((a1 - t) / 0.35))
             fh = f_head
-            if d.textlength(text, font=fh) > 0.92 * W:
-                fh = ImageFont.truetype(FONT_B, int(f_head.size * 0.92 * W / d.textlength(text, font=fh)))
-            text_halo(d, (W / 2, H * 0.70), text, fh, (255, 216, 110, int(255 * vis)), anchor='mm')
+            if d.textlength(text, font=fh) > 0.78 * W:
+                fh = ImageFont.truetype(FONT_B, int(f_head.size * 0.78 * W / d.textlength(text, font=fh)))
+            text_halo(d, (W / 2, H * HEAD_Y), text, fh, (255, 216, 110, int(255 * vis)), anchor='mm')
     for a0, a1, l1, l2 in A.get('cards', []):
         if a0 <= t <= a1:
             vis = min(ease((t - a0) / 0.5), ease((a1 - t) / 0.5))
             d.rectangle([0, 0, W, H], fill=(0, 0, 0, int(120 * vis)))
             for yy, txt, fnt, col in ((0.47, l1, f_head, (255, 255, 255)), (0.53, l2, f_label, (255, 216, 110))):
-                if d.textlength(txt, font=fnt) > 0.88 * W:
-                    fnt = ImageFont.truetype(FONT_B, int(fnt.size * 0.88 * W / d.textlength(txt, font=fnt)))
+                if d.textlength(txt, font=fnt) > 0.78 * W:
+                    fnt = ImageFont.truetype(FONT_B, int(fnt.size * 0.78 * W / d.textlength(txt, font=fnt)))
                 text_halo(d, (W / 2, H * yy), txt, fnt, col + (int(255 * vis),), anchor='mm')
     if title and t < 3.2:
         vis = min(1.0, ease((t - 0.2) / 0.5), ease((3.2 - t) / 0.5))
         if vis > 0:
-            text_halo(d, (W / 2, H * 0.06), title, f_title, (245, 245, 245, int(255 * vis)), anchor='mm')
+            text_halo(d, (W / 2, H * 0.08), title, f_title, (245, 245, 245, int(255 * vis)), anchor='mm')
     img.alpha_composite(ov)
 
 
