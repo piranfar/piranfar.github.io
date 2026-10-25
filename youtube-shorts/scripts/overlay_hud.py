@@ -21,7 +21,7 @@ W, H = [int(v) for v in subprocess.run(['ffprobe', '-v', 'error', '-select_strea
                                         capture_output=True, text=True).stdout.strip().split(',')]
 sx, sy = W / A['size'][0], H / A['size'][1]
 f_label = ImageFont.truetype(FONT_B, int(H * 0.036))
-f_head = ImageFont.truetype(FONT_B, int(H * 0.044))
+f_head = ImageFont.truetype(FONT_B, int(H * 0.040))
 f_title = ImageFont.truetype(FONT_B, int(H * 0.024))
 M = int(W * 0.06)                     # screen margin
 CORNERS = {'tl': (M, int(H * 0.16)), 'tr': (W - M, int(H * 0.16)), 'bl': (M, int(H * 0.78)), 'br': (W - M, int(H * 0.78))}
@@ -94,7 +94,16 @@ def draw_headlines(img, fr):
     for a0, a1, text in A.get('headlines', []):
         if a0 <= t <= a1:
             vis = min(ease((t - a0) / 0.35), ease((a1 - t) / 0.35))
-            text_halo(d, (W / 2, H * 0.70), text, f_head, (255, 216, 110, int(255 * vis)), anchor='mm')
+            fh = f_head
+            if d.textlength(text, font=fh) > 0.92 * W:
+                fh = ImageFont.truetype(FONT_B, int(f_head.size * 0.92 * W / d.textlength(text, font=fh)))
+            text_halo(d, (W / 2, H * 0.70), text, fh, (255, 216, 110, int(255 * vis)), anchor='mm')
+    for a0, a1, l1, l2 in A.get('cards', []):
+        if a0 <= t <= a1:
+            vis = min(ease((t - a0) / 0.5), ease((a1 - t) / 0.5))
+            d.rectangle([0, 0, W, H], fill=(0, 0, 0, int(120 * vis)))
+            text_halo(d, (W / 2, H * 0.47), l1, f_head, (255, 255, 255, int(255 * vis)), anchor='mm')
+            text_halo(d, (W / 2, H * 0.53), l2, f_label, (255, 216, 110, int(255 * vis)), anchor='mm')
     if title and t < 3.2:
         vis = min(1.0, ease((t - 0.2) / 0.5), ease((3.2 - t) / 0.5))
         if vis > 0:

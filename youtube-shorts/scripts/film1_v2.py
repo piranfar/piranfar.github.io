@@ -59,10 +59,18 @@ bg.inputs[0].default_value = (0.012, 0.018, 0.035, 1.0)
 bg.inputs[1].default_value = 1.0
 
 
-def cam_key(frame, target, dist, dx=0.0, dz=0.0):
+import math
+
+
+def cam_key(frame, target, dist, dx=0.0, dz=0.0, az=0.0, el=0.0):
+    """camera at 'dist' from target; az = azimuth (deg, + = screen-right side),
+    el = elevation (deg, + = looking down from above)."""
     tgt.location = target
     tgt.keyframe_insert('location', frame=frame)
-    cam.location = Vector((target.x + dx, target.y + dist, target.z + dz))
+    a, e = math.radians(az), math.radians(el)
+    cam.location = Vector((target.x - dist * math.sin(a) * math.cos(e) + dx,
+                           target.y + dist * math.cos(a) * math.cos(e),
+                           target.z + dist * math.sin(e) + dz))
     cam.keyframe_insert('location', frame=frame)
 
 
@@ -119,6 +127,7 @@ center = Vector((porin.x, cut_y, -3.5))
 P = lambda x, z: Vector((x, cut_y + 0.3, z))
 GLOW = {'MAT_lps': 0.25, 'MAT_lipid': 0.2, 'MAT_protein_porin': 0.6, 'MAT_pg_glycan': 0.3, 'MAT_pg_peptide': 0.3,
         'MAT_enzyme_tem1': 0.6, 'MAT_lipid_IM': 0.2, 'MAT_target_pbp1b': 0.6, 'MAT_pump_acrb': 0.45}
+cards = []
 anchors = {}      # label key -> {"frames": [f0, f1], "pos": {frame: [x, y]}, "text": ..., "corner": ...}
 headlines = []
 
@@ -131,33 +140,42 @@ if MODE == 'tour':
     for o in objs:
         if o.name.startswith('Drug_') or o.name.startswith('Path_drug'):
             o.hide_render = True
-    LEAD, HOLD = 3 * FPS, 5 * FPS
-    segs = [  # key, target, dist, anchor point, label, screen corner for the text, subject materials
-        ('om', P(porin.x - 2, 9.5), 34.0, P(porin.x - 7, 12.5), 'OUTER MEMBRANE', 'bl', ['MAT_lps', 'MAT_lipid']),
-        ('porin', P(porin.x, porin.z + 1.0), 22.0, P(porin.x + 0.5, porin.z + 0.5), 'PORIN', 'tl', ['MAT_protein_porin']),
-        ('pg', P(porin.x + 2, -1.5), 22.0, P(porin.x + 5.0, -2.4), 'PEPTIDOGLYCAN', 'tl', ['MAT_pg_glycan', 'MAT_pg_peptide']),
-        ('tem1', P(tem.x, tem.z + 0.5), 19.0, P(tem.x + 0.5, tem.z + 0.5), 'BETA-LACTAMASE', 'tl', ['MAT_enzyme_tem1']),
-        ('im', P(porin.x + 4, -19.0), 34.0, P(porin.x + 9, -19.8), 'INNER MEMBRANE', 'tr', ['MAT_lipid_IM']),
-        ('pbp', P(pbp.x - 2.5, pbp.z - 1.0), 30.0, P(pbp.x, pbp.z + 2.0), 'PBP (THE TARGET)', 'tr', ['MAT_target_pbp1b']),
-        ('acrb', P(acrb.x, acrb.z), 38.0, P(acrb.x, acrb.z + 3.0), 'EFFLUX PUMP', 'tl', ['MAT_pump_acrb']),
+    # one continuous journey: hook close on the LPS surface -> fast pull-out to the
+    # whole envelope -> descend layer by layer with arcs and changing height,
+    # variable dwell per component -> rise back out
+    segs = [  # key, target, dist, az, el, dwell_s, anchor, label, corner, subject mats
+        ('om', P(porin.x - 1, 9.0), 30.0, -18, 22, 4.5, P(porin.x - 5, 11.5), 'OUTER MEMBRANE', 'bl', ['MAT_lps', 'MAT_lipid']),
+        ('porin', P(porin.x, porin.z + 1.0), 21.0, 14, 8, 5.0, P(porin.x + 0.5, porin.z + 0.5), 'PORIN', 'tl', ['MAT_protein_porin']),
+        ('pg', P(porin.x + 2, -2.0), 20.0, -10, 30, 4.0, P(porin.x + 5.0, -2.4), 'PEPTIDOGLYCAN', 'tl', ['MAT_pg_glycan', 'MAT_pg_peptide']),
+        ('tem1', P(tem.x, tem.z + 0.5), 18.0, 16, 6, 5.5, P(tem.x + 0.5, tem.z + 0.5), 'BETA-LACTAMASE', 'tl', ['MAT_enzyme_tem1']),
+        ('im', P(porin.x + 4, -19.0), 32.0, -12, 16, 3.5, P(porin.x + 9, -19.8), 'INNER MEMBRANE', 'tr', ['MAT_lipid_IM']),
+        ('pbp', P(pbp.x - 2.0, pbp.z + 0.5), 31.0, 12, 10, 5.0, P(pbp.x, pbp.z + 2.0), 'PBP (THE TARGET)', 'tr', ['MAT_target_pbp1b']),
+        ('acrb', P(acrb.x, acrb.z), 36.0, -16, 10, 4.5, P(acrb.x, acrb.z + 3.0), 'EFFLUX PUMP', 'tl', ['MAT_pump_acrb']),
     ]
-    cam_key(1, center, 72.0, dz=6.0)
-    cam_key(LEAD, center, 62.0, dz=5.0)
+    HOOK = 2 * FPS
+    # hook: skimming the LPS surface, then a fast pull-out to the wide view
+    cam_key(1, P(porin.x - 3, 13.0), 14.0, az=-25, el=30)
+    cam_key(HOOK, center, 70.0, el=6)
+    cam_key(HOOK + 30, center, 64.0, el=5)
     key_normal(1)
-    key_normal(LEAD)
-    f = LEAD + 1
-    for key, target, dist, anchor, label, corner, subj in segs:
-        cam_key(f + 25, target, dist)
-        cam_key(f + HOLD, target, dist * 0.94, dx=0.4)
-        key_state(f + 12, subj, max(GLOW[m] for m in subj))
-        key_state(f + HOLD - 12, subj, max(GLOW[m] for m in subj))
-        register_anchor(key, label, corner, f + 14, f + HOLD - 8, (lambda a: (lambda fr: a))(anchor))
-        f += HOLD
-    key_normal(f + 12)
-    cam_key(f + 40, center, 72.0, dz=6.0)
-    END = f + 40
+    key_normal(HOOK + 30)
+    headlines = [(0.25, 2.1, 'HOW DOES AN ANTIBIOTIC GET IN?')]
+    f = HOOK + 31
+    prev_az = 0.0
+    for key, target, dist, az, el, dwell, anchor, label, corner, subj in segs:
+        hold = int(dwell * FPS)
+        travel = 32
+        cam_key(f + travel, target, dist, az=az, el=el)
+        # slow arc while dwelling: azimuth drifts 10 deg, slight push-in
+        cam_key(f + hold, target, dist * 0.92, az=az + (10 if az < 0 else -10), el=el * 0.8)
+        key_state(f + travel - 10, subj, max(GLOW[m] for m in subj))
+        key_state(f + hold - 10, subj, max(GLOW[m] for m in subj))
+        register_anchor(key, label, corner, f + travel - 6, f + hold - 6, (lambda a: (lambda fr: a))(anchor))
+        f += hold
+    key_normal(f + 15)
+    cam_key(f + 45, center, 70.0, el=6)
+    END = f + 45
     OUT = 'film1_v2_tour'
-    headlines = []
 
 elif MODE == 'entry':
     for o in objs:
@@ -180,8 +198,8 @@ elif MODE == 'entry':
     site = objs['Target_TEM1_site'].matrix_world.translation.copy()
     key_normal(1)
     DIST = 26.0
-    cam_key(1, center, 72.0, dz=6.0)
-    cam_key(90, Vector((porin.x, cut_y, 12.0)), 40.0, dz=6.0)
+    cam_key(1, Vector((porin.x, cut_y, 13.0)), 44.0, az=-8, el=10)
+    cam_key(90, Vector((porin.x, cut_y, 12.0)), 36.0, az=-4, el=6)
     for fr in (150, 220, 300, 380, 450):
         sc.frame_set(fr)
         d = drug.matrix_world.translation
@@ -191,17 +209,21 @@ elif MODE == 'entry':
     cam_key(600, site_t, 15.0, dx=0.4, dz=0.8)
     cam_key(690, site_t, 16.0, dx=-0.3, dz=1.2)
     cam_key(740, site_t, 24.0, dx=-1.0, dz=2.5)
+    cam_key(830, center, 72.0, el=6)          # pull all the way out for the end card
     # subject emphasis during the reaction: dim everything but the enzyme
     key_normal(495)
     key_state(515, ['MAT_enzyme_tem1'], 0.35)
     key_state(700, ['MAT_enzyme_tem1'], 0.35)
     key_normal(725)
+    key_normal(760)
+    key_state(800, [], 0.0)                   # everything dimmed under the end card
     register_anchor('drug', 'CEFTAZIDIME', 'bl', 100, 205, lambda fr: (sc.frame_set(fr), drug.matrix_world.translation.copy())[1])
     register_anchor('porin', 'PORIN', 'tl', 215, 330, lambda fr: P(porin.x + 0.5, porin.z + 0.5))
     register_anchor('tem1', 'BETA-LACTAMASE', 'br', 385, 475, lambda fr: P(tem.x + 0.5, tem.z + 0.5))
     headlines = [(20 / FPS, 110 / FPS, 'A BETA-LACTAM ARRIVES'), (215 / FPS, 300 / FPS, 'THROUGH THE PORIN'),
-                 (565 / FPS, 650 / FPS, 'THE BETA-LACTAM RING IS BROKEN')]
-    END = 740
+                 (565 / FPS, 650 / FPS, 'RING BROKEN. DRUG DESTROYED.')]
+    cards = [(775 / FPS, 830 / FPS, 'EPISODE 1  -  THE ENVELOPE', 'NEXT: HOW BACTERIA FIGHT BACK')]
+    END = 830
     OUT = 'film1_v2_entry'
 else:
     raise SystemExit('MODE must be tour or entry')
@@ -219,7 +241,7 @@ for key, a in anchors.items():
         pos[fr] = [round(v.x * W, 1), round((1.0 - v.y) * H, 1)]
     export[key] = {'text': a['text'], 'corner': a['corner'], 'frames': a['frames'], 'pos': pos}
 with open(os.path.join(BASE, 'render', OUT + '_anchors.json'), 'w', encoding='utf-8') as fh:
-    json.dump({'fps': FPS, 'size': [W, H], 'labels': export, 'headlines': headlines}, fh, indent=0)
+    json.dump({'fps': FPS, 'size': [W, H], 'labels': export, 'headlines': headlines, 'cards': cards}, fh, indent=0)
 print('ANCHORS', {k: (v['frames'], list(v['pos'].values())[len(v['pos']) // 2]) for k, v in export.items()})
 
 for m in sc.timeline_markers:
