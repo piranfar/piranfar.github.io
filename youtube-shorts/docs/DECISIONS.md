@@ -30,3 +30,7 @@ A running log. Newest at the bottom.
 
 - **Geometry-nodes modifier inputs cannot be set from Python in Blender 5.2** (`modifier[socket] = value` raises "id properties not supported"). Drive animated node groups with an empty wired to an Object Info node inside the group, and keyframe the empty's location/scale. Use `transform_space = 'RELATIVE'` so Array-tiled copies read the control in their own space.
 - **Episode-2 wall mechanics** (`episodes/ep02-hit-the-wall/scripts/wall_mechanics.py`) are all run-time: new strands grow from PBP1b (bevel_factor_end), a sphere deletes wall geometry (gap), a gaussian Set Position lifts the inner-membrane lipids (bulge). Gap and bulge sit screen-right of PBP1b where the wall is visible, not hidden behind the protein.
+
+## 2026-10-26
+
+- **Shorts safe area.** Phones crop a few percent from each side and YouTube's UI covers the bottom ~25 % and a right column; in episode 1 the 'OUTER MEMBRANE' label sat under the channel name and the leader ran to the edge. From episode 2 the overlay keeps 11 % side margins, label rows at 15 % and 66 % of height, headlines at 60 %, nothing below 70 %. Episode 1 stays as published (600+ views); the rule applies going forward.
