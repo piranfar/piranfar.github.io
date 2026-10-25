@@ -253,8 +253,8 @@ elif MODE == 'entry':
     # ---- wall mechanics ----
     grown = build_wall(470, 590)          # the wall grows while the drug drifts toward PBP1b
     stop_wall(grown, 680)                 # growth freezes as the ring opens on the serine
-    open_gap(720, 810, radius=5.0)
-    bulge_membrane(760, 870, amplitude=5.0, sigma=4.0)
+    open_gap(750, 840, radius=5.0)
+    bulge_membrane(790, 900, amplitude=5.0, sigma=4.0)
 
     # ---- camera: identical to episode 1 for frames 1-450 ----
     key_normal(1)
@@ -270,10 +270,11 @@ elif MODE == 'entry':
     cam_key(500, wall_t, 26.0, az=-6, el=24)
     cam_key(600, wall_t, 23.0, az=3, el=22)
     cam_key(640, site_t, 16.0, az=8, el=8)
-    cam_key(660, site_t, 11.5, dx=0.5, dz=0.6, az=6, el=4)
-    cam_key(710, site_t, 10.5, dx=0.3, dz=0.5, az=-4, el=4)
-    cam_key(770, wall_t, 23.0, az=-4, el=26)
-    cam_key(860, wall_t, 24.0, az=2, el=24)
+    cam_key(660, site_t, 13.0, dx=0.5, dz=0.6, az=6, el=10)
+    cam_key(710, site_t, 12.0, dx=0.3, dz=0.5, az=-4, el=10)
+    cam_key(745, site_t, 12.0, dx=0.2, dz=0.5, az=-6, el=10)   # hold the macro through the headline
+    cam_key(800, wall_t, 23.0, az=-4, el=26)
+    cam_key(880, wall_t, 24.0, az=2, el=24)
     cam_key(920, Vector((WALL_C.x, cut_y, -9.0)), 30.0, az=-8, el=14)
     cam_key(970, center, 72.0, el=6)
     cam_key(1010, center, 72.0, el=6)
@@ -281,23 +282,23 @@ elif MODE == 'entry':
     key_state(485, ['MAT_target_pbp1b', 'MAT_pg_glycan', 'MAT_pg_peptide'], 0.35)
     key_state(610, ['MAT_target_pbp1b', 'MAT_pg_glycan', 'MAT_pg_peptide'], 0.35)
     key_state(640, ['MAT_target_pbp1b'], 0.4)
-    key_state(745, ['MAT_target_pbp1b'], 0.4)
-    key_state(780, ['MAT_target_pbp1b', 'MAT_pg_glycan', 'MAT_pg_peptide', 'MAT_lipid_IM'], 0.3)
-    key_state(900, ['MAT_target_pbp1b', 'MAT_pg_glycan', 'MAT_pg_peptide', 'MAT_lipid_IM'], 0.3)
+    key_state(760, ['MAT_target_pbp1b'], 0.4)
+    key_state(800, ['MAT_target_pbp1b', 'MAT_pg_glycan', 'MAT_pg_peptide', 'MAT_lipid_IM'], 0.3)
+    key_state(905, ['MAT_target_pbp1b', 'MAT_pg_glycan', 'MAT_pg_peptide', 'MAT_lipid_IM'], 0.3)
     key_normal(940)
     key_state(975, [], 0.0)
 
     # ---- labels, headlines, bursts, card ----
     register_anchor('drug', 'CEFTAZIDIME', 'bl', 100, 205, lambda fr: (sc.frame_set(fr), drug.matrix_world.translation.copy())[1])
     register_anchor('porin', 'PORIN', 'tl', 215, 300, lambda fr: P(porin.x + 0.5, porin.z + 0.5))
-    register_anchor('pbp', 'PBP: BUILDS THE WALL', 'tr', 490, 595, lambda fr: P(pbp.x, pbp.z + 2.0))
+    register_anchor('pbp', 'PBP: BUILDS THE WALL', 'bl', 490, 595, lambda fr: P(pbp.x, pbp.z + 2.0))
     register_anchor('bond', '', 'tl', 660, 700, lambda fr: SITE)
-    register_anchor('gap', 'THE WALL FAILS', 'tl', 790, 855, lambda fr: Vector((WALL_C.x, cut_y - 1.2, WALL_C.z)))
+    register_anchor('gap', 'THE WALL FAILS', 'tl', 815, 875, lambda fr: Vector((WALL_C.x, cut_y - 1.2, WALL_C.z)))
     bursts = [(662, 696, 'bond')]
     headlines = [(20 / FPS, 110 / FPS, 'SAME DRUG. SAME DOOR.'), (215 / FPS, 300 / FPS, 'THROUGH THE PORIN'),
                  (340 / FPS, 440 / FPS, 'NO ENZYME THIS TIME'), (600 / FPS, 652 / FPS, 'IT REACHES THE TARGET'),
-                 (690 / FPS, 755 / FPS, 'THE RING OPENS... AND STAYS'), (790 / FPS, 862 / FPS, 'THE WALL STOPS GROWING'),
-                 (880 / FPS, 935 / FPS, 'LYSIS')]
+                 (690 / FPS, 748 / FPS, 'THE RING OPENS... AND STAYS'), (815 / FPS, 885 / FPS, 'THE WALL STOPS GROWING'),
+                 (898 / FPS, 945 / FPS, 'LYSIS')]
     cards = [(960 / FPS, 1010 / FPS, 'EPISODE 2  -  HITTING THE WALL', 'NEXT: HOW BACTERIA FIGHT BACK')]
     END = 1010
     OUT = 'film2_entry'
