@@ -102,8 +102,10 @@ def draw_headlines(img, fr):
         if a0 <= t <= a1:
             vis = min(ease((t - a0) / 0.5), ease((a1 - t) / 0.5))
             d.rectangle([0, 0, W, H], fill=(0, 0, 0, int(120 * vis)))
-            text_halo(d, (W / 2, H * 0.47), l1, f_head, (255, 255, 255, int(255 * vis)), anchor='mm')
-            text_halo(d, (W / 2, H * 0.53), l2, f_label, (255, 216, 110, int(255 * vis)), anchor='mm')
+            for yy, txt, fnt, col in ((0.47, l1, f_head, (255, 255, 255)), (0.53, l2, f_label, (255, 216, 110))):
+                if d.textlength(txt, font=fnt) > 0.88 * W:
+                    fnt = ImageFont.truetype(FONT_B, int(fnt.size * 0.88 * W / d.textlength(txt, font=fnt)))
+                text_halo(d, (W / 2, H * yy), txt, fnt, col + (int(255 * vis),), anchor='mm')
     if title and t < 3.2:
         vis = min(1.0, ease((t - 0.2) / 0.5), ease((3.2 - t) / 0.5))
         if vis > 0:
