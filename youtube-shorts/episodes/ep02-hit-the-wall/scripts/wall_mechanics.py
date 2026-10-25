@@ -53,6 +53,23 @@ def mat_of(name):
     return bpy.data.materials[name]
 
 
+def fresh_material(i, f_grow_start, f_grow_end):
+    """new wall material: brighter, slightly emissive while growing, settling to the old wall colour."""
+    old = bpy.data.materials['MAT_pg_glycan']
+    m = old.copy()
+    m.name = 'MAT_pg_fresh_%d' % i
+    b = m.node_tree.nodes['Principled BSDF']
+    base = tuple(old.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value)
+    bright = (min(1.0, base[0] * 0.9), min(1.0, base[1] * 1.25), min(1.0, base[2] * 0.6), 1.0)
+    b.inputs['Emission Color'].default_value = bright
+    for f, col, em in ((f_grow_start, bright, 0.9), (f_grow_end, bright, 0.9), (f_grow_end + 40, base, 0.0)):
+        b.inputs['Base Color'].default_value = col
+        b.inputs['Base Color'].keyframe_insert('default_value', frame=f)
+        b.inputs['Emission Strength'].default_value = em
+        b.inputs['Emission Strength'].keyframe_insert('default_value', frame=f)
+    return m
+
+
 # ---------------------------------------------------------------- 1) building
 STRAND_LEN = 11.0
 X0 = pbp_c.x - 1.2                      # new material leaves the PBP on its screen-right side
@@ -85,8 +102,8 @@ def build_wall(f0, f1, n_strands=3, stagger=36):
         sp.order_u = 4
         ob = bpy.data.objects.new('EP2_newstrand_%d' % i, cu)
         coll.objects.link(ob)
-        cu.materials.append(mat_of('MAT_pg_glycan'))
         fa = f0 + stagger * i
+        cu.materials.append(fresh_material(i, fa, f1 + stagger * i))
         for f, v in ((fa, 0.0), (f1 + stagger * i, 1.0)):
             cu.bevel_factor_end = v
             cu.keyframe_insert('bevel_factor_end', frame=f)
@@ -128,6 +145,12 @@ def stop_wall(grown, f_stop):
         cu.bevel_factor_end = v
         cu.keyframe_insert('bevel_factor_end', frame=min(f_stop, fb))
         cu.keyframe_insert('bevel_factor_end', frame=f_stop + 600)
+        if fb > f_stop:                      # interrupted strand: stays bright, never settles
+            m = cu.materials[0]
+            m.node_tree.animation_data_clear()
+            b = m.node_tree.nodes['Principled BSDF']
+            b.inputs['Base Color'].default_value = tuple(b.inputs['Emission Color'].default_value)
+            b.inputs['Emission Strength'].default_value = 0.9
     for ob in coll.objects:
         if ob.name.startswith('EP2_pep_') and ob.animation_data:
             sc.frame_set(f_stop)
