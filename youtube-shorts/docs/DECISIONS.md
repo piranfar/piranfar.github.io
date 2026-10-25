@@ -27,3 +27,6 @@ A running log. Newest at the bottom.
 
 - **Layout**: shared assets at the root, per-episode `scripts/renders/thumbs`. Episode scripts never save the base scene.
 - **Docx export of a post** must run from a copy outside the Quarto project; the site's HTML includes break other formats.
+
+- **Geometry-nodes modifier inputs cannot be set from Python in Blender 5.2** (`modifier[socket] = value` raises "id properties not supported"). Drive animated node groups with an empty wired to an Object Info node inside the group, and keyframe the empty's location/scale. Use `transform_space = 'RELATIVE'` so Array-tiled copies read the control in their own space.
+- **Episode-2 wall mechanics** (`episodes/ep02-hit-the-wall/scripts/wall_mechanics.py`) are all run-time: new strands grow from PBP1b (bevel_factor_end), a sphere deletes wall geometry (gap), a gaussian Set Position lifts the inner-membrane lipids (bulge). Gap and bulge sit screen-right of PBP1b where the wall is visible, not hidden behind the protein.

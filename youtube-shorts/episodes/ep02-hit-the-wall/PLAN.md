@@ -14,8 +14,13 @@ The same drug, the same door, a different ending: no beta-lactamase is waiting, 
 
 ## To build
 
-- [ ] Acyl-enzyme pose: superpose 2C5W (S. pneumoniae PBP1a with cefotaxime) onto 3VMA active site (Ser510 in E. coli PBP1b numbering), transfer ligand, then swap to ceftazidime by core alignment. State the approximation in the description.
-- [ ] Wall-building animation: strand growth from PBP1b (curve bevel factor keyed), cross-link pops.
-- [ ] Wall failure: delete/scale glycan segments near PBP over time; inner-membrane bulge via a lattice or proportional edit on the IM lipid object (or a simple sphere displacement in geometry nodes).
+- [x] Acyl-enzyme pose (transfer_pbp_pose.py, RMSD 0.58 A on the three motifs): superpose 2C5W (S. pneumoniae PBP1a with cefotaxime) onto 3VMA active site (Ser510 in E. coli PBP1b numbering), transfer ligand, then swap to ceftazidime by core alignment. State the approximation in the description.
+- [x] Wall-building animation (wall_mechanics.build_wall / stop_wall): strand growth from PBP1b (curve bevel factor keyed), cross-link pops.
+- [x] Wall failure (wall_mechanics.open_gap / bulge_membrane): delete/scale glycan segments near PBP over time; inner-membrane bulge via a lattice or proportional edit on the IM lipid object (or a simple sphere displacement in geometry nodes).
 - [ ] Autolysin note: one headline or narration line, not a new object.
 - [ ] Reuse: `overlay_hud.py`, `render_preview.py`, music and SFX from ep1.
+
+## Next
+
+- [ ] Shot script `film2.py`: hook (empty periplasm), PBP introduction with build_wall, drug path from the porin to the PBP entrance (ENTRANCE 33.2, 53.8, -100.9 A), docking + acyl cross-fade, stop_wall, open_gap, bulge, split payoff, end card.
+- [ ] Headlines and anchors JSON; overlay; music; assemble.
