@@ -4,11 +4,12 @@
    caption can name it in the edit: outer membrane (LPS + phospholipids),
    porin, peptidoglycan, beta-lactamase, inner membrane, PBP, efflux pump
  - nothing is saved to the .blend except the IM lipid material split
-Usage: blender -b blend/gram_negative_base.blend --python scripts/render_intro_tour.py -- [PCT]
+Usage: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/render_intro_tour.py -- [PCT]
 """
 import bpy, os, sys
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 args = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 pct = int(args[0]) if args else 50
@@ -90,6 +91,6 @@ sc.render.image_settings.file_format = 'FFMPEG'
 sc.render.ffmpeg.format = 'MPEG4'
 sc.render.ffmpeg.codec = 'H264'
 sc.render.ffmpeg.constant_rate_factor = 'MEDIUM'
-sc.render.filepath = os.path.join(BASE, 'render', 'film1_intro_tour.mp4')
+sc.render.filepath = os.path.join(EP, 'renders', 'film1_intro_tour.mp4')
 bpy.ops.render.render(animation=True)
 print('RENDER_DONE', sc.render.filepath, 'frames', end)

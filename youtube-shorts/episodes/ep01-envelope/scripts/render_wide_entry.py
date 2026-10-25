@@ -1,11 +1,12 @@
 """Wide establishing clip: whole envelope in frame, static cross-section camera,
 the antibiotic approaches from outside, crosses the LPS, passes the porin and
 reaches the periplasm / enzyme. Nothing is saved to the .blend.
-Usage: blender -b blend/gram_negative_base.blend --python scripts/render_wide_entry.py -- [START END PCT]
+Usage: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/render_wide_entry.py -- [START END PCT]
 """
 import bpy, os, sys
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 args = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 start = int(args[0]) if len(args) > 0 else 1
 end = int(args[1]) if len(args) > 1 else 480
@@ -42,6 +43,6 @@ sc.render.image_settings.file_format = 'FFMPEG'
 sc.render.ffmpeg.format = 'MPEG4'
 sc.render.ffmpeg.codec = 'H264'
 sc.render.ffmpeg.constant_rate_factor = 'MEDIUM'
-sc.render.filepath = os.path.join(BASE, 'render', 'wide_entry_%d_%d.mp4' % (start, end))
+sc.render.filepath = os.path.join(EP, 'renders', 'wide_entry_%d_%d.mp4' % (start, end))
 bpy.ops.render.render(animation=True)
 print('RENDER_DONE', sc.render.filepath)

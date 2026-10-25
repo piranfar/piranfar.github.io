@@ -7,12 +7,13 @@
  - two extra S3 cameras for replay angles: Cam_S3_alt (opposite orbit, higher),
    Cam_S3_macro (tight, slow drift on the pocket). They are not bound to markers;
    render them with scripts/render_preview.py ... CAMERA
-Run: blender -b blend/gram_negative_base.blend --python scripts/add_glow_cameras.py
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/add_glow_cameras.py
 """
 import bpy, math, os
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 sc = bpy.context.scene
 objs = bpy.data.objects

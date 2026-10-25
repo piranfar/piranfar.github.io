@@ -3,13 +3,14 @@
    channel interior (and the drug inside it) is visible from the follow camera
  - loosen the follow camera slightly in the passage
  - set the animation output: frames 180-330, 50 % resolution, H.264 MP4
-Run: blender -b blend/gram_negative_base.blend --python scripts/prep_preview_s2.py
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/prep_preview_s2.py
 then: blender -b blend/gram_negative_base.blend -a
 """
 import bpy, os
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 sc = bpy.context.scene
 objs = bpy.data.objects
@@ -40,12 +41,12 @@ try:
     sc.render.ffmpeg.format = 'MPEG4'
     sc.render.ffmpeg.codec = 'H264'
     sc.render.ffmpeg.constant_rate_factor = 'MEDIUM'
-    sc.render.filepath = os.path.join(BASE, 'render', 'preview_S2_porin.mp4')
+    sc.render.filepath = os.path.join(EP, 'renders', 'preview_S2_porin.mp4')
     print('OUTPUT video')
 except Exception as e:   # fall back to a PNG sequence
     sc.render.image_settings.media_type = 'IMAGE'
     sc.render.image_settings.file_format = 'PNG'
-    sc.render.filepath = os.path.join(BASE, 'render', 'preview_S2', 'f_')
+    sc.render.filepath = os.path.join(EP, 'renders', 'preview_S2', 'f_')
     print('OUTPUT png sequence (video setup failed: %s)' % e)
 sc.frame_set(1)
 bpy.ops.wm.save_as_mainfile(filepath=BLEND)

@@ -3,12 +3,13 @@
    sampled from the drug's own path so it glides with it (S2 porin + S3 periplasm)
  - timeline markers bound to cameras: S1 wide establishing shot (Cam_CrossSection),
    S2/S3 follow camera, S4 back to the wide shot
-Run: blender -b blend/gram_negative_base.blend --python scripts/add_shot_cameras.py
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/add_shot_cameras.py
 """
 import bpy, os
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 sc = bpy.context.scene
 objs = bpy.data.objects

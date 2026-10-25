@@ -2,12 +2,13 @@
 object with leader lines, cinematic depth of field, dark graded background).
 This script only builds the label system and renders two test stills; it does
 not save the .blend unless --save is given.
-Run: blender -b blend/gram_negative_base.blend --python scripts/cinematic_look.py -- [--save]
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/cinematic_look.py -- [--save]
 """
 import bpy, math, os, sys
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 FONT = 'C:/Windows/Fonts/segoeuib.ttf'
 SAVE = '--save' in sys.argv
@@ -143,13 +144,13 @@ for m in sc.timeline_markers:
     m.camera = None
 sc.camera = cam
 sc.frame_set(200)
-sc.render.filepath = os.path.join(BASE, 'render', 'look_test_wide.png')
+sc.render.filepath = os.path.join(EP, 'renders', 'look_test_wide.png')
 bpy.ops.render.render(write_still=True)
 print('RENDERED wide')
 # push-in: move the camera 45 % of the way toward the porin, keep aiming at it
 target = Vector((porin.x, cut_y, porin.z))
 cam.location = cam.location + (target - cam.location) * 0.45
 cam.rotation_euler = (target - cam.location).to_track_quat('-Z', 'Y').to_euler()
-sc.render.filepath = os.path.join(BASE, 'render', 'look_test_push.png')
+sc.render.filepath = os.path.join(EP, 'renders', 'look_test_push.png')
 bpy.ops.render.render(write_still=True)
 print('RENDERED push')

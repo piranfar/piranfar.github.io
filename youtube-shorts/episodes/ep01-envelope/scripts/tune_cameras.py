@@ -4,12 +4,13 @@
    docking and a pull-out during release. Shorter cross-fades (less ghosting).
  S2 (porin): follow camera pulled back ~35 % and swung in a gentle arc around
    the drug instead of trailing it from one side.
-Run: blender -b blend/gram_negative_base.blend --python scripts/tune_cameras.py
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/tune_cameras.py
 """
 import bpy, math, os
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 sc = bpy.context.scene
 objs = bpy.data.objects

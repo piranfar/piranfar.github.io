@@ -6,12 +6,13 @@ Ligand poses come from KPC-2/5UJ3 superposed onto the TEM-1 MD frame
  - 540-580        docked intact pose cross-fades into the hydrolyzed (ring-opened) product
  - 620-700        the product drifts out of the active site and fades
  - Cam_S3_enzyme  tracks the active site (marker 'S3 periplasm' -> this camera)
-Run: blender -b blend/gram_negative_base.blend --python scripts/add_s3_hydrolysis.py
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/add_s3_hydrolysis.py
 """
 import bpy, math, os
 from mathutils import Vector, Matrix
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 LIG = os.path.join(BASE, 'pdb', 'ligands')
 SITE_A = Vector((48.62, 64.35, 25.55))       # TEM-1 frame, Angstrom (from transfer_pose.py)
@@ -145,7 +146,7 @@ sc.render.resolution_percentage = 50
 sc.render.image_settings.media_type = 'VIDEO'
 sc.render.image_settings.file_format = 'FFMPEG'
 sc.render.ffmpeg.format = 'MPEG4'; sc.render.ffmpeg.codec = 'H264'
-sc.render.filepath = os.path.join(BASE, 'render', 'preview_S3_hydrolysis.mp4')
+sc.render.filepath = os.path.join(EP, 'renders', 'preview_S3_hydrolysis.mp4')
 sc.frame_set(1)
 bpy.ops.wm.save_as_mainfile(filepath=BLEND)
 print('SAVED', BLEND)
@@ -155,6 +156,6 @@ sc.render.image_settings.media_type = 'IMAGE'
 sc.render.image_settings.file_format = 'PNG'
 for f in (430, 500, 600, 690):
     sc.frame_set(f)
-    sc.render.filepath = os.path.join(BASE, 'render', 's3_check_f%03d.png' % f)
+    sc.render.filepath = os.path.join(EP, 'renders', 's3_check_f%03d.png' % f)
     bpy.ops.render.render(write_still=True)
     print('RENDERED', f, sc.camera.name)

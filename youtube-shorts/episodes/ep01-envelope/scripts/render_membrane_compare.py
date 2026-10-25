@@ -8,8 +8,9 @@ from mathutils import Vector
 
 TAG = sys.argv[sys.argv.index('--') + 1] if '--' in sys.argv else 't0'
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 TRAJ = os.path.join(BASE, 'traj', 'ompf_lps')
-OUT = os.path.join(BASE, 'render', f'ompf_lps_{TAG}.png')
+OUT = os.path.join(EP, 'renders', f'ompf_lps_{TAG}.png')
 
 COMP = {  # name: (file suffix, style, rgba)
     'protein': ('protein', 'cartoon', (0.10, 0.55, 0.60, 1.0)),   # teal

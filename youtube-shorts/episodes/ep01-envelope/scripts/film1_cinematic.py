@@ -5,12 +5,13 @@ camera-parented 3D text is destroyed by the depth of field.
 Two modes, rendered separately and concatenated afterwards:
   tour   : 3 s establishing + 7 components x 5 s + pull-out, drug hidden
   entry  : frames 1-480, the beta-lactam arrives, passes the porin, reaches TEM-1
-Usage: blender -b blend/gram_negative_base.blend --python scripts/film1_cinematic.py -- MODE [PCT] [STILLS]
+Usage: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/film1_cinematic.py -- MODE [PCT] [STILLS]
 """
 import bpy, os, sys, json, math
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 FONT = 'C:/Windows/Fonts/segoeuib.ttf'
 args = sys.argv[sys.argv.index('--') + 1:]
 MODE = args[0]
@@ -274,7 +275,7 @@ elif MODE == 'entry':
 else:
     raise SystemExit('MODE must be tour or entry')
 
-with open(os.path.join(BASE, 'render', OUT + '_headlines.json'), 'w', encoding='utf-8') as fh:
+with open(os.path.join(EP, 'renders', OUT + '_headlines.json'), 'w', encoding='utf-8') as fh:
     json.dump(headlines, fh, ensure_ascii=False, indent=1)
 
 for m in sc.timeline_markers:
@@ -286,7 +287,7 @@ if STILLS:
     sc.render.image_settings.file_format = 'PNG'
     for fr in STILLS:
         sc.frame_set(fr)
-        sc.render.filepath = os.path.join(BASE, 'render', '%s_f%04d.png' % (OUT, fr))
+        sc.render.filepath = os.path.join(EP, 'renders', '%s_f%04d.png' % (OUT, fr))
         bpy.ops.render.render(write_still=True)
         print('STILL', fr)
 else:
@@ -296,6 +297,6 @@ else:
     sc.render.ffmpeg.format = 'MPEG4'
     sc.render.ffmpeg.codec = 'H264'
     sc.render.ffmpeg.constant_rate_factor = 'MEDIUM'
-    sc.render.filepath = os.path.join(BASE, 'render', OUT + '.mp4')
+    sc.render.filepath = os.path.join(EP, 'renders', OUT + '.mp4')
     bpy.ops.render.render(animation=True)
     print('RENDER_DONE', sc.render.filepath, 'frames', END)

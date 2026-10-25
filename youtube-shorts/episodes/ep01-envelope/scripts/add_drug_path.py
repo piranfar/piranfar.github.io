@@ -5,15 +5,16 @@
  - Follow Path constraint, path evaluated over frames 1..450 (S1 approach +
    S2 porin + arrival at the enzyme in S3), with a slow tumble
  - renders four preview stills (frames 1, 150, 300, 450) at half resolution
-Run: blender -b blend/gram_negative_base.blend --python scripts/add_drug_path.py
+Run: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/add_drug_path.py
 """
 import bpy, math, os
 from mathutils import Vector
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 BLEND = os.path.join(BASE, 'blend', 'gram_negative_base.blend')
 DRUG_PDB = os.path.join(BASE, 'pdb', 'ligands', 'ceftazidime_CAZ.pdb')
-PREVIEW = os.path.join(BASE, 'render', 'drug_path_f%03d.png')
+PREVIEW = os.path.join(EP, 'renders', 'drug_path_f%03d.png')
 PATH_FRAMES = (1, 450)
 PALETTE = {'drug_cephalosporin': (0.98, 0.30, 0.20, 1.0)}   # vivid red-orange
 

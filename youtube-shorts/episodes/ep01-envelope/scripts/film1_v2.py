@@ -6,13 +6,14 @@
  - while a component is introduced, every other material is dimmed and
    desaturated and the subject gets a gentle glow
  - same camera work as film1_cinematic.py (tour / entry)
-Usage: blender -b blend/gram_negative_base.blend --python scripts/film1_v2.py -- MODE [PCT] [STILLS]
+Usage: blender -b blend/gram_negative_base.blend --python episodes/ep01-envelope/scripts/film1_v2.py -- MODE [PCT] [STILLS]
 """
 import bpy, os, sys, json
 from mathutils import Vector
 from bpy_extras.object_utils import world_to_camera_view
 
 BASE = r'E:\Github Project\piranfar.github.io\youtube-shorts'
+EP = os.path.join(BASE, 'episodes', 'ep01-envelope')
 args = sys.argv[sys.argv.index('--') + 1:]
 MODE = args[0]
 PCT = int(args[1]) if len(args) > 1 else 100
@@ -271,7 +272,7 @@ for key, a in anchors.items():
         v = world_to_camera_view(sc, cam, p)
         pos[fr] = [round(v.x * W, 1), round((1.0 - v.y) * H, 1)]
     export[key] = {'text': a['text'], 'corner': a['corner'], 'frames': a['frames'], 'pos': pos}
-with open(os.path.join(BASE, 'render', OUT + '_anchors.json'), 'w', encoding='utf-8') as fh:
+with open(os.path.join(EP, 'renders', OUT + '_anchors.json'), 'w', encoding='utf-8') as fh:
     json.dump({'fps': FPS, 'size': [W, H], 'labels': export, 'headlines': headlines, 'cards': cards, 'bursts': bursts}, fh, indent=0)
 print('ANCHORS', {k: (v['frames'], list(v['pos'].values())[len(v['pos']) // 2]) for k, v in export.items()})
 
@@ -284,7 +285,7 @@ if STILLS:
     sc.render.image_settings.file_format = 'PNG'
     for fr in STILLS:
         sc.frame_set(fr)
-        sc.render.filepath = os.path.join(BASE, 'render', '%s_f%04d.png' % (OUT, fr))
+        sc.render.filepath = os.path.join(EP, 'renders', '%s_f%04d.png' % (OUT, fr))
         bpy.ops.render.render(write_still=True)
         print('STILL', fr)
 else:
@@ -294,6 +295,6 @@ else:
     sc.render.ffmpeg.format = 'MPEG4'
     sc.render.ffmpeg.codec = 'H264'
     sc.render.ffmpeg.constant_rate_factor = 'HIGH'
-    sc.render.filepath = os.path.join(BASE, 'render', OUT + '.mp4')
+    sc.render.filepath = os.path.join(EP, 'renders', OUT + '.mp4')
     bpy.ops.render.render(animation=True)
     print('RENDER_DONE', sc.render.filepath, 'frames', END)
