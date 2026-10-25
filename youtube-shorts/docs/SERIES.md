@@ -15,7 +15,7 @@ A second decision followed the first review: the videos must look like films, no
 | # | Title | Claim | Status |
 |---|---|---|---|
 | 1 | Inside a Gram-negative bacterium | How a beta-lactam gets in, and how TEM-1 destroys it | Published 2026-10-24, https://youtube.com/shorts/kJKye8xqjRg |
-| 2 | Beta-lactams hit the wall | With no enzyme waiting, the drug locks PBP1b and the wall stops growing | In production, see `episodes/ep02-hit-the-wall/PLAN.md` |
+| 2 | Beta-lactams hit the wall | With no enzyme waiting, the drug locks PBP1b and the wall stops growing | First cut rendered 2026-10-26 (36 s), awaiting review; `episodes/ep02-hit-the-wall/` |
 | 2b | Two fates (long form, landscape) | Episodes 1 and 2 side by side: same entry, then the enzyme eats the drug vs the drug locks the target. Not a Short; a 2-3 min video for the main feed | Planned after ep2; requires the frame-aligned entries |
 | 3 | How beta-lactamases save the wall | Classes A/C/D, plasmid spread, and why one enzyme covers a whole cell | Planned |
 | 4 | Porins shut the door | OmpF/OmpC loss and what it costs the cell | Planned |

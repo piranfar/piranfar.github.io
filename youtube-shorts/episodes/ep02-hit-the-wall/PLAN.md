@@ -22,8 +22,9 @@ The same drug, the same door, a different ending: no beta-lactamase is waiting, 
 
 ## Next
 
-- [ ] Shot script `film2.py`: hook (empty periplasm), PBP introduction with build_wall, drug path from the porin to the PBP entrance (ENTRANCE 33.2, 53.8, -100.9 A), docking + acyl cross-fade, stop_wall, open_gap, bulge, split payoff, end card.
-- [ ] Headlines and anchors JSON; overlay; music; assemble.
+- [x] Shot script `film2.py` (first full render 2026-10-26, 36 s, `renders/film2_final.mp4`): hook (empty periplasm), PBP introduction with build_wall, drug path from the porin to the PBP entrance (ENTRANCE 33.2, 53.8, -100.9 A), docking + acyl cross-fade, stop_wall, open_gap, bulge, split payoff, end card.
+- [x] Headlines and anchors JSON; overlay; music; assemble.
+- [ ] Author review of the first cut; then thumbnail, upload, blog note.
 
 ## Alignment with episode 1 (for the long comparison film)
 
