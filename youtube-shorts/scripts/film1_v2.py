@@ -146,9 +146,9 @@ if MODE == 'tour':
     segs = [  # key, target, dist, az, el, dwell_s, anchor, label, corner, subject mats
         ('om', P(porin.x - 1, 9.0), 30.0, -18, 22, 4.5, P(porin.x - 5, 11.5), 'OUTER MEMBRANE', 'bl', ['MAT_lps', 'MAT_lipid']),
         ('porin', P(porin.x, porin.z + 1.0), 21.0, 14, 8, 5.0, P(porin.x + 0.5, porin.z + 0.5), 'PORIN', 'tl', ['MAT_protein_porin']),
-        ('pg', P(porin.x + 2, -2.0), 20.0, -10, 30, 4.0, P(porin.x + 5.0, -2.4), 'PEPTIDOGLYCAN', 'tl', ['MAT_pg_glycan', 'MAT_pg_peptide']),
+        ('pg', P(porin.x + 2, -2.0), 20.0, -10, 30, 4.0, Vector((porin.x + 1.0, cut_y - 3.0, -2.2)), 'PEPTIDOGLYCAN', 'tl', ['MAT_pg_glycan', 'MAT_pg_peptide']),
         ('tem1', P(tem.x, tem.z + 0.5), 18.0, 16, 6, 5.5, P(tem.x + 0.5, tem.z + 0.5), 'BETA-LACTAMASE', 'tl', ['MAT_enzyme_tem1']),
-        ('im', P(porin.x + 4, -19.0), 32.0, -12, 16, 3.5, P(porin.x + 9, -19.8), 'INNER MEMBRANE', 'tr', ['MAT_lipid_IM']),
+        ('im', P(porin.x - 1, -19.0), 32.0, -12, 16, 3.5, Vector((porin.x - 4.5, cut_y + 2.5, -19.6)), 'INNER MEMBRANE', 'tr', ['MAT_lipid_IM']),
         ('pbp', P(pbp.x - 2.0, pbp.z + 0.5), 31.0, 12, 10, 5.0, P(pbp.x, pbp.z + 2.0), 'PBP (THE TARGET)', 'tr', ['MAT_target_pbp1b']),
         ('acrb', P(acrb.x, acrb.z), 36.0, -16, 10, 4.5, P(acrb.x, acrb.z + 3.0), 'EFFLUX PUMP', 'tl', ['MAT_pump_acrb']),
     ]
