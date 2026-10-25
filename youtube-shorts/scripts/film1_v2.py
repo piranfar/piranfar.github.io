@@ -88,7 +88,17 @@ for n in ALL_MATS:
     if mats[n].node_tree.animation_data:
         mats[n].node_tree.animation_data_clear()
     orig[n] = tuple(b.inputs['Base Color'].default_value)
+    if n == 'MAT_lps':          # LPS dominated every shot: darker, less saturated ochre
+        r, g, bb, a = orig[n]
+        orig[n] = (r * 0.72, g * 0.70, bb * 0.62, a)
     b.inputs['Emission Color'].default_value = orig[n]
+for o in objs:                  # smooth the MD jitter: average over neighbouring frames
+    if o.type == 'MESH' and hasattr(o, 'mn'):
+        try:
+            if o.mn.n_frames and o.mn.n_frames > 1:
+                o.mn.average = 2
+        except Exception:
+            pass
     b.inputs['Emission Strength'].default_value = 0.0
 
 
@@ -128,6 +138,7 @@ P = lambda x, z: Vector((x, cut_y + 0.3, z))
 GLOW = {'MAT_lps': 0.25, 'MAT_lipid': 0.2, 'MAT_protein_porin': 0.6, 'MAT_pg_glycan': 0.3, 'MAT_pg_peptide': 0.3,
         'MAT_enzyme_tem1': 0.6, 'MAT_lipid_IM': 0.2, 'MAT_target_pbp1b': 0.6, 'MAT_pump_acrb': 0.45}
 cards = []
+bursts = []
 anchors = {}      # label key -> {"frames": [f0, f1], "pos": {frame: [x, y]}, "text": ..., "corner": ...}
 headlines = []
 
@@ -182,8 +193,8 @@ elif MODE == 'entry':
         if o.name.startswith('Drug_') or o.name.startswith('Path_drug'):
             o.hide_render = o.name.startswith('Path_drug')
     fades = {'MAT_drug_travel': {1: 1.0, 470: 1.0, 484: 0.0},
-             'MAT_drug_docked': {1: 0.0, 470: 0.0, 484: 1.0, 548: 1.0, 562: 0.0},
-             'MAT_drug_product': {1: 0.0, 548: 0.0, 562: 1.0, 700: 1.0, 730: 0.0}}
+             'MAT_drug_docked': {1: 0.0, 470: 0.0, 484: 1.0, 556: 1.0, 584: 0.0},
+             'MAT_drug_product': {1: 0.0, 556: 0.0, 584: 1.0, 700: 1.0, 730: 0.0}}
     for name, strength in (('MAT_drug_travel', 6.0), ('MAT_drug_docked', 1.6), ('MAT_drug_product', 0.9)):
         tree = mats[name].node_tree
         if tree.animation_data:
@@ -206,8 +217,27 @@ elif MODE == 'entry':
         cam_key(fr, Vector((d.x, cut_y, d.z)), DIST, dx=1.5, dz=2.0)
     site_t = Vector((site.x, cut_y, site.z))
     cam_key(520, site_t, 17.0, dx=0.8, dz=1.0)
-    cam_key(600, site_t, 15.0, dx=0.4, dz=0.8)
+    cam_key(556, site_t, 11.5, dx=0.5, dz=0.6, az=6)      # macro on the bond for the break
+    cam_key(600, site_t, 10.5, dx=0.3, dz=0.5, az=-4)
     cam_key(690, site_t, 16.0, dx=-0.3, dz=1.2)
+    # flash at the beta-lactam bond when the ring opens
+    fm = bpy.data.materials.new('MAT_flash')
+    fm.use_nodes = True
+    fb = fm.node_tree.nodes['Principled BSDF']
+    fb.inputs['Base Color'].default_value = (1.0, 0.85, 0.6, 1.0)
+    fb.inputs['Emission Color'].default_value = (1.0, 0.8, 0.5, 1.0)
+    fb.inputs['Emission Strength'].default_value = 10.0
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=1.0, location=site, segments=24, ring_count=12)
+    flash = bpy.context.active_object
+    flash.name = 'HUD_flash'
+    for c in list(flash.users_collection):
+        c.objects.unlink(flash)
+    hud.objects.link(flash)
+    flash.data.materials.append(fm)
+    for fr, sz in ((560, 0.0), (565, 0.28), (572, 0.38), (586, 0.0)):
+        flash.scale = (sz, sz, sz)
+        flash.keyframe_insert('scale', frame=fr)
+    register_anchor('bond', '', 'tl', 560, 600, lambda fr: site)
     cam_key(740, site_t, 24.0, dx=-1.0, dz=2.5)
     cam_key(830, center, 72.0, el=6)          # pull all the way out for the end card
     # subject emphasis during the reaction: dim everything but the enzyme
@@ -221,7 +251,8 @@ elif MODE == 'entry':
     register_anchor('porin', 'PORIN', 'tl', 215, 330, lambda fr: P(porin.x + 0.5, porin.z + 0.5))
     register_anchor('tem1', 'BETA-LACTAMASE', 'br', 385, 475, lambda fr: P(tem.x + 0.5, tem.z + 0.5))
     headlines = [(20 / FPS, 110 / FPS, 'A BETA-LACTAM ARRIVES'), (215 / FPS, 300 / FPS, 'THROUGH THE PORIN'),
-                 (565 / FPS, 650 / FPS, 'RING BROKEN. DRUG DESTROYED.')]
+                 (590 / FPS, 660 / FPS, 'RING BROKEN. DRUG DESTROYED.')]
+    bursts = [(562, 596, 'bond')]
     cards = [(775 / FPS, 830 / FPS, 'EPISODE 1  -  THE ENVELOPE', 'NEXT: HOW BACTERIA FIGHT BACK')]
     END = 830
     OUT = 'film1_v2_entry'
@@ -241,7 +272,7 @@ for key, a in anchors.items():
         pos[fr] = [round(v.x * W, 1), round((1.0 - v.y) * H, 1)]
     export[key] = {'text': a['text'], 'corner': a['corner'], 'frames': a['frames'], 'pos': pos}
 with open(os.path.join(BASE, 'render', OUT + '_anchors.json'), 'w', encoding='utf-8') as fh:
-    json.dump({'fps': FPS, 'size': [W, H], 'labels': export, 'headlines': headlines, 'cards': cards}, fh, indent=0)
+    json.dump({'fps': FPS, 'size': [W, H], 'labels': export, 'headlines': headlines, 'cards': cards, 'bursts': bursts}, fh, indent=0)
 print('ANCHORS', {k: (v['frames'], list(v['pos'].values())[len(v['pos']) // 2]) for k, v in export.items()})
 
 for m in sc.timeline_markers:

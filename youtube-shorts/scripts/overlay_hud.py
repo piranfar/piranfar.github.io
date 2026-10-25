@@ -39,9 +39,24 @@ def text_halo(d, xy, text, font, fill, anchor='la'):
     d.text(xy, text, font=font, fill=fill, anchor=anchor)
 
 
+def draw_burst(img, fr):
+    ov = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(ov)
+    for f0, f1, key in A.get('bursts', []):
+        if f0 <= fr <= f1 and str(fr) in A['labels'][key]['pos']:
+            ax, ay = [v * s for v, s in zip(A['labels'][key]['pos'][str(fr)], (sx, sy))]
+            for k in range(3):                        # three expanding rings, staggered
+                t = (fr - f0 - k * 6) / float(f1 - f0 - 12)
+                if 0 <= t <= 1:
+                    r = H * (0.02 + 0.16 * ease(t))
+                    a = int(255 * (1 - t) ** 1.5)
+                    d.ellipse([ax - r, ay - r, ax + r, ay + r], outline=(255, 225, 160, a), width=max(2, int(H * 0.003 * (1 - t) + 1)))
+    img.alpha_composite(ov)
+
+
 def draw_label(img, fr, lab):
     f0, f1 = lab['frames']
-    if fr < f0 or fr > f1:
+    if fr < f0 or fr > f1 or not lab['text']:
         return
     pos = lab['pos'].get(str(fr))
     if pos is None:
@@ -129,6 +144,7 @@ while True:
     img = Image.frombuffer('RGBA', (W, H), buf, 'raw', 'RGBA', 0, 1).copy()
     for lab in labels:
         draw_label(img, fr, lab)
+    draw_burst(img, fr)
     draw_headlines(img, fr)
     wr.stdin.write(img.tobytes())
 wr.stdin.close()
