@@ -1,0 +1,101 @@
+HETATM    1 S1   CAZ A   1      39.589  62.221-109.711  1.00  0.00           S
+HETATM    2 C1   CAZ A   1      40.670  62.675-108.316  1.00  0.00           C
+HETATM    3 C2   CAZ A   1      39.850  62.532-107.052  1.00  0.00           C
+HETATM    4 C3   CAZ A   1      39.909  63.459-106.100  1.00  0.00           C
+HETATM    5 C4   CAZ A   1      38.986  61.353-106.891  1.00  0.00           C
+HETATM    6 C5   CAZ A   1      38.403  61.110-105.544  1.00  0.00           C
+HETATM    7 O1   CAZ A   1      37.511  60.118-105.365  1.00  0.00           O
+HETATM    8 O2   CAZ A   1      38.733  61.806-104.606  1.00  0.00           O
+HETATM    9 N1   CAZ A   1      38.696  60.521-107.814  1.00  0.00           N
+HETATM   10 C6   CAZ A   1      39.155  60.536-109.193  1.00  0.00           C
+HETATM   11 C7   CAZ A   1      38.042  60.003-110.099  1.00  0.00           C
+HETATM   12 C8   CAZ A   1      38.557  59.886-111.511  1.00  0.00           C
+HETATM   13 O3   CAZ A   1      38.566  58.811-112.062  1.00  0.00           O
+HETATM   14 N2   CAZ A   1      37.615  58.685-109.623  1.00  0.00           N
+HETATM   15 C9   CAZ A   1      36.375  58.238-109.901  1.00  0.00           C
+HETATM   16 O4   CAZ A   1      35.589  58.955-110.491  1.00  0.00           O
+HETATM   17 C10  CAZ A   1      35.968  56.875-109.487  1.00  0.00           C
+HETATM   18 N3   CAZ A   1      34.839  56.377-109.907  1.00  0.00           N
+HETATM   19 O5   CAZ A   1      33.945  57.180-110.655  1.00  0.00           O
+HETATM   20 C11  CAZ A   1      32.815  56.361-110.964  1.00  0.00           C
+HETATM   21 C12  CAZ A   1      36.842  56.081-108.598  1.00  0.00           C
+HETATM   22 C13  CAZ A   1      36.622  54.740-108.428  1.00  0.00           C
+HETATM   23 S2   CAZ A   1      37.939  54.329-107.290  1.00  0.00           S
+HETATM   24 C14  CAZ A   1      38.644  55.966-107.156  1.00  0.00           C
+HETATM   25 N4   CAZ A   1      39.731  56.392-106.414  1.00  0.00           N
+HETATM   26 N5   CAZ A   1      37.857  56.660-107.957  1.00  0.00           N
+HETATM   27 C15  CAZ A   1      33.271  55.150-111.780  1.00  0.00           C
+HETATM   28 C16  CAZ A   1      32.160  55.883-109.666  1.00  0.00           C
+HETATM   29 C17  CAZ A   1      31.820  57.160-111.765  1.00  0.00           C
+HETATM   30 O6   CAZ A   1      30.673  56.592-112.170  1.00  0.00           O
+HETATM   31 O7   CAZ A   1      32.053  58.313-112.043  1.00  0.00           O
+HETATM   32 H1   CAZ A   1      41.530  62.006-108.280  1.00  0.00           H
+HETATM   33 H2   CAZ A   1      41.005  63.706-108.427  1.00  0.00           H
+HETATM   34 H3   CAZ A   1      40.620  64.267-106.179  1.00  0.00           H
+HETATM   35 H4   CAZ A   1      39.246  63.403-105.249  1.00  0.00           H
+HETATM   36 H5   CAZ A   1      37.132  59.961-104.490  1.00  0.00           H
+HETATM   37 H6   CAZ A   1      40.031  59.895-109.287  1.00  0.00           H
+HETATM   38 H7   CAZ A   1      37.196  60.689-110.077  1.00  0.00           H
+HETATM   39 H8   CAZ A   1      38.919  60.761-112.029  1.00  0.00           H
+HETATM   40 H9   CAZ A   1      38.224  58.134-109.108  1.00  0.00           H
+HETATM   41 H10  CAZ A   1      35.863  54.106-108.860  1.00  0.00           H
+HETATM   42 H11  CAZ A   1      40.223  55.760-105.868  1.00  0.00           H
+HETATM   43 H12  CAZ A   1      40.001  57.324-106.440  1.00  0.00           H
+HETATM   44 H13  CAZ A   1      32.409  54.525-112.017  1.00  0.00           H
+HETATM   45 H14  CAZ A   1      33.737  55.490-112.706  1.00  0.00           H
+HETATM   46 H15  CAZ A   1      33.991  54.571-111.202  1.00  0.00           H
+HETATM   47 H16  CAZ A   1      32.880  55.306-109.088  1.00  0.00           H
+HETATM   48 H17  CAZ A   1      31.835  56.746-109.085  1.00  0.00           H
+HETATM   49 H18  CAZ A   1      31.298  55.259-109.902  1.00  0.00           H
+HETATM   50 H19  CAZ A   1      30.035  57.105-112.684  1.00  0.00           H
+CONECT    1    2   10
+CONECT    2    1    3   32   33
+CONECT    3    2    4    5
+CONECT    4    3   34   35
+CONECT    5    3    6    9
+CONECT    6    5    7    8
+CONECT    7    6   36
+CONECT    8    6
+CONECT    9    5   10
+CONECT   10    1    9   11   37
+CONECT   11   10   12   14   38
+CONECT   12   11   13   39
+CONECT   13   12
+CONECT   14   11   15   40
+CONECT   15   14   16   17
+CONECT   16   15
+CONECT   17   15   18   21
+CONECT   18   17   19
+CONECT   19   18   20
+CONECT   20   19   27   28   29
+CONECT   21   17   22   26
+CONECT   22   21   23   41
+CONECT   23   22   24
+CONECT   24   23   25   26
+CONECT   25   24   42   43
+CONECT   26   21   24
+CONECT   27   20   44   45   46
+CONECT   28   20   47   48   49
+CONECT   29   20   30   31
+CONECT   30   29   50
+CONECT   31   29
+CONECT   32    2
+CONECT   33    2
+CONECT   34    4
+CONECT   35    4
+CONECT   36    7
+CONECT   37   10
+CONECT   38   11
+CONECT   39   12
+CONECT   40   14
+CONECT   41   22
+CONECT   42   25
+CONECT   43   25
+CONECT   44   27
+CONECT   45   27
+CONECT   46   27
+CONECT   47   28
+CONECT   48   28
+CONECT   49   28
+CONECT   50   30
+END
