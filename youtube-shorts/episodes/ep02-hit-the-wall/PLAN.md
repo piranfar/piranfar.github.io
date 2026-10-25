@@ -24,3 +24,11 @@ The same drug, the same door, a different ending: no beta-lactamase is waiting, 
 
 - [ ] Shot script `film2.py`: hook (empty periplasm), PBP introduction with build_wall, drug path from the porin to the PBP entrance (ENTRANCE 33.2, 53.8, -100.9 A), docking + acyl cross-fade, stop_wall, open_gap, bulge, split payoff, end card.
 - [ ] Headlines and anchors JSON; overlay; music; assemble.
+
+## Alignment with episode 1 (for the long comparison film)
+
+`film2.py entry` keeps frames 1-450 identical to `film1_v2.py entry` (same drug path,
+camera keys and timing), so a third, longer film can show the two entries side by side
+in one landscape frame and let them diverge at the enzyme / the target. Keep this
+alignment when editing either script. Episode 3 (long form) = hook + split screen
+(ep1 entry | ep2 entry) + a closing comparison; see docs/SERIES.md.
