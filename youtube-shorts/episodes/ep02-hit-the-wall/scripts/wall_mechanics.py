@@ -47,7 +47,6 @@ cut_y = [s.default_value for s in clip.interface.items_tree
          if s.item_type == 'SOCKET' and s.in_out == 'INPUT' and s.name == 'Cut Y'][0]
 # the TP domain top of PBP1b, where new wall is handed to the mesh
 pbp_top = Vector((pbp_c.x, cut_y - 1.0, max((pbp.matrix_world @ v.co).z for v in pbp.data.vertices) - 1.0))
-WALL_C = Vector((pbp_c.x - 5.0, cut_y - 2.0, PG_Z))    # patch of wall just screen-right of the PBP (visible, not hidden behind it)
 
 
 def mat_of(name):
@@ -55,10 +54,19 @@ def mat_of(name):
 
 
 # ---------------------------------------------------------------- 1) building
-def build_wall(f0, f1, n_strands=3):
-    """strands grow from the PBP top toward -x (screen right) and +x, settling into the PG plane."""
+STRAND_LEN = 11.0
+X0 = pbp_c.x - 1.2                      # new material leaves the PBP on its screen-right side
+STOP_FRAC = 0.42                        # the last strand is frozen at this fraction of its length
+WALL_C = Vector((X0 - STRAND_LEN * STOP_FRAC, cut_y - 1.2, PG_Z))   # where growth stops = where the wall fails
+
+
+def build_wall(f0, f1, n_strands=3, stagger=36):
+    """Horizontal strands in the wall plane, growing from the PBP toward screen-right,
+    each cross-linked to the older strand behind it with visible peptide bridges."""
     grown = []
     for i in range(n_strands):
+        y = cut_y - 0.4 - 1.5 * i          # in front of the old mesh, behind the cut plane
+        z = PG_Z + 0.15 * i
         cu = bpy.data.curves.new('EP2_newstrand_%d' % i, 'CURVE')
         cu.dimensions = '3D'
         cu.bevel_depth = 0.30
@@ -66,15 +74,10 @@ def build_wall(f0, f1, n_strands=3):
         cu.fill_mode = 'FULL'
         cu.use_fill_caps = True
         sp = cu.splines.new('NURBS')
-        direction = -1.0 if i % 2 == 0 else 1.0
-        y = cut_y - 1.5 - 1.6 * i
         pts = []
-        L = 9.0 + 2.0 * i
-        for k in range(14):
-            t = k / 13.0
-            x = pbp_top.x + direction * L * t
-            z = pbp_top.z + (PG_Z - pbp_top.z) * min(1.0, t * 1.6) + 0.2 * math.sin(4 * t + i)
-            pts.append((x, y + 0.25 * math.sin(3 * t + i), z))
+        for k in range(24):
+            t = k / 23.0
+            pts.append((X0 - STRAND_LEN * t, y + 0.18 * math.sin(2.2 * STRAND_LEN * t + i), z + 0.15 * math.sin(1.7 * STRAND_LEN * t + 2 * i)))
         sp.points.add(len(pts) - 1)
         for p, v in zip(sp.points, pts):
             p.co = (*v, 1.0)
@@ -83,50 +86,48 @@ def build_wall(f0, f1, n_strands=3):
         ob = bpy.data.objects.new('EP2_newstrand_%d' % i, cu)
         coll.objects.link(ob)
         cu.materials.append(mat_of('MAT_pg_glycan'))
-        # growth: the strand is drawn from the PBP outward
-        fa = f0 + int((f1 - f0) * 0.18 * i)
-        for f, v in ((fa, 0.0), (f1, 1.0)):
+        fa = f0 + stagger * i
+        for f, v in ((fa, 0.0), (f1 + stagger * i, 1.0)):
             cu.bevel_factor_end = v
             cu.keyframe_insert('bevel_factor_end', frame=f)
-        grown.append((ob, pts, fa))
-        # peptide stubs that pop in behind the tip
-        for k in range(2, len(pts) - 1, 3):
-            x, yy, z = pts[k]
+        grown.append((ob, pts, fa, f1 + stagger * i))
+        # peptide bridges to the strand behind (old mesh for i == 0), popping in behind the tip
+        for k in range(3, len(pts) - 1, 4):
+            x, yy, zz = pts[k]
             lc = bpy.data.curves.new('EP2_pep_%d_%d' % (i, k), 'CURVE')
             lc.dimensions = '3D'
-            lc.bevel_depth = 0.13
+            lc.bevel_depth = 0.17
+            lc.use_fill_caps = True
             s2 = lc.splines.new('POLY')
-            s2.points.add(1)
-            s2.points[0].co = (x, yy, z, 1.0)
-            s2.points[1].co = (x, yy - 1.1 * (1 if i % 2 else -1), z + 0.3, 1.0)
+            s2.points.add(2)
+            s2.points[0].co = (x, yy, zz, 1.0)
+            s2.points[1].co = (x + 0.15, yy - 0.75, zz + 0.45, 1.0)
+            s2.points[2].co = (x + 0.3, yy - 1.5, zz, 1.0)
             pob = bpy.data.objects.new('EP2_pep_%d_%d' % (i, k), lc)
             coll.objects.link(pob)
             lc.materials.append(mat_of('MAT_pg_peptide'))
             t_k = k / (len(pts) - 1)
-            fk = fa + int((f1 - fa) * t_k) + 6
-            for f, s in ((fk - 1, 0.0), (fk + 6, 1.0)):
-                pob.scale = (s, s, s)
+            fk = fa + int((f1 - f0) * t_k) + 8
+            for f, sc_ in ((fk - 1, 0.0), (fk + 7, 1.0)):
+                pob.scale = (sc_, sc_, sc_)
                 pob.keyframe_insert('scale', frame=f)
     return grown
 
 
 def stop_wall(grown, f_stop):
-    """freeze growth: replace the end key so bevel_factor_end holds its value from f_stop on."""
-    for ob, pts, fa in grown:
+    """freeze growth at f_stop; bridges scheduled after it never appear."""
+    for ob, pts, fa, fb in grown:
         cu = ob.data
-        ad = cu.animation_data
-        if not ad or not ad.action:
+        if not cu.animation_data:
             continue
         sc.frame_set(f_stop)
         v = cu.bevel_factor_end
-        ad.action_slot = None if False else ad.action_slot
         cu.animation_data_clear()
         cu.bevel_factor_end = 0.0
         cu.keyframe_insert('bevel_factor_end', frame=fa)
         cu.bevel_factor_end = v
-        cu.keyframe_insert('bevel_factor_end', frame=f_stop)
-        cu.keyframe_insert('bevel_factor_end', frame=f_stop + 400)
-    # peptide stubs scheduled after the stop never appear
+        cu.keyframe_insert('bevel_factor_end', frame=min(f_stop, fb))
+        cu.keyframe_insert('bevel_factor_end', frame=f_stop + 600)
     for ob in coll.objects:
         if ob.name.startswith('EP2_pep_') and ob.animation_data:
             sc.frame_set(f_stop)
@@ -238,7 +239,7 @@ def _bulge_group(ctl):
 
 
 def bulge_membrane(f0, f1, amplitude=3.5, sigma=4.5, targets=('IM_lipids', 'IM_lipids_fill')):
-    ctl = _ctl('EP2_BulgeCtl', Vector((WALL_C.x, cut_y - 1.5, -19.9)))
+    ctl = _ctl('EP2_BulgeCtl', Vector((WALL_C.x, WALL_C.y, -19.9)))
     for f, a in ((f0, 0.001), (f1, amplitude)):
         ctl.scale = (1.0, sigma, a)
         ctl.keyframe_insert('scale', frame=f)
@@ -261,21 +262,22 @@ def bulge_membrane(f0, f1, amplitude=3.5, sigma=4.5, targets=('IM_lipids', 'IM_l
 if __name__ == '__main__' and '--' in sys.argv:
     arg = sys.argv[sys.argv.index('--') + 1]
     stills = None if arg == 'anim' else [int(x) for x in arg.split(',')]
-    grown = build_wall(60, 240)
-    stop_wall(grown, 200)
-    open_gap(260, 380, radius=5.5)
-    bulge_membrane(300, 430, amplitude=4.5)
+    grown = build_wall(30, 130)          # strands start at 30, 66, 102; each takes 100 frames
+    stop_wall(grown, 150)                # the third strand freezes less than half-way
+    open_gap(170, 260, radius=5.0)
+    bulge_membrane(200, 290, amplitude=5.0, sigma=4.0)
     for o in objs:
-        if o.name.startswith('Drug_') or o.name.startswith('Path_drug'):
-            o.hide_render = True
+        if o.name.startswith('Drug_') or o.name.startswith('Path_drug') or o.name.startswith('PP_TEM1'):
+            o.hide_render = True             # episode 2: no beta-lactamase in this cell
     cam = objs['Cam_CrossSection']
     for c in list(cam.constraints):
         cam.constraints.remove(c)
     if cam.animation_data:
         cam.animation_data_clear()
     cam.data.dof.use_dof = False
-    target = Vector((pbp_c.x, cut_y, (PG_Z + pbp_c.z) / 2))
-    cam.location = target + Vector((0.0, 34.0, 4.0))
+    # the wall is a plane: look down on it (~28 deg) or it is edge-on and unreadable
+    target = Vector((WALL_C.x + 1.5, cut_y - 1.0, PG_Z - 4.0))
+    cam.location = target + Vector((2.0, 24.0, 13.0))
     cam.rotation_euler = (target - cam.location).to_track_quat('-Z', 'Y').to_euler()
     for m in sc.timeline_markers:
         m.camera = None
@@ -291,7 +293,7 @@ if __name__ == '__main__' and '--' in sys.argv:
             bpy.ops.render.render(write_still=True)
             print('STILL', fr)
     else:
-        sc.frame_start, sc.frame_end = 40, 440
+        sc.frame_start, sc.frame_end = 20, 300
         sc.render.image_settings.media_type = 'VIDEO'
         sc.render.image_settings.file_format = 'FFMPEG'
         sc.render.ffmpeg.format = 'MPEG4'
