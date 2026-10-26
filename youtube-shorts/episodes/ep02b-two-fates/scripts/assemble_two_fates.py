@@ -4,11 +4,11 @@ existing vertical renders (no Blender needed).
 Timeline (seconds):
   0.0  - 30.0  intro: ep1 tour (vertical) letterboxed on a blurred copy of itself, headlines
   30.0 - 33.0  title card TWO FATES
-  33.0 - 68.6  split screen: ep1 entry | ep2 entry (frame-aligned for the first 15 s),
+  33.0 - 64.5  split screen: ep1 entry | ep2 entry (frame-aligned for the first 15 s),
                column captions WITH A BETA-LACTAMASE / WITHOUT
-  68.6 - 83.0  climax replay at half speed: both ring-opening moments side by side
-  83.0 -100.0  outro: ep2's lysis shot wide with a closing statement
- 100.0 -106.0  end card
+  64.5 - 72.5  climax replay at half speed: both ring-opening moments side by side
+  72.5 - 81.2  outro: ep2's lysis shot wide with a closing statement
+ 81.2 - 87.2  end card
 Narration (if present) is mixed from episodes/ep02b-two-fates/narration/NN.wav by the
 timecodes in NARRATION.md; music ducks under it.
 Usage: python episodes/ep02b-two-fates/scripts/assemble_two_fates.py [--test SECONDS]
@@ -51,15 +51,17 @@ segT = ("color=c=0x0a0d18:s=%dx%d:d=3,format=yuv420p,"
         "drawtext=fontfile='%s':text='SAME DRUG. SAME DOOR.':fontsize=48:fontcolor=0xffd86e:x=(w-text_w)/2:y=h*0.58[T]" % (W, H, FONT, FONT))
 # ---- segment B: split screen (33-68.6): ep1 entry is 24.7 s, ep2 entry 33.7 s; run 35.6 s, ep1 holds its last frame ----
 colw = 540
-segB = ("[1:v]tpad=stop_mode=clone:stop_duration=12,trim=0:35.6,setpts=PTS-STARTPTS,scale=%d:-2[L];"
-        "[2:v]trim=0:35.6,setpts=PTS-STARTPTS,scale=%d:-2[R];"
-        "color=c=0x0a0d18:s=%dx%d:d=35.6,format=yuv420p[Bbg];"
+# both entries are cut before their own end cards (ep1 at 25.3 s, ep2 at 31.5 s); ep1 then holds its last frame
+segB = ("[1:v]trim=0:25.3,setpts=PTS-STARTPTS,tpad=stop_mode=clone:stop_duration=6.2,scale=%d:-2[L];"
+        "[2:v]trim=0:31.5,setpts=PTS-STARTPTS,scale=%d:-2[R];"
+        "color=c=0x0a0d18:s=%dx%d:d=31.5,format=yuv420p[Bbg];"
         "[Bbg][L]overlay=%d:(H-h)/2[B1];[B1][R]overlay=%d:(H-h)/2," % (colw, colw, W, H, W // 2 - colw - 40, W // 2 + 40)
         + "drawtext=fontfile='%s':text='WITH A BETA-LACTAMASE':fontsize=40:fontcolor=white:x=%d:y=24:borderw=3:bordercolor=black@0.7,"
           "drawtext=fontfile='%s':text='WITHOUT':fontsize=40:fontcolor=white:x=%d:y=24:borderw=3:bordercolor=black@0.7,"
           "drawtext=fontfile='%s':text='SAME ENTRY\\, FRAME FOR FRAME':fontsize=36:fontcolor=0xffd86e:x=(w-text_w)/2:y=h*0.9:borderw=3:bordercolor=black@0.7:enable='between(t\\,2\\,14)',"
-          "drawtext=fontfile='%s':text='HERE THEY PART':fontsize=44:fontcolor=0xffd86e:x=(w-text_w)/2:y=h*0.9:borderw=3:bordercolor=black@0.7:enable='between(t\\,15\\,19)'[B]"
-          % (FONT, W // 2 - colw - 40 + 150, FONT, W // 2 + 40 + 200, FONT, FONT))
+          "drawtext=fontfile='%s':text='HERE THEY PART':fontsize=44:fontcolor=0xffd86e:x=(w-text_w)/2:y=h*0.9:borderw=3:bordercolor=black@0.7:enable='between(t\\,15\\,19)',"
+          "drawtext=fontfile='%s':text='THE CELL CARRIES ON':fontsize=34:fontcolor=white:x=%d:y=h*0.12:borderw=3:bordercolor=black@0.7:enable='between(t\,26\,31.5)'[B]"
+          % (FONT, W // 2 - colw - 40 + 150, FONT, W // 2 + 40 + 200, FONT, FONT, FONT, W // 2 - colw - 40 + 110))
 # ---- segment C: climax replay at half speed (ep1 ring 18.6-21.3 s of entry; ep2 ring 21.5-24.5 s) ----
 segC = ("[1:v]trim=18.0:22.0,setpts=2*(PTS-STARTPTS),scale=%d:-2[Lc];"
         "[2:v]trim=21.0:25.0,setpts=2*(PTS-STARTPTS),scale=%d:-2[Rc];"
@@ -105,7 +107,7 @@ times = [0.0, 4, 12, 20, 28, 32, 40, 47, 55, 60, 70, 78, 88, 100, 112]   # from 
 inputs = ['-i', silent, '-i', MUSIC, '-i', SFX]
 fil = ["[1:a]atrim=0:%.2f,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.5,afade=t=out:st=%.2f:d=3,loudnorm=I=-18:TP=-1.5:LRA=9[m0]" % (D, D - 3)]
 # SFX at both ring openings in the replay segment (68.6 + 1.2 and 68.6 + 1.0 approx) and in the split (33 + 18.6, 33 + 21.5)
-sfx_at = [33 + 18.6, 33 + 21.5, 68.6 + 1.2]
+sfx_at = [33 + 18.7, 33 + 22.1, 64.5 + 1.4, 64.5 + 2.2]
 sx = []
 for i, t in enumerate(sfx_at):
     fil.append("[2:a]adelay=%d|%d,volume=0.8[s%d]" % (int(t * 1000), int(t * 1000), i))
