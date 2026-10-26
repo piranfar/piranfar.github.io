@@ -9,7 +9,7 @@ OUT = os.path.join(BASE, 'tools', 'sfx')
 os.makedirs(OUT, exist_ok=True)
 JOBS = {
     # low cellular hum: brown noise, heavily low-passed, very slow tremolo
-    'ambience.wav': ('anoisesrc=color=brown:r=48000:d=100:seed=7', 'lowpass=f=140,lowpass=f=140,volume=0.9,tremolo=f=0.1:d=0.4'),
+    'ambience.wav': ('anoisesrc=color=brown:r=48000:d=150:seed=7', 'lowpass=f=140,lowpass=f=140,volume=0.9,tremolo=f=0.1:d=0.4'),
     # whoosh for the split-screen opening and segment changes
     'whoosh.wav': ('anoisesrc=color=pink:r=48000:d=1.0:seed=3', 'bandpass=f=900:w=600,afade=t=in:st=0:d=0.35:curve=exp,afade=t=out:st=0.45:d=0.55,volume=0.9'),
     # sub boom for the title card and the moment the paths part

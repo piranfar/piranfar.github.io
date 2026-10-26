@@ -11,7 +11,7 @@ Three stages, each re-runnable (--stage picture|text|audio|all):
   audio   : music (ducked), narration clips by timecode, ring SFX, ambience, boom, whoosh, riser.
             Writes renders/two_fates_v3.mp4.
 Timeline (film seconds) is the same as v2 so the narration timecodes hold:
-  0-30 intro tour | 30-33 title | 33-64.5 split | 64.5-74.5 replay | 74.5-92.5 outro | 92.5-99 end card
+  0-30 intro tour | 30-33 title | 33-64.5 split | 64.5-74.5 replay | 74.5-92.5 outro | 92.5-102 end card
 """
 import subprocess, sys, os, glob, json, math, tempfile
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -45,7 +45,7 @@ LX, RX = W // 2 - COLW - 40, W // 2 + 40
 CY = (H - COLH) // 2
 PBW = 608                        # pillarbox column (1920/1080 of 1080 -> 607.5 -> 608)
 PBX = (W - PBW) // 2
-T_TITLE, T_SPLIT, T_REPLAY, T_OUTRO, T_END, T_LEN = 30.0, 33.0, 64.5, 74.5, 92.5, 99.0
+T_TITLE, T_SPLIT, T_REPLAY, T_OUTRO, T_END, T_LEN = 30.0, 33.0, 64.5, 74.5, 92.5, 102.0   # last line ends ~97 s; music alone after
 SPLIT_L_SECS = 25.3              # ep1 entry runs to its end card; then ping-pong of the last 3.1 s
 PING = 3.1
 RING_REPLAY = (1.4, 2.2)         # ring SFX offsets inside the replay segment (v4 overrides)
@@ -75,7 +75,7 @@ def stage_picture():
             "fade=t=in:st=0:d=0.4,fade=t=out:st=9.6:d=0.4,setsar=1[C]" % (COLW, COLW, W, H, LX, CY, RX, CY))
     segD = ("[2:v]trim=25.0:33.7,setpts=1.6*(PTS-STARTPTS),tpad=stop_mode=clone:stop_duration=4.1,split[d0][d1];"
             "[d0]%s[dbg];[d1]scale=-2:%d[dfg];[dbg][dfg]overlay=(W-w)/2:0,fade=t=in:st=0:d=0.5,fade=t=out:st=17.3:d=0.7,setsar=1[D]" % (pb, H))
-    segE = "color=c=0x0a0d18:s=%dx%d:d=6.5,format=yuv420p,setsar=1[E]" % (W, H)
+    segE = "color=c=0x0a0d18:s=%dx%d:d=%.1f,format=yuv420p,setsar=1[E]" % (W, H, T_LEN - T_END)
     grade = "eq=contrast=1.05:saturation=1.08,vignette=angle=PI/4.6,noise=alls=5:allf=t+u,format=yuv420p[v]"
     graph = ";".join([segA, segT, segB, segC, segD, segE, "[A][T][B][C][D][E]concat=n=6:v=1:a=0," + grade])
     with tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False, encoding='utf-8') as fh:
@@ -430,8 +430,8 @@ def stage_audio():
     for nm in names:
         inputs += ['-i', sfx[nm]]
     idx = {nm: 2 + i for i, nm in enumerate(names)}
-    fil = ["[1:a]atrim=0:%.2f,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.5,afade=t=out:st=%.2f:d=3,loudnorm=I=%d:TP=-1.5:LRA=9[m0]"
-           % (D, D - 3, -20 if narr else -18)]
+    fil = ["[1:a]atrim=0:%.2f,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=1.5,afade=t=out:st=%.2f:d=3,loudnorm=I=%d:TP=-1.5:LRA=9,aresample=48000,apad=whole_dur=%.2f[m0]"
+           % (D, D - 3, -20 if narr else -18, D)]
     # ambience: very low, under everything, fades with the picture
     fil.append("[%d:a]atrim=0:%.2f,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=2,afade=t=out:st=%.2f:d=2,volume=-34dB[amb]" % (idx['amb'], D, D - 2))
     sx = []
@@ -444,12 +444,12 @@ def stage_audio():
             inputs += ['-i', f]
             t = times[i]
             fil.append("[%d:a]aformat=sample_rates=48000:channel_layouts=stereo,adelay=%d|%d,volume=6dB[n%d]" % (nxt + i, int(t * 1000), int(t * 1000), i))
-        fil.append("".join("[n%d]" % i for i in range(len(narr))) + "amix=inputs=%d:normalize=0:duration=longest,asplit[nark][nar]" % len(narr))
+        fil.append("".join("[n%d]" % i for i in range(len(narr))) + "amix=inputs=%d:normalize=0:duration=longest,apad=whole_dur=%.2f,asplit[nark][nar]" % (len(narr), D))   # pad: sidechaincompress stops when the key ends
         fil.append("[m0][nark]sidechaincompress=threshold=0.01:ratio=10:attack=60:release=700[md]")
         mix_in, n_mix = "[md][amb]" + "".join(sx) + "[nar]", 3 + len(sx)
     else:
         mix_in, n_mix = "[m0][amb]" + "".join(sx), 2 + len(sx)
-    fil.append(mix_in + "amix=inputs=%d:normalize=0:duration=first,alimiter=limit=0.95[a]" % n_mix)
+    fil.append(mix_in + "amix=inputs=%d:normalize=0:duration=longest,apad=whole_dur=%.2f,atrim=0:%.2f,alimiter=limit=0.95[a]" % (n_mix, D, D))
     cmd = ['ffmpeg', '-v', 'error', '-y'] + inputs + ['-filter_complex', ";".join(fil), '-map', '0:v', '-map', '[a]',
            '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', OUT]
     r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')

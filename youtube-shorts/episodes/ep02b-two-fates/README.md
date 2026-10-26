@@ -1,4 +1,4 @@
-# Episode 2b: Two Fates (landscape, 99 s)
+# Episode 2b: Two Fates (landscape, 102 s)
 
 Episodes 1 and 2 cut against each other: same drug, same door, then the beta-lactamase destroys the
 drug on the left while the drug locks PBP1b and the wall fails on the right.
@@ -22,6 +22,6 @@ drug on the left while the drug locks PBP1b and the wall fails on the right.
 
 ## Timeline (seconds)
 
-| 0-30 | 30-33 | 33-64.5 | 64.5-74.5 | 74.5-92.5 | 92.5-99 |
+| 0-30 | 30-33 | 33-64.5 | 64.5-74.5 | 74.5-92.5 | 92.5-102 |
 |---|---|---|---|---|---|
 | native tour | title | split screen (frame-aligned entries, ep1 then ping-pongs its last 3 s) | macro ring openings, half speed | two-cell shot | end card |

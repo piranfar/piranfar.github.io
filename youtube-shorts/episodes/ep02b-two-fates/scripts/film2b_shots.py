@@ -352,8 +352,10 @@ elif MODE == 'macro2':
     fade(mats['MAT_drug_acyl'], {1: 0.0, 70: 0.0, 95: 1.0})
     flash_sphere('HUD_flash2', SITE2, ((66, 0.0), (72, 0.30), (80, 0.40), (96, 0.0)))
     st = Vector((SITE2.x, cut_y, SITE2.z))
-    cam_key(1, st, 8.5, dx=0.4, dz=0.5, az=10, el=10)
-    cam_key(150, st, 7.0, dx=0.2, dz=0.4, az=-8, el=12)
+    # the serine pocket is covered from the front; look at it from the side (TF_CAM="az,el" overrides for tests)
+    az0, el0 = [float(v) for v in os.environ.get('TF_CAM', '-75,20').split(',')]
+    cam_key(1, st, 8.5, dx=0.2, dz=0.3, az=az0 + 8, el=el0)
+    cam_key(150, st, 7.0, dx=0.1, dz=0.3, az=az0 - 8, el=el0 + 3)
     key_state(1, ['MAT_target_pbp1b'], 0.4)
     register_anchor('bond', '', 'tl', 60, 110, lambda fr: SITE2)
     bursts = [(68, 104, 'bond')]

@@ -5,7 +5,7 @@ from film2b_shots.py replacing the pillarboxed and column segments where a full 
   33-64.5  split screen from the vertical entries (unchanged: frame-for-frame comparison)
   64.5-74.5  tf_macro1 | tf_macro2 at half speed, full frame: the two ring openings, close
   74.5-92.5  tf_carry | tf_lysis, full frame, same camera: the wall keeps growing / the wall fails
-  92.5-99  end card
+  92.5-102  end card (narration ends ~97 s, then music only so the viewer can click on)
 Stages as in v3: --stage picture|text|audio|all. Outputs renders/two_fates_v4*.mp4.
 """
 import os, sys, subprocess, tempfile, math
@@ -55,7 +55,7 @@ def stage_picture():
     segD = ("[5:v]setpts=PTS-STARTPTS,scale=958:1080[Dc1];[6:v]setpts=PTS-STARTPTS,scale=958:1080[Dc2];"
             "color=c=0x0a0d18:s=%dx%d:d=18,format=yuv420p[Dbg];[Dbg][Dc1]overlay=0:0[D1];[D1][Dc2]overlay=962:0,"
             "fade=t=in:st=0:d=0.5,fade=t=out:st=17.3:d=0.7,setsar=1[D]" % (W, H))
-    segE = "color=c=0x0a0d18:s=%dx%d:d=6.5,format=yuv420p,setsar=1[E]" % (W, H)
+    segE = "color=c=0x0a0d18:s=%dx%d:d=%.1f,format=yuv420p,setsar=1[E]" % (W, H, T_LEN - T_END)
     grade = "eq=contrast=1.05:saturation=1.08,vignette=angle=PI/4.6,noise=alls=5:allf=t+u,format=yuv420p[v]"
     graph = ";".join([segA, segT, segB, segC, segD, segE, "[A][T][B][C][D][E]concat=n=6:v=1:a=0," + grade])
     with tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False, encoding='utf-8') as fh:
