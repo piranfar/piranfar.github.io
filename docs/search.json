@@ -536,7 +536,7 @@
     "href": "blog.html",
     "title": "Research & Discussion",
     "section": "",
-    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nHow a Beta-Lactam Gets into a Gram-Negative Cell, and Why It Can Die There\n\n\n\nMicrobiology\n\nAntibiotics\n\nResistance\n\n\n\nA walk through the first Short: ceftazidime crossing the outer membrane by a porin, meeting TEM-1 in the periplasm, and failing to reach its penicillin-binding protein.\n\n\n\n\n\nOct 25, 2026\n\n4 min\n\n\n\n\n\n\nHow I Built the Gram-Negative Envelope for a YouTube Short\n\n\n\nMicrobiology\n\nAntibiotics\n\nVisualization\n\nBioinformatics\n\n\n\nA plain account of making the first antibiotic Short from real structures and short molecular dynamics, including the hydrolyzed-ligand approximation and the renders that failed.\n\n\n\n\n\nOct 24, 2026\n\n8 min\n\n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
+    "text": "Notes from ongoing work in microbiology, antimicrobial PK/PD, bioinformatics, and related data analysis.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\nTwo Fates: One Enzyme Decides Whether an Antibiotic Works\n\n\n\nMicrobiology\n\nAntibiotics\n\nResistance\n\n\n\nA landscape film that runs the first two episodes side by side: ceftazidime is released by a beta-lactamase in one cell, and stays bound to PBP1b in the other.\n\n\n\n\n\nOct 26, 2026\n\n3 min\n\n\n\n\n\n\nHow a Beta-Lactam Gets into a Gram-Negative Cell, and Why It Can Die There\n\n\n\nMicrobiology\n\nAntibiotics\n\nResistance\n\n\n\nA walk through the first Short: ceftazidime crossing the outer membrane by a porin, meeting TEM-1 in the periplasm, and failing to reach its penicillin-binding protein.\n\n\n\n\n\nOct 25, 2026\n\n4 min\n\n\n\n\n\n\nHow I Built the Gram-Negative Envelope for a YouTube Short\n\n\n\nMicrobiology\n\nAntibiotics\n\nVisualization\n\nBioinformatics\n\n\n\nA plain account of making the first antibiotic Short from real structures and short molecular dynamics, including the hydrolyzed-ligand approximation and the renders that failed.\n\n\n\n\n\nOct 24, 2026\n\n8 min\n\n\n\n\n\n\nComponent-Level Evidence Reconstruction for Ceftazidime-Avibactam PK/PD Simulation\n\n\n\nMicrobiology\n\nAntibiotics\n\nData Science\n\nBioinformatics\n\n\n\nA methodological pilot for transforming fragmented antimicrobial PK/PD evidence into traceable, simulation-ready components.\n\n\n\n\n\nJul 10, 2026\n\n7 min\n\n\n\n\n\n\nPaper Review: Antibiotic Resistance, Tolerance, and Persistence in Tuberculosis and Staphylococcal Infections\n\n\n\nMicrobiology\n\nBioinformatics\n\nAntibiotics\n\n\n\nA review of comparative modeling of antibiotic resistance, tolerance, and persistence in M. tuberculosis and S. aureus.\n\n\n\n\n\nJun 17, 2026\n\n4 min\n\n\n\n\n\n\nThe Prosperity Paradox: Why It Feels Harder Despite Low Unemployment\n\n\n\nEconomics\n\nData Science\n\n\n\nWhy job hunting feels harder and poverty rises even when official unemployment looks low.\n\n\n\n\n\nFeb 1, 2026\n\n4 min\n\n\n\n\n\n\nThe True Rate of Unemployment (TRU) Analysis\n\n\n\nEconomics\n\nData Science\n\n\n\nComparing official U-3 unemployment with the True Rate of Unemployment and underemployment measures.\n\n\n\n\n\nJan 31, 2026\n\n4 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -1271,7 +1271,7 @@
     "href": "posts/beta-lactam-gets-in/index.html#what-the-next-episodes-can-change",
     "title": "How a Beta-Lactam Gets into a Gram-Negative Cell, and Why It Can Die There",
     "section": "What the next episodes can change",
-    "text": "What the next episodes can change\nThe same envelope can carry a different ending. If no beta-lactamase is in the periplasm, the same drug can reach PBP1b. If a beta-lactamase inhibitor is present, the enzyme is occupied and the drug is not. If the porin is gone, the drug may never enter. If AcrB is working, drug that did enter can be thrown back out. Those are later episodes. The first one stops at the enzyme."
+    "text": "What the next episodes can change\nThe same envelope can carry a different ending. If no beta-lactamase is in the periplasm, the same drug can reach PBP1b. If a beta-lactamase inhibitor is present, the enzyme is occupied and the drug is not. If the porin is gone, the drug may never enter. If AcrB is working, drug that did enter can be thrown back out. The side-by-side film is Two fates. The first episode still stops at the enzyme."
   },
   {
     "objectID": "posts/shorts-pipeline/index.html#why-i-did-not-draw-the-cell",
@@ -1342,5 +1342,33 @@
     "title": "How I Built the Gram-Negative Envelope for a YouTube Short",
     "section": "What stays fixed",
     "text": "What stays fixed\nThe next episodes keep this scene. They change the drug path, the binding pose, and the labels: the drug reaching PBP1b when no beta-lactamase is present, avibactam with ceftazidime, a closed porin, and the pump throwing the drug out. Scripts and small structure files are in the site repository. The large renders and trajectories are not committed."
+  },
+  {
+    "objectID": "posts/two-fates/index.html",
+    "href": "posts/two-fates/index.html",
+    "title": "Two Fates: One Enzyme Decides Whether an Antibiotic Works",
+    "section": "",
+    "text": "The new film is about two minutes. It puts two Gram-negative cells next to each other. The drug, the door, and the first part of the path are the same. Then one enzyme changes the ending.\nThe film is Two Fates: One Enzyme Decides Whether an Antibiotic Works. The left-hand cell is the first Short. The right-hand cell is also its own Short, Beta-lactams hit the wall."
+  },
+  {
+    "objectID": "posts/two-fates/index.html#same-door",
+    "href": "posts/two-fates/index.html#same-door",
+    "title": "Two Fates: One Enzyme Decides Whether an Antibiotic Works",
+    "section": "Same door",
+    "text": "Same door\nCeftazidime enters both cells through an OmpF porin. For the first stretch the two pictures match, frame for frame. The drug is a third-generation cephalosporin. Nothing about the molecule changes between the two sides.\nWhat changes is what is waiting in the periplasm."
+  },
+  {
+    "objectID": "posts/two-fates/index.html#where-they-part",
+    "href": "posts/two-fates/index.html#where-they-part",
+    "title": "Two Fates: One Enzyme Decides Whether an Antibiotic Works",
+    "section": "Where they part",
+    "text": "Where they part\nOn the left, TEM-1 is in the periplasm. It binds the drug and the beta-lactam ring opens. The broken drug is released. The wall keeps growing.\nOn the right, that enzyme is absent. The drug reaches PBP1b, the protein that is building the wall. The ring opens on the active-site serine and the drug stays bound. Wall synthesis stops. A gap opens in the mesh, and the inner membrane pushes through.\n\n\n\nThe same ring opens in both proteins. In the beta-lactamase the drug is released. On PBP1b it stays bound.\n\n\nThe chemistry is the same reaction. The difference is whether the protein lets the product go."
+  },
+  {
+    "objectID": "posts/two-fates/index.html#what-is-drawn-and-what-is-not",
+    "href": "posts/two-fates/index.html#what-is-drawn-and-what-is-not",
+    "title": "Two Fates: One Enzyme Decides Whether an Antibiotic Works",
+    "section": "What is drawn, and what is not",
+    "text": "What is drawn, and what is not\nOmpF and the lipopolysaccharide membrane come from a short molecular dynamics run. TEM-1 motion comes from a 10 ns run in water. PBP1b is PDB 3VMA. AcrB is in the inner membrane from MemProtMD 4DX5, and this film does not follow the pump.\nTwo poses are transferred, not crystallized in these exact proteins. The opened cephalosporin in TEM-1 comes from PDB 5UJ3, KPC-2 with hydrolyzed cefotaxime, placed on the TEM-1 active site. The drug on PBP1b comes from PDB 2C5W, a pneumococcal PBP with cefotaxime, placed on the conserved active-site motifs of E. coli PBP1b. Wild-type TEM-1 hydrolyzes ceftazidime poorly. The film shows the class of event, not the kinetics of this exact pair. The longer note on that limit is in the first episode.\nThe peptidoglycan mesh has no single atomic structure, so it is stylized. So is the lysis. Protein motion is from the simulations. The bond breaking is a transition I placed in the edit."
   }
 ]

@@ -15,7 +15,56 @@
 <link>https://vahhabpiranfar.com/blog.html</link>
 </image>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Sun, 25 Oct 2026 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 26 Oct 2026 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Two Fates: One Enzyme Decides Whether an Antibiotic Works</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/posts/two-fates/</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="paper-cover">
+<p><img src="https://vahhabpiranfar.com/posts/two-fates/cover.jpg" class="img-fluid" alt="Split frame. Left, a cell with a beta-lactamase and an intact wall. Right, a cell without the enzyme and a broken wall."></p>
+</div>
+<p>The new film is about two minutes. It puts two Gram-negative cells next to each other. The drug, the door, and the first part of the path are the same. Then one enzyme changes the ending.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/gU2kKaWwa2s" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>The film is <a href="https://youtu.be/gU2kKaWwa2s">Two Fates: One Enzyme Decides Whether an Antibiotic Works</a>. The left-hand cell is the <a href="../beta-lactam-gets-in/">first Short</a>. The right-hand cell is also its own Short, <a href="https://youtube.com/shorts/ufXzk6dhlX8">Beta-lactams hit the wall</a>.</p>
+<section id="same-door" class="level2">
+<h2 class="anchored" data-anchor-id="same-door">Same door</h2>
+<p>Ceftazidime enters both cells through an OmpF porin. For the first stretch the two pictures match, frame for frame. The drug is a third-generation cephalosporin. Nothing about the molecule changes between the two sides.</p>
+<p>What changes is what is waiting in the periplasm.</p>
+</section>
+<section id="where-they-part" class="level2">
+<h2 class="anchored" data-anchor-id="where-they-part">Where they part</h2>
+<p>On the left, TEM-1 is in the periplasm. It binds the drug and the beta-lactam ring opens. The broken drug is released. The wall keeps growing.</p>
+<p>On the right, that enzyme is absent. The drug reaches PBP1b, the protein that is building the wall. The ring opens on the active-site serine and the drug stays bound. Wall synthesis stops. A gap opens in the mesh, and the inner membrane pushes through.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vahhabpiranfar.com/posts/two-fates/fig-two-rings.jpg" class="img-fluid figure-img" alt="Split close-up. Pink beta-lactamase on the left, yellow penicillin-binding protein on the right, each with the drug lit in the active site."></p>
+<figcaption>The same ring opens in both proteins. In the beta-lactamase the drug is released. On PBP1b it stays bound.</figcaption>
+</figure>
+</div>
+<p>The chemistry is the same reaction. The difference is whether the protein lets the product go.</p>
+</section>
+<section id="what-is-drawn-and-what-is-not" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-drawn-and-what-is-not">What is drawn, and what is not</h2>
+<p>OmpF and the lipopolysaccharide membrane come from a short molecular dynamics run. TEM-1 motion comes from a 10 ns run in water. PBP1b is PDB <a href="https://www.rcsb.org/structure/3VMA">3VMA</a>. AcrB is in the inner membrane from MemProtMD <a href="https://www.rcsb.org/structure/4DX5">4DX5</a>, and this film does not follow the pump.</p>
+<p>Two poses are transferred, not crystallized in these exact proteins. The opened cephalosporin in TEM-1 comes from PDB <a href="https://www.rcsb.org/structure/5UJ3">5UJ3</a>, KPC-2 with hydrolyzed cefotaxime, placed on the TEM-1 active site. The drug on PBP1b comes from PDB <a href="https://www.rcsb.org/structure/2C5W">2C5W</a>, a pneumococcal PBP with cefotaxime, placed on the conserved active-site motifs of <em>E. coli</em> PBP1b. Wild-type TEM-1 hydrolyzes ceftazidime poorly. The film shows the class of event, not the kinetics of this exact pair. The longer note on that limit is in the <a href="../beta-lactam-gets-in/">first episode</a>.</p>
+<p>The peptidoglycan mesh has no single atomic structure, so it is stylized. So is the lysis. Protein motion is from the simulations. The bond breaking is a transition I placed in the edit.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Microbiology</category>
+  <category>Antibiotics</category>
+  <category>Resistance</category>
+  <guid>https://vahhabpiranfar.com/posts/two-fates/</guid>
+  <pubDate>Mon, 26 Oct 2026 04:00:00 GMT</pubDate>
+  <media:content url="https://vahhabpiranfar.com/posts/two-fates/cover.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>How a Beta-Lactam Gets into a Gram-Negative Cell, and Why It Can Die There</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
@@ -82,7 +131,7 @@
 </section>
 <section id="what-the-next-episodes-can-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-the-next-episodes-can-change">What the next episodes can change</h2>
-<p>The same envelope can carry a different ending. If no beta-lactamase is in the periplasm, the same drug can reach PBP1b. If a beta-lactamase inhibitor is present, the enzyme is occupied and the drug is not. If the porin is gone, the drug may never enter. If AcrB is working, drug that did enter can be thrown back out. Those are later episodes. The first one stops at the enzyme.</p>
+<p>The same envelope can carry a different ending. If no beta-lactamase is in the periplasm, the same drug can reach PBP1b. If a beta-lactamase inhibitor is present, the enzyme is occupied and the drug is not. If the porin is gone, the drug may never enter. If AcrB is working, drug that did enter can be thrown back out. The side-by-side film is <a href="../two-fates/">Two fates</a>. The first episode still stops at the enzyme.</p>
 
 
 </section>

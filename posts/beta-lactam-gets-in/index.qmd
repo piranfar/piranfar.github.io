@@ -64,4 +64,4 @@ The motion of the proteins comes from short molecular dynamics, not from a simul
 
 ## What the next episodes can change
 
-The same envelope can carry a different ending. If no beta-lactamase is in the periplasm, the same drug can reach PBP1b. If a beta-lactamase inhibitor is present, the enzyme is occupied and the drug is not. If the porin is gone, the drug may never enter. If AcrB is working, drug that did enter can be thrown back out. Those are later episodes. The first one stops at the enzyme.
+The same envelope can carry a different ending. If no beta-lactamase is in the periplasm, the same drug can reach PBP1b. If a beta-lactamase inhibitor is present, the enzyme is occupied and the drug is not. If the porin is gone, the drug may never enter. If AcrB is working, drug that did enter can be thrown back out. The side-by-side film is [Two fates](../two-fates/). The first episode still stops at the enzyme.
