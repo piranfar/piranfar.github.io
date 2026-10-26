@@ -1,0 +1,136 @@
+1
+00:00:01,000 --> 00:00:03,835
+An antibiotic is about to enter a bacterium.
+
+2
+00:00:04,800 --> 00:00:07,632
+Everything you will see is a real structure.
+
+3
+00:00:07,632 --> 00:00:10,142
+The proteins come from crystallography.
+
+4
+00:00:10,142 --> 00:00:12,781
+The motion comes from molecular dynamics.
+
+5
+00:00:13,500 --> 00:00:15,605
+This is a Gram-negative cell.
+
+6
+00:00:15,605 --> 00:00:20,105
+Two membranes, a thin wall in between, and only a few ways in.
+
+7
+00:00:21,000 --> 00:00:29,825
+Inside the periplasm, two things can be waiting for the drug: an enzyme that destroys it, or the target it came for.
+
+8
+00:00:30,300 --> 00:00:33,214
+Same drug. Same door. Two fates.
+
+9
+00:00:33,500 --> 00:00:36,861
+On the left, a cell that carries a beta-lactamase.
+
+10
+00:00:36,861 --> 00:00:39,214
+On the right, a cell that does not.
+
+11
+00:00:39,214 --> 00:00:40,559
+Watch them together.
+
+12
+00:00:41,000 --> 00:00:44,185
+Through the porin. Identical, frame for frame.
+
+13
+00:00:44,500 --> 00:00:45,500
+Ceftazidime.
+
+14
+00:00:45,422 --> 00:00:47,957
+A third-generation cephalosporin.
+
+15
+00:00:47,957 --> 00:00:50,416
+The same molecule on both sides.
+
+16
+00:00:51,000 --> 00:00:52,000
+And here they part.
+
+17
+00:00:52,300 --> 00:00:54,998
+On the left, the enzyme catches it first.
+
+18
+00:00:54,998 --> 00:01:00,986
+On the right, there is no enzyme, and the drug finds the protein that is building the wall.
+
+19
+00:01:01,400 --> 00:01:03,058
+Wall synthesis stops.
+
+20
+00:01:03,058 --> 00:01:04,243
+The wall opens.
+
+21
+00:01:04,243 --> 00:01:06,454
+The membrane pushes through.
+
+22
+00:01:07,000 --> 00:01:09,473
+Now the same chemistry, twice.
+
+23
+00:01:09,473 --> 00:01:11,698
+The beta-lactam ring opens.
+
+24
+00:01:12,300 --> 00:01:15,600
+In the enzyme, the broken drug is released.
+
+25
+00:01:15,600 --> 00:01:16,600
+Harmless.
+
+26
+00:01:16,291 --> 00:01:18,593
+On the target, it stays bound.
+
+27
+00:01:18,593 --> 00:01:20,282
+The protein is locked.
+
+28
+00:01:20,500 --> 00:01:21,596
+One cell dies.
+
+29
+00:01:21,596 --> 00:01:23,474
+The other never noticed.
+
+30
+00:01:23,474 --> 00:01:25,900
+One enzyme made the difference.
+
+31
+00:01:25,900 --> 00:01:28,013
+That is what resistance is.
+
+32
+00:01:28,013 --> 00:01:29,578
+Not a stronger cell.
+
+33
+00:01:29,578 --> 00:01:30,987
+One extra protein.
+
+34
+00:01:33,000 --> 00:01:36,894
+Next: how bacteria get that enzyme, and how they share it.
+
