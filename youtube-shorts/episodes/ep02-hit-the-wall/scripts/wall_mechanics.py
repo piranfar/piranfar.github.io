@@ -58,6 +58,10 @@ def fresh_material(i, f_grow_start, f_grow_end):
     old = bpy.data.materials['MAT_pg_glycan']
     m = old.copy()
     m.name = 'MAT_pg_fresh_%d' % i
+    # the copy shares the old material's action when the old one is already keyed (film scripts key
+    # it before building); without this, the 'fresh' keys below would animate the whole old wall
+    if m.node_tree.animation_data:
+        m.node_tree.animation_data_clear()
     b = m.node_tree.nodes['Principled BSDF']
     base = tuple(old.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value)
     bright = (min(1.0, base[0] * 0.9), min(1.0, base[1] * 1.25), min(1.0, base[2] * 0.6), 1.0)
