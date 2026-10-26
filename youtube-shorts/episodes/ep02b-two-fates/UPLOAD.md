@@ -1,5 +1,9 @@
 # Episode 2b upload sheet
 
+**Published 2026-10-26, Public:** https://youtu.be/gU2kKaWwa2s
+
+In Studio: thumbnail A, playlist, not for kids, English subtitles (`narration/two_fates_v4.en.srt`), end screen from 1:33 (subscribe, ep1 public copy, ep2, playlist), cards at 0:06 (channel, "Subscribe for the series"), 0:49 (ep1), 1:16 (ep2), 1:27 (playlist). Description chapters must be one per line or Studio does not detect them.
+
 **File:** `renders/two_fates_v4.mp4` (1920x1080, 102 s, narration + music + SFX). Not a Short.
 
 **Title**
