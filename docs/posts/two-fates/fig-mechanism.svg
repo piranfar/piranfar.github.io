@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Schematic of the two fates of a beta-lactam after the ring opens">
+  <rect width="1600" height="900" fill="#0E1726"/>
+  <text x="800" y="78" text-anchor="middle" fill="#F5C16C" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="22" font-weight="600" letter-spacing="2">SAME FIRST STEP</text>
+  <text x="800" y="124" text-anchor="middle" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="28">An active-site serine attacks the beta-lactam carbonyl. The ring opens.</text>
+  <line x1="180" y1="168" x2="1420" y2="168" stroke="#243044" stroke-width="2"/>
+
+  <rect x="90" y="220" width="640" height="520" rx="18" fill="#132033" stroke="#1F6F68"/>
+  <text x="410" y="280" text-anchor="middle" fill="#5EEAD4" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26" font-weight="700">BETA-LACTAMASE</text>
+  <text x="150" y="360" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">Ser70 forms an acyl-enzyme.</text>
+  <text x="150" y="420" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">Glu166 helps a water cut that bond.</text>
+  <text x="150" y="480" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">The opened drug leaves.</text>
+  <text x="150" y="540" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">The enzyme can bind the next molecule.</text>
+  <rect x="170" y="610" width="480" height="78" rx="10" fill="#134E4A"/>
+  <text x="410" y="658" text-anchor="middle" fill="#99F6E4" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26" font-weight="700">WALL KEEPS GROWING</text>
+
+  <text x="800" y="470" text-anchor="middle" fill="#F5C16C" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="28" font-weight="700">OR</text>
+
+  <rect x="870" y="220" width="640" height="520" rx="18" fill="#132033" stroke="#A16207"/>
+  <text x="1190" y="280" text-anchor="middle" fill="#F5C16C" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26" font-weight="700">PENICILLIN-BINDING PROTEIN</text>
+  <text x="930" y="360" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">Ser510 forms an acyl-enzyme.</text>
+  <text x="930" y="420" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">Hydrolysis of that bond is slow.</text>
+  <text x="930" y="480" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">The drug stays bound.</text>
+  <text x="930" y="540" fill="#F4F1EA" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26">New cross-links are not made.</text>
+  <rect x="950" y="610" width="480" height="78" rx="10" fill="#713F12"/>
+  <text x="1190" y="658" text-anchor="middle" fill="#FDE68A" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="26" font-weight="700">WALL FAILS</text>
+
+  <text x="800" y="820" text-anchor="middle" fill="#8B9BB4" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="20">Schematic, not a crystal structure. TEM-1 uses Ambler numbers. The PBP1b serine is Ser510 in PDB 3VMA.</text>
+</svg>
