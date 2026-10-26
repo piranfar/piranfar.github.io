@@ -16,7 +16,7 @@ A second decision followed the first review: the videos must look like films, no
 |---|---|---|---|
 | 1 | Inside a Gram-negative bacterium | How a beta-lactam gets in, and how TEM-1 destroys it | Published 2026-10-24, https://youtube.com/shorts/kJKye8xqjRg |
 | 2 | Beta-lactams hit the wall | With no enzyme waiting, the drug locks PBP1b and the wall stops growing | Published 2026-10-26, https://youtube.com/shorts/ufXzk6dhlX8 |
-| 2b | Two fates (long form, landscape) | Episodes 1 and 2 side by side: same entry, then the enzyme eats the drug vs the drug locks the target. Not a Short; a 2-3 min video for the main feed | Next up: both entries are frame-aligned (1-450), renders exist |
+| 2b | Two fates (long form, landscape) | Episodes 1 and 2 side by side: same entry, then the enzyme eats the drug vs the drug locks the target. Not a Short; a 2-3 min video for the main feed | First cut 2026-10-26 (87 s, no narration yet); `episodes/ep02b-two-fates/` has NARRATION.md and the ffmpeg assembler |
 | 3 | How beta-lactamases save the wall | Classes A/C/D, plasmid spread, and why one enzyme covers a whole cell | Planned |
 | 4 | Porins shut the door | OmpF/OmpC loss and what it costs the cell | Planned |
 | 5 | Efflux pumps throw the drug out | AcrAB-TolC; needs TolC added above the existing AcrB (13.9 nm gap already fits) | Planned |
