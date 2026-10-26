@@ -271,36 +271,26 @@ if MODE == 'intro':
     cam_key(140, Vector((11.0, cut_y, -1.0)), 54.0, az=-5, el=6)
     lens_key(140, 35.0)
     lens_key(300, 55.0)
-    cam_key(300, P(porin.x - 1, 9.5), 26.0, az=-16, el=20)      # outer membrane, LPS surface
-    cam_key(400, P(porin.x, porin.z + 0.5), 19.0, az=12, el=8)  # porin
-    cam_key(540, P(porin.x + 4, -2.4), 21.0, az=-4, el=26)      # peptidoglycan (elevated, reads as a mesh)
-    cam_key(630, P(porin.x - 1, -19.0), 30.0, az=-12, el=16)    # inner membrane
-    cam_key(700, P(tem.x, tem.z + 0.5), 17.0, az=16, el=6)      # beta-lactamase
-    cam_key(790, P(pbp.x - 2.0, pbp.z + 0.5), 27.0, az=12, el=10)   # PBP
-    lens_key(790, 55.0)
+    # arrive, then hold with a slow drift (push-in and a few degrees of arc) while the label is up
+    stops = [  # key, arrive, leave, target, dist, az, el, label, corner, anchor point, subject mats, glow
+        ('om', 260, 350, P(porin.x - 1, 9.5), 26.0, -16, 20, 'OUTER MEMBRANE', 'bl', P(porin.x - 5, 11.5), ['MAT_lps', 'MAT_lipid'], 0.25),
+        ('porin', 400, 480, P(porin.x, porin.z + 0.5), 19.0, 12, 8, 'PORIN', 'tl', P(porin.x + 0.5, porin.z + 0.5), ['MAT_protein_porin'], 0.6),
+        ('pg', 530, 600, P(porin.x + 4, -2.4), 21.0, -4, 26, 'PEPTIDOGLYCAN (THE WALL)', 'tl', Vector((porin.x + 1.0, cut_y - 3.0, -2.2)), ['MAT_pg_glycan', 'MAT_pg_peptide'], 0.3),
+        ('im', 640, 690, P(porin.x - 1, -19.0), 30.0, -12, 16, 'INNER MEMBRANE', 'tr', Vector((porin.x - 4.5, cut_y + 2.5, -19.6)), ['MAT_lipid_IM'], 0.2),
+        ('tem1', 730, 790, P(tem.x, tem.z + 0.5), 17.0, 16, 6, 'BETA-LACTAMASE (THE ENZYME)', 'tl', P(tem.x + 0.5, tem.z + 0.5), ['MAT_enzyme_tem1'], 0.6),
+        ('pbp', 825, 870, P(pbp.x - 2.0, pbp.z + 0.5), 27.0, 12, 10, 'PBP (THE TARGET)', 'tr', P(pbp.x, pbp.z + 2.0), ['MAT_target_pbp1b'], 0.6),
+    ]
+    key_normal(230)
+    for key, fa, fl, target, dist, az, el, label, corner, anchor, subj, glow in stops:
+        cam_key(fa, target, dist, az=az, el=el)
+        cam_key(fl, target, dist * 0.93, az=az + (8 if az < 0 else -8), el=el * 0.85)
+        key_state(fa - 8, subj, glow, 0.5)
+        key_state(fl, subj, glow, 0.5)
+        register_anchor(key, label, corner, fa + 5, fl - 4, (lambda a: (lambda fr: a))(anchor))
+    key_normal(890)
+    lens_key(870, 55.0)
     lens_key(900, 35.0)
     cam_key(900, WIDE, 58.0, el=7)                       # back out for the title
-    # emphasis follows the camera
-    key_normal(260)
-    key_state(300, ['MAT_lps', 'MAT_lipid'], 0.25, 0.5)
-    key_state(370, ['MAT_lps', 'MAT_lipid'], 0.25, 0.5)
-    key_state(400, ['MAT_protein_porin'], 0.6, 0.5)
-    key_state(500, ['MAT_protein_porin'], 0.6, 0.5)
-    key_state(540, ['MAT_pg_glycan', 'MAT_pg_peptide'], 0.3, 0.5)
-    key_state(600, ['MAT_pg_glycan', 'MAT_pg_peptide'], 0.3, 0.5)
-    key_state(630, ['MAT_lipid_IM'], 0.2, 0.5)
-    key_state(670, ['MAT_lipid_IM'], 0.2, 0.5)
-    key_state(700, ['MAT_enzyme_tem1'], 0.6, 0.5)
-    key_state(760, ['MAT_enzyme_tem1'], 0.6, 0.5)
-    key_state(790, ['MAT_target_pbp1b'], 0.6, 0.5)
-    key_state(850, ['MAT_target_pbp1b'], 0.6, 0.5)
-    key_normal(890)
-    register_anchor('om', 'OUTER MEMBRANE', 'bl', 300, 390, lambda fr: P(porin.x - 5, 11.5))
-    register_anchor('porin', 'PORIN', 'tl', 405, 520, lambda fr: P(porin.x + 0.5, porin.z + 0.5))
-    register_anchor('pg', 'PEPTIDOGLYCAN (THE WALL)', 'tl', 545, 620, lambda fr: Vector((porin.x + 1.0, cut_y - 3.0, -2.2)))
-    register_anchor('im', 'INNER MEMBRANE', 'tr', 635, 690, lambda fr: Vector((porin.x - 4.5, cut_y + 2.5, -19.6)))
-    register_anchor('tem1', 'BETA-LACTAMASE (THE ENZYME)', 'tl', 705, 780, lambda fr: P(tem.x + 0.5, tem.z + 0.5))
-    register_anchor('pbp', 'PBP (THE TARGET)', 'tr', 795, 870, lambda fr: P(pbp.x, pbp.z + 2.0))
     END, OUT = 900, 'tf_intro'
 
 elif MODE in ('carry', 'lysis'):
