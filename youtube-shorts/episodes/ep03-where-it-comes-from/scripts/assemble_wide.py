@@ -29,7 +29,12 @@ NARR_TIMES = [1.0, 12.0, 21.5, 25.0, 34.8, 38.2, 50.0, 54.5, 61.0, 68.0, 73.0, 7
 def stage_picture():
     D = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', SRC],
                              capture_output=True, text=True).stdout.strip())
-    vf = ("fade=t=in:st=0:d=1.5,fade=t=out:st=%.2f:d=1.5,eq=contrast=1.05:saturation=1.08,vignette=angle=PI/4.6,noise=alls=5:allf=t+u,format=yuv420p" % (D - 1.5))
+    # tail: hold the last frame 4 s for the end card; last segment: slow push-in so the four cells read
+    D += 4.0
+    z = "(1+0.35*min(max((t-106)/6,0),1))"
+    vf = ("tpad=stop_mode=clone:stop_duration=4,crop=w=iw/%s:h=ih/%s:x=(iw-iw/%s)/2:y=(ih-ih/%s)/2,scale=%d:%d,"
+          "fade=t=in:st=0:d=1.5,fade=t=out:st=%.2f:d=1.5,eq=contrast=1.05:saturation=1.08,vignette=angle=PI/4.6,noise=alls=5:allf=t+u,format=yuv420p"
+          % (z, z, z, z, W, H, D - 1.5))
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', SRC, '-vf', vf, '-r', str(FPS), '-c:v', 'libx264', '-crf', '16', '-preset', 'medium', BASE_MP4], check=True)
     print('PICTURE_DONE', BASE_MP4, '%.1f s' % D)
 
@@ -89,7 +94,7 @@ def stage_text():
 def stage_audio():
     cmd = [sys.executable, os.path.join(BASE, 'scripts', 'assemble_short.py'), SILENT, OUT,
            '--narration', os.path.join(EP, 'narration_wide'), '--times', ','.join('%.1f' % t for t in NARR_TIMES),
-           '--ring', '85.3', '--boom', '29.7,50.0', '--whoosh', '51.3,56.0,89.5']
+           '--ring', '85.3', '--boom', '29.7,50.0,118.5', '--whoosh', '51.3,56.0,89.5']
     r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
     print(r.stdout.strip()[-400:], r.stderr.strip()[-400:])
     if r.returncode:

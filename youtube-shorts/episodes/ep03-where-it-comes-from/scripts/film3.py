@@ -397,11 +397,7 @@ if MODE == 'short':
     cam_key(1740, Vector((36.0, cut_y, -16.0)), 100.0, el=5)
     key_state(1620, ['MAT_dna_atoms', 'MAT_enzyme_tem1'], 0.35, 0.5)
     key_state(1700, ['MAT_dna_atoms', 'MAT_enzyme_tem1'], 0.35, 0.5)
-    headlines = [(0.5, 3.5, 'WHERE DOES THE ENZYME COME FROM?'), (5.5, 9.0, 'NOT FROM THE CHROMOSOME'),
-                 (11.5, 14.0, 'ONE EXTRA RING OF DNA'), (16.0, 20.0, 'THE GENE IS READ'), (22.5, 24.5, 'INTO THE PERIPLASM'),
-                 (27.5, 31.0, 'A NEIGHBOUR WITH NO ENZYME'), (32.5, 36.5, 'THE PLASMID CROSSES'), (37.5, 40.0, 'NOW IT HAS THE GENE TOO'),
-                 (46.0, 49.0, 'SAME DRUG. SAME DOOR.'), (51.5, 53.5, 'RING BROKEN. CELL CARRIES ON.'),
-                 (54.5, 57.0, 'ONE GENE, PASSED FROM CELL TO CELL')]
+    headlines = [(0.5, 3.5, 'THIS ENZYME HAS A NAME'), (4.0, 9.5, 'TEM. ATHENS, 1963.'), (10.5, 12.5, 'NOT FROM THE CHROMOSOME'), (13.5, 17.0, 'A SPARE RING OF DNA. A PASSENGER.'), (20.0, 22.5, 'THE GENE IS READ'), (23.5, 26.0, 'SHIPPED TO THE PERIPLASM'), (27.5, 30.5, 'BACTERIA HAVE SEX'), (32.0, 35.0, 'ONE STRAND CROSSES'), (38.5, 42.0, 'HANDED IT. IN MINUTES.'), (46.5, 49.0, 'SAME DRUG. SAME DOOR.'), (49.5, 52.0, 'RING BROKEN.'), (53.0, 56.5, 'IT NEEDS A GENE THAT TRAVELS')]
     cards = [(1690 / FPS, 1740 / FPS, 'EPISODE 3  -  WHERE IT COMES FROM', 'NEXT: HOW WE FIGHT BACK')]
     END = 1740
     OUT = 'film3_short'
@@ -536,7 +532,7 @@ elif MODE == 'wide':
                  (79.0, 81.0, 'SAME DRUG. SAME DOOR.'), (83.0, 85.5, 'RING BROKEN. CELL CARRIES ON.'),
                  (88.5, 98.5, 'GONORRHOEA 1976   HAEMOPHILUS 1974   SAME GENE'), (100.5, 111.5, 'ONE SPECIES, ONE COUNTRY: EVERY SPECIES, EVERY COUNTRY'),
                  (113.0, 118.0, 'IT NEEDS A GENE THAT TRAVELS')]
-    cards = [(3380 / FPS, 3690 / FPS, 'EPISODE 3  -  WHERE IT COMES FROM', 'NEXT: HOW WE FIGHT BACK')]
+    cards = [(118.5, 127.0, 'EPISODE 3  -  WHERE IT COMES FROM', 'NEXT: HOW WE FIGHT BACK')]   # assembler pads 4 s
     END = 3690
     OUT = 'film3_wide'
 
