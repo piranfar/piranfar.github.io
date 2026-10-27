@@ -208,7 +208,7 @@ if MODE == 'short':
     key_state(270, ['MAT_dna_atoms'], 0.25, 0.6)
     key_state(420, ['MAT_dna_atoms'], 0.25, 0.6)
     register_anchor('plasmid', 'PLASMID', 'tr', 300, 370, lambda fr: PLASMID_A + Vector((-plA['radius'], 0, 0)))
-    gene_glow(plA, {1: 0.0, 335: 0.0, 360: 1.0})
+    gene_glow(plA, {1: 0.0, 335: 0.0, 360: 0.4})
     register_anchor('gene', 'THE bla GENE', 'bl', 365, 440, lambda fr: PLASMID_A + Vector((plA['radius'] * math.cos(2 * math.pi * 0.135), 0, plA['radius'] * math.sin(2 * math.pi * 0.135))))
     # ---- expression: new TEM-1 from the plasmid, through the IM, into the periplasm ----
     newA = nascent_tem1('EP3_tem1_newA')
@@ -254,7 +254,7 @@ if MODE == 'short':
     cam_key(1100, Vector((PLASMID_B.x, cut_y, PLASMID_B.z)), 24.0, az=-6, el=8)
     cam_key(1140, Vector((PLASMID_B.x, cut_y, PLASMID_B.z)), 22.0, az=4, el=10)
     ring_grow(plB, 1060, 1120)
-    gene_glow(plB, {1: 0.0, 1115: 0.0, 1140: 1.0})
+    gene_glow(plB, {1: 0.0, 1115: 0.0, 1140: 0.4})
     key_state(1060, ['MAT_dna_atoms'], 0.25, 0.6)
     key_state(1140, ['MAT_dna_atoms'], 0.25, 0.6)
     register_anchor('copy', 'A COPY', 'tr', 1100, 1150, lambda fr: PLASMID_B + Vector((-plB['radius'], 0, 0)))

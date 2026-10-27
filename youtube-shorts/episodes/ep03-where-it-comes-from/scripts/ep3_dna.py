@@ -33,7 +33,7 @@ def attr_material(name, emis=0.0, rough=0.45):
     return m
 
 
-def _dna_unit(name, mat, dim=1.0):
+def _dna_unit(name, mat, dim=1.0, quality=2):
     pdb = os.path.join(BASE, 'pdb', 'dna', '1bna.pdb')
     before = set(objs)
     bpy.ops.mn.import_molecule(method='local', filepath=pdb, file_format='pdb', style='ball_and_stick')
@@ -43,6 +43,17 @@ def _dna_unit(name, mat, dim=1.0):
         c.objects.unlink(ob)
     coll.objects.link(ob)
     me = ob.data
+    # drop the crystal waters (HETATM HOH) so only the DNA is tiled
+    sol = me.attributes.get('is_solvent')
+    if sol:
+        import bmesh
+        bm = bmesh.new()
+        bm.from_mesh(me)
+        bm.verts.ensure_lookup_table()
+        kill = [bm.verts[i] for i, d in enumerate(sol.data) if d.value]
+        bmesh.ops.delete(bm, geom=kill, context='VERTS')
+        bm.to_mesh(me)
+        bm.free()
     res, bb = [], []
     for line in open(pdb, encoding='utf-8'):
         if line.startswith('ATOM'):
@@ -71,15 +82,10 @@ def _dna_unit(name, mat, dim=1.0):
             ng.links.remove(l)
     ng.links.new(gi.outputs[0], style.inputs['Atoms'])
     style.inputs['Material'].default_value = mat
-    # 'Sphere' = spheres as a point cloud (ignored by Array/Curve); we need mesh spheres
-    for key in ('Sphere',):
-        if key in style.inputs:
-            try:
-                style.inputs[key].default_value = False
-            except Exception:
-                pass
-    if 'Sphere As Mesh' in style.inputs:
-        style.inputs['Sphere As Mesh'].default_value = True
+    # 'Sphere' is a menu (Instance / Mesh / Point Cloud): instances and point clouds are ignored by the
+    # Array and Curve modifiers, so the atoms must be realised as mesh
+    style.inputs['Sphere'].default_value = 'Mesh'
+    style.inputs['Quality'].default_value = quality
     return ob
 
 
@@ -91,8 +97,8 @@ def _twist_empty(name, rise, twist_deg):
     return e
 
 
-def dna_along_curve(name, curve_ob, count, mat, dim=1.0):
-    ob = _dna_unit(name, mat, dim)
+def dna_along_curve(name, curve_ob, count, mat, dim=1.0, quality=2):
+    ob = _dna_unit(name, mat, dim, quality)
     ob.location = curve_ob.location
     ob.rotation_euler = curve_ob.rotation_euler
     e = _twist_empty(name + '_twist', DNA_RISE, DNA_TWIST)
@@ -153,7 +159,7 @@ def dna_ring_grow(pl, f0, f1):
     arr.count = full
 
 
-def dna_chromosome(box, n_pts=160, step=2.4, count=110, tag='A'):
+def dna_chromosome(box, n_pts=160, step=2.4, count=60, tag='A'):
     (x0, x1), (y0, y1), (z0, z1) = box
     p = Vector(((x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2))
     d = Vector((1, 0, 0))
@@ -178,5 +184,5 @@ def dna_chromosome(box, n_pts=160, step=2.4, count=110, tag='A'):
     cu.resolution_u = 8
     path = bpy.data.objects.new('EP3_chrpath_%s' % tag, cu)
     coll.objects.link(path)
-    ob, arr = dna_along_curve('EP3_chromDNA_%s' % tag, path, count, attr_material('MAT_dna_atoms_dim', 0.0, 0.7), dim=0.55)
+    ob, arr = dna_along_curve('EP3_chromDNA_%s' % tag, path, count, attr_material('MAT_dna_atoms_dim', 0.0, 0.7), dim=0.55, quality=1)
     return ob
