@@ -186,3 +186,84 @@ def dna_chromosome(box, n_pts=160, step=2.4, count=60, tag='A'):
     coll.objects.link(path)
     ob, arr = dna_along_curve('EP3_chromDNA_%s' % tag, path, count, attr_material('MAT_dna_atoms_dim', 0.0, 0.7), dim=0.55, quality=1)
     return ob
+
+
+# ---------------------------------------------------------------- single strand (chain A of 1BNA) for the transfer
+def _keep_chain(ob, chain_index):
+    """Delete all atoms not in the given chain (0 = A, 1 = B) so the unit becomes one strand."""
+    import bmesh
+    me = ob.data
+    ch = me.attributes['chain_id']
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bm.verts.ensure_lookup_table()
+    kill = [bm.verts[i] for i, d in enumerate(ch.data) if d.value != chain_index]
+    bmesh.ops.delete(bm, geom=kill, context='VERTS')
+    bm.to_mesh(me)
+    bm.free()
+
+
+def ss_along_curve(name, curve_ob, count, mat, chain=0, dim=1.0, quality=2):
+    """Real single-stranded DNA (one chain of 1BNA) tiled with the helical twist and bent along the curve."""
+    ob = _dna_unit(name, mat, dim, quality)
+    _keep_chain(ob, chain)
+    ob.location = curve_ob.location
+    ob.rotation_euler = curve_ob.rotation_euler
+    e = _twist_empty(name + '_twist', DNA_RISE, DNA_TWIST)
+    e.parent = ob
+    arr = ob.modifiers.new('Tile', 'ARRAY')
+    arr.use_relative_offset = False
+    arr.use_constant_offset = False
+    arr.use_object_offset = True
+    arr.offset_object = e
+    arr.count = count
+    bend = ob.modifiers.new('Bend', 'CURVE')
+    bend.object = curve_ob
+    bend.deform_axis = 'POS_X'
+    return ob, arr
+
+
+def ss_ring(center, count=13, tag='B', chain=0):
+    """A plasmid ring made of one strand only (the recipient's copy before synthesis of the second strand)."""
+    L = count * DNA_RISE
+    R = L / (2 * math.pi)
+    cu = bpy.data.curves.new('EP3_ssring_%s' % tag, 'CURVE')
+    cu.dimensions = '3D'
+    sp = cu.splines.new('NURBS')
+    npts = 96
+    sp.points.add(npts - 1)
+    for i, pp in enumerate(sp.points):
+        th = 2 * math.pi * i / npts
+        pp.co = (R * math.cos(th), 0.0, R * math.sin(th), 1.0)
+    sp.use_cyclic_u = True
+    sp.order_u = 4
+    cu.resolution_u = 6
+    circ = bpy.data.objects.new('EP3_ssring_%s' % tag, cu)
+    circ.location = center
+    coll.objects.link(circ)
+    ob, arr = ss_along_curve('EP3_ssDNA_%s' % tag, circ, count, attr_material('MAT_dna_atoms'), chain=chain)
+    return {'dna': ob, 'array': arr, 'ring': circ, 'center': Vector(center), 'radius': R}
+
+
+def ss_transfer(points, count, tag='T'):
+    """ssDNA along an open NURBS path from donor plasmid to recipient; Array count keyed to 'thread' it."""
+    cu = bpy.data.curves.new('EP3_sspath_%s' % tag, 'CURVE')
+    cu.dimensions = '3D'
+    sp = cu.splines.new('NURBS')
+    sp.points.add(len(points) - 1)
+    for pp, v in zip(sp.points, points):
+        pp.co = (*v, 1.0)
+    sp.order_u = 4
+    sp.use_endpoint_u = True
+    cu.resolution_u = 12
+    path = bpy.data.objects.new('EP3_sspath_%s' % tag, cu)
+    coll.objects.link(path)
+    ob, arr = ss_along_curve('EP3_ssDNA_%s' % tag, path, count, attr_material('MAT_dna_atoms_bright', 1.5))
+    return ob, arr, path
+
+
+def array_grow(arr, f0, f1, full):
+    for f, c in ((f0, 1), (f1, full)):
+        arr.count = c
+        arr.keyframe_insert('count', frame=f)
+    arr.count = full
