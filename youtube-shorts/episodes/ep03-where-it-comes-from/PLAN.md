@@ -42,3 +42,10 @@ plasmid travels.
 
 Transcription/translation shown as "the gene is read and the protein appears"; the plasmid and chromosome are
 stylized DNA; the pilus is the real filament but the transfer machinery (T4SS, relaxase) is not shown.
+
+## v2 (2026-10-27)
+
+Both cuts rebuilt on `scripts/ep3_beats.py` + `scripts/look.py`: ribosome -> mRNA -> SecYEG -> fold in the periplasm;
+pilus retracts and pulls cell B 32 nm into contact (DX 72 -> 40); ssDNA crosses at the contact zone, 5' first; recipient
+ring grows single-stranded, second strand synthesised; drug enters cell B through its porin c (path shift 51.7 nm);
+four cells in the finale. Render cost about 2.2 s/frame landscape with baked surfaces.

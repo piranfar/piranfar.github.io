@@ -40,3 +40,22 @@ A running log. Newest at the bottom.
 - **Every camera stop needs two keys** (arrive, leave with a small drift). A single key per component means the camera is already travelling while the label is up; the anchor positions in the exported JSON drift off-screen by mid-label. Check the anchor JSON before rendering: start/middle/end positions should all be inside the frame.
 - **Two Fates pipeline is three re-runnable stages** (`two_fates_v3.py`/`v4.py --stage picture|text|audio`): ffmpeg picture (sources, transitions, grade), PIL text layer (one consistent layer; labels from the anchor files, animated title, tints, end card), ffmpeg audio (music ducked under narration, SFX cues, ambience). Keep the text out of the Blender render and out of ffmpeg drawtext.
 - **HUD-free sources for compilations.** Never stack a film's baked captions under a new text layer; assemble from the `*_entry.mp4` / `*_tour.mp4` renders, not the `_hud` clips.
+
+## 2026-10-27 (episode 3 v2, after two outside reviews)
+
+- **Science corrections adopted**: SecYEG translocon (OPM 5AWW, z = membrane normal, cytoplasmic loops at -z) with the
+  nascent chain threaded as an unfolded tube and the cartoon folding only in the periplasm; a 70S ribosome (4V9D assembly 1,
+  waters/ions stripped) with a short mRNA dash from the gene; conjugation as pilus retraction bringing the recipient
+  into contact, then single-stranded DNA (chain A of 1BNA) crossing at the contact zone, the recipient's ring growing as
+  ssDNA and the second strand fading in. Stated simplifications: no T4SS/relaxase, no SecA, translation not shown.
+- **Look module** `scripts/look.py` is applied at run time by every film script: AgX (medium-high contrast), warm key +
+  cool fill + cyan rim/kick, subsurface on lipids, ambient-occlusion-driven roughness on proteins (NOT on base colour,
+  which the films keyframe), background crowding as out-of-focus translucent blobs behind the cut plane, extra
+  peptidoglycan cross-links, Brownian noise modifiers, camera easing. World volume scatter was tested and rejected
+  (darkens everything even at density 0.003).
+- **MN surface style**: swapping a Style node's tree drops its links; relink 'Atoms' and the output. Surfaces re-evaluate
+  every frame (12 s/frame for a ribosome): bake static ones to meshes with `bake_static` (1 s/frame) and reassign the
+  style's material to the baked mesh.
+- **ffmpeg**: `crop` evaluates w/h once; a time-varying push-in needs `scale=...:eval=frame` + fixed crop. Commas inside
+  min()/max() in filter expressions must be escaped.
+- **Random Value node**: pick sockets by type (`bl_idname`), not by name; names repeat across data types.
