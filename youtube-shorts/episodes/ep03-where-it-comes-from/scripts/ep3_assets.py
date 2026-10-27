@@ -207,13 +207,13 @@ def pilus(x0, x1, z, y, copies=None):
     return ob
 
 
-def duplicate_cell(dx, names=('OuterMembrane', 'Periplasm', 'InnerMembrane')):
-    cb = collection('CellB')
+def duplicate_cell(dx, names=('OuterMembrane', 'Periplasm', 'InnerMembrane'), cname='CellB'):
+    cb = collection(cname)
     mapping = {}
     for cname in names:
         for o in list(bpy.data.collections[cname].objects):
             c = o.copy()
-            c.name = o.name + '_B'
+            c.name = o.name + '_' + cname[-1]
             c.location.x += dx
             cb.objects.link(c)
             mapping[o.name] = c
