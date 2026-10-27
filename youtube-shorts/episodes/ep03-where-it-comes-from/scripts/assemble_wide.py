@@ -31,10 +31,10 @@ def stage_picture():
                              capture_output=True, text=True).stdout.strip())
     # tail: hold the last frame 4 s for the end card; last segment: slow push-in so the four cells read
     D += 4.0
-    z = "(1+0.35*min(max((t-106)/6,0),1))"
-    vf = ("tpad=stop_mode=clone:stop_duration=4,crop=w=iw/%s:h=ih/%s:x=(iw-iw/%s)/2:y=(ih-ih/%s)/2,scale=%d:%d,"
+    z = "(1+0.35*min(max((t-106)/6\,0)\,1))"
+    vf = ("tpad=stop_mode=clone:stop_duration=4,scale=w=iw*%s:h=ih*%s:eval=frame,crop=%d:%d:(iw-%d)/2:(ih-%d)/2,"
           "fade=t=in:st=0:d=1.5,fade=t=out:st=%.2f:d=1.5,eq=contrast=1.05:saturation=1.08,vignette=angle=PI/4.6,noise=alls=5:allf=t+u,format=yuv420p"
-          % (z, z, z, z, W, H, D - 1.5))
+          % (z, z, W, H, W, H, D - 1.5))
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', SRC, '-vf', vf, '-r', str(FPS), '-c:v', 'libx264', '-crf', '16', '-preset', 'medium', BASE_MP4], check=True)
     print('PICTURE_DONE', BASE_MP4, '%.1f s' % D)
 
