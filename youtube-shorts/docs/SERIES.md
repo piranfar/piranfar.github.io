@@ -17,7 +17,7 @@ A second decision followed the first review: the videos must look like films, no
 | 1 | Inside a Gram-negative bacterium | How a beta-lactam gets in, and how TEM-1 destroys it | Published 2026-10-24, https://youtube.com/shorts/kJKye8xqjRg |
 | 2 | Beta-lactams hit the wall | With no enzyme waiting, the drug locks PBP1b and the wall stops growing | Published 2026-10-26, https://youtube.com/shorts/ufXzk6dhlX8 |
 | 2b | Two fates (long form, landscape) | Episodes 1 and 2 side by side: same entry, then the enzyme eats the drug vs the drug locks the target. 102 s, main feed | **Published 2026-10-26** https://youtu.be/gU2kKaWwa2s (v4: native 16:9 intro, split screen, macro ring openings, two-cell shot; narrated, subtitled; end screen + 4 cards). `episodes/ep02b-two-fates/README.md`, `UPLOAD.md` |
-| 3 | How beta-lactamases save the wall | Classes A/C/D, plasmid spread, and why one enzyme covers a whole cell | Planned |
+| 3 | How beta-lactamases save the wall | Classes A/C/D, plasmid spread, and why one enzyme covers a whole cell | First cut 2026-10-27 (60 s Short, narrated): `episodes/ep03-where-it-comes-from/` (PLAN.md, film3.py, ep3_assets.py, NARRATION.md; renders/film3_final.mp4). Awaiting review; target WAAW 18-24 Nov |
 | 4 | Porins shut the door | OmpF/OmpC loss and what it costs the cell | Planned |
 | 5 | Efflux pumps throw the drug out | AcrAB-TolC; needs TolC added above the existing AcrB (13.9 nm gap already fits) | Planned |
 | 6 | MIC is a threshold, not the whole story | Bridge to PK/PD and the Learning lessons | Planned |
