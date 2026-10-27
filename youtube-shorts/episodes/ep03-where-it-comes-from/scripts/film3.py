@@ -263,159 +263,151 @@ exec(open(_beats_ns['__file__'], encoding='utf-8').read(), _beats_ns)
 add_sec, add_ribosome, express, retract, ss_transfer_beat, head_point = (_beats_ns[k] for k in ('add_sec', 'add_ribosome', 'express', 'retract', 'ss_transfer_beat', 'head_point'))
 
 if MODE == 'short':
-    # ---- hook: episode-1 enzyme, then down through the inner membrane ----
+    # teaser: same science as the landscape film, 58 s; narration times in make_narration.py
+    DX_RET = -32.0
+    DX_EFF = DX + DX_RET
+    DRUG_SHIFT = 51.7
+    periB = Vector((tem.x + DRUG_SHIFT, DNA_Y, tem.z + 0.5))
+    rootB = bpy.data.objects.new('CellB_root', None)
+    hud.objects.link(rootB)
+    for n, c in cellB.items():
+        if not n.startswith(('Drug_', 'Path_drug')) and c.parent is None:
+            c.parent = rootB
+    chrB.parent = rootB
+    for ob in (plB['dna'], plB['ring'], plB['gene']):
+        ob.location.x += DX_RET
+    PLASMID_B2 = PLASMID_A + Vector((DX_EFF, 0, 0))
+    apply_look(volume=False)
+    densify_pg(every=1.1)
+    for box, tag, n in ((((-12.0, 24.0), (cut_y - 16.0, cut_y - 8.0), (-15.0, -3.5)), 'A_peri', 36),
+                        (((-12.0, 24.0), (cut_y - 18.0, cut_y - 9.0), (-64.0, -27.0)), 'A_cyto', 60)):
+        crowding(box, n=n, seed=3 if 'peri' in tag else 4, name='Crowd_' + tag)
+    for box, tag, n in ((((-12.0 + DX, 24.0 + DX), (cut_y - 16.0, cut_y - 8.0), (-15.0, -3.5)), 'B_peri', 36),
+                        (((-12.0 + DX, 24.0 + DX), (cut_y - 18.0, cut_y - 9.0), (-64.0, -27.0)), 'B_cyto', 60)):
+        cb = crowding(box, n=n, seed=5 if 'peri' in tag else 6, name='Crowd_' + tag)
+        cb.parent = rootB
+    for n in ('IM_PBP1b', 'IM_AcrB'):
+        to_surface(objs[n])
+    for m in (None, cellB):
+        for n in ('IM_PBP1b', 'IM_AcrB'):
+            ob = objs[n] if m is None else m[n]
+            b = bake_static(ob)
+            if m is cellB:
+                b.parent = rootB
+                b.matrix_parent_inverse = rootB.matrix_world.inverted()
+            jitter(b, 0.12, 0.8, seed=hash(n) % 97)
+    secA = add_sec(30.0, cut_y - 2.5)
+    riboA = add_ribosome(Vector((46.0, DNA_Y + 12.0, -54.0)))
+    secB = add_sec(58.0, cut_y - 2.5)
+    riboB = add_ribosome(Vector((74.0, DNA_Y + 12.0, -54.0)))
+    # 1-300 hook: the enzyme (line 01, Athens) then a slow pull to the envelope
     key_normal(1)
     cam_key(1, P(tem.x, tem.z + 0.5), 18.0, az=12, el=6)
-    cam_key(60, P(tem.x, tem.z + 0.5), 17.0, az=6, el=4)
-    cam_key(150, Vector((12.0, cut_y, -44.0)), 46.0, az=-4, el=4)
-    key_state(40, ['MAT_enzyme_tem1'], 0.5, 0.5)
-    key_state(90, ['MAT_enzyme_tem1'], 0.5, 0.5)
-    key_normal(140)
-    register_anchor('tem1', 'THE ENZYME', 'tl', 20, 100, lambda fr: P(tem.x + 0.5, tem.z + 0.5))
-    # ---- cytoplasm ----
-    cam_key(230, Vector((10.0, cut_y, -44.0)), 44.0, az=4, el=6)
-    key_state(170, ['MAT_dna_atoms_dim'], 0.15, 0.55)
-    key_state(230, ['MAT_dna_atoms_dim'], 0.15, 0.55)
-    register_anchor('chrom', 'CHROMOSOME', 'bl', 175, 250, lambda fr: Vector((2.0, DNA_Y, -48.0)))
-    cam_key(300, Vector((PLASMID_A.x, cut_y, PLASMID_A.z)), 24.0, az=-8, el=8)
-    cam_key(420, Vector((PLASMID_A.x, cut_y, PLASMID_A.z)), 22.0, az=6, el=10)
-    key_state(270, ['MAT_dna_atoms'], 0.25, 0.6)
-    key_state(420, ['MAT_dna_atoms'], 0.25, 0.6)
-    register_anchor('plasmid', 'PLASMID', 'tr', 300, 370, lambda fr: PLASMID_A + Vector((-plA['radius'], 0, 0)))
-    gene_glow(plA, {1: 0.0, 335: 0.0, 360: 0.3})
-    register_anchor('gene', 'THE bla GENE', 'bl', 365, 440, lambda fr: PLASMID_A + Vector((plA['radius'] * math.cos(2 * math.pi * 0.135), 0, plA['radius'] * math.sin(2 * math.pi * 0.135))))
-    # ---- expression: new TEM-1 from the plasmid, through the IM, into the periplasm ----
+    cam_key(120, P(tem.x, tem.z + 0.5), 17.0, az=4, el=4)
+    key_state(20, ['MAT_enzyme_tem1'], 0.5, 0.5)
+    key_state(120, ['MAT_enzyme_tem1'], 0.5, 0.5)
+    key_normal(170)
+    register_anchor('tem1', 'TEM-1', 'tl', 30, 110, lambda fr: P(tem.x + 0.5, tem.z + 0.5))
+    lens_key(1, 55.0)
+    lens_key(300, 40.0)
+    cam_key(300, Vector((8.0, cut_y, -4.0)), 60.0, az=-3, el=6)
+    # 300-400 drop: chromosome (line 02)
+    lens_key(400, 55.0)
+    cam_key(400, Vector((10.0, cut_y, -44.0)), 46.0, az=3, el=5)
+    key_state(330, ['MAT_dna_atoms_dim'], 0.15, 0.55)
+    key_state(400, ['MAT_dna_atoms_dim'], 0.15, 0.55)
+    register_anchor('chrom', 'CHROMOSOME', 'bl', 335, 395, lambda fr: Vector((2.0, DNA_Y, -48.0)))
+    # 400-580 plasmid, gene (line 03)
+    cam_key(450, Vector((PLASMID_A.x, cut_y, PLASMID_A.z)), 25.0, az=-8, el=8)
+    cam_key(580, Vector((PLASMID_A.x, cut_y, PLASMID_A.z)), 23.0, az=6, el=10)
+    key_state(430, ['MAT_dna_atoms'], 0.25, 0.6)
+    key_state(580, ['MAT_dna_atoms'], 0.25, 0.6)
+    register_anchor('plasmid', 'PLASMID', 'tr', 445, 510, lambda fr: PLASMID_A + Vector((-plA['radius'], 0, 0)))
+    gene_glow(plA, {1: 0.0, 510: 0.0, 535: 0.3})
+    GENE_PT = PLASMID_A + Vector((plA['radius'] * math.cos(2 * math.pi * 0.135), 0, plA['radius'] * math.sin(2 * math.pi * 0.135)))
+    register_anchor('gene', 'THE bla GENE', 'bl', 530, 585, lambda fr: GENE_PT)
+    # 580-800 expression (line 04): mRNA, chain through SecYEG, fold
     newA = nascent_tem1('EP3_tem1_newA')
-    start = PLASMID_A + Vector((plA['radius'] + 3.0, 0, 2.0))
-    under_im = Vector((30.0, DNA_Y, IM_BOT - 2.5))
-    in_im = Vector((30.0, DNA_Y, (IM_TOP + IM_BOT) / 2))
     peri = Vector((30.0, DNA_Y, -12.5))
-    loc_key(newA, 1, start, 0.0)
-    loc_key(newA, 430, start, 0.0)
-    loc_key(newA, 470, start, 1.0)
-    loc_key(newA, 560, under_im, 1.0)
-    loc_key(newA, 620, in_im, 1.0)
-    loc_key(newA, 680, peri, 1.0)
+    RIBO_EXIT_A = Vector((36.0, DNA_Y + 1.0, -43.0))
+    express(580, 620, 625, 740, 740, 800, GENE_PT, RIBO_EXIT_A, secA, peri, newA, tag='A')
     loc_key(newA, 1740, peri, 1.0)
-    cam_key(470, Vector((start.x, cut_y, start.z)), 20.0, az=-6, el=8)
-    cam_key(560, Vector((under_im.x, cut_y, under_im.z + 2)), 22.0, az=-4, el=10)
-    cam_key(640, Vector((in_im.x, cut_y, in_im.z + 3)), 20.0, az=4, el=12)
-    cam_key(720, Vector((peri.x, cut_y, peri.z)), 22.0, az=8, el=8)
-    key_state(450, ['MAT_enzyme_tem1', 'MAT_dna_atoms'], 0.4, 0.6)
-    key_state(600, ['MAT_enzyme_tem1', 'MAT_lipid_IM'], 0.4, 0.6)
-    key_state(700, ['MAT_enzyme_tem1'], 0.4, 0.6)
-    register_anchor('new', 'NEW ENZYME', 'tl', 480, 545, lambda fr: (sc.frame_set(fr), newA.matrix_world.translation.copy())[1])
-    register_anchor('im', 'INNER MEMBRANE', 'tr', 590, 650, lambda fr: Vector((36.0, cut_y + 1.5, -19.5)))
-    register_anchor('peri', 'PERIPLASM', 'tl', 690, 750, lambda fr: Vector((30.0, DNA_Y, -10.0)))
-    # ---- conjugation ----
-    key_normal(760)
-    lens_key(720, 55.0)
-    lens_key(800, 40.0)
-    cam_key(800, Vector((36.0, cut_y, -12.0)), 92.0, el=5)
-    cam_key(880, Vector((38.0, cut_y, 4.0)), 50.0, az=-5, el=6)
-    cam_key(1000, Vector((44.0, cut_y, 4.0)), 44.0, az=5, el=4)
-    alpha_keys(mats['MAT_pilus'], {1: 0.0, 820: 0.0, 860: 1.0})
-    key_state(850, ['MAT_pilus'], 0.3, 0.5)
+    cam_key(620, Vector((34.0, cut_y, -44.0)), 38.0, az=-6, el=8)
+    cam_key(690, Vector((30.0, cut_y, -26.0)), 24.0, az=-4, el=10)
+    cam_key(740, Vector((30.0, cut_y, -19.0)), 18.0, az=4, el=12)
+    cam_key(800, Vector((peri.x, cut_y, peri.z)), 22.0, az=8, el=8)
+    key_state(600, ['MAT_enzyme_tem1', 'MAT_dna_atoms', 'MAT_ribosome', 'MAT_mrna', 'MAT_chain'], 0.4, 0.55)
+    key_state(735, ['MAT_enzyme_tem1', 'MAT_sec', 'MAT_chain'], 0.4, 0.55)
+    key_state(800, ['MAT_enzyme_tem1'], 0.4, 0.55)
+    register_anchor('ribo', 'RIBOSOME', 'br', 590, 640, lambda fr: Vector((44.0, DNA_Y + 2.0, -46.0)))
+    register_anchor('sec', 'SEC TRANSLOCON', 'tr', 700, 760, lambda fr: Vector((30.0, cut_y - 2.5, (IM_TOP + IM_BOT) / 2)))
+    register_anchor('new', 'FOLDS IN THE PERIPLASM', 'tl', 790, 850, lambda fr: peri)
+    # 810-880 a neighbour (line 05)
+    key_normal(830)
+    lens_key(810, 55.0)
+    lens_key(880, 35.0)
+    cam_key(880, Vector((42.0, cut_y, -6.0)), 100.0, el=5)
+    register_anchor('cellb', 'NO ENZYME', 'tr', 840, 900, lambda fr: Vector((tem.x + DX + 0.5, cut_y, tem.z + 0.5)))
+    # 880-1000 pilus, retraction (line 06)
+    alpha_keys(mats['MAT_pilus'], {1: 0.0, 870: 0.0, 905: 1.0})
+    lens_key(960, 40.0)
+    cam_key(960, Vector((38.0, cut_y, 2.0)), 60.0, az=-5, el=6)
+    cam_key(1010, Vector((30.0, cut_y, -2.0)), 54.0, az=3, el=5)
+    key_state(905, ['MAT_pilus'], 0.3, 0.5)
     key_state(1000, ['MAT_pilus'], 0.3, 0.5)
-    register_anchor('pilus', 'PILUS', 'bl', 870, 960, lambda fr: Vector((44.0, cut_y - 1.5, 9.5)))
-    # a single strand: from plasmid A up through the cell, along the pilus, down into cell B's cytoplasm
-    path = [tuple(PLASMID_A + Vector((plA['radius'], 0, 0))), (30.0, DNA_Y, -30.0), (27.0, DNA_Y, -6.0), (26.0, DNA_Y, 7.5),
-            (40.0, DNA_Y, 7.5), (56.0, DNA_Y, 7.5), (64.0, DNA_Y, 0.0), (74.0, DNA_Y, -20.0), tuple(PLASMID_B + Vector((-plB['radius'], 0, 4.0)))]
-    strand = transfer_strand(path)
-    dash(strand, 960, 1100, 0.10)
-    lens_key(1040, 40.0)
-    lens_key(1100, 55.0)
-    cam_key(1100, Vector((PLASMID_B.x, cut_y, PLASMID_B.z)), 24.0, az=-6, el=8)
-    cam_key(1140, Vector((PLASMID_B.x, cut_y, PLASMID_B.z)), 22.0, az=4, el=10)
-    ring_grow(plB, 1060, 1120)
-    gene_glow(plB, {1: 0.0, 1115: 0.0, 1140: 0.3})
-    key_state(1060, ['MAT_dna_atoms'], 0.25, 0.6)
-    key_state(1140, ['MAT_dna_atoms'], 0.25, 0.6)
-    register_anchor('copy', 'A COPY', 'tr', 1100, 1150, lambda fr: PLASMID_B + Vector((-plB['radius'], 0, 0)))
-    # ---- the recipient makes the enzyme, the drug arrives, the ring breaks ----
+    retract(rootB, pil, 915, 1000, DX_RET)
+    register_anchor('pilus', 'SEX PILUS', 'bl', 905, 975, lambda fr: Vector((30.0, cut_y - 1.5, 9.5)))
+    register_anchor('contact', 'CONTACT', 'tl', 1005, 1050, lambda fr: Vector((26.5, cut_y, -3.0)))
+    SS_PATH = [tuple(PLASMID_A + Vector((plA['radius'], 0, 0))), (31.0, DNA_Y, -30.0), (27.5, DNA_Y, -12.0), (26.5, DNA_Y, -3.0),
+               (30.0, DNA_Y, -3.0), (35.0, DNA_Y, -14.0), (46.0, DNA_Y, -28.0), tuple(PLASMID_B2 + Vector((-plB['radius'], 0, 3.0)))]
+    ssT, ssPath, ssRing = ss_transfer_beat(SS_PATH, 1010, 1100, PLASMID_B2, 1085, 1150, 1150, 1190, plB)
+    register_anchor('five', "5' END FIRST", 'tr', 1015, 1060, lambda fr: head_point(SS_PATH, (fr - 1010) / 90.0))
+    lens_key(1120, 55.0)
+    cam_key(1060, Vector((40.0, cut_y, -14.0)), 60.0, az=2, el=6)
+    cam_key(1120, Vector((PLASMID_B2.x, cut_y, PLASMID_B2.z)), 26.0, az=-6, el=8)
+    cam_key(1200, Vector((PLASMID_B2.x, cut_y, PLASMID_B2.z)), 24.0, az=4, el=10)
+    gene_glow(plB, {1: 0.0, 1180: 0.0, 1200: 0.3})
+    key_state(1085, ['MAT_dna_atoms', 'MAT_dna_atoms_B', 'MAT_dna_atoms_ss_B', 'MAT_dna_atoms_bright'], 0.2, 0.55)
+    key_state(1200, ['MAT_dna_atoms', 'MAT_dna_atoms_B', 'MAT_dna_atoms_ss_B', 'MAT_dna_atoms_bright'], 0.2, 0.55)
+    register_anchor('copy', 'SECOND STRAND MADE', 'tr', 1155, 1200, lambda fr: PLASMID_B2 + Vector((-plB['radius'], 0, 0)))
+    # 1200-1370 B makes the enzyme (line 07)
     newB = nascent_tem1('EP3_tem1_newB')
-    startB = start + Vector((DX, 0, 0))
-    periB = Vector((tem.x + DX, DNA_Y, tem.z + 0.5))
-    loc_key(newB, 1, startB, 0.0)
-    loc_key(newB, 1150, startB, 0.0)
-    loc_key(newB, 1180, startB, 1.0)
-    loc_key(newB, 1250, under_im + Vector((DX, 0, 0)), 1.0)
-    loc_key(newB, 1290, in_im + Vector((DX, 0, 0)), 1.0)
-    loc_key(newB, 1340, periB, 1.0)
+    GENE_PT_B = PLASMID_B2 + Vector((plB['radius'] * math.cos(2 * math.pi * 0.135), 0, plB['radius'] * math.sin(2 * math.pi * 0.135)))
+    RIBO_EXIT_B = Vector((64.0, DNA_Y + 1.0, -43.0))
+    express(1200, 1235, 1240, 1320, 1320, 1370, GENE_PT_B, RIBO_EXIT_B, secB, periB, newB, tag='B')
     loc_key(newB, 1740, periB, 1.0)
-    cam_key(1250, Vector((startB.x - 2, cut_y, startB.z + 8)), 30.0, az=-4, el=8)
-    cam_key(1340, Vector((periB.x, cut_y, periB.z + 4)), 24.0, az=6, el=8)
-    key_state(1170, ['MAT_enzyme_tem1', 'MAT_dna_atoms'], 0.4, 0.6)
-    key_state(1340, ['MAT_enzyme_tem1'], 0.4, 0.6)
-    # drug for cell B: copy the path and the drug, re-time the entry to 1330-1470
-    # drug for cell B: sample the episode-1 path (frames 1-450) and replay it shifted by one cell over 1330-1470
-    drugB = cellB['Drug_ceftazidime']
-    drugB.hide_render = False
-    for c in list(drugB.constraints):
-        drugB.constraints.remove(c)
-    drugB.animation_data_clear()
-    drugB.parent = None
-    srcd = objs['Drug_ceftazidime']
-    for f in range(1330, 1471, 4):
-        fo = 1 + int((f - 1330) / 140.0 * 449)
-        sc.frame_set(fo)
-        mw = srcd.evaluated_get(bpy.context.evaluated_depsgraph_get()).matrix_world
-        drugB.location = mw.translation + Vector((DX if shift is None else shift, 0, 0))
-        drugB.keyframe_insert('location', frame=f)
-        drugB.rotation_euler = mw.to_euler()
-        drugB.keyframe_insert('rotation_euler', frame=f)
-    drugB.keyframe_insert('location', frame=1)
-    alpha_keys(mats['MAT_drug_travel'], {1: 0.0, 1325: 0.0, 1335: 1.0, 1475: 1.0, 1490: 0.0})
-    mats['MAT_drug_travel'].node_tree.nodes['Principled BSDF'].inputs['Emission Strength'].default_value = 4.0
-    for fr in (1360, 1420, 1470):
+    cam_key(1260, Vector((62.0, cut_y, -40.0)), 38.0, az=-4, el=8)
+    cam_key(1320, Vector((58.0, cut_y, -20.0)), 22.0, az=2, el=10)
+    cam_key(1375, Vector((periB.x, cut_y, periB.z + 3)), 26.0, az=6, el=8)
+    key_state(1215, ['MAT_enzyme_tem1', 'MAT_dna_atoms_B', 'MAT_ribosome', 'MAT_mrna', 'MAT_chain'], 0.4, 0.55)
+    key_state(1375, ['MAT_enzyme_tem1'], 0.4, 0.55)
+    # 1380-1600 the drug, the ring (line 08)
+    drugB = drug_entry_B(1385, 1500, DRUG_SHIFT)
+    for fr in (1410, 1460, 1500):
         sc.frame_set(fr)
         d = drugB.matrix_world.translation
         cam_key(fr, Vector((d.x, cut_y, d.z)), 26.0, dx=1.5, dz=2.0)
-    register_anchor('drug', 'CEFTAZIDIME', 'bl', 1345, 1420, lambda fr: (sc.frame_set(fr), drugB.matrix_world.translation.copy())[1])
-    # docked / product on the new enzyme in B (ligands parented to PP_TEM1_a copy; use cell B's hidden copy positions)
-    # cell B's copied ligands sit on the hidden PP_TEM1_a_B, exactly where newB settles: key their materials
-    for n in ('Drug_CAZ_docked', 'Drug_product_hydrolyzed'):
-        c = cellB[n]
-        c.hide_render = False
-        c.parent = None
-        c.matrix_world = objs[n].matrix_world.copy()
-        c.location += (Vector((DX, 0.0, 0.0)) if offset is None else Vector(offset))
-    for name in ('MAT_drug_docked', 'MAT_drug_product'):
-        if mats[name].node_tree.animation_data:
-            mats[name].node_tree.animation_data_clear()
-    alpha_keys(mats['MAT_drug_docked'], {1: 0.0, 1480: 0.0, 1495: 1.0, 1532: 1.0, 1548: 0.0})
-    alpha_keys(mats['MAT_drug_product'], {1: 0.0, 1532: 0.0, 1548: 1.0, 1600: 1.0, 1640: 0.0})
-    mats['MAT_drug_docked'].node_tree.nodes['Principled BSDF'].inputs['Emission Strength'].default_value = 1.6
-    mats['MAT_drug_product'].node_tree.nodes['Principled BSDF'].inputs['Emission Strength'].default_value = 0.9
-    siteB = Vector((tem.x + DX, cut_y, tem.z + 0.5))
-    cam_key(1520, siteB, 14.0, az=6, el=8)
-    cam_key(1580, siteB, 12.0, az=-4, el=10)
-    fm = bpy.data.materials.new('MAT_flash3')
-    fm.use_nodes = True
-    fb = fm.node_tree.nodes['Principled BSDF']
-    fb.inputs['Emission Color'].default_value = (1.0, 0.8, 0.5, 1.0)
-    fb.inputs['Emission Strength'].default_value = 10.0
-    bpy.ops.mesh.primitive_uv_sphere_add(radius=1.0, location=siteB, segments=24, ring_count=12)
-    flash = bpy.context.active_object
-    flash.name = 'HUD_flash'
-    for c in list(flash.users_collection):
-        c.objects.unlink(flash)
-    hud.objects.link(flash)
-    flash.data.materials.append(fm)
-    for fr, sz in ((1530, 0.0), (1536, 0.3), (1544, 0.4), (1560, 0.0)):
-        flash.scale = (sz, sz, sz)
-        flash.keyframe_insert('scale', frame=fr)
-    register_anchor('bond', '', 'tl', 1525, 1570, lambda fr: siteB)
-    bursts = [(1532, 1566, 'bond')]
-    # ---- pull out: both cells, both plasmids ----
+    register_anchor('drug', 'CEFTAZIDIME', 'bl', 1395, 1455, lambda fr: (sc.frame_set(fr), drugB.matrix_world.translation.copy())[1])
+    siteB = ligands_B(1510, 1540, 1600, Vector((DRUG_SHIFT, 0.0, 0.0)))
+    cam_key(1540, siteB, 14.0, az=6, el=8)
+    cam_key(1600, siteB, 12.5, az=-4, el=10)
+    register_anchor('bond', '', 'tl', 1535, 1580, lambda fr: siteB)
+    bursts = [(1542, 1576, 'bond')]
+    # 1620-1740 pull out: both cells (line 09)
     lens_key(1600, 55.0)
-    lens_key(1680, 40.0)
-    cam_key(1680, Vector((36.0, cut_y, -16.0)), 100.0, el=5)
-    cam_key(1740, Vector((36.0, cut_y, -16.0)), 100.0, el=5)
-    key_state(1620, ['MAT_dna_atoms', 'MAT_enzyme_tem1'], 0.35, 0.5)
-    key_state(1700, ['MAT_dna_atoms', 'MAT_enzyme_tem1'], 0.35, 0.5)
-    headlines = [(0.5, 3.5, 'THIS ENZYME HAS A NAME'), (4.0, 9.5, 'TEM. ATHENS, 1963.'), (10.5, 12.5, 'NOT FROM THE CHROMOSOME'), (13.5, 17.0, 'A SPARE RING OF DNA. A PASSENGER.'), (20.0, 22.5, 'THE GENE IS READ'), (23.5, 26.0, 'SHIPPED TO THE PERIPLASM'), (27.5, 30.5, 'BACTERIA HAVE SEX'), (32.0, 35.0, 'ONE STRAND CROSSES'), (38.5, 42.0, 'HANDED IT. IN MINUTES.'), (46.5, 49.0, 'SAME DRUG. SAME DOOR.'), (49.5, 52.0, 'RING BROKEN.'), (53.0, 56.5, 'IT NEEDS A GENE THAT TRAVELS')]
-    cards = [(1690 / FPS, 1740 / FPS, 'EPISODE 3  -  WHERE IT COMES FROM', 'NEXT: HOW WE FIGHT BACK')]
+    lens_key(1700, 35.0)
+    cam_key(1700, Vector((26.0, cut_y, -10.0)), 100.0, el=5)
+    cam_key(1740, Vector((26.0, cut_y, -10.0)), 102.0, az=-2, el=5)
+    key_state(1640, ['MAT_dna_atoms', 'MAT_dna_atoms_B', 'MAT_enzyme_tem1'], 0.35, 0.45)
+    key_state(1740, ['MAT_dna_atoms', 'MAT_dna_atoms_B', 'MAT_enzyme_tem1'], 0.35, 0.45)
+    for ob in (newA, newB):
+        jitter(ob, 0.10, 0.6, seed=11)
+    ease_camera(cam, tgt)
+    headlines = [(0.5, 3.5, 'THIS ENZYME HAS A NAME'), (4.0, 9.5, 'TEM. ATHENS, 1963.'), (10.5, 12.5, 'NOT FROM THE CHROMOSOME'),
+                 (13.5, 17.0, 'A SPARE RING OF DNA. A PASSENGER.'), (20.0, 22.5, 'THE GENE IS READ'), (23.5, 26.0, 'THROUGH THE SEC CHANNEL'),
+                 (27.5, 30.5, 'BACTERIA HAVE SEX'), (33.5, 36.5, 'ONE STRAND CROSSES'), (38.5, 42.0, 'HANDED IT. IN MINUTES.'),
+                 (46.5, 49.0, 'SAME DRUG. SAME DOOR.'), (51.0, 53.0, 'RING BROKEN.'), (54.0, 58.0, 'IT NEEDS A GENE THAT TRAVELS')]
+    cards = [(1690 / FPS, 1740 / FPS + 3.5, 'EPISODE 3  -  WHERE IT COMES FROM', 'NEXT: HOW WE FIGHT BACK')]
     END = 1740
     OUT = 'film3_short'
 elif MODE == 'wide':
