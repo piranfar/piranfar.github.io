@@ -1,0 +1,84 @@
+1
+00:00:00,500 --> 00:00:02,632
+This enzyme has a name.
+
+2
+00:00:02,682 --> 00:00:10,031
+TEM. After Temoneira, a patient in Athens, 1963, whose E. coli ate penicillin.
+
+3
+00:00:10,500 --> 00:00:11,548
+Where did it come from?
+
+4
+00:00:11,598 --> 00:00:12,694
+Not from the chromosome.
+
+5
+00:00:13,000 --> 00:00:13,828
+From this.
+
+6
+00:00:13,878 --> 00:00:18,308
+A plasmid: a spare ring of DNA with one gene on it.
+
+7
+00:00:18,358 --> 00:00:19,362
+A passenger.
+
+8
+00:00:19,800 --> 00:00:26,357
+The gene is read, the protein is made, and it is shipped across the inner membrane to wait by the door.
+
+9
+00:00:27,000 --> 00:00:29,210
+Now the part that should worry you.
+
+10
+00:00:29,260 --> 00:00:30,372
+Bacteria have sex.
+
+11
+00:00:31,000 --> 00:00:33,795
+A pilus hooks a neighbour that has no enzyme.
+
+12
+00:00:33,845 --> 00:00:35,754
+One strand of the ring crosses.
+
+13
+00:00:35,804 --> 00:00:37,461
+The neighbour completes it.
+
+14
+00:00:38,500 --> 00:00:40,516
+It did not evolve resistance.
+
+15
+00:00:40,566 --> 00:00:41,727
+It was handed it.
+
+16
+00:00:41,777 --> 00:00:42,511
+In minutes.
+
+17
+00:00:46,500 --> 00:00:47,378
+Same drug.
+
+18
+00:00:47,428 --> 00:00:48,305
+Same door.
+
+19
+00:00:48,355 --> 00:00:49,419
+Ring broken.
+
+20
+00:00:52,500 --> 00:00:55,519
+Resistance does not need a stronger cell.
+
+21
+00:00:55,569 --> 00:00:57,690
+It needs a gene that travels.
+
