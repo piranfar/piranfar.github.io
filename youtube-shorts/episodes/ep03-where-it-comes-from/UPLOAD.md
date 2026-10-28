@@ -1,6 +1,6 @@
 # Episode 3 upload sheet
 
-**Status:** v2 cuts approved for upload 2026-10-28. Not published yet. Target: World AMR Awareness Week, 18-24 Nov 2026
+**Status:** landscape uploaded 2026-10-28 as https://youtu.be/o2AusMADzZA (private; form filled: title, description, thumb A, playlist, not for kids, tags, English, SRT, end screen, 4 cards; scheduled for 18 Nov 2026 15:00, awaiting the Schedule click). Teaser not uploaded yet. Target: World AMR Awareness Week, 18-24 Nov 2026
 (landscape first, teaser Short two or three days later pointing at it).
 
 Order in Studio (as for Two Fates): upload, thumbnail, playlist, not for kids, English subtitles, end screen, cards,
