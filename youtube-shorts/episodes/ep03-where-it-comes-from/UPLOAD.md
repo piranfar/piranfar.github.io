@@ -1,6 +1,6 @@
 # Episode 3 upload sheet
 
-**Status:** landscape uploaded 2026-10-28 as https://youtu.be/o2AusMADzZA (private; form filled: title, description, thumb A, playlist, not for kids, tags, English, SRT, end screen, 4 cards; scheduled for 18 Nov 2026 15:00, awaiting the Schedule click). Teaser not uploaded yet. Target: World AMR Awareness Week, 18-24 Nov 2026
+**Status:** landscape SCHEDULED 2026-10-28 for 18 Nov 2026 15:00 (account time): https://youtu.be/o2AusMADzZA (private until then; title, description, thumb A, playlist, not for kids, tags, English SRT, end screen, 4 cards all set; Studio checks: no issues). Teaser Short not uploaded yet. Target: World AMR Awareness Week, 18-24 Nov 2026
 (landscape first, teaser Short two or three days later pointing at it).
 
 Order in Studio (as for Two Fates): upload, thumbnail, playlist, not for kids, English subtitles, end screen, cards,
@@ -78,7 +78,7 @@ Bacteria have sex, and that is how resistance spreads #shorts
 **Description**
 The enzyme that saved the cell in episode 1 has a name: TEM, after a patient in Athens, 1963. It is not on the chromosome. It is on a plasmid, and the plasmid travels: a sex pilus hooks a neighbour, one strand of the ring crosses, the neighbour completes it and makes the enzyme too. Handed resistance, in minutes.
 
-Full film (2 min, with the Sec translocon, ribosome and the second strand): [landscape link once published]
+Full film (2 min, with the Sec translocon, ribosome and the second strand): https://youtu.be/o2AusMADzZA
 
 Real structures: B-DNA 1BNA, F pilus 5LER, SecYEG 5AWW, ribosome 4V9D, TEM-1, PBP1b 3VMA, AcrB 4DX5, OmpF + LPS from MD. Blender + Molecular Nodes. Voice: Azure neural. Music: "Rain Over Kyoto Station", The Mini Vandals.
 
