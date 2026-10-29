@@ -1,6 +1,6 @@
 # Episode 3 upload sheet
 
-**Status:** landscape SCHEDULED 2026-10-28 for 18 Nov 2026 15:00 (account time): https://youtu.be/o2AusMADzZA (private until then; title, description, thumb A, playlist, not for kids, tags, English SRT, end screen, 4 cards all set; Studio checks: no issues). Teaser Short uploaded 2026-10-28 as https://youtube.com/shorts/LC1JKwxZHvY (private; title, description, thumb, playlist, not for kids, tags, English SRT, related video = landscape film; SCHEDULED for 20 Nov 2026 15:00; SRT track verified in the Studio subtitle editor). Target: World AMR Awareness Week, 18-24 Nov 2026
+**Status:** landscape went PUBLIC on 2026-10-28 (Studio shows Public / Published Oct 28, 2026, 0 views; the Nov 18 schedule did not take): https://youtu.be/o2AusMADzZA ( title, description, thumb A, playlist, not for kids, tags, English SRT, end screen, 4 cards all set; Studio checks: no issues). Teaser Short uploaded 2026-10-28 as https://youtube.com/shorts/LC1JKwxZHvY (private; title, description, thumb, playlist, not for kids, tags, English SRT, related video = landscape film; SCHEDULED, Studio shows 21 Nov 2026 15:00 although 20 Nov was entered; SRT track verified in the Studio subtitle editor). Decision pending: keep the landscape public now or set it private and reschedule for WAAW. Target: World AMR Awareness Week, 18-24 Nov 2026
 (landscape first, teaser Short two or three days later pointing at it).
 
 Order in Studio (as for Two Fates): upload, thumbnail, playlist, not for kids, English subtitles, end screen, cards,
