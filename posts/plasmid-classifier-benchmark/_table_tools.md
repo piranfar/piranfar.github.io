@@ -10,5 +10,5 @@
 | Plasmer | 0.1 | Contigs | Minimum length 0 bp; chromosome length threshold 100 Mb | Plasmer database v1.0 ([link](https://doi.org/10.5281/zenodo.7030675)) | 100.0% |
 | PlaScope | Centrifuge 1.0.4 | Contigs | Up to 1,000 assignments per contig | PlaScope *E. coli* database v1.1 ([link](https://doi.org/10.5281/zenodo.1311641)) | 97.0% |
 | PLASMe | 1.1 (commit ef0409b) | Contigs | Coverage 0.9, identity 0.9, probability 0.5 | PLASMe database ([link](https://doi.org/10.5281/zenodo.8046934)) | 100.0% |
-| geNomad | 1.9.8 | Contigs | End-to-end workflow; default settings | geNomad database v1.5 ([link](https://doi.org/10.5281/zenodo.8339387)) | 100.0% |
+| geNomad | 1.7.1 | Contigs | End-to-end workflow; default settings | geNomad database v1.5 ([link](https://doi.org/10.5281/zenodo.8339387)) | 100.0% |
 | PlasmidFinder | 2.0.1 | Contigs | BLAST method; default thresholds | PlasmidFinder database 2.2.0 (commit 49c24c1) | 99.6% |
