@@ -48,6 +48,8 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    filters:
+      - cite-box.lua
     toc: true
     code-fold: true
     code-summary: "Show the code"

@@ -1,0 +1,181 @@
+/* cite-box.css: "Cite this post" button, popover and inline panel (see cite-box.js) */
+.cite-bar {
+  --cb-primary: var(--primary, #0D9488);
+  --cb-primary-dark: var(--primary-dark, #0F766E);
+  --cb-glow: var(--primary-glow, rgba(13, 148, 136, 0.12));
+  --cb-text: var(--text, #0F172A);
+  --cb-muted: var(--muted, #64748B);
+  --cb-border: var(--border, #E2E8F0);
+  --cb-border-dark: var(--border-dark, #CBD5E1);
+  --cb-bg: var(--bg, #F8FAFC);
+  position: relative;
+  margin: 1.1rem 0 0.4rem;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+}
+.cite-card--inline {
+  --cb-primary: var(--primary, #0D9488);
+  --cb-primary-dark: var(--primary-dark, #0F766E);
+  --cb-glow: var(--primary-glow, rgba(13, 148, 136, 0.12));
+  --cb-text: var(--text, #0F172A);
+  --cb-muted: var(--muted, #64748B);
+  --cb-border: var(--border, #E2E8F0);
+  --cb-border-dark: var(--border-dark, #CBD5E1);
+  --cb-bg: var(--bg, #F8FAFC);
+}
+
+/* trigger */
+.cite-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem 0.5rem 0.75rem;
+  border: 1px solid var(--cb-border-dark);
+  border-radius: 9999px;
+  background: #fff;
+  color: var(--cb-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: border-color .2s, box-shadow .2s, background .2s, color .2s;
+}
+.cite-trigger svg { width: 17px; height: 17px; fill: var(--cb-primary); flex: none; }
+.cite-trigger svg:last-child { width: 15px; height: 15px; fill: none; color: var(--cb-muted); transition: transform .22s; }
+.cite-trigger:hover { border-color: var(--cb-primary); color: var(--cb-primary-dark); box-shadow: 0 0 0 4px var(--cb-glow); }
+.cite-trigger:focus-visible { outline: none; border-color: var(--cb-primary); box-shadow: 0 0 0 4px var(--cb-glow); }
+.cite-bar.is-open .cite-trigger { border-color: var(--cb-primary); background: var(--cb-primary); color: #fff; }
+.cite-bar.is-open .cite-trigger svg { fill: #fff; }
+.cite-bar.is-open .cite-trigger svg:last-child { color: #fff; fill: none; transform: rotate(180deg); }
+
+/* popover */
+.cite-pop {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 1050;
+  width: min(620px, calc(100vw - 2rem));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(.985);
+  transform-origin: top left;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+.cite-bar.is-open .cite-pop {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+/* card */
+.cite-card {
+  background: #fff;
+  border: 1px solid var(--cb-border);
+  border-radius: 16px;
+  padding: 1.1rem 1.15rem 1rem;
+  box-shadow: 0 24px 48px -16px rgba(15, 23, 42, 0.22), 0 6px 14px -6px rgba(15, 23, 42, 0.08);
+  color: var(--cb-text);
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+}
+.cite-card--inline {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  margin: 0.4rem 0 1.6rem;
+  border-top: 3px solid var(--cb-primary);
+}
+.cite-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.85rem; }
+.cite-card__eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--cb-primary);
+}
+.cite-card__title { font-weight: 600; font-size: 0.98rem; line-height: 1.35; margin-top: 0.15rem; }
+.cite-close {
+  flex: none; width: 32px; height: 32px; display: grid; place-items: center;
+  border: none; border-radius: 50%; background: transparent; color: var(--cb-muted); cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.cite-close svg { width: 18px; height: 18px; }
+.cite-close:hover, .cite-close:focus-visible { background: var(--cb-bg); color: var(--cb-text); outline: none; }
+
+/* tabs: segmented control */
+.cite-tabs {
+  display: flex; gap: 2px; padding: 3px; border-radius: 11px;
+  background: var(--cb-bg); border: 1px solid var(--cb-border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.cite-tabs::-webkit-scrollbar { display: none; }
+.cite-tab {
+  flex: 1 0 auto; padding: 0.42rem 0.8rem; border: none; border-radius: 8px;
+  background: transparent; color: var(--cb-muted);
+  font: 600 0.84rem/1.2 'IBM Plex Sans', 'Segoe UI', sans-serif; cursor: pointer; white-space: nowrap;
+  transition: background .18s, color .18s, box-shadow .18s;
+}
+.cite-tab:hover { color: var(--cb-text); }
+.cite-tab[aria-selected="true"] {
+  background: #fff; color: var(--cb-primary-dark);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1), 0 0 0 1px var(--cb-border);
+}
+.cite-tab:focus-visible { outline: 2px solid var(--cb-primary); outline-offset: 1px; }
+
+/* output */
+.cite-out {
+  position: relative; margin-top: 0.75rem;
+  border: 1px solid var(--cb-border); border-radius: 12px; background: var(--cb-bg);
+}
+.cite-out__body { padding: 0.9rem 6.2rem 0.9rem 1rem; }
+.cite-out__body p {
+  margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--cb-text);
+  overflow-wrap: anywhere;
+}
+.cite-out__body.is-code { padding-right: 1rem; padding-top: 2.6rem; }
+.cite-out__body pre {
+  margin: 0; padding: 0; border: none; background: transparent;
+  max-height: 230px; overflow: auto;
+  font: 0.8rem/1.55 ui-monospace, 'Cascadia Code', Consolas, monospace; color: #1E293B; white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.cite-copy {
+  position: absolute; top: 0.55rem; right: 0.55rem;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.38rem 0.7rem; border: 1px solid var(--cb-border-dark); border-radius: 8px;
+  background: #fff; color: var(--cb-text);
+  font: 600 0.8rem/1 'IBM Plex Sans', 'Segoe UI', sans-serif; cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.cite-copy svg { width: 15px; height: 15px; }
+.cite-copy:hover, .cite-copy:focus-visible { border-color: var(--cb-primary); color: var(--cb-primary-dark); outline: none; }
+.cite-copy.is-done { background: var(--cb-primary); border-color: var(--cb-primary); color: #fff; }
+
+/* downloads */
+.cite-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.8rem; }
+.cite-dl {
+  display: flex; align-items: center; gap: 0.65rem; text-align: left;
+  padding: 0.65rem 0.85rem; border: 1px solid var(--cb-border-dark); border-radius: 12px;
+  background: #fff; color: var(--cb-text); cursor: pointer;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  transition: border-color .2s, box-shadow .2s, transform .2s, background .2s;
+}
+.cite-dl svg { width: 20px; height: 20px; flex: none; color: var(--cb-primary); }
+.cite-dl span { display: flex; flex-direction: column; line-height: 1.25; }
+.cite-dl b { font-size: 0.88rem; font-weight: 600; }
+.cite-dl small { font-size: 0.76rem; color: var(--cb-muted); }
+.cite-dl:hover, .cite-dl:focus-visible {
+  border-color: var(--cb-primary); box-shadow: 0 0 0 4px var(--cb-glow); outline: none; transform: translateY(-1px);
+}
+.cite-dl--primary { background: var(--cb-primary); border-color: var(--cb-primary); color: #fff; }
+.cite-dl--primary svg, .cite-dl--primary small { color: rgba(255, 255, 255, 0.88); }
+.cite-dl--primary:hover, .cite-dl--primary:focus-visible { background: var(--cb-primary-dark); border-color: var(--cb-primary-dark); }
+
+.cite-note { margin: 0.7rem 0 0; font-size: 0.76rem; color: var(--cb-muted); }
+.cite-fallback { font-size: 0.92rem; }
+
+@media (max-width: 575px) {
+  .cite-tab { padding: 0.42rem 0.5rem; font-size: 0.8rem; }
+  .cite-actions { grid-template-columns: 1fr; }
+  .cite-out__body { padding-right: 1rem; padding-top: 2.6rem; }
+  .cite-pop { width: calc(100vw - 1.5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cite-pop, .cite-trigger, .cite-dl, .cite-trigger svg { transition: none; }
+}
+@media print {
+  .cite-bar, .cite-card .cite-tabs, .cite-copy, .cite-actions, .cite-note { display: none; }
+}

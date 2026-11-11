@@ -11,10 +11,10 @@ categories: [Bioinformatics, Plasmids, Resistance, Benchmark]
 image: "cover.png"
 bibliography: references.json
 csl: ../../vancouver.csl
-citation:
-  type: post-weblog
-  container-title: Vahhab Piranfar
+cite:
   url: https://vahhabpiranfar.com/posts/why-plasmid-classifiers-fail/
+  site: Vahhab Piranfar
+  place: Jersey City (NJ)
 ---
 
 There are dozens of tools that call a short-read contig plasmid or chromosome [@klebbench], and benchmarks agree that they do worse on plasmids that are poorly represented in databases [@teixeira2025]. In a [benchmark of twelve of them](../plasmid-classifier-benchmark/) I measured how often they are wrong. This note asks why. In this data, the answer is mostly not that the tools are poorly built. The largest group of errors sits where a short-read assembly does not carry the information that would settle the question.

@@ -11,10 +11,10 @@ categories: [Bioinformatics, Plasmids, Resistance, Benchmark]
 image: "cover.png"
 bibliography: references.json
 csl: ../../vancouver.csl
-citation:
-  type: post-weblog
-  container-title: Vahhab Piranfar
+cite:
   url: https://vahhabpiranfar.com/posts/plasmid-classifier-benchmark/
+  site: Vahhab Piranfar
+  place: Jersey City (NJ)
 ---
 
 Most bacterial genomes in public databases are short-read assemblies. Whether a resistance gene in one of them sits on a plasmid or on the chromosome matters for how it spreads [@rozwandowicz], but it has to be guessed from its contig, and many tools make that guess [@teixeira2025; @klebbench]. I ran twelve of them on the same isolates and checked every call against an answer that no plasmid database had touched.
