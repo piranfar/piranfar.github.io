@@ -2,27 +2,36 @@
 title: "Twelve Plasmid Classifiers on 432 Clinical Isolates"
 subtitle: "How often short-read plasmid prediction is right, and where it breaks: contigs the plasmid database has never seen."
 description: "A benchmark of twelve plasmid-chromosome classifiers on 30,986 short-read contigs from 432 carbapenem-resistant Enterobacterales, labeled from hybrid assemblies of the same isolates."
-author: "Vahhab Piranfar"
+author:
+  - name: Vahhab Piranfar
+    orcid: 0000-0003-3653-5739
+    affiliation: Independent researcher, Jersey City, NJ, USA
 date: "2026-11-10"
 categories: [Bioinformatics, Plasmids, Resistance, Benchmark]
 image: "cover.png"
+bibliography: references.json
+csl: ../../vancouver.csl
+citation:
+  type: post-weblog
+  container-title: Vahhab Piranfar
+  url: https://vahhabpiranfar.com/posts/plasmid-classifier-benchmark/
 ---
 
-Most bacterial genomes in public databases are short-read assemblies. Whether a resistance gene in one of them sits on a plasmid or on the chromosome has to be guessed from its contig, and there are many tools that make that guess. I ran twelve of them on the same isolates and checked every call against an answer that no plasmid database had touched.
+Most bacterial genomes in public databases are short-read assemblies. Whether a resistance gene in one of them sits on a plasmid or on the chromosome matters for how it spreads [@rozwandowicz], but it has to be guessed from its contig, and many tools make that guess [@teixeira2025; @klebbench]. I ran twelve of them on the same isolates and checked every call against an answer that no plasmid database had touched.
 
 The short version: on contigs that resemble known plasmids, most tools do well. On contigs that do not, several of the most widely used tools call far more chromosome as plasmid than they find real plasmid. On contigs that carry a resistance gene, eight tools are right in 92 to 95 of every 100 plasmid calls.
 
 ## The isolates and the answer key
 
-The isolates are 432 carbapenem-resistant Enterobacterales from one New York City hospital, collected in 2009-2018 and sequenced with both Illumina and Oxford Nanopore by [Gomez-Simmonds et al.](https://doi.org/10.1101/gr.279355.124) (BioProject PRJNA1133668). Most are *Klebsiella* (313), followed by *Enterobacter* (66), *Escherichia coli* (17), *Citrobacter* (16) and *Serratia* (16).
+The isolates are 432 carbapenem-resistant Enterobacterales from one New York City hospital, collected in 2009-2018 and sequenced with both Illumina and Oxford Nanopore by Gomez-Simmonds et al. [@gomez2024] (BioProject PRJNA1133668). Most are *Klebsiella* (313), followed by *Enterobacter* (66), *Escherichia coli* (17), *Citrobacter* (16) and *Serratia* (16).
 
-Each tool saw only the Illumina assembly. The answer key came from a hybrid assembly of the same isolate, built from the long and short reads:
+Each tool saw only the Illumina assembly. The answer key came from a hybrid assembly of the same isolate, built with Unicycler [@unicycler] from the long and short reads:
 
 - the longest sequence, and any other sequence of at least 1 Mb, is chromosome;
 - any other closed circular sequence is plasmid;
 - any other sequence connected to the chromosome in the assembly graph is chromosome.
 
-Each short-read contig of at least 1 kb was aligned to its own isolate's hybrid assembly and took the label of the sequence it matched, if the match was clear. Of 35,805 contigs, 30,986 got a label; 8,743 of them are plasmid. Contigs without a clear match were left out of every count. All tool calls were fixed before any long read was downloaded.
+Each short-read contig of at least 1 kb was aligned with minimap2 [@minimap2] to its own isolate's hybrid assembly and took the label of the sequence it matched, if the match was clear. Of 35,805 contigs, 30,986 got a label; 8,743 of them are plasmid. Contigs without a clear match were left out of every count. All tool calls were fixed before any long read was downloaded.
 
 ## Results
 
@@ -34,17 +43,17 @@ Precision is the share of a tool's plasmid calls that were right. Recall is the 
 {{< include _table.md >}}
 :::
 
-\* PlasmidEC and PlaScope were run with their *E. coli* settings, which do not suit a cohort that is mostly *Klebsiella*. Their numbers here are not a fair test of either tool. "Not in DB": contigs that do not match the plasmid database (next section). Figure 1 shows 95% intervals, from resampling clusters of closely related isolates; the [CSV](plasmid_classifier_benchmark.csv) lists them.
+\* PlasmidEC and PlaScope were run with their *E. coli* settings, which do not suit a cohort that is mostly *Klebsiella*. Their numbers here are not a fair test of either tool. "Not in DB": contigs that do not match the plasmid database (next section). Figure 1 shows 95% intervals from resampling clusters of closely related isolates [@fieldwelsh], defined by average nucleotide identity [@skani]; the [CSV](plasmid_classifier_benchmark.csv) lists them.
 
-**On all contigs**, PlasmidFinder is almost always right when it calls plasmid (0.981) but finds only one plasmid contig in five, because it looks only for replicon genes. Platon, gplas2, MOB-recon, RFPlasmid, HyAsP and plASgraph2 sit close together, with precision of 0.87-0.93 and recall of 0.78-0.94. PLASMe and Plasmer find nearly everything but pay for it in false calls: PLASMe called 7,025 chromosomal contigs plasmid.
+**On all contigs**, PlasmidFinder is almost always right when it calls plasmid (0.981) but finds only one plasmid contig in five, because it looks only for replicon genes [@plasmidfinder]. Platon, gplas2, MOB-recon, RFPlasmid, HyAsP and plASgraph2 sit close together, with precision of 0.87-0.93 and recall of 0.78-0.94. PLASMe and Plasmer find nearly everything but pay for it in false calls: PLASMe called 7,025 chromosomal contigs plasmid.
 
 ## Contigs the database has never seen
 
-I measured how well each contig is represented in a public plasmid database (the PLSDB-derived set distributed with PLASMe, 33,125 plasmids). A contig counted as in the database if at least 95% of it matched a database plasmid at 99% identity or more. By this measure, 18,516 contigs were not in the database. Only 434 of them are plasmid; the rest are chromosome.
+I measured how well each contig is represented in a public plasmid database (the PLSDB-derived set distributed with PLASMe, 33,125 plasmids [@plsdb; @plasme]). A contig counted as in the database if, in a BLAST+ search [@blast], at least 95% of it matched a database plasmid at 99% identity or more. By this measure, 18,516 contigs were not in the database. Only 434 of them are plasmid; the rest are chromosome.
 
-This is where the tools come apart. Apart from PlasmidFinder, precision on these contigs ranged from 0.085 to 0.792. geNomad, PlaScope and PLASMe made 3,466, 3,963 and 2,894 false plasmid calls here, against fewer than 450 real plasmid contigs. For a gene on one of these contigs, a plasmid call from those three tools is wrong far more often than it is right.
+This is where the tools come apart, as an earlier benchmark across Enterobacterales and enterococci also found [@teixeira2025]. Apart from PlasmidFinder, precision on these contigs ranged from 0.085 to 0.792. geNomad, PlaScope and PLASMe made 3,466, 3,963 and 2,894 false plasmid calls here, against fewer than 450 real plasmid contigs. For a gene on one of these contigs, a plasmid call from those three tools is wrong far more often than it is right.
 
-Some of this drop is arithmetic: precision falls when positives are rare, and only 2.3% of these contigs are plasmid. But that is also the situation a user faces with a novel contig, so it is the number that matters in practice.
+Some of this drop is arithmetic: precision falls when positives are rare [@brabec], and only 2.3% of these contigs are plasmid. But that is also the situation a user faces with a novel contig, so it is the number that matters in practice.
 
 Recall drops too, for ten of the twelve tools:
 
@@ -56,7 +65,7 @@ The database used here is one of several, and none of the plasmids in it is long
 
 ## Contigs that carry a resistance gene
 
-For most users the question is narrower: is this resistance gene on a plasmid? I annotated resistance genes with AMRFinderPlus v4.2.7 (database 2026-08-07.1) and counted a contig if it carried at least one core AMR determinant other than an efflux gene. There were 3,005 such contigs, and 1,810 of them (60%) are plasmid.
+For most users the question is narrower: is this resistance gene on a plasmid? I annotated resistance genes with AMRFinderPlus v4.2.7 (database 2026-08-07.1) [@amrfinder] and counted a contig if it carried at least one core AMR determinant other than an efflux gene. There were 3,005 such contigs, and 1,810 of them (60%) are plasmid.
 
 ![Precision and recall on contigs that carry a resistance gene.](fig-arg.png){fig-alt="Dot plot of precision and recall for each tool on resistance-gene contigs"}
 
@@ -82,7 +91,7 @@ Running all twelve takes about 146 GB, and Plasmer alone takes about half of tha
 
 ## What about combining them?
 
-I also fitted a model that combines the twelve calls ([preprint](https://doi.org/10.21203/rs.3.rs-11651433/v1)). Against a plain majority vote of the same twelve tools, it traded recall for precision: it made 431 false plasmid calls and missed 713 plasmid contigs, where the vote made 852 and missed 307. The difference in F1 was close to zero (-0.002; 95% CI -0.011 to 0.009). On contigs absent from the database it made 6 false plasmid calls where the vote made 128. If you already run several of these tools, a majority vote is a reasonable baseline before reaching for anything fitted.
+I also fitted a model that combines the twelve calls [@preprint]. Against a plain majority vote of the same twelve tools, it traded recall for precision: it made 431 false plasmid calls and missed 713 plasmid contigs, where the vote made 852 and missed 307. The difference in F1 was close to zero (-0.002; 95% CI -0.011 to 0.009). On contigs absent from the database it made 6 false plasmid calls where the vote made 128. If you already run several of these tools, a majority vote is a reasonable baseline before reaching for anything fitted.
 
 ## Tools, versions and settings
 
@@ -104,8 +113,13 @@ gplas2 starts from PlasmidEC's *E. coli* predictions, so it shares part of that 
 ## Data
 
 - Per-tool numbers behind this page: [plasmid_classifier_benchmark.csv](plasmid_classifier_benchmark.csv)
-- Assemblies, labels and every tool call: [figshare, doi:10.6084/m9.figshare.34021401](https://doi.org/10.6084/m9.figshare.34021401)
-- Native output of all twelve tools: [Harvard Dataverse, doi:10.7910/DVN/Q5JNX9](https://doi.org/10.7910/DVN/Q5JNX9)
-- Analysis code: [figshare, doi:10.6084/m9.figshare.34063578](https://doi.org/10.6084/m9.figshare.34063578)
-- Full methods: [Research Square, doi:10.21203/rs.3.rs-11651433/v1](https://doi.org/10.21203/rs.3.rs-11651433/v1)
+- Assemblies, labels and every tool call [@data114]: [figshare, doi:10.6084/m9.figshare.34021401](https://doi.org/10.6084/m9.figshare.34021401)
+- Native output of all twelve tools [@native114]: [Harvard Dataverse, doi:10.7910/DVN/Q5JNX9](https://doi.org/10.7910/DVN/Q5JNX9)
+- Analysis code [@code114]: [figshare, doi:10.6084/m9.figshare.34063578](https://doi.org/10.6084/m9.figshare.34063578)
+- Full methods [@preprint]: [Research Square, doi:10.21203/rs.3.rs-11651433/v1](https://doi.org/10.21203/rs.3.rs-11651433/v1)
 - Why the tools fail, contig by contig: [Why Plasmid Classifiers Fail on Short-Read Contigs](../why-plasmid-classifiers-fail/)
+
+## References
+
+::: {#refs}
+:::

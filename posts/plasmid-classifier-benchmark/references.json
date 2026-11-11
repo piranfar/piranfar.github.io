@@ -1,0 +1,2795 @@
+[
+ {
+  "type": "article-journal",
+  "title": "Plasmids carrying antimicrobial resistance genes in Enterobacteriaceae",
+  "author": [
+   {
+    "given": "M",
+    "family": "Rozwandowicz",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Infectious Diseases and Immunology, Faculty of Veterinary Medicine, Utrecht University, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "M S M",
+    "family": "Brouwer",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Wageningen Bioveterinary Research, Lelystad, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "J",
+    "family": "Fischer",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Biological Safety, Federal Institute for Risk Assessment, BfR, Berlin, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "J A",
+    "family": "Wagenaar",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Infectious Diseases and Immunology, Faculty of Veterinary Medicine, Utrecht University, Utrecht, The Netherlands"
+     },
+     {
+      "name": "Wageningen Bioveterinary Research, Lelystad, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "B",
+    "family": "Gonzalez-Zorn",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Animal Health and VISAVET, Complutense University of Madrid, Madrid, Spain"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "B",
+    "family": "Guerra",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Biological Safety, Federal Institute for Risk Assessment, BfR, Berlin, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "D J",
+    "family": "Mevius",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Infectious Diseases and Immunology, Faculty of Veterinary Medicine, Utrecht University, Utrecht, The Netherlands"
+     },
+     {
+      "name": "Wageningen Bioveterinary Research, Lelystad, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "J",
+    "family": "Hordijk",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Infectious Diseases and Immunology, Faculty of Veterinary Medicine, Utrecht University, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018,
+     5,
+     1
+    ]
+   ]
+  },
+  "container-title": "Journal of Antimicrobial Chemotherapy",
+  "volume": "73",
+  "issue": "5",
+  "page": "1121-1137",
+  "DOI": "10.1093/jac/dkx488",
+  "container-title-short": "J Antimicrob Chemother",
+  "id": "rozwandowicz"
+ },
+ {
+  "type": "article-journal",
+  "title": "Genomic epidemiology of carbapenem-resistant Enterobacterales at a New York City hospital over a 10-year period reveals complex plasmid-clone dynamics and evidence for frequent horizontal transfer of<i>bla</i><sub>KPC</sub>",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-5078-7137",
+    "authenticated-orcid": false,
+    "given": "Angela",
+    "family": "Gomez-Simmonds",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-9229-8849",
+    "authenticated-orcid": false,
+    "given": "Medini K.",
+    "family": "Annavajhala",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Dwayne",
+    "family": "Seeram",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Todd W.",
+    "family": "Hokunson",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5815-9717",
+    "authenticated-orcid": false,
+    "given": "Heekuk",
+    "family": "Park",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-9798-4768",
+    "authenticated-orcid": false,
+    "given": "Anne-Catrin",
+    "family": "Uhlemann",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     11
+    ]
+   ]
+  },
+  "container-title": "Genome Research",
+  "container-title-short": "Genome Res",
+  "volume": "34",
+  "issue": "11",
+  "page": "1895-1907",
+  "DOI": "10.1101/gr.279355.124",
+  "id": "gomez2024"
+ },
+ {
+  "type": "article-journal",
+  "title": "Unicycler: Resolving bacterial genome assemblies from short and long sequencing reads",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-8349-0778",
+    "authenticated-orcid": true,
+    "given": "Ryan R.",
+    "family": "Wick",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3613-4839",
+    "authenticated-orcid": true,
+    "given": "Louise M.",
+    "family": "Judd",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-2637-2529",
+    "authenticated-orcid": true,
+    "given": "Claire L.",
+    "family": "Gorrie",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3949-2471",
+    "authenticated-orcid": true,
+    "given": "Kathryn E.",
+    "family": "Holt",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2017,
+     6,
+     8
+    ]
+   ]
+  },
+  "container-title": "PLOS Computational Biology",
+  "container-title-short": "PLoS Comput Biol",
+  "volume": "13",
+  "issue": "6",
+  "page": "e1005595",
+  "DOI": "10.1371/journal.pcbi.1005595",
+  "id": "unicycler"
+ },
+ {
+  "type": "article-journal",
+  "title": "Minimap2: pairwise alignment for nucleotide sequences",
+  "author": [
+   {
+    "given": "Heng",
+    "family": "Li",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Medical Population Genetics Program, Broad Institute, Cambridge, MA, USA"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018,
+     9,
+     15
+    ]
+   ]
+  },
+  "container-title": "Bioinformatics",
+  "volume": "34",
+  "issue": "18",
+  "page": "3094-3100",
+  "DOI": "10.1093/bioinformatics/bty191",
+  "container-title-short": "Bioinformatics",
+  "id": "minimap2"
+ },
+ {
+  "type": "article-journal",
+  "title": "BLAST+: architecture and applications",
+  "author": [
+   {
+    "given": "Christiam",
+    "family": "Camacho",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "George",
+    "family": "Coulouris",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Vahram",
+    "family": "Avagyan",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ning",
+    "family": "Ma",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jason",
+    "family": "Papadopoulos",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Kevin",
+    "family": "Bealer",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Thomas L",
+    "family": "Madden",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2009,
+     12
+    ]
+   ]
+  },
+  "container-title": "BMC Bioinformatics",
+  "container-title-short": "BMC Bioinformatics",
+  "volume": "10",
+  "issue": "1",
+  "DOI": "10.1186/1471-2105-10-421",
+  "page": "421",
+  "id": "blast"
+ },
+ {
+  "type": "article-journal",
+  "title": "PLSDB: advancing a comprehensive database of bacterial plasmids",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-9627-9223",
+    "authenticated-orcid": false,
+    "given": "Georges P",
+    "family": "Schmartz",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Chair for Clinical Bioinformatics, Saarland University, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Anna",
+    "family": "Hartung",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Chair for Clinical Bioinformatics, Saarland University, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Pascal",
+    "family": "Hirsch",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Chair for Clinical Bioinformatics, Saarland University, 66123 Saarbrücken, Germany"
+     },
+     {
+      "name": "Department of Microbial Natural Products, Helmholtz-Institute for Pharmaceutical Research Saarland (HIPS), Helmholtz Centre for Infection Research (HZI), Campus E8 1, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-8223-3750",
+    "authenticated-orcid": false,
+    "given": "Fabian",
+    "family": "Kern",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Chair for Clinical Bioinformatics, Saarland University, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-1967-2918",
+    "authenticated-orcid": false,
+    "given": "Tobias",
+    "family": "Fehlmann",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Chair for Clinical Bioinformatics, Saarland University, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Rolf",
+    "family": "Müller",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Microbial Natural Products, Helmholtz-Institute for Pharmaceutical Research Saarland (HIPS), Helmholtz Centre for Infection Research (HZI), Campus E8 1, 66123 Saarbrücken, Germany"
+     },
+     {
+      "name": "Department of Pharmacy, Saarland University, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5361-0895",
+    "authenticated-orcid": false,
+    "given": "Andreas",
+    "family": "Keller",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Chair for Clinical Bioinformatics, Saarland University, 66123 Saarbrücken, Germany"
+     },
+     {
+      "name": "Department of Microbial Natural Products, Helmholtz-Institute for Pharmaceutical Research Saarland (HIPS), Helmholtz Centre for Infection Research (HZI), Campus E8 1, 66123 Saarbrücken, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2022,
+     1,
+     7
+    ]
+   ]
+  },
+  "container-title": "Nucleic Acids Research",
+  "volume": "50",
+  "issue": "D1",
+  "page": "D273-D278",
+  "DOI": "10.1093/nar/gkab1111",
+  "container-title-short": "Nucleic Acids Res",
+  "id": "plsdb"
+ },
+ {
+  "type": "article-journal",
+  "title": "Fast and robust metagenomic sequence comparison through sparse chaining with skani",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-6990-7829",
+    "authenticated-orcid": false,
+    "given": "Jim",
+    "family": "Shaw",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-8275-9576",
+    "authenticated-orcid": false,
+    "given": "Yun William",
+    "family": "Yu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023,
+     11
+    ]
+   ]
+  },
+  "container-title": "Nature Methods",
+  "container-title-short": "Nat Methods",
+  "volume": "20",
+  "issue": "11",
+  "page": "1661-1665",
+  "DOI": "10.1038/s41592-023-02018-3",
+  "id": "skani"
+ },
+ {
+  "type": "article-journal",
+  "title": "Bootstrapping Clustered Data",
+  "author": [
+   {
+    "given": "C. A.",
+    "family": "Field",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Dalhousie University , Halifax , Canada"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "A. H.",
+    "family": "Welsh",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Australian National University , Canberra , Australia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2007,
+     6,
+     1
+    ]
+   ]
+  },
+  "container-title": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+  "volume": "69",
+  "issue": "3",
+  "page": "369-390",
+  "DOI": "10.1111/j.1467-9868.2007.00593.x",
+  "container-title-short": "J R Stat Soc Series B Stat Methodol",
+  "id": "fieldwelsh"
+ },
+ {
+  "type": "chapter",
+  "title": "On Model Evaluation Under Non-constant Class Imbalance",
+  "author": [
+   {
+    "given": "Jan",
+    "family": "Brabec",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Tomáš",
+    "family": "Komárek",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Vojtěch",
+    "family": "Franc",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Lukáš",
+    "family": "Machlica",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2020
+    ]
+   ]
+  },
+  "container-title": "Computational Science - ICCS 2020",
+  "page": "74-87",
+  "publisher": "Springer International Publishing",
+  "DOI": "10.1007/978-3-030-50423-6_6",
+  "id": "brabec",
+  "collection-title": "Lecture Notes in Computer Science",
+  "publisher-place": "Cham"
+ },
+ {
+  "type": "article-journal",
+  "title": "AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence",
+  "author": [
+   {
+    "given": "Michael",
+    "family": "Feldgarden",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Vyacheslav",
+    "family": "Brover",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Narjol",
+    "family": "Gonzalez-Escalona",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jonathan G.",
+    "family": "Frye",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Julie",
+    "family": "Haendiges",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Daniel H.",
+    "family": "Haft",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Maria",
+    "family": "Hoffmann",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "James B.",
+    "family": "Pettengill",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Arjun B.",
+    "family": "Prasad",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Glenn E.",
+    "family": "Tillman",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Gregory H.",
+    "family": "Tyson",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "William",
+    "family": "Klimke",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     6,
+     16
+    ]
+   ]
+  },
+  "container-title": "Scientific Reports",
+  "container-title-short": "Sci Rep",
+  "volume": "11",
+  "issue": "1",
+  "DOI": "10.1038/s41598-021-91456-0",
+  "page": "12728",
+  "id": "amrfinder"
+ },
+ {
+  "type": "article-journal",
+  "title": "Identification of mobile genetic elements with geNomad",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-3913-2484",
+    "authenticated-orcid": false,
+    "given": "Antonio Pedro",
+    "family": "Camargo",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Simon",
+    "family": "Roux",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-4932-4677",
+    "authenticated-orcid": false,
+    "given": "Frederik",
+    "family": "Schulz",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Michal",
+    "family": "Babinski",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6264-3835",
+    "authenticated-orcid": false,
+    "given": "Yan",
+    "family": "Xu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Bin",
+    "family": "Hu",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3949-3634",
+    "authenticated-orcid": false,
+    "given": "Patrick S. G.",
+    "family": "Chain",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4625-4164",
+    "authenticated-orcid": false,
+    "given": "Stephen",
+    "family": "Nayfach",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-6131-0462",
+    "authenticated-orcid": false,
+    "given": "Nikos C.",
+    "family": "Kyrpides",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     8
+    ]
+   ]
+  },
+  "container-title": "Nature Biotechnology",
+  "container-title-short": "Nat Biotechnol",
+  "volume": "42",
+  "issue": "8",
+  "page": "1303-1312",
+  "DOI": "10.1038/s41587-023-01953-y",
+  "id": "genomad"
+ },
+ {
+  "type": "article-journal",
+  "title": "PlasmidEC and gplas2: an optimized short-read approach to predict and reconstruct antibiotic resistance plasmids in Escherichia coli",
+  "author": [
+   {
+    "given": "Julian A.",
+    "family": "Paganini",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jesse J.",
+    "family": "Kerkvliet",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Lisa",
+    "family": "Vader",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Nienke L.",
+    "family": "Plantinga",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Rodrigo",
+    "family": "Meneses",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Jukka",
+    "family": "Corander",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Helsinki Institute of Information Technology, Department of Mathematics and Statistics, University of Helsinki, Helsinki, Finland"
+     },
+     {
+      "name": "Parasites and Microbes, Wellcome Sanger Institute, Cambridge, UK"
+     },
+     {
+      "name": "Department of Biostatistics, Faculty of Medicine, University of Oslo, Oslo, Norway"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Rob J. L.",
+    "family": "Willems",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Sergio",
+    "family": "Arredondo-Alonso",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Parasites and Microbes, Wellcome Sanger Institute, Cambridge, UK"
+     },
+     {
+      "name": "Department of Biostatistics, Faculty of Medicine, University of Oslo, Oslo, Norway"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-1894-7545",
+    "authenticated-orcid": false,
+    "given": "Anita C.",
+    "family": "Schürch",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, University Medical Center Utrecht, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     2,
+     20
+    ]
+   ]
+  },
+  "container-title": "Microbial Genomics",
+  "volume": "10",
+  "issue": "2",
+  "DOI": "10.1099/mgen.0.001193",
+  "page": "e001193",
+  "container-title-short": "Microb Genom",
+  "id": "plasmidec"
+ },
+ {
+  "type": "article-journal",
+  "title": "HyAsP, a greedy tool for plasmids identification",
+  "author": [
+   {
+    "given": "Robert",
+    "family": "Müller",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Computational Methods for the Analysis of the Diversity and Dynamics of Genomes, Bielefeld University , 33615 Bielefeld, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-9837-1878",
+    "authenticated-orcid": false,
+    "given": "Cedric",
+    "family": "Chauve",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Mathematics, Simon Fraser University , Vancouver, BC V5A 1S6, Canada"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2019,
+     11,
+     1
+    ]
+   ]
+  },
+  "container-title": "Bioinformatics",
+  "volume": "35",
+  "issue": "21",
+  "page": "4436-4439",
+  "DOI": "10.1093/bioinformatics/btz413",
+  "container-title-short": "Bioinformatics",
+  "id": "hyasp"
+ },
+ {
+  "type": "article-journal",
+  "title": "MOB-suite: software tools for clustering, reconstruction and typing of plasmids from draft assemblies",
+  "author": [
+   {
+    "given": "James",
+    "family": "Robertson",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "1​National Microbiology Laboratory, Public Health Agency of Canada, 110 Stone Road West, Guelph, ON, N1H7Y3, Canada"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "John H. E.",
+    "family": "Nash",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "2​National Microbiology Laboratory, Public Health Agency of Canada, 180 Queen Street West, 11th Floor, Toronto, ON, M5V 1Z4, Canada"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018,
+     8,
+     1
+    ]
+   ]
+  },
+  "container-title": "Microbial Genomics",
+  "volume": "4",
+  "issue": "8",
+  "DOI": "10.1099/mgen.0.000206",
+  "page": "e000206",
+  "container-title-short": "Microb Genom",
+  "id": "mobsuite"
+ },
+ {
+  "type": "article-journal",
+  "title": "PLASMe: a tool to identify PLASMid contigs from short-read assemblies using transformer",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-1304-6983",
+    "authenticated-orcid": false,
+    "given": "Xubo",
+    "family": "Tang",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Electrical Engineering, City University of Hong Kong , Tat Chee Avenue, Kowloon, Hong Kong SAR, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5974-4985",
+    "authenticated-orcid": false,
+    "given": "Jiayu",
+    "family": "Shang",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Electrical Engineering, City University of Hong Kong , Tat Chee Avenue, Kowloon, Hong Kong SAR, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3664-9608",
+    "authenticated-orcid": false,
+    "given": "Yongxin",
+    "family": "Ji",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Electrical Engineering, City University of Hong Kong , Tat Chee Avenue, Kowloon, Hong Kong SAR, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-1373-8023",
+    "authenticated-orcid": false,
+    "given": "Yanni",
+    "family": "Sun",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Electrical Engineering, City University of Hong Kong , Tat Chee Avenue, Kowloon, Hong Kong SAR, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023,
+     8,
+     25
+    ]
+   ]
+  },
+  "container-title": "Nucleic Acids Research",
+  "volume": "51",
+  "issue": "15",
+  "page": "e83",
+  "DOI": "10.1093/nar/gkad578",
+  "container-title-short": "Nucleic Acids Res",
+  "id": "plasme"
+ },
+ {
+  "type": "article-journal",
+  "title": "PlaScope: a targeted approach to assess the plasmidome from genome assemblies at the species level",
+  "author": [
+   {
+    "given": "G.",
+    "family": "Royer",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "2​Université Paris Diderot, INSERM, IAME, UMR 1137, Sorbonne Paris Cité, F-75018 Paris, France"
+     },
+     {
+      "name": "3​LABGeM, Génomique Métabolique, Genoscope, Institut François Jacob, CEA, CNRS, Univ Evry, Université Paris-Saclay, 91057 Evry, France"
+     },
+     {
+      "name": "1​Département de Microbiologie, Assistance Publique-Hôpitaux de Paris, Hôpital Henri Mondor, Université Paris Est Créteil, F-94000 Créteil, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "J. W.",
+    "family": "Decousser",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "2​Université Paris Diderot, INSERM, IAME, UMR 1137, Sorbonne Paris Cité, F-75018 Paris, France"
+     },
+     {
+      "name": "1​Département de Microbiologie, Assistance Publique-Hôpitaux de Paris, Hôpital Henri Mondor, Université Paris Est Créteil, F-94000 Créteil, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "C.",
+    "family": "Branger",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "2​Université Paris Diderot, INSERM, IAME, UMR 1137, Sorbonne Paris Cité, F-75018 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "M.",
+    "family": "Dubois",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "3​LABGeM, Génomique Métabolique, Genoscope, Institut François Jacob, CEA, CNRS, Univ Evry, Université Paris-Saclay, 91057 Evry, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "C.",
+    "family": "Médigue",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "3​LABGeM, Génomique Métabolique, Genoscope, Institut François Jacob, CEA, CNRS, Univ Evry, Université Paris-Saclay, 91057 Evry, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "E.",
+    "family": "Denamur",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "4​Assistance Publique-Hôpitaux de Paris, Hôpital Bichat, Laboratoire de Génétique Moléculaire, F-75018 Paris, France"
+     },
+     {
+      "name": "2​Université Paris Diderot, INSERM, IAME, UMR 1137, Sorbonne Paris Cité, F-75018 Paris, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "D.",
+    "family": "Vallenet",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "3​LABGeM, Génomique Métabolique, Genoscope, Institut François Jacob, CEA, CNRS, Univ Evry, Université Paris-Saclay, 91057 Evry, France"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2018,
+     9,
+     1
+    ]
+   ]
+  },
+  "container-title": "Microbial Genomics",
+  "volume": "4",
+  "issue": "9",
+  "DOI": "10.1099/mgen.0.000211",
+  "page": "e000211",
+  "container-title-short": "Microb Genom",
+  "id": "plascope"
+ },
+ {
+  "type": "article-journal",
+  "title": "Centrifuge: rapid and sensitive classification of metagenomic sequences",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-1182-629X",
+    "authenticated-orcid": false,
+    "given": "Daehwan",
+    "family": "Kim",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Li",
+    "family": "Song",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Florian P.",
+    "family": "Breitwieser",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-8859-7432",
+    "authenticated-orcid": false,
+    "given": "Steven L.",
+    "family": "Salzberg",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2016,
+     12
+    ]
+   ]
+  },
+  "container-title": "Genome Research",
+  "container-title-short": "Genome Res",
+  "volume": "26",
+  "issue": "12",
+  "page": "1721-1729",
+  "DOI": "10.1101/gr.210641.116",
+  "id": "centrifuge"
+ },
+ {
+  "type": "article-journal",
+  "title": "Plasmer: an Accurate and Sensitive Bacterial Plasmid Prediction Tool Based on Machine Learning of Shared k-mers and Genomic Features",
+  "author": [
+   {
+    "given": "Qianhui",
+    "family": "Zhu",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "State Key Laboratory of Microbial Resources, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China"
+     },
+     {
+      "name": "University of Chinese Academy of Sciences, Beijing, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Shenghan",
+    "family": "Gao",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "State Key Laboratory of Microbial Resources, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Binghan",
+    "family": "Xiao",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "State Key Laboratory of Microbial Resources, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China"
+     },
+     {
+      "name": "University of Chinese Academy of Sciences, Beijing, China"
+     },
+     {
+      "name": "Sino-Danish College, University of Chinese Academy of Sciences, Beijing, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Zilong",
+    "family": "He",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "School of Engineering Medicine, Beihang University, Beijing, China"
+     },
+     {
+      "name": "Beijing Advanced Innovation Center for Big Data-Based Precision Medicine, Interdisciplinary Innovation Institute of Medicine and Engineering, Beihang University, Beijing, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-3966-3111",
+    "authenticated-orcid": true,
+    "given": "Songnian",
+    "family": "Hu",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "State Key Laboratory of Microbial Resources, Institute of Microbiology, Chinese Academy of Sciences, Beijing, China"
+     },
+     {
+      "name": "University of Chinese Academy of Sciences, Beijing, China"
+     },
+     {
+      "name": "Sino-Danish College, University of Chinese Academy of Sciences, Beijing, China"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023,
+     6,
+     15
+    ]
+   ]
+  },
+  "container-title": "Microbiology Spectrum",
+  "container-title-short": "Microbiol Spectr",
+  "volume": "11",
+  "issue": "3",
+  "DOI": "10.1128/spectrum.04645-22",
+  "page": "e04645-22",
+  "id": "plasmer"
+ },
+ {
+  "type": "article-journal",
+  "title": "<i>In Silico</i> Detection and Typing of Plasmids using PlasmidFinder and Plasmid Multilocus Sequence Typing",
+  "author": [
+   {
+    "given": "Alessandra",
+    "family": "Carattoli",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Infectious, Parasitic and Immuno-Mediated Diseases, Istituto Superiore di Sanità, Rome, Italy"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ea",
+    "family": "Zankari",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Danish Technical University, National Food Institute, Division for Epidemiology and Microbial Genomics, Lyngby, Denmark"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Aurora",
+    "family": "García-Fernández",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Infectious, Parasitic and Immuno-Mediated Diseases, Istituto Superiore di Sanità, Rome, Italy"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Mette",
+    "family": "Voldby Larsen",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Danish Technical University, Center for Biological Sequence Analysis, Department of Systems Biology, Lyngby, Denmark"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ole",
+    "family": "Lund",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Danish Technical University, Center for Biological Sequence Analysis, Department of Systems Biology, Lyngby, Denmark"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Laura",
+    "family": "Villa",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Infectious, Parasitic and Immuno-Mediated Diseases, Istituto Superiore di Sanità, Rome, Italy"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Frank",
+    "family": "Møller Aarestrup",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Danish Technical University, National Food Institute, Division for Epidemiology and Microbial Genomics, Lyngby, Denmark"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Henrik",
+    "family": "Hasman",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Danish Technical University, National Food Institute, Division for Epidemiology and Microbial Genomics, Lyngby, Denmark"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2014,
+     7
+    ]
+   ]
+  },
+  "container-title": "Antimicrobial Agents and Chemotherapy",
+  "container-title-short": "Antimicrob Agents Chemother",
+  "volume": "58",
+  "issue": "7",
+  "page": "3895-3903",
+  "DOI": "10.1128/AAC.02412-14",
+  "id": "plasmidfinder"
+ },
+ {
+  "type": "article-journal",
+  "title": "Platon: identification and characterization of bacterial plasmid contigs in short-read draft assemblies exploiting protein sequence-based replicon distribution scores",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-4216-2721",
+    "authenticated-orcid": false,
+    "given": "Oliver",
+    "family": "Schwengers",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "German Center for Infection Research (DZIF), partner site Giessen-Marburg-Langen, Giessen, Germany"
+     },
+     {
+      "name": "Bioinformatics and Systems Biology, Justus Liebig University Giessen, Giessen, Germany"
+     },
+     {
+      "name": "Institute of Medical Microbiology, Justus Liebig University Giessen, Giessen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Patrick",
+    "family": "Barth",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Bioinformatics and Systems Biology, Justus Liebig University Giessen, Giessen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0003-4706-8507",
+    "authenticated-orcid": false,
+    "given": "Linda",
+    "family": "Falgenhauer",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "German Center for Infection Research (DZIF), partner site Giessen-Marburg-Langen, Giessen, Germany"
+     },
+     {
+      "name": "Institute of Medical Microbiology, Justus Liebig University Giessen, Giessen, Germany"
+     },
+     {
+      "name": "Present address: Institute of Hygiene and Environmental Health, Justus Liebig University, Giessen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Torsten",
+    "family": "Hain",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "German Center for Infection Research (DZIF), partner site Giessen-Marburg-Langen, Giessen, Germany"
+     },
+     {
+      "name": "Institute of Medical Microbiology, Justus Liebig University Giessen, Giessen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Trinad",
+    "family": "Chakraborty",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "German Center for Infection Research (DZIF), partner site Giessen-Marburg-Langen, Giessen, Germany"
+     },
+     {
+      "name": "Institute of Medical Microbiology, Justus Liebig University Giessen, Giessen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-7086-2568",
+    "authenticated-orcid": false,
+    "given": "Alexander",
+    "family": "Goesmann",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Bioinformatics and Systems Biology, Justus Liebig University Giessen, Giessen, Germany"
+     },
+     {
+      "name": "German Center for Infection Research (DZIF), partner site Giessen-Marburg-Langen, Giessen, Germany"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2020,
+     10,
+     1
+    ]
+   ]
+  },
+  "container-title": "Microbial Genomics",
+  "volume": "6",
+  "issue": "10",
+  "DOI": "10.1099/mgen.0.000398",
+  "page": "e000398",
+  "container-title-short": "Microb Genom",
+  "id": "platon"
+ },
+ {
+  "type": "article-journal",
+  "title": "RFPlasmid: predicting plasmid sequences from short-read assembly data using machine learning",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0001-8181-3393",
+    "authenticated-orcid": false,
+    "given": "Linda",
+    "family": "van der Graaf-van Bloois",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "WHO Collaborating Centre for Reference and Research on Campylobacter and Antimicrobial Resistance from an One Health Perspective/OIE Reference Laboratory for Campylobacteriosis, Utrecht, The Netherlands"
+     },
+     {
+      "name": "Faculty of Veterinary Medicine, Department of Infectious Diseases and Immunology, Utrecht University, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3506-1490",
+    "authenticated-orcid": false,
+    "given": "Jaap A.",
+    "family": "Wagenaar",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Wageningen Bioveterinary Research, Lelystad, The Netherlands"
+     },
+     {
+      "name": "WHO Collaborating Centre for Reference and Research on Campylobacter and Antimicrobial Resistance from an One Health Perspective/OIE Reference Laboratory for Campylobacteriosis, Utrecht, The Netherlands"
+     },
+     {
+      "name": "Faculty of Veterinary Medicine, Department of Infectious Diseases and Immunology, Utrecht University, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0758-5190",
+    "authenticated-orcid": false,
+    "given": "Aldert L.",
+    "family": "Zomer",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "WHO Collaborating Centre for Reference and Research on Campylobacter and Antimicrobial Resistance from an One Health Perspective/OIE Reference Laboratory for Campylobacteriosis, Utrecht, The Netherlands"
+     },
+     {
+      "name": "Faculty of Veterinary Medicine, Department of Infectious Diseases and Immunology, Utrecht University, Utrecht, The Netherlands"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2021,
+     11,
+     30
+    ]
+   ]
+  },
+  "container-title": "Microbial Genomics",
+  "volume": "7",
+  "issue": "11",
+  "DOI": "10.1099/mgen.0.000683",
+  "page": "e000683",
+  "container-title-short": "Microb Genom",
+  "id": "rfplasmid"
+ },
+ {
+  "type": "article-journal",
+  "title": "plASgraph2: using graph neural networks to detect plasmid contigs from an assembly graph",
+  "author": [
+   {
+    "given": "Janik",
+    "family": "Sielemann",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Katharina",
+    "family": "Sielemann",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Broňa",
+    "family": "Brejová",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Tomáš",
+    "family": "Vinař",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Cedric",
+    "family": "Chauve",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2023,
+     10,
+     6
+    ]
+   ]
+  },
+  "container-title": "Frontiers in Microbiology",
+  "container-title-short": "Front Microbiol",
+  "volume": "14",
+  "DOI": "10.3389/fmicb.2023.1267695",
+  "page": "1267695",
+  "id": "plasgraph2"
+ },
+ {
+  "type": "article-journal",
+  "title": "Circling in on plasmids: benchmarking plasmid detection and reconstruction tools for short-read data from diverse species",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0002-7219-0478",
+    "authenticated-orcid": false,
+    "given": "Marco",
+    "family": "Teixeira",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     },
+     {
+      "name": "Delft Bioinformatics Lab, Department of Intelligent Systems, Delft University of Technology , Van Mourik Broekmanweg 6, Delft 2628 XE, Zuid Holland ,",
+      "place": [
+       "The Netherlands"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7194-4322",
+    "authenticated-orcid": false,
+    "given": "Célia",
+    "family": "Souque",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Biomedical Informatics, Harvard Medical School , 10 Shattuck St, Boston, MA 02115 ,",
+      "place": [
+       "United States"
+      ]
+     },
+     {
+      "name": "Laboratory of Systems Pharmacology, Harvard Medical School , 200 Longwood Ave, Boston, MA 02115 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-9132-7249",
+    "authenticated-orcid": false,
+    "given": "Colin J",
+    "family": "Worby",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Terrance",
+    "family": "Shea",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-0562-9735",
+    "authenticated-orcid": false,
+    "given": "Nicoletta",
+    "family": "Commins",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-5511-8717",
+    "authenticated-orcid": false,
+    "given": "Joshua T",
+    "family": "Smith",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0009-0000-9221-4556",
+    "authenticated-orcid": false,
+    "given": "Arjun M",
+    "family": "Miklos",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-7205-7431",
+    "authenticated-orcid": false,
+    "given": "Thomas",
+    "family": "Abeel",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     },
+     {
+      "name": "Delft Bioinformatics Lab, Department of Intelligent Systems, Delft University of Technology , Van Mourik Broekmanweg 6, Delft 2628 XE, Zuid Holland ,",
+      "place": [
+       "The Netherlands"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-7857-9145",
+    "authenticated-orcid": false,
+    "given": "Ashlee M",
+    "family": "Earl",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-3800-0714",
+    "authenticated-orcid": false,
+    "given": "Abigail L",
+    "family": "Manson",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Infectious Disease and Microbiome Program, Broad Institute of Massachusetts Institute of Technology and Harvard , 415 Main St, Cambridge, MA 02142 ,",
+      "place": [
+       "United States"
+      ]
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2025,
+     11,
+     1
+    ]
+   ]
+  },
+  "container-title": "Briefings in Bioinformatics",
+  "volume": "26",
+  "issue": "6",
+  "DOI": "10.1093/bib/bbaf589",
+  "page": "bbaf589",
+  "container-title-short": "Brief Bioinform",
+  "id": "teixeira2025"
+ },
+ {
+  "type": "article",
+  "title": "Benchmarking of tools for resolving the plasmidome from short-read assemblies for <i>Klebsiella pneumoniae</i>",
+  "author": [
+   {
+    "given": "Christopher H.",
+    "family": "Connor",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "The Department of Microbiology and Immunology, The University of Melbourne at The Peter Doherty Institute for Infection and Immunity, Melbourne, Australia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Ryan R",
+    "family": "Wick",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "The Department of Microbiology and Immunology, The University of Melbourne at The Peter Doherty Institute for Infection and Immunity, Melbourne, Australia"
+     },
+     {
+      "name": "Centre for Pathogen Genomics, University of Melbourne (Doherty Institute)"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Claire L.",
+    "family": "Gorrie",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "The Department of Microbiology and Immunology, The University of Melbourne at The Peter Doherty Institute for Infection and Immunity, Melbourne, Australia"
+     },
+     {
+      "name": "Centre for Pathogen Genomics, University of Melbourne (Doherty Institute)"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0009-0003-4838-6838",
+    "authenticated-orcid": false,
+    "given": "Mia A.",
+    "family": "Winkler",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Biology, Faculty of Health Sciences, UiT The Arctic University of Norway, Tromsø, Norway"
+     },
+     {
+      "name": "Department of Medical Microbiology, Stavanger University Hospital, Stavanger, Norway"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Iren H",
+    "family": "Löhr",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Medical Microbiology, Stavanger University Hospital, Stavanger, Norway"
+     },
+     {
+      "name": "Department of Clinical Science, Faculty of Medicine, University of Bergen, Bergen, Norway"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Danielle J.",
+    "family": "Ingle",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "The Department of Microbiology and Immunology, The University of Melbourne at The Peter Doherty Institute for Infection and Immunity, Melbourne, Australia"
+     },
+     {
+      "name": "Centre for Pathogen Genomics, University of Melbourne (Doherty Institute)"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Margaret M.C.",
+    "family": "Lam",
+    "sequence": "additional",
+    "affiliation": [
+     {
+      "name": "Department of Infectious Diseases, School of Translational Medicine, Monash University, Melbourne, Victoria 3004, Australia"
+     },
+     {
+      "name": "Centre to Impact AMR, Monash University, Clayton, Victoria, Australia"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2025,
+     7,
+     27
+    ]
+   ]
+  },
+  "container-title": "bioRxiv",
+  "DOI": "10.1101/2025.07.24.666686",
+  "id": "klebbench",
+  "genre": "Preprint"
+ },
+ {
+  "type": "article",
+  "title": "PlasmidCall: predicting whether resistance genes in short-read assemblies lie on plasmids or chromosomes, tested in 432 carbapenem-resistant Enterobacterales",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-3653-5739",
+    "authenticated-orcid": false,
+    "given": "Vahhab",
+    "family": "Piranfar",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Independent Researcher"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     11,
+     10
+    ]
+   ]
+  },
+  "container-title": "Research Square",
+  "DOI": "10.21203/rs.3.rs-11651433/v1",
+  "id": "preprint",
+  "genre": "Preprint"
+ },
+ {
+  "type": "dataset",
+  "title": "Independent evaluation of PlasmidCall in 432 carbapenem-resistant Enterobacterales isolates: assemblies, reference labels, fixed predictions and evaluation results",
+  "author": [
+   {
+    "family": "Piranfar",
+    "given": "Vahhab"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     10,
+     4
+    ]
+   ]
+  },
+  "publisher": "figshare",
+  "DOI": "10.6084/m9.figshare.34021401",
+  "id": "data114"
+ },
+ {
+  "type": "dataset",
+  "title": "Independent evaluation of PlasmidCall in 432 carbapenem-resistant Enterobacterales isolates: native classifier outputs and execution records",
+  "author": [
+   {
+    "family": "Piranfar",
+    "given": "Vahhab"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026
+    ]
+   ]
+  },
+  "publisher": "Harvard Dataverse",
+  "DOI": "10.7910/DVN/Q5JNX9",
+  "version": "1.0",
+  "id": "native114"
+ },
+ {
+  "type": "dataset",
+  "title": "Independent evaluation of PlasmidCall in 432 carbapenem-resistant Enterobacterales isolates: analysis code",
+  "author": [
+   {
+    "family": "Piranfar",
+    "given": "Vahhab"
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     10,
+     4
+    ]
+   ]
+  },
+  "publisher": "figshare",
+  "DOI": "10.6084/m9.figshare.34063578",
+  "id": "code114"
+ }
+]

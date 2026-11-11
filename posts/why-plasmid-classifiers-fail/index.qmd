@@ -2,25 +2,34 @@
 title: "Why Plasmid Classifiers Fail on Short-Read Contigs"
 subtitle: "An anatomy of the errors in 150 genomes: what a better model could fix, and what the data cannot tell any model."
 description: "Where plasmid-chromosome classification of short-read contigs goes wrong, measured on 9,371 contigs from 150 genomes of six taxa: the assembly graph, read depth, and the proteins behind Platon's misses."
-author: "Vahhab Piranfar"
+author:
+  - name: Vahhab Piranfar
+    orcid: 0000-0003-3653-5739
+    affiliation: Independent researcher, Jersey City, NJ, USA
 date: "2026-11-10"
 categories: [Bioinformatics, Plasmids, Resistance, Benchmark]
 image: "cover.png"
+bibliography: references.json
+csl: ../../vancouver.csl
+citation:
+  type: post-weblog
+  container-title: Vahhab Piranfar
+  url: https://vahhabpiranfar.com/posts/why-plasmid-classifiers-fail/
 ---
 
-In a [benchmark of twelve plasmid classifiers](../plasmid-classifier-benchmark/) I measured how often they are wrong. This note asks why. In this data, the answer is mostly not that the tools are poorly built. The largest group of errors sits where a short-read assembly does not carry the information that would settle the question.
+There are dozens of tools that call a short-read contig plasmid or chromosome [@klebbench], and benchmarks agree that they do worse on plasmids that are poorly represented in databases [@teixeira2025]. In a [benchmark of twelve of them](../plasmid-classifier-benchmark/) I measured how often they are wrong. This note asks why. In this data, the answer is mostly not that the tools are poorly built. The largest group of errors sits where a short-read assembly does not carry the information that would settle the question.
 
 I split the problem along three lines a classifier could use: how a contig is connected in the assembly graph, how deep it is covered by reads, and which proteins it carries. Each one was measured against the true location of every contig.
 
 ## The genomes and the answer key
 
-The data are 150 public genomes, 25 from each of six taxa: *Citrobacter* spp., *Enterobacter* spp., *Enterococcus faecalis*, *Enterococcus faecium*, *Klebsiella pneumoniae* and *Serratia* spp. Each has Illumina reads and a complete genome deposited for the same isolate. The isolates were chosen to be distinct from one another.
+The data are 150 public genomes [@data113], 25 from each of six taxa: *Citrobacter* spp., *Enterobacter* spp., *Enterococcus faecalis*, *Enterococcus faecium*, *Klebsiella pneumoniae* and *Serratia* spp. Each has Illumina reads and a complete genome deposited for the same isolate. The isolates were chosen to be distinct from one another.
 
-I assembled the Illumina reads with Unicycler and aligned every contig to its own isolate's complete genome. A contig of at least 1 kb took the label of the replicon it matched (chromosome or plasmid, as named in the deposited genome) when the match was clear. That gives **9,371 labeled contigs: 2,241 plasmid and 7,130 chromosome**. The twelve classifiers are the same versions, settings and databases as in the [benchmark](../plasmid-classifier-benchmark/).
+I assembled the Illumina reads with Unicycler [@unicycler] and aligned every contig to its own isolate's complete genome. A contig of at least 1 kb took the label of the replicon it matched (chromosome or plasmid, as named in the deposited genome) when the match was clear. That gives **9,371 labeled contigs: 2,241 plasmid and 7,130 chromosome**. The twelve classifiers, geNomad [@genomad], gplas2 and PlasmidEC [@plasmidec], HyAsP [@hyasp], MOB-recon [@mobsuite], PLASMe [@plasme], PlaScope [@plascope], Plasmer [@plasmer], PlasmidFinder [@plasmidfinder], Platon [@platon], RFPlasmid [@rfplasmid] and plASgraph2 [@plasgraph2], are the same versions, settings and databases as in the [benchmark](../plasmid-classifier-benchmark/).
 
 ## Step 1: the assembly graph does not join a plasmid's pieces
 
-A plasmid of 100 kb usually breaks into many contigs. A natural idea is to find one piece that is clearly plasmid and follow the assembly graph to its neighbors. To test whether that can work, I removed the repeat segments from each graph (the segments where the graph branches) and asked what each labeled contig is still connected to.
+A plasmid of 100 kb usually breaks into many contigs. A natural idea, and the basis of several tools [@gplas; @plasbinflow; @plasgraph2], is to find one piece that is clearly plasmid and follow the assembly graph to its neighbors. To test whether that can work, I removed the repeat segments from each graph (the segments where the graph branches) and asked what each labeled contig is still connected to.
 
 ![What each labeled contig is still connected to after repeat segments are removed from the assembly graph, under a lenient and a strict definition of a repeat.](fig-graph.png){fig-alt="Stacked bars of graph context for plasmid and chromosome contigs under two repeat definitions"}
 
@@ -28,11 +37,11 @@ A plasmid of 100 kb usually breaks into many contigs. A natural idea is to find 
 
 With a lenient definition (a segment is a repeat only if the graph branches on both of its ends), 36% of plasmid contigs are still linked to chromosome contigs, and only 14% are linked to plasmid contigs alone: the graph leads in the wrong direction more often than the right one. With the strict definition (branching on either end), the wrong links disappear, and so do almost all the right ones: **89% of plasmid contigs are linked to nothing**. Only 1% keep a link to another plasmid contig.
 
-This is how short-read assemblers work. They stop a contig exactly where it runs into a repeat, such as an insertion sequence, and the same repeats occur on the plasmid and on the chromosome. Every path from one plasmid piece to the next passes through one of them. Following the graph cannot separate the two without information the reads do not carry.
+This is how short-read assemblers work. They stop a contig exactly where it runs into a repeat, such as an insertion sequence, and the same repeats occur on the plasmid and on the chromosome [@arredondo2017; @partridge2018]. Every path from one plasmid piece to the next passes through one of them. Following the graph cannot separate the two without information the reads do not carry.
 
 ## Step 2: read depth decides one direction
 
-A plasmid can be present in more copies per cell than the chromosome, so its contigs collect more reads. I divided each contig's read depth by the depth of the isolate's chromosome.
+A plasmid can be present in more copies per cell than the chromosome [@copynumber2025], so its contigs collect more reads. I divided each contig's read depth by the depth of the isolate's chromosome.
 
 ![Read depth of each contig relative to its isolate's chromosome, for plasmid and chromosome contigs. Repeat segments are left out. The shaded band is chromosome-like depth, 0.8 to 1.25 times.](fig-depth.png){fig-alt="Histograms of relative read depth for plasmid and chromosome contigs on a log scale"}
 
@@ -70,9 +79,9 @@ Platon was the most precise tool in this zone: 89% of its plasmid calls were rig
 
 ## How Platon decides
 
-[Platon](https://doi.org/10.1099/mgen.0.000398) predicts the genes on each contig and looks each protein up in a table built from complete reference genomes. A protein matches if it is at least 90% identical over at least 80% of both lengths. Each table entry carries a score: positive if that protein is found mostly on plasmids, negative if mostly on chromosomes. A contig's score is the sum of its proteins' scores divided by the number of proteins it carries. Proteins that match nothing count as zero.
+Platon [@platon] predicts the genes on each contig and looks each protein up in a table built from complete reference genomes. A protein matches if it is at least 90% identical over at least 80% of both lengths. Each table entry carries a score: positive if that protein is found mostly on plasmids, negative if mostly on chromosomes. A contig's score is the sum of its proteins' scores divided by the number of proteins it carries. Proteins that match nothing count as zero.
 
-I repeated this lookup for all 620,476 proteins in the 150 assemblies, with Platon's own program versions and database (version 1.5.0), and checked it against Platon's real calls. Of Platon's 1,867 plasmid calls, 1,642 have a reproduced score of 0.7 or more, its strictest cut-off. None of its 7,504 chromosome calls do.
+I repeated this lookup for all 620,476 proteins in the 150 assemblies, with Platon's own versions of Prodigal [@prodigal] and DIAMOND [@diamond] and its database (version 1.5.0), and checked it against Platon's real calls. Of Platon's 1,867 plasmid calls, 1,642 have a reproduced score of 0.7 or more, its strictest cut-off. None of its 7,504 chromosome calls do.
 
 ## Why Platon misses plasmid contigs
 
@@ -134,6 +143,10 @@ The *K. pneumoniae* misses are almost all of one kind: 47 of 54 carry proteins t
 ## Data
 
 - Per-contig table behind every number here (zone, graph context, depth, the panel's verdict, Platon's call and score, and the reason for each miss): [plasmid_error_anatomy_P113.csv](plasmid_error_anatomy_P113.csv)
-- Assemblies, assembly graphs, labels and the twelve tools' calls: [Zenodo, doi:10.5281/zenodo.22086357](https://doi.org/10.5281/zenodo.22086357)
-- Platon: Schwengers O, et al. Microb Genom. 2020. [doi:10.1099/mgen.0.000398](https://doi.org/10.1099/mgen.0.000398)
+- Assemblies, assembly graphs, labels and the twelve tools' calls [@data113]: [Zenodo, doi:10.5281/zenodo.22086357](https://doi.org/10.5281/zenodo.22086357)
 - The twelve-tool benchmark on 432 clinical isolates: [Twelve Plasmid Classifiers on 432 Clinical Isolates](../plasmid-classifier-benchmark/)
+
+## References
+
+::: {#refs}
+:::
