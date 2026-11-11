@@ -3,7 +3,7 @@ title: "MB 1. Nucleic acid chemistry"
 description: "Purines and pyrimidines, nucleosides versus nucleotides, DNA versus RNA, base pairing, and what actually moves melting temperature."
 author: "Vahhab Piranfar"
 date: "2026-11-10"
-categories: [Learning, MB-ASCP]
+categories: [MB-ASCP]
 ---
 
 ```{=html}
@@ -174,7 +174,7 @@ In the lab this shows up as soon as you set an annealing temperature. Primers th
 - Phosphodiester bonds run along a strand. Hydrogen bonds pair the strands. The strands are antiparallel.
 - Tm is 50% denaturation. Higher GC, greater length, and higher salt raise it. Mismatches and formamide lower it.
 
-Next: [DNA replication](mb-02-dna-replication.qmd).
+Next: [DNA replication](02-dna-replication.qmd). All lessons: [MB(ASCP) study notes](../mb-ascp.qmd).
 
 ## Check yourself
 

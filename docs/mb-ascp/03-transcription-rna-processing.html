@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vahhab Piranfar">
+<meta name="dcterms.date" content="2026-11-10">
+<meta name="description" content="Template versus coding strand, bacterial and eukaryotic polymerases, the cap, splicing, polyadenylation, and why RT-PCR is not the same phrase as real-time PCR.">
+
+<title>MB 3. Transcription and RNA processing – Vahhab Piranfar</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../profile.jpg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-867ec05194674b9d02258e23c81cfb12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+
+{
+
+  "@context": "https://schema.org",
+
+  "@type": "Person",
+
+  "name": "Vahhab Piranfar",
+
+  "url": "https://vahhabpiranfar.com/",
+
+  "image": "https://vahhabpiranfar.com/profile.jpg",
+
+  "jobTitle": "Molecular Microbiologist and Computational Researcher",
+
+  "description": "Molecular microbiologist and computational researcher working on antimicrobial resistance, antibiotic PK/PD modeling, bacterial modeling, and reproducible evidence synthesis.",
+
+  "address": {
+
+    "@type": "PostalAddress",
+
+    "addressLocality": "Jersey City",
+
+    "addressRegion": "NJ",
+
+    "addressCountry": "US"
+
+  },
+
+  "sameAs": [
+
+    "https://orcid.org/0000-0003-3653-5739",
+
+    "https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en",
+
+    "https://www.linkedin.com/in/vahhab-piranfar/",
+
+    "https://www.researchgate.net/profile/Vahhab-Piranfar",
+
+    "https://github.com/piranfar",
+
+    "https://ssrn.com/abstract=7533152"
+
+  ],
+
+  "knowsAbout": [
+
+    "Antimicrobial resistance",
+
+    "Antibiotic PK/PD",
+
+    "Pharmacometrics",
+
+    "Bacterial modeling",
+
+    "Clinical microbiology",
+
+    "Monte Carlo simulation",
+
+    "Reproducible research"
+
+  ]
+
+}
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;family=Outfit:wght@400;600;700;800;900&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="MB 3. Transcription and RNA processing – Vahhab Piranfar">
+<meta property="og:description" content="Template versus coding strand, bacterial and eukaryotic polymerases, the cap, splicing, polyadenylation, and why RT-PCR is not the same phrase as real-time PCR.">
+<meta property="og:image" content="https://vahhabpiranfar.com/mb-ascp/profile.jpg">
+<meta property="og:site_name" content="Vahhab Piranfar">
+<meta name="twitter:title" content="MB 3. Transcription and RNA processing – Vahhab Piranfar">
+<meta name="twitter:description" content="Template versus coding strand, bacterial and eukaryotic polymerases, the cap, splicing, polyadenylation, and why RT-PCR is not the same phrase as real-time PCR.">
+<meta name="twitter:image" content="https://vahhabpiranfar.com/mb-ascp/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Vahhab Piranfar</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../learning.html"> 
+<span class="menu-text">Learning</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Discuss &amp; Review</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-the-polymerase-reads" id="toc-what-the-polymerase-reads" class="nav-link active" data-scroll-target="#what-the-polymerase-reads">What the polymerase reads</a></li>
+  <li><a href="#three-stages-and-where-bacteria-and-eukaryotes-differ" id="toc-three-stages-and-where-bacteria-and-eukaryotes-differ" class="nav-link" data-scroll-target="#three-stages-and-where-bacteria-and-eukaryotes-differ">Three stages, and where bacteria and eukaryotes differ</a></li>
+  <li><a href="#the-rna-types-worth-naming" id="toc-the-rna-types-worth-naming" class="nav-link" data-scroll-target="#the-rna-types-worth-naming">The RNA types worth naming</a></li>
+  <li><a href="#what-happens-to-eukaryotic-pre-mrna" id="toc-what-happens-to-eukaryotic-pre-mrna" class="nav-link" data-scroll-target="#what-happens-to-eukaryotic-pre-mrna">What happens to eukaryotic pre-mRNA</a>
+  <ul class="collapse">
+  <li><a href="#the-cap" id="toc-the-cap" class="nav-link" data-scroll-target="#the-cap">The cap</a></li>
+  <li><a href="#the-tail" id="toc-the-tail" class="nav-link" data-scroll-target="#the-tail">The tail</a></li>
+  <li><a href="#splicing" id="toc-splicing" class="nav-link" data-scroll-target="#splicing">Splicing</a></li>
+  </ul></li>
+  <li><a href="#reverse-transcription-said-so-the-abbreviations-stop-colliding" id="toc-reverse-transcription-said-so-the-abbreviations-stop-colliding" class="nav-link" data-scroll-target="#reverse-transcription-said-so-the-abbreviations-stop-colliding">Reverse transcription, said so the abbreviations stop colliding</a></li>
+  <li><a href="#say-these-without-looking" id="toc-say-these-without-looking" class="nav-link" data-scroll-target="#say-these-without-looking">Say these without looking</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
+  <li><a href="#where-this-sits" id="toc-where-this-sits" class="nav-link" data-scroll-target="#where-this-sits">Where this sits</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MB 3. Transcription and RNA processing</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">MB-ASCP</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Template versus coding strand, bacterial and eukaryotic polymerases, the cap, splicing, polyadenylation, and why RT-PCR is not the same phrase as real-time PCR.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vahhab Piranfar </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 10, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 3</p>
+<p>Transcription copies DNA into RNA. The exam then asks which strand was read, which polymerase did the job, and what eukaryotes do to a pre-mRNA before it can be translated. Processing is three events: a 5′ cap, splicing, and a poly-A tail.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication and not real examination items.</p>
+</div>
+</div>
+<section id="what-the-polymerase-reads" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-polymerase-reads">What the polymerase reads</h2>
+<p>RNA polymerase reads the template strand 3′→5′ and writes RNA 5′→3′. It does not need a primer. The new RNA uses uracil where DNA would have used thymine.</p>
+<p>The other DNA strand is the coding strand, also called the sense strand. Its sequence matches the RNA, with T standing where the RNA has U. The polymerase does not copy the coding strand. People get this backward because the coding strand “looks like” the product. It looks like the product because the template was its complement.</p>
+<p>Read a short example as a habit:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Coding DNA</td>
+<td>5′-ATG CCA TTT-3′</td>
+</tr>
+<tr class="even">
+<td>Template DNA</td>
+<td>3′-TAC GGT AAA-5′</td>
+</tr>
+<tr class="odd">
+<td>RNA</td>
+<td>5′-AUG CCA UUU-3′</td>
+</tr>
+</tbody>
+</table>
+<p>The RNA is complementary to the template and identical to the coding strand except at U. If an item gives you the template and asks for the RNA, write the complement and flip the direction so the answer runs 5′→3′.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coding strand, template strand, and the RNA copied from the template">
+  <rect width="760" height="230" fill="#F8FAFC"></rect>
+  <text x="28" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Coding</text>
+  <text x="150" y="48" fill="#334155" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-ATG CCA TTT-3′</text>
+  <text x="430" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">same letters as the RNA, T for U</text>
+  <text x="28" y="108" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Template</text>
+  <text x="150" y="108" fill="#C2410C" font-family="Outfit, sans-serif" font-size="18" font-weight="700">3′-TAC GGT AAA-5′</text>
+  <text x="430" y="108" fill="#C2410C" font-family="IBM Plex Sans, sans-serif" font-size="15">this strand is read</text>
+  <text x="28" y="168" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">RNA</text>
+  <text x="150" y="168" fill="#0F766E" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-AUG CCA UUU-3′</text>
+  <text x="430" y="168" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="15">written 5′→3′</text>
+  <text x="28" y="210" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic. The polymerase never uses the coding strand as the template for this transcript.</text>
+</svg>
+<p class="learn-caption">Template equals antisense. Coding equals sense. Report both sequences 5′ to 3′ unless the question prints the template in the 3′→5′ direction it is read.</p>
+</div>
+</section>
+<section id="three-stages-and-where-bacteria-and-eukaryotes-differ" class="level2">
+<h2 class="anchored" data-anchor-id="three-stages-and-where-bacteria-and-eukaryotes-differ">Three stages, and where bacteria and eukaryotes differ</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stage</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Initiation</td>
+<td>Polymerase and its helper proteins find a promoter and start at the +1 nucleotide.</td>
+</tr>
+<tr class="even">
+<td>Elongation</td>
+<td>The polymerase walks the template and lengthens the RNA 5′→3′.</td>
+</tr>
+<tr class="odd">
+<td>Termination</td>
+<td>A signal ends the transcript. The signal is not the same in bacteria and eukaryotes.</td>
+</tr>
+</tbody>
+</table>
+<p>A promoter decides where transcription starts and how eager the start is. It is DNA. It is not transcribed into the body of a bacterial mRNA as a coding sequence, and it is not the same thing as the start codon.</p>
+<p>In bacteria the core RNA polymerase is α2ββ′ω. The sigma subunit is what recognizes the promoter, principally the −10 box (TATAAT) and the −35 box (TTGACA). Sigma leaves after initiation. The core enzyme elongates without it.</p>
+<p>Bacterial termination comes in two versions. Intrinsic, or rho-independent, termination is an RNA hairpin rich in G–C, followed by a run of U. The weak A–U hybrid lets the chain fall off. Rho-dependent termination uses the rho protein, which loads on a C-rich rut site in the RNA and catches the polymerase.</p>
+<p>Eukaryotes split the work among three nuclear polymerases:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Polymerase</th>
+<th>What to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RNA polymerase I</td>
+<td>The major ribosomal RNAs: 28S, 18S, and 5.8S, cut from one precursor</td>
+</tr>
+<tr class="even">
+<td>RNA polymerase II</td>
+<td>Pre-mRNA, and also most snRNA and miRNA</td>
+</tr>
+<tr class="odd">
+<td>RNA polymerase III</td>
+<td>tRNA, 5S rRNA, and U6 snRNA</td>
+</tr>
+</tbody>
+</table>
+<p>The memory line is Pol I for most rRNA, Pol II for pre-mRNA, Pol III for tRNA and 5S. The item that catches people is 5S rRNA. It is ribosomal, but it is a Pol III product. U6 is the snRNA exception in the other direction: most snRNAs are Pol II, and U6 is Pol III.</p>
+<p>Eukaryotic promoters are more varied. Many Pol II promoters have a TATA box near −25, recognized by TBP within TFIID. Others rely on an initiator, a CAAT box, or GC boxes. “Every eukaryotic gene has a TATA box” is false.</p>
+</section>
+<section id="the-rna-types-worth-naming" class="level2">
+<h2 class="anchored" data-anchor-id="the-rna-types-worth-naming">The RNA types worth naming</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>RNA</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mRNA</td>
+<td>Carries codons to the ribosome</td>
+</tr>
+<tr class="even">
+<td>tRNA</td>
+<td>Brings the amino acid. Its anticodon pairs with the codon.</td>
+</tr>
+<tr class="odd">
+<td>rRNA</td>
+<td>Builds the ribosome and takes part in peptide-bond formation</td>
+</tr>
+<tr class="even">
+<td>snRNA</td>
+<td>Works inside snRNPs during splicing</td>
+</tr>
+<tr class="odd">
+<td>miRNA and siRNA</td>
+<td>Short RNAs that regulate other RNAs</td>
+</tr>
+<tr class="even">
+<td>lncRNA</td>
+<td>Long noncoding RNAs with regulatory roles</td>
+</tr>
+</tbody>
+</table>
+<p>You do not need a catalog of every lncRNA. You need to know that a transcript can be functional without becoming a protein, and that mRNA, tRNA, and rRNA are three different answers.</p>
+</section>
+<section id="what-happens-to-eukaryotic-pre-mrna" class="level2">
+<h2 class="anchored" data-anchor-id="what-happens-to-eukaryotic-pre-mrna">What happens to eukaryotic pre-mRNA</h2>
+<p>Bacteria often translate an mRNA while it is still being made, and a bacterial mRNA does not receive a 5′ cap or a long poly-A tail of the eukaryotic kind. Eukaryotic protein-coding genes produce a pre-mRNA that is processed, mostly while polymerase II is still elongating. Phosphorylation of the Pol II C-terminal domain is what couples the polymerase to the processing machinery. The three events are the cap, splicing, and cleavage plus polyadenylation.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pre-mRNA with cap site, exons, introns, and a polyadenylation signal, then the mature mRNA">
+  <rect width="780" height="250" fill="#F8FAFC"></rect>
+  <text x="28" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Pre-mRNA</text>
+  <rect x="28" y="52" width="70" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"></rect>
+  <text x="63" y="73" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">5′ cap</text>
+  <rect x="106" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
+  <text x="151" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
+  <rect x="196" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"></rect>
+  <text x="251" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
+  <rect x="306" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
+  <text x="351" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
+  <rect x="396" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"></rect>
+  <text x="451" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
+  <rect x="506" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
+  <text x="551" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
+  <rect x="604" y="52" width="78" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"></rect>
+  <text x="643" y="73" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="12" font-weight="700">AAUAAA</text>
+  <text x="360" y="124" text-anchor="middle" fill="#64748B" font-family="Outfit, sans-serif" font-size="18">↓ splicing, keep the exons</text>
+  <text x="28" y="168" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Mature mRNA</text>
+  <rect x="28" y="184" width="78" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"></rect>
+  <text x="67" y="205" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">m7G</text>
+  <rect x="114" y="184" width="80" height="32" fill="#0F766E"></rect>
+  <text x="154" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
+  <rect x="194" y="184" width="80" height="32" fill="#0F766E"></rect>
+  <text x="234" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
+  <rect x="274" y="184" width="80" height="32" fill="#0F766E"></rect>
+  <text x="314" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
+  <rect x="362" y="184" width="110" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"></rect>
+  <text x="417" y="205" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="13" font-weight="700">AAAAA…</text>
+  <text x="490" y="205" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">tail added, not copied</text>
+</svg>
+<p class="learn-caption">Original schematic. Introns leave. The poly-A tail is added by an enzyme after the RNA is cut downstream of AAUAAA.</p>
+</div>
+<section id="the-cap" class="level3">
+<h3 class="anchored" data-anchor-id="the-cap">The cap</h3>
+<p>A 7-methylguanosine is attached to the 5′ end through an unusual 5′–5′ triphosphate bridge. The cap protects the mRNA from exonucleases, helps export it from the nucleus, and helps the ribosome find the message. It is added early, co-transcriptionally.</p>
+</section>
+<section id="the-tail" class="level3">
+<h3 class="anchored" data-anchor-id="the-tail">The tail</h3>
+<p>A polyadenylation signal, commonly AAUAAA in mammals, sits near the 3′ end of the pre-mRNA. The transcript is cleaved downstream of that signal. Poly-A polymerase then adds a string of adenines to the new 3′ end. Those adenines are not copied from a long run of T in the gene. The tail contributes to stability, export, and translation. A shorter tail is one way a cell retires an mRNA.</p>
+</section>
+<section id="splicing" class="level3">
+<h3 class="anchored" data-anchor-id="splicing">Splicing</h3>
+<p>Introns are removed. Exons are joined and stay in the mature mRNA. Many nuclear pre-mRNA introns begin with GU and end with AG. An adenine at the branch point, upstream of the 3′ splice site, attacks the 5′ splice site. The intron comes out as a lariat, and the exons are ligated.</p>
+<p>The spliceosome is the RNA–protein machine that does this. Its snRNPs include U1, U2, U4, U5, and U6. U1 recognizes the 5′ splice site. U2 recognizes the branch point. The chemistry itself is RNA-catalyzed. A few introns, the group I and group II types, can splice without a spliceosome. If the stem says “spliceosome,” it means the GU–AG nuclear pre-mRNA pathway, not those self-splicing exceptions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Word</th>
+<th>Meaning on an item</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exon</td>
+<td>Kept in the mature RNA</td>
+</tr>
+<tr class="even">
+<td>Intron</td>
+<td>Removed</td>
+</tr>
+<tr class="odd">
+<td>Spliceosome</td>
+<td>The complex that removes nuclear pre-mRNA introns</td>
+</tr>
+<tr class="even">
+<td>snRNP</td>
+<td>An RNA–protein subunit of that complex</td>
+</tr>
+</tbody>
+</table>
+<p>Alternative splicing lets one gene produce more than one mature mRNA. A transcript with exons 1–2–3–4 might be processed as 1–2–4 or as 1–3–4. Exon skipping is the common human pattern. Other patterns are an alternative 5′ or 3′ splice site, mutually exclusive exons, and intron retention. The result is more than one protein, or a different untranslated region, from one locus. A splicing mutation can cause disease without changing a single codon inside an exon. RNA sequencing is one way a lab sees the abnormal junction.</p>
+</section>
+</section>
+<section id="reverse-transcription-said-so-the-abbreviations-stop-colliding" class="level2">
+<h2 class="anchored" data-anchor-id="reverse-transcription-said-so-the-abbreviations-stop-colliding">Reverse transcription, said so the abbreviations stop colliding</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Process</th>
+<th>Direction</th>
+<th>Primer?</th>
+<th>Enzyme</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Replication</td>
+<td>DNA → DNA</td>
+<td>Yes</td>
+<td>DNA polymerase</td>
+</tr>
+<tr class="even">
+<td>Transcription</td>
+<td>DNA → RNA</td>
+<td>No</td>
+<td>RNA polymerase</td>
+</tr>
+<tr class="odd">
+<td>Reverse transcription</td>
+<td>RNA → DNA</td>
+<td>Yes</td>
+<td>Reverse transcriptase</td>
+</tr>
+</tbody>
+</table>
+<p>Reverse transcriptase reads RNA 3′→5′ and writes DNA 5′→3′. Unlike RNA polymerase, it needs a primer. For mRNA the primer is often oligo(dT), which pairs with the poly-A tail. Random primers are used when the RNA has no tail, or when the goal is to copy more than the 3′ end. Retroviral reverse transcriptase also has an RNase H activity that degrades the RNA half of the hybrid.</p>
+<p>In the clinical lab:</p>
+<ul>
+<li>PCR starts from DNA.</li>
+<li>RT-PCR starts from RNA, makes complementary DNA with reverse transcriptase, and then runs PCR.</li>
+<li>qPCR, or real-time PCR, is a way of watching product accumulate, with a dye or a probe. It says nothing by itself about whether the input was RNA.</li>
+<li>RT-qPCR is both: reverse transcription, then real-time detection.</li>
+</ul>
+<p>“RT” in a method name is the abbreviation that causes the miss. On these notes, RT means reverse transcription. Real-time is written out, or written as qPCR.</p>
+</section>
+<section id="say-these-without-looking" class="level2">
+<h2 class="anchored" data-anchor-id="say-these-without-looking">Say these without looking</h2>
+<ul>
+<li>RNA polymerase reads the template 3′→5′ and writes 5′→3′. It does not need a primer.</li>
+<li>The coding strand matches the RNA, with T where RNA has U.</li>
+<li>Bacteria: sigma reads −10 and −35. Intrinsic termination is a hairpin plus a U run. Rho termination uses the rho protein.</li>
+<li>Pol I: 28S, 18S, 5.8S. Pol II: pre-mRNA. Pol III: tRNA, 5S rRNA, U6.</li>
+<li>The cap is 7-methylguanosine on a 5′–5′ link.</li>
+<li>AAUAAA is the common polyadenylation signal. The tail is added, not transcribed.</li>
+<li>Introns leave through the spliceosome. GU–AG and a branch-point adenine define the usual nuclear intron. Exons stay.</li>
+<li>Reverse transcriptase copies RNA into DNA and needs a primer. RT-PCR is that step plus PCR. qPCR is the detection format.</li>
+</ul>
+<p>Previous: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>. The usual next block after these three days is translation and the genetic code. That lesson is not on the site yet.</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<div class="mb-quiz" data-mb-quiz="">
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">1. Which strand does RNA polymerase read, and in which direction?</p>
+    <label><input type="radio" name="d3q1" value="a"> The coding strand, 5′→3′</label>
+    <label><input type="radio" name="d3q1" value="b"> The template strand, 3′→5′</label>
+    <label><input type="radio" name="d3q1" value="c"> The template strand, 5′→3′</label>
+    <label><input type="radio" name="d3q1" value="d"> Both strands of one gene at the same time</label>
+    <p class="mb-q-why" hidden="">The template, or antisense, strand is read 3′→5′. The coding strand matches the RNA and is not the template.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">2. How does a mature mRNA sequence compare with the coding strand of its gene?</p>
+    <label><input type="radio" name="d3q2" value="a"> A in DNA is written as G in RNA</label>
+    <label><input type="radio" name="d3q2" value="b"> The sequences match, except T in DNA is U in RNA</label>
+    <label><input type="radio" name="d3q2" value="c"> The RNA is the reverse of the coding strand and still uses T</label>
+    <label><input type="radio" name="d3q2" value="d"> They match only inside introns</label>
+    <p class="mb-q-why" hidden="">Coding-strand sequence and RNA sequence are the same letters, with U replacing T, and with introns already removed from the mature mRNA.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">3. Which eukaryotic polymerase synthesizes pre-mRNA?</p>
+    <label><input type="radio" name="d3q3" value="a"> RNA polymerase I</label>
+    <label><input type="radio" name="d3q3" value="b"> RNA polymerase II</label>
+    <label><input type="radio" name="d3q3" value="c"> RNA polymerase III</label>
+    <label><input type="radio" name="d3q3" value="d"> Reverse transcriptase</label>
+    <p class="mb-q-why" hidden="">Pol II makes pre-mRNA. Pol I makes the major rRNAs. Pol III makes tRNA, 5S rRNA, and U6.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">4. tRNA and 5S rRNA are products of which polymerase?</p>
+    <label><input type="radio" name="d3q4" value="a"> RNA polymerase I</label>
+    <label><input type="radio" name="d3q4" value="b"> RNA polymerase II</label>
+    <label><input type="radio" name="d3q4" value="c"> RNA polymerase III</label>
+    <label><input type="radio" name="d3q4" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden="">Both are Pol III products. 5S is the ribosomal RNA that does not come from Pol I. The other rRNAs, 28S, 18S, and 5.8S, do.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">5. The 5′ cap on eukaryotic mRNA is which structure?</p>
+    <label><input type="radio" name="d3q5" value="a"> A run of adenines copied from the template</label>
+    <label><input type="radio" name="d3q5" value="b"> 7-methylguanosine joined by a 5′–5′ linkage</label>
+    <label><input type="radio" name="d3q5" value="c"> The first intron, left in place for export</label>
+    <label><input type="radio" name="d3q5" value="d"> The RNA primer from transcription</label>
+    <p class="mb-q-why" hidden="">The cap is a modified guanine on an unusual 5′–5′ triphosphate bridge. RNA polymerase does not use a primer, and the poly-A tail is a separate 3′ modification.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">6. Which sequence is the common mammalian polyadenylation signal?</p>
+    <label><input type="radio" name="d3q6" value="a"> TATAAT</label>
+    <label><input type="radio" name="d3q6" value="b"> AAUAAA</label>
+    <label><input type="radio" name="d3q6" value="c"> GU … AG</label>
+    <label><input type="radio" name="d3q6" value="d"> TTGACA</label>
+    <p class="mb-q-why" hidden="">AAUAAA marks the cleavage and polyadenylation region. TATAAT and TTGACA are bacterial promoter boxes. GU–AG marks splice sites.</p>
+  </div>
+  <div class="mb-q" data-answer="a">
+    <p class="mb-q-stem">7. During splicing of a typical nuclear pre-mRNA intron, the branch-point adenine</p>
+    <label><input type="radio" name="d3q7" value="a"> attacks the 5′ splice site and the intron is released as a lariat</label>
+    <label><input type="radio" name="d3q7" value="b"> is the polyadenylation signal</label>
+    <label><input type="radio" name="d3q7" value="c"> base-pairs with the TATA box</label>
+    <label><input type="radio" name="d3q7" value="d"> becomes the start codon</label>
+    <p class="mb-q-why" hidden="">The branch-point A makes the lariat. U1 marks the 5′ splice site and U2 marks the branch point. The exons are then joined.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">8. What is alternative splicing?</p>
+    <label><input type="radio" name="d3q8" value="a"> Copying one mRNA into several unrelated genes</label>
+    <label><input type="radio" name="d3q8" value="b"> Joining different combinations of exons from one pre-mRNA</label>
+    <label><input type="radio" name="d3q8" value="c"> Adding the poly-A tail at the 5′ end</label>
+    <label><input type="radio" name="d3q8" value="d"> Proofreading by RNA polymerase</label>
+    <p class="mb-q-why" hidden="">One primary transcript can yield more than one mature mRNA, for example by skipping an exon. That is a source of protein diversity and of disease when a splice site is mutated.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Reverse transcriptase differs from RNA polymerase because it</p>
+    <label><input type="radio" name="d3q9" value="a"> copies DNA into RNA and needs no primer</label>
+    <label><input type="radio" name="d3q9" value="b"> copies RNA into DNA and needs a primer</label>
+    <label><input type="radio" name="d3q9" value="c"> seals nicks between Okazaki fragments</label>
+    <label><input type="radio" name="d3q9" value="d"> removes introns from pre-mRNA</label>
+    <p class="mb-q-why" hidden="">Reverse transcriptase writes DNA from an RNA template and, unlike RNA polymerase, requires a primer such as oligo(dT) or a random hexamer.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">10. A run that starts with RNA, makes cDNA, and then amplifies that cDNA is called</p>
+    <label><input type="radio" name="d3q10" value="a"> PCR from genomic DNA</label>
+    <label><input type="radio" name="d3q10" value="b"> RT-PCR</label>
+    <label><input type="radio" name="d3q10" value="c"> a Southern blot</label>
+    <label><input type="radio" name="d3q10" value="d"> nick translation</label>
+    <p class="mb-q-why" hidden="">RT-PCR means reverse transcription followed by PCR. qPCR only describes real-time detection. Doing both is RT-qPCR. A Southern blot starts from DNA and does not amplify it this way.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+</section>
+<section id="where-this-sits" class="level2">
+<h2 class="anchored" data-anchor-id="where-this-sits">Where this sits</h2>
+<p>Both figures are original schematics. Promoters, the three nuclear polymerases, the cap, the spliceosome, and polyadenylation follow the account in Alberts and colleagues, <em>Molecular Biology of the Cell</em>. The clinical reading of RT-PCR versus real-time PCR follows Buckingham, <em>Molecular Diagnostics</em>. Polymerase product lists are the standard board assignments, including the two exceptions worth memorizing: 5S rRNA and U6 snRNA are RNA polymerase III products.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vahhabpiranfar\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Vahhab Piranfar — Molecular Microbiologist · Antimicrobial Resistance &amp; Computational Modeling</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vahhab-piranfar/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=o2GdH2oAAAAJ&amp;hl=en">
+      <i class="bi bi-google" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/piranfar">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

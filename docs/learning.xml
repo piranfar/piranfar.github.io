@@ -8,7 +8,7 @@
 <title>Vahhab Piranfar</title>
 <link>https://vahhabpiranfar.com/learning.html</link>
 <atom:link href="https://vahhabpiranfar.com/learning.xml" rel="self" type="application/rss+xml"/>
-<description>Short lessons on antibiotic PK/PD modeling, bacterial genetics, and MB(ASCP) study notes with end-of-lesson quizzes.</description>
+<description>Short lessons on antibiotic PK/PD modeling, bacterial genetics, and a preview of the latest MB(ASCP) study notes.</description>
 <image>
 <url>https://vahhabpiranfar.com/profile.jpg</url>
 <title>Vahhab Piranfar</title>
@@ -19,7 +19,7 @@
 <item>
   <title>MB 1. Nucleic acid chemistry</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://vahhabpiranfar.com/learning/mb-01-nucleic-acid-chemistry.html</link>
+  <link>https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html</link>
   <description><![CDATA[ 
 
 
@@ -282,7 +282,7 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 <li>Phosphodiester bonds run along a strand. Hydrogen bonds pair the strands. The strands are antiparallel.</li>
 <li>Tm is 50% denaturation. Higher GC, greater length, and higher salt raise it. Mismatches and formamide lower it.</li>
 </ul>
-<p>Next: <a href="../learning/mb-02-dna-replication.html">DNA replication</a>.</p>
+<p>Next: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
 </section>
 <section id="check-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
@@ -384,15 +384,14 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </section>
 
  ]]></description>
-  <category>Learning</category>
   <category>MB-ASCP</category>
-  <guid>https://vahhabpiranfar.com/learning/mb-01-nucleic-acid-chemistry.html</guid>
+  <guid>https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html</guid>
   <pubDate>Tue, 10 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MB 2. DNA replication</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://vahhabpiranfar.com/learning/mb-02-dna-replication.html</link>
+  <link>https://vahhabpiranfar.com/mb-ascp/02-dna-replication.html</link>
   <description><![CDATA[ 
 
 
@@ -668,7 +667,7 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 <li>Proofreading is 3′→5′. Primer removal by Pol I is 5′→3′.</li>
 <li>PCR uses heat and DNA primers. Taq does not proofread well.</li>
 </ul>
-<p>Previous: <a href="../learning/mb-01-nucleic-acid-chemistry.html">Nucleic acid chemistry</a>. Next: <a href="../learning/mb-03-transcription-rna-processing.html">Transcription and RNA processing</a>.</p>
+<p>Previous: <a href="../mb-ascp/01-nucleic-acid-chemistry.html">Nucleic acid chemistry</a>. Next: <a href="../mb-ascp/03-transcription-rna-processing.html">Transcription and RNA processing</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
 </section>
 <section id="check-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
@@ -769,15 +768,14 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </section>
 
  ]]></description>
-  <category>Learning</category>
   <category>MB-ASCP</category>
-  <guid>https://vahhabpiranfar.com/learning/mb-02-dna-replication.html</guid>
+  <guid>https://vahhabpiranfar.com/mb-ascp/02-dna-replication.html</guid>
   <pubDate>Tue, 10 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>MB 3. Transcription and RNA processing</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://vahhabpiranfar.com/learning/mb-03-transcription-rna-processing.html</link>
+  <link>https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html</link>
   <description><![CDATA[ 
 
 
@@ -1074,7 +1072,7 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 <li>Introns leave through the spliceosome. GU–AG and a branch-point adenine define the usual nuclear intron. Exons stay.</li>
 <li>Reverse transcriptase copies RNA into DNA and needs a primer. RT-PCR is that step plus PCR. qPCR is the detection format.</li>
 </ul>
-<p>Previous: <a href="../learning/mb-02-dna-replication.html">DNA replication</a>. The usual next block after these three days is translation and the genetic code. That lesson is not on the site yet.</p>
+<p>Previous: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>. The usual next block after these three days is translation and the genetic code. That lesson is not on the site yet.</p>
 </section>
 <section id="check-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
@@ -1175,9 +1173,8 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </section>
 
  ]]></description>
-  <category>Learning</category>
   <category>MB-ASCP</category>
-  <guid>https://vahhabpiranfar.com/learning/mb-03-transcription-rna-processing.html</guid>
+  <guid>https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html</guid>
   <pubDate>Tue, 10 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 <item>

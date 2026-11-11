@@ -20,6 +20,7 @@ LinkedIn: https://www.linkedin.com/in/vahhab-piranfar/
 - [Home](https://vahhabpiranfar.com/): research profile and scientific overview
 - [Projects](https://vahhabpiranfar.com/projects.html): research software and platforms
 - [Learning](https://vahhabpiranfar.com/learning.html): short lessons on antibiotic PK/PD and bacterial genetics for modelers
+- [MB(ASCP) study notes](https://vahhabpiranfar.com/mb-ascp.html): original molecular biology board-prep lessons with end-of-lesson quizzes
 - [Publications](https://vahhabpiranfar.com/publications.html): peer-reviewed work and under-review manuscripts
 - [About](https://vahhabpiranfar.com/about.html): background, interests, and skills
 - [Discuss & Review](https://vahhabpiranfar.com/blog.html): research notes and paper discussions
@@ -49,6 +50,13 @@ Secondary track (Bacterial genetics for modelers):
 - Chromosome vs plasmid resistance — https://vahhabpiranfar.com/learning/04-chromosome-vs-plasmid-resistance.html
 - Horizontal gene transfer and MIC ecology — https://vahhabpiranfar.com/learning/09-hgt-and-mic-ecology.html
 - Plasmid detection versus reconstruction from short reads — https://vahhabpiranfar.com/learning/14-plasmid-detection-vs-reconstruction.html
+
+MB(ASCP) exam track:
+
+- Index — https://vahhabpiranfar.com/mb-ascp.html
+- Nucleic acid chemistry — https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html
+- DNA replication — https://vahhabpiranfar.com/mb-ascp/02-dna-replication.html
+- Transcription and RNA processing — https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html
 
 ## Selected research (sole author unless noted)
 

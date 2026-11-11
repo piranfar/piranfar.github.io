@@ -3,7 +3,7 @@ title: "MB 2. DNA replication"
 description: "Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules."
 author: "Vahhab Piranfar"
 date: "2026-11-10"
-categories: [Learning, MB-ASCP]
+categories: [MB-ASCP]
 ---
 
 ```{=html}
@@ -148,7 +148,7 @@ Taq polymerase, from *Thermus aquaticus*, survives the denaturation step. Conven
 - Proofreading is 3′→5′. Primer removal by Pol I is 5′→3′.
 - PCR uses heat and DNA primers. Taq does not proofread well.
 
-Previous: [Nucleic acid chemistry](mb-01-nucleic-acid-chemistry.qmd). Next: [Transcription and RNA processing](mb-03-transcription-rna-processing.qmd).
+Previous: [Nucleic acid chemistry](01-nucleic-acid-chemistry.qmd). Next: [Transcription and RNA processing](03-transcription-rna-processing.qmd). All lessons: [MB(ASCP) study notes](../mb-ascp.qmd).
 
 ## Check yourself
 

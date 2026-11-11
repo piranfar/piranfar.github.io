@@ -1,26 +1,36 @@
 ---
 title: "Learning"
 pagetitle: "Learning | Vahhab Piranfar"
-description: "Short lessons on antibiotic PK/PD modeling, bacterial genetics, and MB(ASCP) study notes with end-of-lesson quizzes."
+description: "Short lessons on antibiotic PK/PD modeling, bacterial genetics, and a preview of the latest MB(ASCP) study notes."
 toc: false
 listing:
-  id: learning-posts
-  contents: learning
-  sort: "date desc"
-  type: default
-  categories: true
-  feed: true
-  fields: [date, title, description, categories, reading-time]
-  sort-ui: false
-  filter-ui: true
-  page-size: 20
+  - id: learning-posts
+    contents: learning
+    sort: "date desc"
+    type: default
+    categories: true
+    feed: true
+    fields: [date, title, description, categories, reading-time]
+    sort-ui: false
+    filter-ui: true
+    page-size: 20
+  - id: mb-latest
+    contents: mb-ascp
+    sort: "date desc"
+    type: default
+    categories: false
+    feed: false
+    fields: [title]
+    sort-ui: false
+    filter-ui: false
+    max-items: 3
 page-layout: full
 ---
 
 ::: {.learning-intro}
 <span class="learning-eyebrow">Tutorials · Modeling intuition · Not clinical advice</span>
 
-<p class="learning-lead">Short, plain-language notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate. A separate track holds MB(ASCP) study notes: read a lesson, then take the ten-question quiz at the end.</p>
+<p class="learning-lead">Short, plain-language notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate. The full MB(ASCP) lesson index lives on its own page so this list stays focused on modeling notes.</p>
 :::
 
 ## Learning tracks
@@ -43,16 +53,22 @@ MIC and indices, PTA/CFR, free drug, infusion mode, joint BL/BLI targets, proven
 Chromosome versus plasmid resistance, HGT-driven MIC ecology, and short-read plasmid detection versus reconstruction for AMR genomics.
 :::
 
-::: {.learning-track .learning-track--exam}
-<span class="learning-track-label">Exam track · days 1–3</span>
+::: {.learning-track-exam-stack}
+```{=html}
+<a class="learning-track learning-track--exam learning-track--hub" href="mb-ascp.html">
+  <span class="learning-track-label">Exam track · open full index</span>
+  <h3>MB(ASCP) foundations</h3>
+  <p>Click this card for the dedicated MB(ASCP) lesson page. Search engines and study sessions both land there. The three newest lessons are previewed under the card.</p>
+  <span class="learning-track-cta">Browse all MB lessons →</span>
+</a>
+```
 
-### MB(ASCP) foundations
+::: {.learning-track-latest}
+<span class="learning-track-latest-label">Newest three lessons</span>
 
-Read-and-quiz notes for the molecular biology board. Chemistry, replication, and transcription are up. The questions are original study items, not ASCP questions.
-
-- [Lesson 1 · Nucleic acid chemistry](learning/mb-01-nucleic-acid-chemistry.qmd)
-- [Lesson 2 · DNA replication](learning/mb-02-dna-replication.qmd)
-- [Lesson 3 · Transcription and RNA processing](learning/mb-03-transcription-rna-processing.qmd)
+:::{#mb-latest}
+:::
+:::
 :::
 
 :::

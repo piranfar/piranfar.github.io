@@ -5,7 +5,7 @@ project:
     - CNAME
     - llms.txt
     - profile.jpg
-    - learning/mb-quiz.js
+    - mb-ascp/mb-quiz.js
 
 website:
   title: "Vahhab Piranfar"

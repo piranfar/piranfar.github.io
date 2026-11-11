@@ -2202,6 +2202,126 @@ blockquote {
   color: #1d4ed8;
 }
 
+.learning-track-exam-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  background: var(--surface);
+}
+
+.learning-track-exam-stack .learning-track--hub {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: var(--transition);
+}
+
+.learning-track-exam-stack .learning-track--hub:hover,
+.learning-track-exam-stack .learning-track--hub:focus-visible {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.14), rgba(37, 99, 235, 0.04) 58%);
+  outline: none;
+}
+
+.learning-track-exam-stack .learning-track--hub h3 {
+  color: var(--text);
+}
+
+.learning-track-cta {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-family: Outfit, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.learning-track-latest {
+  border-top: 1px solid rgba(37, 99, 235, 0.18);
+  padding: 0.85rem 1.2rem 1rem;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.04), var(--surface));
+}
+
+.learning-track-latest-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+.learning-track-latest .quarto-listing,
+.learning-track-latest #mb-latest {
+  margin: 0;
+}
+
+.learning-track-latest .list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.learning-track-latest .listing-item,
+.learning-track-latest .list > * {
+  margin: 0;
+  padding: 0.35rem 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.learning-track-latest .listing-title,
+.learning-track-latest .listing-title a {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.learning-track-latest .listing-title a:hover {
+  color: #1d4ed8;
+}
+
+.learning-track-latest .listing-description,
+.learning-track-latest .listing-categories,
+.learning-track-latest .listing-date,
+.learning-track-latest .listing-reading-time,
+.learning-track-latest .listing-actions,
+.learning-track-latest .listing-page-count {
+  display: none;
+}
+
+.mb-hub-intro {
+  margin-bottom: 1rem;
+}
+
+.mb-hub-back {
+  margin: 0 0 1.5rem;
+  font-family: Outfit, sans-serif;
+  font-weight: 650;
+}
+
+.mb-hub-back a {
+  text-decoration: none;
+}
+
+.mb-hub-back a:hover {
+  text-decoration: underline;
+}
+
+/* MB lessons live on /mb-ascp; hide their category chip from the Learning sidebar. */
+.quarto-listing-category .category[data-category="TUItQVNDUA=="] {
+  display: none;
+}
+
 .learning-track ul {
   margin: 0.8rem 0 0;
   padding-left: 1.15rem;

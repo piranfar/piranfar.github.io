@@ -149,7 +149,7 @@ Research platform for bacteriology knowledge, AMR reasoning, and sandboxed lab t
 ::: {.g-col-12 .g-col-md-4}
 ::: {.feature-card}
 ### <span class="feature-icon"><i class="bi bi-lightbulb"></i></span> [Learning: antibiotic PK/PD](learning.qmd)
-Short lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence, plus MB(ASCP) study notes.
+Short lessons on MIC targets, PTA/CFR, and resistance vs tolerance vs persistence, plus a dedicated [MB(ASCP) study track](mb-ascp.qmd).
 :::
 :::
 :::
