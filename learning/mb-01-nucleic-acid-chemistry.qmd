@@ -1,0 +1,276 @@
+---
+title: "MB 1. Nucleic acid chemistry"
+description: "Purines and pyrimidines, nucleosides versus nucleotides, DNA versus RNA, base pairing, and what actually moves melting temperature."
+author: "Vahhab Piranfar"
+date: "2026-11-10"
+categories: [Learning, MB-ASCP]
+---
+
+```{=html}
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 1</p>
+```
+
+DNA and RNA are polymers. The exam mostly asks you to name the parts, the bonds, and the one chemical difference that makes RNA fall apart in alkali. This lesson is that map.
+
+::: {.callout-note}
+## Scope
+Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication, not a dosing or lab procedure, and not a set of real examination items. Confirm the current content outline before you register.
+:::
+
+## Three pieces, two names
+
+Every nucleotide has a nitrogenous base, a five-carbon sugar, and at least one phosphate. The sugar–phosphate chain is the backbone. The order of the bases is the information.
+
+| Molecule | What it contains | Examples |
+|---|---|---|
+| Base | The ring only | Adenine, guanine, cytosine, thymine, uracil |
+| Nucleoside | Base + sugar | Adenosine, deoxyadenosine, thymidine, uridine |
+| Nucleotide | Base + sugar + phosphate | AMP, ATP, dATP, dTTP |
+
+The base is tied to carbon 1′ of the sugar by a glycosidic bond. Purines use nitrogen N9. Pyrimidines use nitrogen N1. The phosphate sits on carbon 5′. The next nucleotide will be attached to the free OH on carbon 3′.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A nucleotide drawn as phosphate, sugar, and base, with the carbons that exams ask about">
+  <rect width="760" height="280" fill="#F8FAFC"/>
+  <rect x="36" y="78" width="150" height="78" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="111" y="112" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Phosphate</text>
+  <text x="111" y="134" text-anchor="middle" fill="#92400E" font-family="IBM Plex Sans, sans-serif" font-size="13">on carbon 5′</text>
+  <line x1="186" y1="117" x2="230" y2="117" stroke="#94A3B8" stroke-width="3"/>
+  <rect x="230" y="62" width="170" height="110" rx="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+  <text x="315" y="104" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Pentose sugar</text>
+  <text x="315" y="126" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">1′ holds the base</text>
+  <text x="315" y="146" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">3′ holds the next link</text>
+  <line x1="400" y1="117" x2="444" y2="117" stroke="#94A3B8" stroke-width="3"/>
+  <text x="422" y="108" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">glycosidic</text>
+  <rect x="444" y="70" width="160" height="94" rx="12" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"/>
+  <text x="524" y="112" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Base</text>
+  <text x="524" y="134" text-anchor="middle" fill="#312E81" font-family="IBM Plex Sans, sans-serif" font-size="13">A, G, C, T, or U</text>
+  <text x="36" y="230" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">Nucleoside = sugar + base. Add phosphate and the same molecule is a nucleotide.</text>
+  <text x="36" y="254" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Purines attach through N9. Pyrimidines attach through N1.</text>
+</svg>
+<p class="learn-caption">Original study schematic. Carbon numbers, not artistic ring drawings, are what the items test.</p>
+</div>
+```
+
+Naming is part of the question. Adenine is the base, adenosine is the ribonucleoside, and AMP is the nucleotide. The prefix **deoxy-** means the sugar is 2′-deoxyribose, so dATP is a DNA building block. Thymidine is the usual name for the deoxyribonucleoside of thymine. Uridine is the ribonucleoside of uracil.
+
+## Purines and pyrimidines
+
+Purines have two fused rings. Pyrimidines have one ring.
+
+| | Purines | Pyrimidines |
+|---|---|---|
+| Shape | Six-membered ring fused to a five-membered ring | One six-membered ring |
+| Members | Adenine (A), guanine (G) | Cytosine (C), thymine (T), uracil (U) |
+| Where | A and G are in DNA and RNA | C is in both. T is the DNA base. U is the RNA base. |
+
+The memory line is enough: **purines are A and G** ("pure As gold"). Everything else in this family — C, T, and U — is a pyrimidine.
+
+A few substituents are worth being able to picture. Adenine carries an amino group. Guanine carries an amino group and a carbonyl. Thymine is uracil with a methyl group on carbon 5, which is why thymine is also called 5-methyluracil. That methyl group is the only difference the exam wants between T and U.
+
+<details class="learn-think">
+<summary>If the item shows rings and asks which atom bonds to the sugar</summary>
+Count the rings first. Two rings means a purine, and the glycosidic nitrogen is N9. One ring means a pyrimidine, and the glycosidic nitrogen is N1. A choice that swaps those two numbers is the usual distractor.
+</details>
+
+## DNA and RNA
+
+| | DNA | RNA |
+|---|---|---|
+| Sugar | 2′-deoxyribose (2′ carbon carries H) | Ribose (2′ carbon carries OH) |
+| Bases | A, G, C, T | A, G, C, U |
+| Usual form | Double-stranded | Single-stranded, often folded |
+| Alkali | The backbone resists this particular attack | The 2′-OH can cleave the backbone |
+
+The 2′-OH is the whole stability story the board wants. Under alkaline conditions that hydroxyl can attack the neighboring phosphate and cut the chain. DNA has no 2′-OH, so it does not have this path. Folding, proteins, and RNases still decide how long an RNA actually lasts in a tube. The chemical point remains: **RNA is the alkali-labile nucleic acid because of the 2′-OH.**
+
+DNA polymerases are given dNTPs. RNA polymerases are given NTPs. ATP is both an energy cofactor and an RNA building block. If a stem says "the polymerase incorporates ATP," check whether the product is RNA before you call it a trick.
+
+## Two bonds, and which direction the strands run
+
+Hydrogen bonds pair bases **across** the two strands. A phosphodiester bond links nucleotides **along** one strand, from the 3′ carbon of one sugar to the 5′ phosphate of the next.
+
+| Pair | Hydrogen bonds | Where you meet it |
+|---|---|---|
+| A–T | 2 | DNA |
+| A–U | 2 | RNA duplexes and DNA–RNA hybrids |
+| G–C | 3 | DNA and RNA |
+
+G–C is the stronger pair because it has three hydrogen bonds. Base stacking along the strand stabilizes the duplex as well. The exam still treats "three versus two" as the short answer.
+
+The strands of a duplex are antiparallel. One runs 5′→3′. Its partner runs 3′→5′. Sequence is written 5′ to 3′ unless the item says otherwise.
+
+In double-stranded DNA, Chargaff's rules follow from that pairing: the amount of A equals T, and the amount of G equals C. A single strand does not have to obey that equality. An item that applies Chargaff to one RNA strand is using the rule in the wrong place.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Antiparallel DNA strands with hydrogen bonds between bases and phosphodiester links along each strand">
+  <rect width="760" height="300" fill="#F8FAFC"/>
+  <text x="48" y="42" fill="#0F766E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
+  <text x="520" y="42" fill="#0F766E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
+  <line x1="78" y1="36" x2="500" y2="36" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+  <text x="48" y="168" fill="#C2410C" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
+  <text x="520" y="168" fill="#C2410C" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
+  <line x1="78" y1="162" x2="500" y2="162" stroke="#C2410C" stroke-width="4" stroke-linecap="round"/>
+  <g font-family="Outfit, sans-serif" font-size="18" font-weight="700">
+    <text x="140" y="78" text-anchor="middle" fill="#312E81">A</text>
+    <text x="250" y="78" text-anchor="middle" fill="#312E81">G</text>
+    <text x="360" y="78" text-anchor="middle" fill="#312E81">C</text>
+    <text x="470" y="78" text-anchor="middle" fill="#312E81">T</text>
+    <text x="140" y="148" text-anchor="middle" fill="#312E81">T</text>
+    <text x="250" y="148" text-anchor="middle" fill="#312E81">C</text>
+    <text x="360" y="148" text-anchor="middle" fill="#312E81">G</text>
+    <text x="470" y="148" text-anchor="middle" fill="#312E81">A</text>
+  </g>
+  <g stroke="#4338CA" stroke-width="2">
+    <line x1="140" y1="86" x2="140" y2="128"/>
+    <line x1="146" y1="86" x2="146" y2="128"/>
+    <line x1="244" y1="86" x2="244" y2="128"/>
+    <line x1="250" y1="86" x2="250" y2="128"/>
+    <line x1="256" y1="86" x2="256" y2="128"/>
+    <line x1="354" y1="86" x2="354" y2="128"/>
+    <line x1="360" y1="86" x2="360" y2="128"/>
+    <line x1="366" y1="86" x2="366" y2="128"/>
+    <line x1="470" y1="86" x2="470" y2="128"/>
+    <line x1="476" y1="86" x2="476" y2="128"/>
+  </g>
+  <text x="48" y="220" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">Blue ticks are hydrogen bonds: two for A–T, three for G–C.</text>
+  <text x="48" y="246" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">The colored rails are phosphodiester backbones. They run in opposite directions.</text>
+  <text x="48" y="272" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic.</text>
+</svg>
+<p class="learn-caption">Hydrogen bonds are the cross-links. Phosphodiester bonds are the rails. Antiparallel means the 5′ ends are at opposite corners.</p>
+</div>
+```
+
+## Melting temperature
+
+Tm is the temperature at which half of the duplexes in a population are denatured, under the conditions you actually used. As the strands separate, absorbance at 260 nm rises. That rise is the hyperchromic effect, and it is how a melting curve is read.
+
+What pushes Tm up, when the other variables stay put:
+
+- More G–C pairs, because each contributes three hydrogen bonds and favorable stacking.
+- A longer perfectly matched duplex.
+- Higher salt. Monovalent cations shield the repulsion between the phosphate backbones.
+
+What pushes Tm down:
+
+- Mismatches.
+- A shorter duplex.
+- Denaturants such as formamide or urea, which is why hybridization buffers use them when the goal is a more stringent, or a more controlled, melt.
+
+GC percent is a first estimate. Primer-design software uses nearest-neighbor parameters, because the neighbors of a pair change the stability of that pair. Two oligos with the same GC percent can still have different Tm values. For a board item that only gives GC percent, length, and "otherwise identical conditions," choose the higher GC.
+
+In the lab this shows up as soon as you set an annealing temperature. Primers that melt far apart, or an annealing step set far below the primer Tm, are the usual reasons a PCR becomes either weak or nonspecific. The chemistry lesson and the amplification lesson are the same fact seen from two sides.
+
+## Say these without looking
+
+- Purines: A and G, two rings, glycosidic bond through N9.
+- Pyrimidines: C, T, and U, one ring, glycosidic bond through N1.
+- Nucleoside = base + sugar. Nucleotide = nucleoside + phosphate.
+- DNA sugar is 2′-deoxyribose and the unique base is T. RNA sugar is ribose and the unique base is U.
+- The 2′-OH makes RNA alkali-labile.
+- A–T and A–U have two hydrogen bonds. G–C has three.
+- Phosphodiester bonds run along a strand. Hydrogen bonds pair the strands. The strands are antiparallel.
+- Tm is 50% denaturation. Higher GC, greater length, and higher salt raise it. Mismatches and formamide lower it.
+
+Next: [DNA replication](mb-02-dna-replication.qmd).
+
+## Check yourself
+
+Ten original questions. Answer all of them, then check. A miss opens a one-line reason.
+
+```{=html}
+<div class="mb-quiz" data-mb-quiz>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">1. Which bases are purines?</p>
+    <label><input type="radio" name="d1q1" value="a"> Cytosine, thymine, and uracil</label>
+    <label><input type="radio" name="d1q1" value="b"> Adenine and guanine</label>
+    <label><input type="radio" name="d1q1" value="c"> Adenine, thymine, and uracil</label>
+    <label><input type="radio" name="d1q1" value="d"> Only the bases found in RNA</label>
+    <p class="mb-q-why" hidden>Adenine and guanine have two fused rings. C, T, and U are the pyrimidines.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">2. A nucleoside contains which parts?</p>
+    <label><input type="radio" name="d1q2" value="a"> Base, sugar, and phosphate</label>
+    <label><input type="radio" name="d1q2" value="b"> Phosphate only</label>
+    <label><input type="radio" name="d1q2" value="c"> Base and sugar</label>
+    <label><input type="radio" name="d1q2" value="d"> Two paired strands</label>
+    <p class="mb-q-why" hidden>Base plus sugar is the nucleoside. Phosphate is what turns it into a nucleotide. dATP is a nucleotide, not a nucleoside.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">3. Which bond covalently links neighboring nucleotides in one strand?</p>
+    <label><input type="radio" name="d1q3" value="a"> Hydrogen bond</label>
+    <label><input type="radio" name="d1q3" value="b"> Glycosidic bond</label>
+    <label><input type="radio" name="d1q3" value="c"> Phosphodiester bond</label>
+    <label><input type="radio" name="d1q3" value="d"> Peptide bond</label>
+    <p class="mb-q-why" hidden>The phosphodiester bond is the backbone link, from 3′ of one sugar to 5′ of the next. Hydrogen bonds pair bases. The glycosidic bond holds a base on its own sugar.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">4. Why is RNA more susceptible than DNA to alkaline hydrolysis?</p>
+    <label><input type="radio" name="d1q4" value="a"> RNA contains thymine</label>
+    <label><input type="radio" name="d1q4" value="b"> Ribose has a 2′-OH</label>
+    <label><input type="radio" name="d1q4" value="c"> RNA has a 5′ phosphate and DNA does not</label>
+    <label><input type="radio" name="d1q4" value="d"> RNA strands are antiparallel</label>
+    <p class="mb-q-why" hidden>The 2′-OH can attack the adjacent phosphate and cut the chain. DNA carries hydrogen at the 2′ carbon, so this path does not exist.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">5. How many hydrogen bonds hold a G–C pair?</p>
+    <label><input type="radio" name="d1q5" value="a"> One</label>
+    <label><input type="radio" name="d1q5" value="b"> Two</label>
+    <label><input type="radio" name="d1q5" value="c"> Three</label>
+    <label><input type="radio" name="d1q5" value="d"> None. G–C is a covalent pair</label>
+    <p class="mb-q-why" hidden>G–C has three hydrogen bonds. A–T and A–U have two. The bonds are not covalent.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">6. Which duplex should have the highest Tm?</p>
+    <label><input type="radio" name="d1q6" value="a"> A short oligo with 40% GC</label>
+    <label><input type="radio" name="d1q6" value="b"> A long duplex with 40% GC</label>
+    <label><input type="radio" name="d1q6" value="c"> A long, perfectly matched duplex with 70% GC</label>
+    <label><input type="radio" name="d1q6" value="d"> A long 70% GC duplex with several mismatches</label>
+    <p class="mb-q-why" hidden>Length and GC content both raise Tm. Mismatches lower it. The long matched 70% GC duplex has all three factors on its side.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">7. A purine is attached to C1′ of the sugar through which atom?</p>
+    <label><input type="radio" name="d1q7" value="a"> N1</label>
+    <label><input type="radio" name="d1q7" value="b"> N9</label>
+    <label><input type="radio" name="d1q7" value="c"> The 3′-OH</label>
+    <label><input type="radio" name="d1q7" value="d"> The 5′ phosphate</label>
+    <p class="mb-q-why" hidden>Purines use N9. Pyrimidines use N1. Both bonds land on C1′ of the sugar.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">8. Chargaff's rules, A = T and G = C, apply directly to which molecule?</p>
+    <label><input type="radio" name="d1q8" value="a"> Any single-stranded RNA</label>
+    <label><input type="radio" name="d1q8" value="b"> Double-stranded DNA</label>
+    <label><input type="radio" name="d1q8" value="c"> A free nucleotide</label>
+    <label><input type="radio" name="d1q8" value="d"> The peptide backbone</label>
+    <p class="mb-q-why" hidden>The equalities come from base pairing across two DNA strands. A single RNA strand has no partner forcing A to equal U.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">9. What does Tm represent?</p>
+    <label><input type="radio" name="d1q9" value="a"> The temperature that destroys every phosphodiester bond</label>
+    <label><input type="radio" name="d1q9" value="b"> The temperature at which ligase is most active</label>
+    <label><input type="radio" name="d1q9" value="c"> The temperature at which half of the duplexes are denatured</label>
+    <label><input type="radio" name="d1q9" value="d"> The annealing temperature printed on a primer tube</label>
+    <p class="mb-q-why" hidden>Tm is the midpoint of the melting transition under stated conditions: 50% of the duplex population is single-stranded. It is measured, often from the rise in A260, not assumed from a reagent label.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">10. Which change tends to lower Tm?</p>
+    <label><input type="radio" name="d1q10" value="a"> Raising the GC content</label>
+    <label><input type="radio" name="d1q10" value="b"> Raising the salt concentration</label>
+    <label><input type="radio" name="d1q10" value="c"> Adding formamide</label>
+    <label><input type="radio" name="d1q10" value="d"> Lengthening a perfectly matched duplex</label>
+    <p class="mb-q-why" hidden>Formamide destabilizes the duplex and lowers Tm. GC content, salt, and length of a matched duplex move Tm the other way.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+```
+
+## Where this sits
+
+Figures on this page are original schematics. The chemistry is the standard account used for clinical molecular boards: nucleotide structure, pairing, and melting behavior as treated in Alberts and colleagues, *Molecular Biology of the Cell*, and in the nucleic-acid chapters of Buckingham, *Molecular Diagnostics*. Use the current ASCP Board of Certification content guideline for MB(ASCP) and MB(ASCPi) to decide what else is in scope for your sitting.

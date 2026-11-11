@@ -1,0 +1,248 @@
+---
+title: "MB 2. DNA replication"
+description: "Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules."
+author: "Vahhab Piranfar"
+date: "2026-11-10"
+categories: [Learning, MB-ASCP]
+---
+
+```{=html}
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 2</p>
+```
+
+Replication makes two duplexes from one, and each daughter duplex keeps one old strand. Almost every exam item after that sentence is a direction, an enzyme, or a strand assignment. Learn those three lists and the questions get short.
+
+::: {.callout-note}
+## Scope
+Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication and not real examination items.
+:::
+
+## One old strand, one new strand
+
+Replication is semiconservative. The parental strands separate, and each is the template for a new partner. Each daughter duplex therefore contains one parental strand and one new strand.
+
+Meselson and Stahl showed this in *E. coli* by labeling DNA with heavy nitrogen (15N) and then shifting the cells to light nitrogen (14N). After exactly one generation in light medium, the DNA formed a single band of intermediate density. After exactly two generations, half of the DNA was intermediate and half was light. A conservative model would have kept a fully heavy duplex and made a fully light one. The two-generation result is the one that separates semiconservative copying from the alternatives.
+
+## Who stands at the fork
+
+| Protein | Job at the fork |
+|---|---|
+| Helicase | Pulls the strands apart. It disrupts base pairs. It does not cut the backbone. |
+| Single-strand binding protein | Coats the separated DNA so the strands do not simply zip back together. |
+| Topoisomerase | Cuts and reseals DNA ahead of the fork so the unreplicated duplex does not overwind. Bacterial DNA gyrase is a type II topoisomerase. |
+| Primase | Lays down a short RNA primer. DNA polymerase cannot start a chain. |
+| DNA polymerase | Adds nucleotides to a free 3′-OH. Synthesis is 5′→3′. |
+| Sliding clamp | Holds the polymerase on the DNA. The bacterial clamp is the β clamp. The eukaryotic clamp is PCNA. |
+| Ligase | Seals a nick by making the missing phosphodiester bond. *E. coli* ligase uses NAD+. Eukaryotic ligase and T4 ligase use ATP. |
+
+Helicase versus topoisomerase is a standard pair of distractors. Helicase separates strands. Topoisomerase manages the twist in front of that separation. Ligase is the enzyme of the nick, not the enzyme of the primer.
+
+## Direction, primers, and the two new strands
+
+DNA polymerase reads the template 3′→5′ and writes the new strand 5′→3′. It can add a nucleotide only onto a free 3′-OH. That is why a primer exists. In the cell the primer is RNA, made by primase. In PCR the primer is a synthetic DNA oligo, and heat does the unwinding that helicase does in the cell.
+
+The two templates are antiparallel, and the polymerase still writes only 5′→3′. One new strand can grow continuously toward the moving fork. That is the leading strand. The other new strand is made as short pieces, Okazaki fragments, each of them still 5′→3′ and pointed away from the fork. That is the lagging strand. A common miss is to say the lagging strand is polymerized 3′→5′. It is not. The fragments face the other way, and ligase joins them later.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 780 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Replication fork moving right, with leading synthesis toward the fork and Okazaki fragments pointing away from it">
+  <rect width="780" height="390" fill="#F8FAFC"/>
+  <text x="28" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Fork moves right</text>
+  <text x="560" y="36" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">unreplicated duplex</text>
+  <line x1="520" y1="70" x2="740" y2="150" stroke="#334155" stroke-width="3"/>
+  <line x1="520" y1="250" x2="740" y2="170" stroke="#334155" stroke-width="3"/>
+  <circle cx="528" cy="160" r="16" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"/>
+  <text x="528" y="164" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="11" font-weight="700">Hel</text>
+  <text x="28" y="78" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="14">5′ lagging template</text>
+  <text x="430" y="78" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">3′</text>
+  <line x1="28" y1="92" x2="510" y2="92" stroke="#334155" stroke-width="3"/>
+  <rect x="300" y="112" width="36" height="14" rx="3" fill="#7C3AED"/>
+  <line x1="300" y1="119" x2="150" y2="119" stroke="#C2410C" stroke-width="3"/>
+  <polygon points="150,119 162,113 162,125" fill="#C2410C"/>
+  <rect x="390" y="142" width="36" height="14" rx="3" fill="#7C3AED"/>
+  <line x1="390" y1="149" x2="250" y2="149" stroke="#C2410C" stroke-width="3"/>
+  <polygon points="250,149 262,143 262,155" fill="#C2410C"/>
+  <rect x="470" y="172" width="28" height="14" rx="3" fill="#7C3AED"/>
+  <line x1="470" y1="179" x2="400" y2="179" stroke="#C2410C" stroke-width="3"/>
+  <polygon points="400,179 412,173 412,185" fill="#C2410C"/>
+  <text x="28" y="210" fill="#7C3AED" font-family="IBM Plex Sans, sans-serif" font-size="14">Purple = RNA primer. Orange arrows = new DNA, each one 5′→3′.</text>
+  <text x="28" y="268" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="14">3′ leading template</text>
+  <text x="430" y="268" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">5′</text>
+  <line x1="28" y1="282" x2="510" y2="282" stroke="#334155" stroke-width="3"/>
+  <line x1="28" y1="312" x2="490" y2="312" stroke="#0F766E" stroke-width="3"/>
+  <polygon points="490,312 478,306 478,318" fill="#0F766E"/>
+  <text x="28" y="340" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="14">5′ leading strand grows toward the fork</text>
+  <text x="520" y="340" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">3′</text>
+  <text x="28" y="372" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Original schematic. Every new-strand arrow points 5′ to 3′. The lagging arrows point away from the fork.</text>
+</svg>
+<p class="learn-caption">The newest Okazaki fragment is the short one nearest the fork. Its primer has not been removed yet.</p>
+</div>
+```
+
+Approximate fragment length, the range items expect:
+
+| Organism | Okazaki fragments |
+|---|---|
+| Bacteria such as *E. coli* | About 1,000–2,000 nucleotides |
+| Eukaryotes | About 100–200 nucleotides |
+
+Maturation is the same story in both kingdoms, with different enzymes. Primase makes the RNA primer. Polymerase extends it. The RNA is removed and the gap is filled with DNA. Ligase seals the last nick. In *E. coli*, DNA polymerase I removes the primer with its 5′→3′ exonuclease and fills the gap. In eukaryotes, RNase H and FEN1 do the removal work, polymerase fills, and ligase seals.
+
+## Which polymerase, on an exam
+
+Bacterial assignments:
+
+| Enzyme | What to answer |
+|---|---|
+| DNA polymerase III | The main chromosomal replicase. |
+| DNA polymerase I | Removes RNA primers and fills the gaps. Also works in repair. It has 5′→3′ polymerase, 3′→5′ proofreading, and 5′→3′ exonuclease. |
+| DNA polymerase II | Repair and restart. Not the main replicase. |
+
+Eukaryotic assignments used on exams:
+
+| Enzyme | What to answer |
+|---|---|
+| DNA polymerase α | Works with primase. Makes the RNA–DNA starter. |
+| DNA polymerase ε | Leading strand. |
+| DNA polymerase δ | Lagging strand. |
+| DNA polymerase γ | Mitochondrial DNA. |
+
+In the cell these enzymes share a replisome, and the labor is a little more shared than a one-enzyme-one-strand sentence suggests. For the item in front of you, use the table. Pol α starts the chain. Pol ε leads. Pol δ lags. Pol γ is the mitochondrial enzyme. A choice that makes Pol α the enzyme that finishes the chromosome is swapping the starter for the replicase.
+
+## Proofreading is a direction
+
+Replicative polymerases check the base they just added. If it is wrong, a 3′→5′ exonuclease cuts it back off and synthesis continues. That activity is proofreading. Mismatch repair is a later, separate system. It is not the same activity.
+
+| Activity | Direction | What it is for |
+|---|---|---|
+| Synthesis | 5′→3′ | Adding the next nucleotide |
+| Proofreading | 3′→5′ exonuclease | Removing a base the polymerase just misincorporated |
+| Primer removal by *E. coli* Pol I | 5′→3′ exonuclease | Clearing RNA in front of the filling polymerase |
+
+The trap is to swap the two exonuclease directions. Proofreading walks backward on the new strand. Primer removal chews forward from the 5′ side of the RNA.
+
+## The ends of a linear chromosome
+
+Bacterial chromosomes are circular, so the fork can finish. Eukaryotic chromosomes are linear. On the lagging strand, removing the terminal RNA primer leaves a gap, and no polymerase can fill it, because there is no upstream 3′-OH to extend. That is the end-replication problem.
+
+Telomerase solves the shortening. It is a reverse transcriptase that carries its own RNA template and extends the 3′ overhang with telomere repeats. Ordinary DNA synthesis then fills part of the complementary strand. The overhang remains, and it is part of how the end is protected. If an item says "RNA-dependent DNA polymerase at the chromosome end," the enzyme is telomerase.
+
+## The same rules, inside a PCR tube
+
+| Step | Typical temperature | What replaces the cell |
+|---|---|---|
+| Denaturation | 94–98°C | Heat replaces helicase |
+| Annealing | Often 50–65°C, set from the primer Tm | Synthetic DNA primers replace RNA primers |
+| Extension | About 72°C with Taq | A thermostable polymerase replaces Pol III |
+
+Taq polymerase, from *Thermus aquaticus*, survives the denaturation step. Conventional Taq has little 3′→5′ proofreading, so the copied product accumulates errors. When the goal is a low error rate — cloning, for example — the reaction uses a high-fidelity polymerase that does proofread. Taq also tends to leave a single unpaired A on the 3′ end of the product. That overhang is a cloning detail, and it is fair game on a techniques item.
+
+## Say these without looking
+
+- Replication is semiconservative. After two generations in light nitrogen, expect half intermediate and half light DNA.
+- Helicase unwinds. Topoisomerase relieves twist ahead of the fork. Primase makes RNA primers. Ligase seals nicks.
+- Polymerase writes 5′→3′ and can start only from a 3′-OH.
+- Leading strand: one continuous chain toward the fork. Lagging strand: Okazaki fragments, each still 5′→3′.
+- *E. coli* Pol III replicates the chromosome. Pol I removes primers with a 5′→3′ exonuclease.
+- Exam assignment: Pol α starts, Pol ε leads, Pol δ lags, Pol γ replicates mitochondrial DNA.
+- Proofreading is 3′→5′. Primer removal by Pol I is 5′→3′.
+- PCR uses heat and DNA primers. Taq does not proofread well.
+
+Previous: [Nucleic acid chemistry](mb-01-nucleic-acid-chemistry.qmd). Next: [Transcription and RNA processing](mb-03-transcription-rna-processing.qmd).
+
+## Check yourself
+
+```{=html}
+<div class="mb-quiz" data-mb-quiz>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">1. Cells grown for many generations in heavy nitrogen are switched to light nitrogen. After exactly two generations, semiconservative replication predicts which DNA?</p>
+    <label><input type="radio" name="d2q1" value="a"> Only one intermediate-density band</label>
+    <label><input type="radio" name="d2q1" value="b"> Half intermediate-density DNA and half light DNA</label>
+    <label><input type="radio" name="d2q1" value="c"> A fully heavy band plus a fully light band</label>
+    <label><input type="radio" name="d2q1" value="d"> Only light DNA</label>
+    <p class="mb-q-why" hidden>Each daughter keeps one old strand. After two generations, half the duplexes are heavy–light and half are fully light. A heavy band plus a light band would have supported conservative copying.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">2. Which enzyme separates the parental strands without cutting the phosphodiester backbone?</p>
+    <label><input type="radio" name="d2q2" value="a"> DNA ligase</label>
+    <label><input type="radio" name="d2q2" value="b"> Helicase</label>
+    <label><input type="radio" name="d2q2" value="c"> Primase</label>
+    <label><input type="radio" name="d2q2" value="d"> RNase H</label>
+    <p class="mb-q-why" hidden>Helicase breaks base pairs. Topoisomerase is the enzyme that cuts the backbone, and it does so ahead of the fork to relieve twist, then reseals it.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">3. DNA polymerase can add the next nucleotide only to which chemical group?</p>
+    <label><input type="radio" name="d2q3" value="a"> A free 5′ phosphate</label>
+    <label><input type="radio" name="d2q3" value="b"> A free 3′-OH</label>
+    <label><input type="radio" name="d2q3" value="c"> The 2′-OH of ribose</label>
+    <label><input type="radio" name="d2q3" value="d"> A base that is not yet hydrogen-bonded</label>
+    <p class="mb-q-why" hidden>Synthesis is extension of a 3′ end, which is why a primer is required and why the chain grows 5′→3′.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">4. Why is lagging-strand synthesis discontinuous?</p>
+    <label><input type="radio" name="d2q4" value="a"> Ligase is missing in bacteria</label>
+    <label><input type="radio" name="d2q4" value="b"> Helicase can unwind only one strand</label>
+    <label><input type="radio" name="d2q4" value="c"> The templates are antiparallel, and polymerase can write only 5′→3′</label>
+    <label><input type="radio" name="d2q4" value="d"> The lagging strand is polymerized 3′→5′</label>
+    <p class="mb-q-why" hidden>Both new strands are made 5′→3′. One template faces the fork, so its new strand is continuous. The other template faces the other way, so its new strand is made in Okazaki fragments.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">5. Which enzyme is the main replicase of the E. coli chromosome?</p>
+    <label><input type="radio" name="d2q5" value="a"> DNA polymerase I</label>
+    <label><input type="radio" name="d2q5" value="b"> DNA polymerase II</label>
+    <label><input type="radio" name="d2q5" value="c"> DNA polymerase III</label>
+    <label><input type="radio" name="d2q5" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden>Pol III copies the chromosome. Pol I removes RNA primers and fills short gaps. Pol γ is the eukaryotic mitochondrial polymerase, not a bacterial enzyme.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">6. In E. coli, RNA primers are removed by which activity?</p>
+    <label><input type="radio" name="d2q6" value="a"> Pol III, 3′→5′ exonuclease</label>
+    <label><input type="radio" name="d2q6" value="b"> Pol I, 5′→3′ exonuclease</label>
+    <label><input type="radio" name="d2q6" value="c"> Helicase</label>
+    <label><input type="radio" name="d2q6" value="d"> Sigma factor</label>
+    <p class="mb-q-why" hidden>Pol I uses a 5′→3′ exonuclease to clear the RNA primer, then fills with DNA. The 3′→5′ exonuclease is proofreading, a different job.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">7. Proofreading by a replicative DNA polymerase is which activity?</p>
+    <label><input type="radio" name="d2q7" value="a"> 5′→3′ exonuclease</label>
+    <label><input type="radio" name="d2q7" value="b"> 3′→5′ exonuclease</label>
+    <label><input type="radio" name="d2q7" value="c"> RNA primase</label>
+    <label><input type="radio" name="d2q7" value="d"> Nick sealing by ligase</label>
+    <p class="mb-q-why" hidden>Proofreading removes a nucleotide that was just added, so the nuclease moves 3′→5′ on the new strand. Primer removal runs the other direction.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">8. On the standard exam assignment, which eukaryotic polymerase synthesizes the leading strand?</p>
+    <label><input type="radio" name="d2q8" value="a"> DNA polymerase α</label>
+    <label><input type="radio" name="d2q8" value="b"> DNA polymerase δ</label>
+    <label><input type="radio" name="d2q8" value="c"> DNA polymerase ε</label>
+    <label><input type="radio" name="d2q8" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden>Pol ε is the leading-strand enzyme. Pol δ is assigned to the lagging strand. Pol α starts synthesis with primase. Pol γ replicates mitochondrial DNA.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Mitochondrial DNA is replicated by which polymerase?</p>
+    <label><input type="radio" name="d2q9" value="a"> DNA polymerase β</label>
+    <label><input type="radio" name="d2q9" value="b"> DNA polymerase γ</label>
+    <label><input type="radio" name="d2q9" value="c"> RNA polymerase II</label>
+    <label><input type="radio" name="d2q9" value="d"> Reverse transcriptase from a primer dimer</label>
+    <p class="mb-q-why" hidden>Pol γ is the mitochondrial replicase. Nuclear leading and lagging strands are Pol ε and Pol δ.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">10. Conventional Taq polymerase is a poor choice when the copied sequence must have the lowest possible error rate because it</p>
+    <label><input type="radio" name="d2q10" value="a"> synthesizes DNA 3′→5′</label>
+    <label><input type="radio" name="d2q10" value="b"> lacks a strong 3′→5′ proofreading activity</label>
+    <label><input type="radio" name="d2q10" value="c"> cannot extend a DNA primer</label>
+    <label><input type="radio" name="d2q10" value="d"> copies RNA rather than DNA</label>
+    <p class="mb-q-why" hidden>Taq survives heat denaturation but does not proofread well. A high-fidelity polymerase is used when the error rate matters. Taq still extends DNA primers 5′→3′.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+```
+
+## Where this sits
+
+The fork drawing is an original schematic. Strand assignments for the eukaryotic polymerases follow the account used in exams and in standard texts (Pol ε on the leading strand, Pol δ on the lagging strand), with the caveat that the replisome in vivo is more cooperative than the table. Telomerase as an RNA-dependent DNA polymerase at chromosome ends is the same textbook account, as in Alberts and colleagues, *Molecular Biology of the Cell*. PCR enzyme behavior is the clinical-lab version of those rules, as taught in Buckingham, *Molecular Diagnostics*.

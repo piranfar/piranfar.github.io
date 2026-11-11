@@ -1,7 +1,7 @@
 ---
 title: "Learning"
 pagetitle: "Learning | Vahhab Piranfar"
-description: "Short lessons on antibiotic PK/PD modeling and the bacterial genetics that shape resistance phenotypes used in simulation."
+description: "Short lessons on antibiotic PK/PD modeling, bacterial genetics, and MB(ASCP) study notes with end-of-lesson quizzes."
 toc: false
 listing:
   id: learning-posts
@@ -20,7 +20,7 @@ page-layout: full
 ::: {.learning-intro}
 <span class="learning-eyebrow">Tutorials · Modeling intuition · Not clinical advice</span>
 
-<p class="learning-lead">Short, plain-language notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate. Written for people who build or read PK/PD models.</p>
+<p class="learning-lead">Short, plain-language notes on antibiotic exposure, target attainment, and the bacterial biology that turns genotype into the phenotypes we simulate. A separate track holds MB(ASCP) study notes: read a lesson, then take the ten-question quiz at the end.</p>
 :::
 
 ## Learning tracks
@@ -41,6 +41,18 @@ MIC and indices, PTA/CFR, free drug, infusion mode, joint BL/BLI targets, proven
 ### Bacterial genetics for modelers
 
 Chromosome versus plasmid resistance, HGT-driven MIC ecology, and short-read plasmid detection versus reconstruction for AMR genomics.
+:::
+
+::: {.learning-track .learning-track--exam}
+<span class="learning-track-label">Exam track · days 1–3</span>
+
+### MB(ASCP) foundations
+
+Read-and-quiz notes for the molecular biology board. Chemistry, replication, and transcription are up. The questions are original study items, not ASCP questions.
+
+- [Lesson 1 · Nucleic acid chemistry](learning/mb-01-nucleic-acid-chemistry.qmd)
+- [Lesson 2 · DNA replication](learning/mb-02-dna-replication.qmd)
+- [Lesson 3 · Transcription and RNA processing](learning/mb-03-transcription-rna-processing.qmd)
 :::
 
 :::

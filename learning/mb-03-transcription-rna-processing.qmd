@@ -1,0 +1,285 @@
+---
+title: "MB 3. Transcription and RNA processing"
+description: "Template versus coding strand, bacterial and eukaryotic polymerases, the cap, splicing, polyadenylation, and why RT-PCR is not the same phrase as real-time PCR."
+author: "Vahhab Piranfar"
+date: "2026-11-10"
+categories: [Learning, MB-ASCP]
+---
+
+```{=html}
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 3</p>
+```
+
+Transcription copies DNA into RNA. The exam then asks which strand was read, which polymerase did the job, and what eukaryotes do to a pre-mRNA before it can be translated. Processing is three events: a 5′ cap, splicing, and a poly-A tail.
+
+::: {.callout-note}
+## Scope
+Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication and not real examination items.
+:::
+
+## What the polymerase reads
+
+RNA polymerase reads the template strand 3′→5′ and writes RNA 5′→3′. It does not need a primer. The new RNA uses uracil where DNA would have used thymine.
+
+The other DNA strand is the coding strand, also called the sense strand. Its sequence matches the RNA, with T standing where the RNA has U. The polymerase does not copy the coding strand. People get this backward because the coding strand "looks like" the product. It looks like the product because the template was its complement.
+
+Read a short example as a habit:
+
+| | Sequence |
+|---|---|
+| Coding DNA | 5′-ATG CCA TTT-3′ |
+| Template DNA | 3′-TAC GGT AAA-5′ |
+| RNA | 5′-AUG CCA UUU-3′ |
+
+The RNA is complementary to the template and identical to the coding strand except at U. If an item gives you the template and asks for the RNA, write the complement and flip the direction so the answer runs 5′→3′.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coding strand, template strand, and the RNA copied from the template">
+  <rect width="760" height="230" fill="#F8FAFC"/>
+  <text x="28" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Coding</text>
+  <text x="150" y="48" fill="#334155" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-ATG CCA TTT-3′</text>
+  <text x="430" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">same letters as the RNA, T for U</text>
+  <text x="28" y="108" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Template</text>
+  <text x="150" y="108" fill="#C2410C" font-family="Outfit, sans-serif" font-size="18" font-weight="700">3′-TAC GGT AAA-5′</text>
+  <text x="430" y="108" fill="#C2410C" font-family="IBM Plex Sans, sans-serif" font-size="15">this strand is read</text>
+  <text x="28" y="168" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">RNA</text>
+  <text x="150" y="168" fill="#0F766E" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-AUG CCA UUU-3′</text>
+  <text x="430" y="168" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="15">written 5′→3′</text>
+  <text x="28" y="210" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic. The polymerase never uses the coding strand as the template for this transcript.</text>
+</svg>
+<p class="learn-caption">Template equals antisense. Coding equals sense. Report both sequences 5′ to 3′ unless the question prints the template in the 3′→5′ direction it is read.</p>
+</div>
+```
+
+## Three stages, and where bacteria and eukaryotes differ
+
+| Stage | What happens |
+|---|---|
+| Initiation | Polymerase and its helper proteins find a promoter and start at the +1 nucleotide. |
+| Elongation | The polymerase walks the template and lengthens the RNA 5′→3′. |
+| Termination | A signal ends the transcript. The signal is not the same in bacteria and eukaryotes. |
+
+A promoter decides where transcription starts and how eager the start is. It is DNA. It is not transcribed into the body of a bacterial mRNA as a coding sequence, and it is not the same thing as the start codon.
+
+In bacteria the core RNA polymerase is α2ββ′ω. The sigma subunit is what recognizes the promoter, principally the −10 box (TATAAT) and the −35 box (TTGACA). Sigma leaves after initiation. The core enzyme elongates without it.
+
+Bacterial termination comes in two versions. Intrinsic, or rho-independent, termination is an RNA hairpin rich in G–C, followed by a run of U. The weak A–U hybrid lets the chain fall off. Rho-dependent termination uses the rho protein, which loads on a C-rich rut site in the RNA and catches the polymerase.
+
+Eukaryotes split the work among three nuclear polymerases:
+
+| Polymerase | What to answer |
+|---|---|
+| RNA polymerase I | The major ribosomal RNAs: 28S, 18S, and 5.8S, cut from one precursor |
+| RNA polymerase II | Pre-mRNA, and also most snRNA and miRNA |
+| RNA polymerase III | tRNA, 5S rRNA, and U6 snRNA |
+
+The memory line is Pol I for most rRNA, Pol II for pre-mRNA, Pol III for tRNA and 5S. The item that catches people is 5S rRNA. It is ribosomal, but it is a Pol III product. U6 is the snRNA exception in the other direction: most snRNAs are Pol II, and U6 is Pol III.
+
+Eukaryotic promoters are more varied. Many Pol II promoters have a TATA box near −25, recognized by TBP within TFIID. Others rely on an initiator, a CAAT box, or GC boxes. "Every eukaryotic gene has a TATA box" is false.
+
+## The RNA types worth naming
+
+| RNA | Job |
+|---|---|
+| mRNA | Carries codons to the ribosome |
+| tRNA | Brings the amino acid. Its anticodon pairs with the codon. |
+| rRNA | Builds the ribosome and takes part in peptide-bond formation |
+| snRNA | Works inside snRNPs during splicing |
+| miRNA and siRNA | Short RNAs that regulate other RNAs |
+| lncRNA | Long noncoding RNAs with regulatory roles |
+
+You do not need a catalog of every lncRNA. You need to know that a transcript can be functional without becoming a protein, and that mRNA, tRNA, and rRNA are three different answers.
+
+## What happens to eukaryotic pre-mRNA
+
+Bacteria often translate an mRNA while it is still being made, and a bacterial mRNA does not receive a 5′ cap or a long poly-A tail of the eukaryotic kind. Eukaryotic protein-coding genes produce a pre-mRNA that is processed, mostly while polymerase II is still elongating. Phosphorylation of the Pol II C-terminal domain is what couples the polymerase to the processing machinery. The three events are the cap, splicing, and cleavage plus polyadenylation.
+
+```{=html}
+<div class="learn-figure">
+<svg viewBox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pre-mRNA with cap site, exons, introns, and a polyadenylation signal, then the mature mRNA">
+  <rect width="780" height="250" fill="#F8FAFC"/>
+  <text x="28" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Pre-mRNA</text>
+  <rect x="28" y="52" width="70" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"/>
+  <text x="63" y="73" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">5′ cap</text>
+  <rect x="106" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"/>
+  <text x="151" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
+  <rect x="196" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"/>
+  <text x="251" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
+  <rect x="306" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"/>
+  <text x="351" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
+  <rect x="396" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"/>
+  <text x="451" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
+  <rect x="506" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"/>
+  <text x="551" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
+  <rect x="604" y="52" width="78" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"/>
+  <text x="643" y="73" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="12" font-weight="700">AAUAAA</text>
+  <text x="360" y="124" text-anchor="middle" fill="#64748B" font-family="Outfit, sans-serif" font-size="18">↓ splicing, keep the exons</text>
+  <text x="28" y="168" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Mature mRNA</text>
+  <rect x="28" y="184" width="78" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"/>
+  <text x="67" y="205" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">m7G</text>
+  <rect x="114" y="184" width="80" height="32" fill="#0F766E"/>
+  <text x="154" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
+  <rect x="194" y="184" width="80" height="32" fill="#0F766E"/>
+  <text x="234" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
+  <rect x="274" y="184" width="80" height="32" fill="#0F766E"/>
+  <text x="314" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
+  <rect x="362" y="184" width="110" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"/>
+  <text x="417" y="205" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="13" font-weight="700">AAAAA…</text>
+  <text x="490" y="205" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">tail added, not copied</text>
+</svg>
+<p class="learn-caption">Original schematic. Introns leave. The poly-A tail is added by an enzyme after the RNA is cut downstream of AAUAAA.</p>
+</div>
+```
+
+### The cap
+
+A 7-methylguanosine is attached to the 5′ end through an unusual 5′–5′ triphosphate bridge. The cap protects the mRNA from exonucleases, helps export it from the nucleus, and helps the ribosome find the message. It is added early, co-transcriptionally.
+
+### The tail
+
+A polyadenylation signal, commonly AAUAAA in mammals, sits near the 3′ end of the pre-mRNA. The transcript is cleaved downstream of that signal. Poly-A polymerase then adds a string of adenines to the new 3′ end. Those adenines are not copied from a long run of T in the gene. The tail contributes to stability, export, and translation. A shorter tail is one way a cell retires an mRNA.
+
+### Splicing
+
+Introns are removed. Exons are joined and stay in the mature mRNA. Many nuclear pre-mRNA introns begin with GU and end with AG. An adenine at the branch point, upstream of the 3′ splice site, attacks the 5′ splice site. The intron comes out as a lariat, and the exons are ligated.
+
+The spliceosome is the RNA–protein machine that does this. Its snRNPs include U1, U2, U4, U5, and U6. U1 recognizes the 5′ splice site. U2 recognizes the branch point. The chemistry itself is RNA-catalyzed. A few introns, the group I and group II types, can splice without a spliceosome. If the stem says "spliceosome," it means the GU–AG nuclear pre-mRNA pathway, not those self-splicing exceptions.
+
+| Word | Meaning on an item |
+|---|---|
+| Exon | Kept in the mature RNA |
+| Intron | Removed |
+| Spliceosome | The complex that removes nuclear pre-mRNA introns |
+| snRNP | An RNA–protein subunit of that complex |
+
+Alternative splicing lets one gene produce more than one mature mRNA. A transcript with exons 1–2–3–4 might be processed as 1–2–4 or as 1–3–4. Exon skipping is the common human pattern. Other patterns are an alternative 5′ or 3′ splice site, mutually exclusive exons, and intron retention. The result is more than one protein, or a different untranslated region, from one locus. A splicing mutation can cause disease without changing a single codon inside an exon. RNA sequencing is one way a lab sees the abnormal junction.
+
+## Reverse transcription, said so the abbreviations stop colliding
+
+| Process | Direction | Primer? | Enzyme |
+|---|---|---|---|
+| Replication | DNA → DNA | Yes | DNA polymerase |
+| Transcription | DNA → RNA | No | RNA polymerase |
+| Reverse transcription | RNA → DNA | Yes | Reverse transcriptase |
+
+Reverse transcriptase reads RNA 3′→5′ and writes DNA 5′→3′. Unlike RNA polymerase, it needs a primer. For mRNA the primer is often oligo(dT), which pairs with the poly-A tail. Random primers are used when the RNA has no tail, or when the goal is to copy more than the 3′ end. Retroviral reverse transcriptase also has an RNase H activity that degrades the RNA half of the hybrid.
+
+In the clinical lab:
+
+- PCR starts from DNA.
+- RT-PCR starts from RNA, makes complementary DNA with reverse transcriptase, and then runs PCR.
+- qPCR, or real-time PCR, is a way of watching product accumulate, with a dye or a probe. It says nothing by itself about whether the input was RNA.
+- RT-qPCR is both: reverse transcription, then real-time detection.
+
+"RT" in a method name is the abbreviation that causes the miss. On these notes, RT means reverse transcription. Real-time is written out, or written as qPCR.
+
+## Say these without looking
+
+- RNA polymerase reads the template 3′→5′ and writes 5′→3′. It does not need a primer.
+- The coding strand matches the RNA, with T where RNA has U.
+- Bacteria: sigma reads −10 and −35. Intrinsic termination is a hairpin plus a U run. Rho termination uses the rho protein.
+- Pol I: 28S, 18S, 5.8S. Pol II: pre-mRNA. Pol III: tRNA, 5S rRNA, U6.
+- The cap is 7-methylguanosine on a 5′–5′ link.
+- AAUAAA is the common polyadenylation signal. The tail is added, not transcribed.
+- Introns leave through the spliceosome. GU–AG and a branch-point adenine define the usual nuclear intron. Exons stay.
+- Reverse transcriptase copies RNA into DNA and needs a primer. RT-PCR is that step plus PCR. qPCR is the detection format.
+
+Previous: [DNA replication](mb-02-dna-replication.qmd). The usual next block after these three days is translation and the genetic code. That lesson is not on the site yet.
+
+## Check yourself
+
+```{=html}
+<div class="mb-quiz" data-mb-quiz>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">1. Which strand does RNA polymerase read, and in which direction?</p>
+    <label><input type="radio" name="d3q1" value="a"> The coding strand, 5′→3′</label>
+    <label><input type="radio" name="d3q1" value="b"> The template strand, 3′→5′</label>
+    <label><input type="radio" name="d3q1" value="c"> The template strand, 5′→3′</label>
+    <label><input type="radio" name="d3q1" value="d"> Both strands of one gene at the same time</label>
+    <p class="mb-q-why" hidden>The template, or antisense, strand is read 3′→5′. The coding strand matches the RNA and is not the template.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">2. How does a mature mRNA sequence compare with the coding strand of its gene?</p>
+    <label><input type="radio" name="d3q2" value="a"> A in DNA is written as G in RNA</label>
+    <label><input type="radio" name="d3q2" value="b"> The sequences match, except T in DNA is U in RNA</label>
+    <label><input type="radio" name="d3q2" value="c"> The RNA is the reverse of the coding strand and still uses T</label>
+    <label><input type="radio" name="d3q2" value="d"> They match only inside introns</label>
+    <p class="mb-q-why" hidden>Coding-strand sequence and RNA sequence are the same letters, with U replacing T, and with introns already removed from the mature mRNA.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">3. Which eukaryotic polymerase synthesizes pre-mRNA?</p>
+    <label><input type="radio" name="d3q3" value="a"> RNA polymerase I</label>
+    <label><input type="radio" name="d3q3" value="b"> RNA polymerase II</label>
+    <label><input type="radio" name="d3q3" value="c"> RNA polymerase III</label>
+    <label><input type="radio" name="d3q3" value="d"> Reverse transcriptase</label>
+    <p class="mb-q-why" hidden>Pol II makes pre-mRNA. Pol I makes the major rRNAs. Pol III makes tRNA, 5S rRNA, and U6.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">4. tRNA and 5S rRNA are products of which polymerase?</p>
+    <label><input type="radio" name="d3q4" value="a"> RNA polymerase I</label>
+    <label><input type="radio" name="d3q4" value="b"> RNA polymerase II</label>
+    <label><input type="radio" name="d3q4" value="c"> RNA polymerase III</label>
+    <label><input type="radio" name="d3q4" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden>Both are Pol III products. 5S is the ribosomal RNA that does not come from Pol I. The other rRNAs, 28S, 18S, and 5.8S, do.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">5. The 5′ cap on eukaryotic mRNA is which structure?</p>
+    <label><input type="radio" name="d3q5" value="a"> A run of adenines copied from the template</label>
+    <label><input type="radio" name="d3q5" value="b"> 7-methylguanosine joined by a 5′–5′ linkage</label>
+    <label><input type="radio" name="d3q5" value="c"> The first intron, left in place for export</label>
+    <label><input type="radio" name="d3q5" value="d"> The RNA primer from transcription</label>
+    <p class="mb-q-why" hidden>The cap is a modified guanine on an unusual 5′–5′ triphosphate bridge. RNA polymerase does not use a primer, and the poly-A tail is a separate 3′ modification.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">6. Which sequence is the common mammalian polyadenylation signal?</p>
+    <label><input type="radio" name="d3q6" value="a"> TATAAT</label>
+    <label><input type="radio" name="d3q6" value="b"> AAUAAA</label>
+    <label><input type="radio" name="d3q6" value="c"> GU … AG</label>
+    <label><input type="radio" name="d3q6" value="d"> TTGACA</label>
+    <p class="mb-q-why" hidden>AAUAAA marks the cleavage and polyadenylation region. TATAAT and TTGACA are bacterial promoter boxes. GU–AG marks splice sites.</p>
+  </div>
+  <div class="mb-q" data-answer="a">
+    <p class="mb-q-stem">7. During splicing of a typical nuclear pre-mRNA intron, the branch-point adenine</p>
+    <label><input type="radio" name="d3q7" value="a"> attacks the 5′ splice site and the intron is released as a lariat</label>
+    <label><input type="radio" name="d3q7" value="b"> is the polyadenylation signal</label>
+    <label><input type="radio" name="d3q7" value="c"> base-pairs with the TATA box</label>
+    <label><input type="radio" name="d3q7" value="d"> becomes the start codon</label>
+    <p class="mb-q-why" hidden>The branch-point A makes the lariat. U1 marks the 5′ splice site and U2 marks the branch point. The exons are then joined.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">8. What is alternative splicing?</p>
+    <label><input type="radio" name="d3q8" value="a"> Copying one mRNA into several unrelated genes</label>
+    <label><input type="radio" name="d3q8" value="b"> Joining different combinations of exons from one pre-mRNA</label>
+    <label><input type="radio" name="d3q8" value="c"> Adding the poly-A tail at the 5′ end</label>
+    <label><input type="radio" name="d3q8" value="d"> Proofreading by RNA polymerase</label>
+    <p class="mb-q-why" hidden>One primary transcript can yield more than one mature mRNA, for example by skipping an exon. That is a source of protein diversity and of disease when a splice site is mutated.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Reverse transcriptase differs from RNA polymerase because it</p>
+    <label><input type="radio" name="d3q9" value="a"> copies DNA into RNA and needs no primer</label>
+    <label><input type="radio" name="d3q9" value="b"> copies RNA into DNA and needs a primer</label>
+    <label><input type="radio" name="d3q9" value="c"> seals nicks between Okazaki fragments</label>
+    <label><input type="radio" name="d3q9" value="d"> removes introns from pre-mRNA</label>
+    <p class="mb-q-why" hidden>Reverse transcriptase writes DNA from an RNA template and, unlike RNA polymerase, requires a primer such as oligo(dT) or a random hexamer.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">10. A run that starts with RNA, makes cDNA, and then amplifies that cDNA is called</p>
+    <label><input type="radio" name="d3q10" value="a"> PCR from genomic DNA</label>
+    <label><input type="radio" name="d3q10" value="b"> RT-PCR</label>
+    <label><input type="radio" name="d3q10" value="c"> a Southern blot</label>
+    <label><input type="radio" name="d3q10" value="d"> nick translation</label>
+    <p class="mb-q-why" hidden>RT-PCR means reverse transcription followed by PCR. qPCR only describes real-time detection. Doing both is RT-qPCR. A Southern blot starts from DNA and does not amplify it this way.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+```
+
+## Where this sits
+
+Both figures are original schematics. Promoters, the three nuclear polymerases, the cap, the spliceosome, and polyadenylation follow the account in Alberts and colleagues, *Molecular Biology of the Cell*. The clinical reading of RT-PCR versus real-time PCR follows Buckingham, *Molecular Diagnostics*. Polymerase product lists are the standard board assignments, including the two exceptions worth memorizing: 5S rRNA and U6 snRNA are RNA polymerase III products.

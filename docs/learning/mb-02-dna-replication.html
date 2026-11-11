@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vahhab Piranfar">
+<meta name="dcterms.date" content="2026-11-10">
+<meta name="description" content="Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules.">
+
+<title>MB 2. DNA replication – Vahhab Piranfar</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../profile.jpg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-867ec05194674b9d02258e23c81cfb12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+
+{
+
+  "@context": "https://schema.org",
+
+  "@type": "Person",
+
+  "name": "Vahhab Piranfar",
+
+  "url": "https://vahhabpiranfar.com/",
+
+  "image": "https://vahhabpiranfar.com/profile.jpg",
+
+  "jobTitle": "Molecular Microbiologist and Computational Researcher",
+
+  "description": "Molecular microbiologist and computational researcher working on antimicrobial resistance, antibiotic PK/PD modeling, bacterial modeling, and reproducible evidence synthesis.",
+
+  "address": {
+
+    "@type": "PostalAddress",
+
+    "addressLocality": "Jersey City",
+
+    "addressRegion": "NJ",
+
+    "addressCountry": "US"
+
+  },
+
+  "sameAs": [
+
+    "https://orcid.org/0000-0003-3653-5739",
+
+    "https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en",
+
+    "https://www.linkedin.com/in/vahhab-piranfar/",
+
+    "https://www.researchgate.net/profile/Vahhab-Piranfar",
+
+    "https://github.com/piranfar",
+
+    "https://ssrn.com/abstract=7533152"
+
+  ],
+
+  "knowsAbout": [
+
+    "Antimicrobial resistance",
+
+    "Antibiotic PK/PD",
+
+    "Pharmacometrics",
+
+    "Bacterial modeling",
+
+    "Clinical microbiology",
+
+    "Monte Carlo simulation",
+
+    "Reproducible research"
+
+  ]
+
+}
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;family=Outfit:wght@400;600;700;800;900&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="MB 2. DNA replication – Vahhab Piranfar">
+<meta property="og:description" content="Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules.">
+<meta property="og:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
+<meta property="og:site_name" content="Vahhab Piranfar">
+<meta name="twitter:title" content="MB 2. DNA replication – Vahhab Piranfar">
+<meta name="twitter:description" content="Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules.">
+<meta name="twitter:image" content="https://vahhabpiranfar.com/learning/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Vahhab Piranfar</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../learning.html"> 
+<span class="menu-text">Learning</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Discuss &amp; Review</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#one-old-strand-one-new-strand" id="toc-one-old-strand-one-new-strand" class="nav-link active" data-scroll-target="#one-old-strand-one-new-strand">One old strand, one new strand</a></li>
+  <li><a href="#who-stands-at-the-fork" id="toc-who-stands-at-the-fork" class="nav-link" data-scroll-target="#who-stands-at-the-fork">Who stands at the fork</a></li>
+  <li><a href="#direction-primers-and-the-two-new-strands" id="toc-direction-primers-and-the-two-new-strands" class="nav-link" data-scroll-target="#direction-primers-and-the-two-new-strands">Direction, primers, and the two new strands</a></li>
+  <li><a href="#which-polymerase-on-an-exam" id="toc-which-polymerase-on-an-exam" class="nav-link" data-scroll-target="#which-polymerase-on-an-exam">Which polymerase, on an exam</a></li>
+  <li><a href="#proofreading-is-a-direction" id="toc-proofreading-is-a-direction" class="nav-link" data-scroll-target="#proofreading-is-a-direction">Proofreading is a direction</a></li>
+  <li><a href="#the-ends-of-a-linear-chromosome" id="toc-the-ends-of-a-linear-chromosome" class="nav-link" data-scroll-target="#the-ends-of-a-linear-chromosome">The ends of a linear chromosome</a></li>
+  <li><a href="#the-same-rules-inside-a-pcr-tube" id="toc-the-same-rules-inside-a-pcr-tube" class="nav-link" data-scroll-target="#the-same-rules-inside-a-pcr-tube">The same rules, inside a PCR tube</a></li>
+  <li><a href="#say-these-without-looking" id="toc-say-these-without-looking" class="nav-link" data-scroll-target="#say-these-without-looking">Say these without looking</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
+  <li><a href="#where-this-sits" id="toc-where-this-sits" class="nav-link" data-scroll-target="#where-this-sits">Where this sits</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MB 2. DNA replication</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Learning</div>
+    <div class="quarto-category">MB-ASCP</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vahhab Piranfar </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 10, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 2</p>
+<p>Replication makes two duplexes from one, and each daughter duplex keeps one old strand. Almost every exam item after that sentence is a direction, an enzyme, or a strand assignment. Learn those three lists and the questions get short.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication and not real examination items.</p>
+</div>
+</div>
+<section id="one-old-strand-one-new-strand" class="level2">
+<h2 class="anchored" data-anchor-id="one-old-strand-one-new-strand">One old strand, one new strand</h2>
+<p>Replication is semiconservative. The parental strands separate, and each is the template for a new partner. Each daughter duplex therefore contains one parental strand and one new strand.</p>
+<p>Meselson and Stahl showed this in <em>E. coli</em> by labeling DNA with heavy nitrogen (15N) and then shifting the cells to light nitrogen (14N). After exactly one generation in light medium, the DNA formed a single band of intermediate density. After exactly two generations, half of the DNA was intermediate and half was light. A conservative model would have kept a fully heavy duplex and made a fully light one. The two-generation result is the one that separates semiconservative copying from the alternatives.</p>
+</section>
+<section id="who-stands-at-the-fork" class="level2">
+<h2 class="anchored" data-anchor-id="who-stands-at-the-fork">Who stands at the fork</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Protein</th>
+<th>Job at the fork</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Helicase</td>
+<td>Pulls the strands apart. It disrupts base pairs. It does not cut the backbone.</td>
+</tr>
+<tr class="even">
+<td>Single-strand binding protein</td>
+<td>Coats the separated DNA so the strands do not simply zip back together.</td>
+</tr>
+<tr class="odd">
+<td>Topoisomerase</td>
+<td>Cuts and reseals DNA ahead of the fork so the unreplicated duplex does not overwind. Bacterial DNA gyrase is a type II topoisomerase.</td>
+</tr>
+<tr class="even">
+<td>Primase</td>
+<td>Lays down a short RNA primer. DNA polymerase cannot start a chain.</td>
+</tr>
+<tr class="odd">
+<td>DNA polymerase</td>
+<td>Adds nucleotides to a free 3′-OH. Synthesis is 5′→3′.</td>
+</tr>
+<tr class="even">
+<td>Sliding clamp</td>
+<td>Holds the polymerase on the DNA. The bacterial clamp is the β clamp. The eukaryotic clamp is PCNA.</td>
+</tr>
+<tr class="odd">
+<td>Ligase</td>
+<td>Seals a nick by making the missing phosphodiester bond. <em>E. coli</em> ligase uses NAD+. Eukaryotic ligase and T4 ligase use ATP.</td>
+</tr>
+</tbody>
+</table>
+<p>Helicase versus topoisomerase is a standard pair of distractors. Helicase separates strands. Topoisomerase manages the twist in front of that separation. Ligase is the enzyme of the nick, not the enzyme of the primer.</p>
+</section>
+<section id="direction-primers-and-the-two-new-strands" class="level2">
+<h2 class="anchored" data-anchor-id="direction-primers-and-the-two-new-strands">Direction, primers, and the two new strands</h2>
+<p>DNA polymerase reads the template 3′→5′ and writes the new strand 5′→3′. It can add a nucleotide only onto a free 3′-OH. That is why a primer exists. In the cell the primer is RNA, made by primase. In PCR the primer is a synthetic DNA oligo, and heat does the unwinding that helicase does in the cell.</p>
+<p>The two templates are antiparallel, and the polymerase still writes only 5′→3′. One new strand can grow continuously toward the moving fork. That is the leading strand. The other new strand is made as short pieces, Okazaki fragments, each of them still 5′→3′ and pointed away from the fork. That is the lagging strand. A common miss is to say the lagging strand is polymerized 3′→5′. It is not. The fragments face the other way, and ligase joins them later.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 780 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Replication fork moving right, with leading synthesis toward the fork and Okazaki fragments pointing away from it">
+  <rect width="780" height="390" fill="#F8FAFC"></rect>
+  <text x="28" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Fork moves right</text>
+  <text x="560" y="36" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">unreplicated duplex</text>
+  <line x1="520" y1="70" x2="740" y2="150" stroke="#334155" stroke-width="3"></line>
+  <line x1="520" y1="250" x2="740" y2="170" stroke="#334155" stroke-width="3"></line>
+  <circle cx="528" cy="160" r="16" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></circle>
+  <text x="528" y="164" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="11" font-weight="700">Hel</text>
+  <text x="28" y="78" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="14">5′ lagging template</text>
+  <text x="430" y="78" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">3′</text>
+  <line x1="28" y1="92" x2="510" y2="92" stroke="#334155" stroke-width="3"></line>
+  <rect x="300" y="112" width="36" height="14" rx="3" fill="#7C3AED"></rect>
+  <line x1="300" y1="119" x2="150" y2="119" stroke="#C2410C" stroke-width="3"></line>
+  <polygon points="150,119 162,113 162,125" fill="#C2410C"></polygon>
+  <rect x="390" y="142" width="36" height="14" rx="3" fill="#7C3AED"></rect>
+  <line x1="390" y1="149" x2="250" y2="149" stroke="#C2410C" stroke-width="3"></line>
+  <polygon points="250,149 262,143 262,155" fill="#C2410C"></polygon>
+  <rect x="470" y="172" width="28" height="14" rx="3" fill="#7C3AED"></rect>
+  <line x1="470" y1="179" x2="400" y2="179" stroke="#C2410C" stroke-width="3"></line>
+  <polygon points="400,179 412,173 412,185" fill="#C2410C"></polygon>
+  <text x="28" y="210" fill="#7C3AED" font-family="IBM Plex Sans, sans-serif" font-size="14">Purple = RNA primer. Orange arrows = new DNA, each one 5′→3′.</text>
+  <text x="28" y="268" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="14">3′ leading template</text>
+  <text x="430" y="268" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">5′</text>
+  <line x1="28" y1="282" x2="510" y2="282" stroke="#334155" stroke-width="3"></line>
+  <line x1="28" y1="312" x2="490" y2="312" stroke="#0F766E" stroke-width="3"></line>
+  <polygon points="490,312 478,306 478,318" fill="#0F766E"></polygon>
+  <text x="28" y="340" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="14">5′ leading strand grows toward the fork</text>
+  <text x="520" y="340" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">3′</text>
+  <text x="28" y="372" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Original schematic. Every new-strand arrow points 5′ to 3′. The lagging arrows point away from the fork.</text>
+</svg>
+<p class="learn-caption">The newest Okazaki fragment is the short one nearest the fork. Its primer has not been removed yet.</p>
+</div>
+<p>Approximate fragment length, the range items expect:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Organism</th>
+<th>Okazaki fragments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bacteria such as <em>E. coli</em></td>
+<td>About 1,000–2,000 nucleotides</td>
+</tr>
+<tr class="even">
+<td>Eukaryotes</td>
+<td>About 100–200 nucleotides</td>
+</tr>
+</tbody>
+</table>
+<p>Maturation is the same story in both kingdoms, with different enzymes. Primase makes the RNA primer. Polymerase extends it. The RNA is removed and the gap is filled with DNA. Ligase seals the last nick. In <em>E. coli</em>, DNA polymerase I removes the primer with its 5′→3′ exonuclease and fills the gap. In eukaryotes, RNase H and FEN1 do the removal work, polymerase fills, and ligase seals.</p>
+</section>
+<section id="which-polymerase-on-an-exam" class="level2">
+<h2 class="anchored" data-anchor-id="which-polymerase-on-an-exam">Which polymerase, on an exam</h2>
+<p>Bacterial assignments:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Enzyme</th>
+<th>What to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DNA polymerase III</td>
+<td>The main chromosomal replicase.</td>
+</tr>
+<tr class="even">
+<td>DNA polymerase I</td>
+<td>Removes RNA primers and fills the gaps. Also works in repair. It has 5′→3′ polymerase, 3′→5′ proofreading, and 5′→3′ exonuclease.</td>
+</tr>
+<tr class="odd">
+<td>DNA polymerase II</td>
+<td>Repair and restart. Not the main replicase.</td>
+</tr>
+</tbody>
+</table>
+<p>Eukaryotic assignments used on exams:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Enzyme</th>
+<th>What to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DNA polymerase α</td>
+<td>Works with primase. Makes the RNA–DNA starter.</td>
+</tr>
+<tr class="even">
+<td>DNA polymerase ε</td>
+<td>Leading strand.</td>
+</tr>
+<tr class="odd">
+<td>DNA polymerase δ</td>
+<td>Lagging strand.</td>
+</tr>
+<tr class="even">
+<td>DNA polymerase γ</td>
+<td>Mitochondrial DNA.</td>
+</tr>
+</tbody>
+</table>
+<p>In the cell these enzymes share a replisome, and the labor is a little more shared than a one-enzyme-one-strand sentence suggests. For the item in front of you, use the table. Pol α starts the chain. Pol ε leads. Pol δ lags. Pol γ is the mitochondrial enzyme. A choice that makes Pol α the enzyme that finishes the chromosome is swapping the starter for the replicase.</p>
+</section>
+<section id="proofreading-is-a-direction" class="level2">
+<h2 class="anchored" data-anchor-id="proofreading-is-a-direction">Proofreading is a direction</h2>
+<p>Replicative polymerases check the base they just added. If it is wrong, a 3′→5′ exonuclease cuts it back off and synthesis continues. That activity is proofreading. Mismatch repair is a later, separate system. It is not the same activity.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Direction</th>
+<th>What it is for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Synthesis</td>
+<td>5′→3′</td>
+<td>Adding the next nucleotide</td>
+</tr>
+<tr class="even">
+<td>Proofreading</td>
+<td>3′→5′ exonuclease</td>
+<td>Removing a base the polymerase just misincorporated</td>
+</tr>
+<tr class="odd">
+<td>Primer removal by <em>E. coli</em> Pol I</td>
+<td>5′→3′ exonuclease</td>
+<td>Clearing RNA in front of the filling polymerase</td>
+</tr>
+</tbody>
+</table>
+<p>The trap is to swap the two exonuclease directions. Proofreading walks backward on the new strand. Primer removal chews forward from the 5′ side of the RNA.</p>
+</section>
+<section id="the-ends-of-a-linear-chromosome" class="level2">
+<h2 class="anchored" data-anchor-id="the-ends-of-a-linear-chromosome">The ends of a linear chromosome</h2>
+<p>Bacterial chromosomes are circular, so the fork can finish. Eukaryotic chromosomes are linear. On the lagging strand, removing the terminal RNA primer leaves a gap, and no polymerase can fill it, because there is no upstream 3′-OH to extend. That is the end-replication problem.</p>
+<p>Telomerase solves the shortening. It is a reverse transcriptase that carries its own RNA template and extends the 3′ overhang with telomere repeats. Ordinary DNA synthesis then fills part of the complementary strand. The overhang remains, and it is part of how the end is protected. If an item says “RNA-dependent DNA polymerase at the chromosome end,” the enzyme is telomerase.</p>
+</section>
+<section id="the-same-rules-inside-a-pcr-tube" class="level2">
+<h2 class="anchored" data-anchor-id="the-same-rules-inside-a-pcr-tube">The same rules, inside a PCR tube</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Typical temperature</th>
+<th>What replaces the cell</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Denaturation</td>
+<td>94–98°C</td>
+<td>Heat replaces helicase</td>
+</tr>
+<tr class="even">
+<td>Annealing</td>
+<td>Often 50–65°C, set from the primer Tm</td>
+<td>Synthetic DNA primers replace RNA primers</td>
+</tr>
+<tr class="odd">
+<td>Extension</td>
+<td>About 72°C with Taq</td>
+<td>A thermostable polymerase replaces Pol III</td>
+</tr>
+</tbody>
+</table>
+<p>Taq polymerase, from <em>Thermus aquaticus</em>, survives the denaturation step. Conventional Taq has little 3′→5′ proofreading, so the copied product accumulates errors. When the goal is a low error rate — cloning, for example — the reaction uses a high-fidelity polymerase that does proofread. Taq also tends to leave a single unpaired A on the 3′ end of the product. That overhang is a cloning detail, and it is fair game on a techniques item.</p>
+</section>
+<section id="say-these-without-looking" class="level2">
+<h2 class="anchored" data-anchor-id="say-these-without-looking">Say these without looking</h2>
+<ul>
+<li>Replication is semiconservative. After two generations in light nitrogen, expect half intermediate and half light DNA.</li>
+<li>Helicase unwinds. Topoisomerase relieves twist ahead of the fork. Primase makes RNA primers. Ligase seals nicks.</li>
+<li>Polymerase writes 5′→3′ and can start only from a 3′-OH.</li>
+<li>Leading strand: one continuous chain toward the fork. Lagging strand: Okazaki fragments, each still 5′→3′.</li>
+<li><em>E. coli</em> Pol III replicates the chromosome. Pol I removes primers with a 5′→3′ exonuclease.</li>
+<li>Exam assignment: Pol α starts, Pol ε leads, Pol δ lags, Pol γ replicates mitochondrial DNA.</li>
+<li>Proofreading is 3′→5′. Primer removal by Pol I is 5′→3′.</li>
+<li>PCR uses heat and DNA primers. Taq does not proofread well.</li>
+</ul>
+<p>Previous: <a href="../learning/mb-01-nucleic-acid-chemistry.html">Nucleic acid chemistry</a>. Next: <a href="../learning/mb-03-transcription-rna-processing.html">Transcription and RNA processing</a>.</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<div class="mb-quiz" data-mb-quiz="">
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">1. Cells grown for many generations in heavy nitrogen are switched to light nitrogen. After exactly two generations, semiconservative replication predicts which DNA?</p>
+    <label><input type="radio" name="d2q1" value="a"> Only one intermediate-density band</label>
+    <label><input type="radio" name="d2q1" value="b"> Half intermediate-density DNA and half light DNA</label>
+    <label><input type="radio" name="d2q1" value="c"> A fully heavy band plus a fully light band</label>
+    <label><input type="radio" name="d2q1" value="d"> Only light DNA</label>
+    <p class="mb-q-why" hidden="">Each daughter keeps one old strand. After two generations, half the duplexes are heavy–light and half are fully light. A heavy band plus a light band would have supported conservative copying.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">2. Which enzyme separates the parental strands without cutting the phosphodiester backbone?</p>
+    <label><input type="radio" name="d2q2" value="a"> DNA ligase</label>
+    <label><input type="radio" name="d2q2" value="b"> Helicase</label>
+    <label><input type="radio" name="d2q2" value="c"> Primase</label>
+    <label><input type="radio" name="d2q2" value="d"> RNase H</label>
+    <p class="mb-q-why" hidden="">Helicase breaks base pairs. Topoisomerase is the enzyme that cuts the backbone, and it does so ahead of the fork to relieve twist, then reseals it.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">3. DNA polymerase can add the next nucleotide only to which chemical group?</p>
+    <label><input type="radio" name="d2q3" value="a"> A free 5′ phosphate</label>
+    <label><input type="radio" name="d2q3" value="b"> A free 3′-OH</label>
+    <label><input type="radio" name="d2q3" value="c"> The 2′-OH of ribose</label>
+    <label><input type="radio" name="d2q3" value="d"> A base that is not yet hydrogen-bonded</label>
+    <p class="mb-q-why" hidden="">Synthesis is extension of a 3′ end, which is why a primer is required and why the chain grows 5′→3′.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">4. Why is lagging-strand synthesis discontinuous?</p>
+    <label><input type="radio" name="d2q4" value="a"> Ligase is missing in bacteria</label>
+    <label><input type="radio" name="d2q4" value="b"> Helicase can unwind only one strand</label>
+    <label><input type="radio" name="d2q4" value="c"> The templates are antiparallel, and polymerase can write only 5′→3′</label>
+    <label><input type="radio" name="d2q4" value="d"> The lagging strand is polymerized 3′→5′</label>
+    <p class="mb-q-why" hidden="">Both new strands are made 5′→3′. One template faces the fork, so its new strand is continuous. The other template faces the other way, so its new strand is made in Okazaki fragments.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">5. Which enzyme is the main replicase of the E. coli chromosome?</p>
+    <label><input type="radio" name="d2q5" value="a"> DNA polymerase I</label>
+    <label><input type="radio" name="d2q5" value="b"> DNA polymerase II</label>
+    <label><input type="radio" name="d2q5" value="c"> DNA polymerase III</label>
+    <label><input type="radio" name="d2q5" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden="">Pol III copies the chromosome. Pol I removes RNA primers and fills short gaps. Pol γ is the eukaryotic mitochondrial polymerase, not a bacterial enzyme.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">6. In E. coli, RNA primers are removed by which activity?</p>
+    <label><input type="radio" name="d2q6" value="a"> Pol III, 3′→5′ exonuclease</label>
+    <label><input type="radio" name="d2q6" value="b"> Pol I, 5′→3′ exonuclease</label>
+    <label><input type="radio" name="d2q6" value="c"> Helicase</label>
+    <label><input type="radio" name="d2q6" value="d"> Sigma factor</label>
+    <p class="mb-q-why" hidden="">Pol I uses a 5′→3′ exonuclease to clear the RNA primer, then fills with DNA. The 3′→5′ exonuclease is proofreading, a different job.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">7. Proofreading by a replicative DNA polymerase is which activity?</p>
+    <label><input type="radio" name="d2q7" value="a"> 5′→3′ exonuclease</label>
+    <label><input type="radio" name="d2q7" value="b"> 3′→5′ exonuclease</label>
+    <label><input type="radio" name="d2q7" value="c"> RNA primase</label>
+    <label><input type="radio" name="d2q7" value="d"> Nick sealing by ligase</label>
+    <p class="mb-q-why" hidden="">Proofreading removes a nucleotide that was just added, so the nuclease moves 3′→5′ on the new strand. Primer removal runs the other direction.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">8. On the standard exam assignment, which eukaryotic polymerase synthesizes the leading strand?</p>
+    <label><input type="radio" name="d2q8" value="a"> DNA polymerase α</label>
+    <label><input type="radio" name="d2q8" value="b"> DNA polymerase δ</label>
+    <label><input type="radio" name="d2q8" value="c"> DNA polymerase ε</label>
+    <label><input type="radio" name="d2q8" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden="">Pol ε is the leading-strand enzyme. Pol δ is assigned to the lagging strand. Pol α starts synthesis with primase. Pol γ replicates mitochondrial DNA.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Mitochondrial DNA is replicated by which polymerase?</p>
+    <label><input type="radio" name="d2q9" value="a"> DNA polymerase β</label>
+    <label><input type="radio" name="d2q9" value="b"> DNA polymerase γ</label>
+    <label><input type="radio" name="d2q9" value="c"> RNA polymerase II</label>
+    <label><input type="radio" name="d2q9" value="d"> Reverse transcriptase from a primer dimer</label>
+    <p class="mb-q-why" hidden="">Pol γ is the mitochondrial replicase. Nuclear leading and lagging strands are Pol ε and Pol δ.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">10. Conventional Taq polymerase is a poor choice when the copied sequence must have the lowest possible error rate because it</p>
+    <label><input type="radio" name="d2q10" value="a"> synthesizes DNA 3′→5′</label>
+    <label><input type="radio" name="d2q10" value="b"> lacks a strong 3′→5′ proofreading activity</label>
+    <label><input type="radio" name="d2q10" value="c"> cannot extend a DNA primer</label>
+    <label><input type="radio" name="d2q10" value="d"> copies RNA rather than DNA</label>
+    <p class="mb-q-why" hidden="">Taq survives heat denaturation but does not proofread well. A high-fidelity polymerase is used when the error rate matters. Taq still extends DNA primers 5′→3′.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+</section>
+<section id="where-this-sits" class="level2">
+<h2 class="anchored" data-anchor-id="where-this-sits">Where this sits</h2>
+<p>The fork drawing is an original schematic. Strand assignments for the eukaryotic polymerases follow the account used in exams and in standard texts (Pol ε on the leading strand, Pol δ on the lagging strand), with the caveat that the replisome in vivo is more cooperative than the table. Telomerase as an RNA-dependent DNA polymerase at chromosome ends is the same textbook account, as in Alberts and colleagues, <em>Molecular Biology of the Cell</em>. PCR enzyme behavior is the clinical-lab version of those rules, as taught in Buckingham, <em>Molecular Diagnostics</em>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vahhabpiranfar\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Vahhab Piranfar — Molecular Microbiologist · Antimicrobial Resistance &amp; Computational Modeling</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vahhab-piranfar/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=o2GdH2oAAAAJ&amp;hl=en">
+      <i class="bi bi-google" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/piranfar">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

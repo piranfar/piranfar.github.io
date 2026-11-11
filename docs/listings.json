@@ -14,6 +14,9 @@
   {
     "listing": "/learning.html",
     "items": [
+      "/learning/mb-01-nucleic-acid-chemistry.html",
+      "/learning/mb-02-dna-replication.html",
+      "/learning/mb-03-transcription-rna-processing.html",
       "/learning/14-plasmid-detection-vs-reconstruction.html",
       "/learning/13-caz-avi-mini-case.html",
       "/learning/12-inoculum-effect.html",
