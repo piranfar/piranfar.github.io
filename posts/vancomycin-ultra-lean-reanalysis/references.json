@@ -1,0 +1,378 @@
+[
+ {
+  "type": "article-journal",
+  "title": "Evaluation of Internal Consistency of a Vancomycin Population Pharmacokinetic Model in Ultra-lean Elderly Patients: A Short Communication",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0009-0000-5458-6017",
+    "authenticated-orcid": false,
+    "given": "Kazumasa",
+    "family": "Nojima",
+    "sequence": "first",
+    "affiliation": [
+     {
+      "name": "Department of Pharmacy, Kochi Prefectural Aki General Hospital, Aki, Japan"
+     }
+    ],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2026,
+     10
+    ]
+   ]
+  },
+  "container-title": "Therapeutic Drug Monitoring",
+  "volume": "48",
+  "issue": "5",
+  "page": "698-702",
+  "DOI": "10.1097/FTD.0000000000001481",
+  "container-title-short": "Ther Drug Monit",
+  "id": "nojima"
+ },
+ {
+  "type": "article-journal",
+  "title": "Validation and development of population pharmacokinetic model of vancomycin using a real-world database from a nationwide free web application",
+  "author": [
+   {
+    "ORCID": "https://orcid.org/0000-0003-0693-1896",
+    "authenticated-orcid": false,
+    "given": "Kazutaka",
+    "family": "Oda",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-5462-1684",
+    "authenticated-orcid": false,
+    "given": "Kazuaki",
+    "family": "Matsumoto",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-7164-0262",
+    "authenticated-orcid": false,
+    "given": "Kensuke",
+    "family": "Shoji",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Akari",
+    "family": "Shigemi",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-9073-972X",
+    "authenticated-orcid": false,
+    "given": "Hideki",
+    "family": "Kawamura",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Yoshiko",
+    "family": "Takahashi",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Tomomi",
+    "family": "Katanoda",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Yumi",
+    "family": "Hashiguchi",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Hirofumi",
+    "family": "Jono",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Hideyuki",
+    "family": "Saito",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0002-8635-6416",
+    "authenticated-orcid": false,
+    "given": "Yoshio",
+    "family": "Takesue",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "ORCID": "https://orcid.org/0000-0001-6990-425X",
+    "authenticated-orcid": false,
+    "given": "Toshimi",
+    "family": "Kimura",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2024,
+     12
+    ]
+   ]
+  },
+  "container-title": "Journal of Infection and Chemotherapy",
+  "container-title-short": "J Infect Chemother",
+  "volume": "30",
+  "issue": "12",
+  "page": "1244-1251",
+  "DOI": "10.1016/j.jiac.2024.05.014",
+  "id": "oda"
+ },
+ {
+  "type": "article-journal",
+  "title": "Interaction revisited: the difference between two estimates",
+  "author": [
+   {
+    "given": "Douglas G",
+    "family": "Altman",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "J Martin",
+    "family": "Bland",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2003,
+     1,
+     25
+    ]
+   ]
+  },
+  "container-title": "BMJ",
+  "container-title-short": "BMJ",
+  "volume": "326",
+  "issue": "7382",
+  "page": "219",
+  "DOI": "10.1136/bmj.326.7382.219",
+  "id": "altman"
+ },
+ {
+  "type": "article-journal",
+  "title": "Importance of Shrinkage in Empirical Bayes Estimates for Diagnostics: Problems and Solutions",
+  "author": [
+   {
+    "given": "Radojka M.",
+    "family": "Savic",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "Mats O.",
+    "family": "Karlsson",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     2009,
+     9
+    ]
+   ]
+  },
+  "container-title": "The AAPS Journal",
+  "container-title-short": "AAPS J",
+  "volume": "11",
+  "issue": "3",
+  "page": "558-569",
+  "DOI": "10.1208/s12248-009-9133-0",
+  "id": "savic"
+ },
+ {
+  "type": "article-journal",
+  "title": "Pharmacokinetics of vancomycin in patients with various degrees of renal function",
+  "author": [
+   {
+    "given": "G R",
+    "family": "Matzke",
+    "sequence": "first",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "R W",
+    "family": "McGory",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "C E",
+    "family": "Halstenson",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   },
+   {
+    "given": "W F",
+    "family": "Keane",
+    "sequence": "additional",
+    "affiliation": [],
+    "role": [
+     {
+      "vocabulary": "crossref",
+      "role": "author"
+     }
+    ]
+   }
+  ],
+  "issued": {
+   "date-parts": [
+    [
+     1984,
+     4
+    ]
+   ]
+  },
+  "container-title": "Antimicrobial Agents and Chemotherapy",
+  "container-title-short": "Antimicrob Agents Chemother",
+  "volume": "25",
+  "issue": "4",
+  "page": "433-437",
+  "DOI": "10.1128/AAC.25.4.433",
+  "id": "matzke"
+ }
+]

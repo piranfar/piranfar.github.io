@@ -1,0 +1,31 @@
+section,quantity,value,ci_low,ci_high,p_value,note
+prediction error,"mean error, group A, ultra-lean elderly (L/h)",-0.312,-0.601,-0.023,0.036,"article reported P = 0.038; SD reconstructed from ME, RMSE and n"
+prediction error,"mean error, group B, standard elderly (L/h)",-0.151,-0.309,0.007,0.061,"article reported P = 0.051; SD reconstructed from ME, RMSE and n"
+prediction error,"mean error, groups A + B pooled (L/h)",-0.193,-0.33,-0.056,0.006,n = 92
+prediction error,"difference in mean error, A - B (L/h)",-0.161,-0.486,0.164,0.322,Welch t test on reconstructed SDs
+prediction error,power for the observed A - B difference,0.171,,,,"two-sided, alpha 0.05"
+prediction error,difference detectable at 80% power (L/h),0.45,,,,
+prediction error,A - B using the article's published CI for group A,-0.161,,,0.245,sensitivity analysis
+dosing,"dose divided by a priori CL, group A (mg·h/L)",514.0,499.0,529.0,,interval from rounding of the published means
+dosing,"dose divided by posterior CL, group A (mg·h/L)",416.0,406.0,426.0,,
+dosing,"a priori CL per kg, group A (L/h/kg)",0.0438,,,,
+dosing,"Cockcroft-Gault CLcr per kg, group A (mL/min/kg)",0.872,,,,
+dosing,"dose divided by a priori CL, group B (mg·h/L)",528.0,515.0,543.0,,interval from rounding of the published means
+dosing,"dose divided by posterior CL, group B (mg·h/L)",478.0,467.0,490.0,,
+dosing,"a priori CL per kg, group B (L/h/kg)",0.036,,,,
+dosing,"Cockcroft-Gault CLcr per kg, group B (mL/min/kg)",0.714,,,,
+dosing,"dose divided by a priori CL, group C (mg·h/L)",391.0,386.0,396.0,,interval from rounding of the published means
+dosing,"dose divided by posterior CL, group C (mg·h/L)",382.0,378.0,386.0,,
+dosing,"a priori CL per kg, group C (L/h/kg)",0.0622,,,,
+dosing,"Cockcroft-Gault CLcr per kg, group C (mL/min/kg)",1.246,,,,
+dosing,"A/B ratio, Cockcroft-Gault CLcr per kg",1.221,,,,
+dosing,"A/B ratio, PAT a priori CL per kg",1.218,,,,
+dosing,"A/B ratio, observed dose per kg",1.173,,,,
+dosing,"Welch A vs B, a priori CL",-0.2,-0.548,0.148,0.253,from published means and SDs
+dosing,"Welch A vs B, dose per kg",3.3,-0.911,7.511,0.12,from published means and SDs
+alternative models,SD of PAT errors vs posterior (L/h),0.684,,,,reconstructed
+alternative models,SD implied by the published Matzke RMSE (L/h),0.033,,,,
+alternative models,SD implied by the published Matzke 95% CI (L/h),0.017,,,,
+alternative models,lower bound on SD of Matzke errors vs posterior (L/h),0.62,,,,"distribution-free, Samuelson and Popoviciu"
+alternative models,Matzke mean error vs posterior if reported vs a priori (L/h),-0.142,,,,
+alternative models,Yasuhara mean error vs posterior if reported vs a priori (L/h),-0.102,,,,
