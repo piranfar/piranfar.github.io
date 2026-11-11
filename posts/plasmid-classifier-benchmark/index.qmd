@@ -108,3 +108,4 @@ gplas2 starts from PlasmidEC's *E. coli* predictions, so it shares part of that 
 - Native output of all twelve tools: [Harvard Dataverse, doi:10.7910/DVN/Q5JNX9](https://doi.org/10.7910/DVN/Q5JNX9)
 - Analysis code: [figshare, doi:10.6084/m9.figshare.34063578](https://doi.org/10.6084/m9.figshare.34063578)
 - Full methods: [Research Square, doi:10.21203/rs.3.rs-11651433/v1](https://doi.org/10.21203/rs.3.rs-11651433/v1)
+- Why the tools fail, contig by contig: [Why Plasmid Classifiers Fail on Short-Read Contigs](../why-plasmid-classifiers-fail/)
