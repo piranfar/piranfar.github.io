@@ -110,7 +110,7 @@ I am publishing it here because the recalculations are reusable whatever the edi
 
 ## The letter, as submitted
 
-The text below is version 6, the version submitted on 16 October 2026, unchanged except that the figure is split into the two shown above and the reference numbers are replaced by links.
+The text below is version 6, the version submitted on 16 October 2026. It is unchanged except that the single journal figure is split into the two shown above, the reference numbers are replaced by links, and the title page block is omitted.
 
 > **Is Vancomycin Clearance Underprediction Specific to Ultra-lean Elderly Patients?**
 >
@@ -127,6 +127,14 @@ The text below is version 6, the version submitted on 16 October 2026, unchanged
 > Finally, PAT calculates creatinine clearance with the Cockcroft-Gault equation from actual body weight, and its guidance permits rounding serum creatinine below 0.6 mg/dL up to 0.6 mg/dL in selected patients, including those aged 75 years or older or with a BMI below 16 kg/m². The article states that albumin and cystatin C were not entered; a muscle-mass-loss option also changes the PAT CL equation and, by default, rounds serum creatinine internally. Was either option used, and in how many patients per group, when doses were chosen or a priori CL was calculated? Rounding lowers predicted CL in both elderly groups, more often in group A, and could account for part of the pooled underprediction.
 >
 > The advice to monitor concentrations early in ultra-lean elderly patients is sensible. On the data reported, a priori PAT estimates were lower than posterior estimates in patients aged 75 years or older as a whole, but the data show neither that this difference is larger in ultra-lean patients nor that clinical judgment compensated for the model.
+>
+> **Use of artificial intelligence:** The author used Claude (Anthropic Opus 5.5) to assist with drafting, verifying the recalculations, and language editing. The author checked all calculations, manuscript, figures, and references and is fully responsible for the content.
+
+## Use of artificial intelligence
+
+This post, like the letter it reproduces, was written with Claude (Anthropic Opus 5.5). The model assisted with drafting and language editing, with writing the script that produces the figures and the CSV, and with independently re-deriving the recalculations so that each number had a second derivation to disagree with.
+
+The division of responsibility is the same as in the submitted letter. The statistical reconstruction, the choice of what to claim and what to leave out, the reading of the original article, and every number here were checked by me against the published source, and I am fully responsible for the content. The script that generates the figures and the CSV verifies the hash of its input and asserts the group sizes against the article's Table 1 before drawing anything, so any claim on this page can be regenerated and checked independently of how the text was written.
 
 ## Limits
 
