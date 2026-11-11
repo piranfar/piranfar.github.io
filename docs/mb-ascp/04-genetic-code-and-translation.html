@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vahhab Piranfar">
+<meta name="dcterms.date" content="2026-11-11">
+<meta name="description" content="Codons and wobble, tRNA charging, bacterial and eukaryotic ribosomes, translation initiation, elongation, termination, fidelity, and variant interpretation.">
+
+<title>MB 4. Genetic code and translation – Vahhab Piranfar</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../profile.jpg" rel="icon" type="image/jpeg">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-867ec05194674b9d02258e23c81cfb12.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="application/ld+json">
+
+{
+
+  "@context": "https://schema.org",
+
+  "@type": "Person",
+
+  "name": "Vahhab Piranfar",
+
+  "url": "https://vahhabpiranfar.com/",
+
+  "image": "https://vahhabpiranfar.com/profile.jpg",
+
+  "jobTitle": "Molecular Microbiologist and Computational Researcher",
+
+  "description": "Molecular microbiologist and computational researcher working on antimicrobial resistance, antibiotic PK/PD modeling, bacterial modeling, and reproducible evidence synthesis.",
+
+  "address": {
+
+    "@type": "PostalAddress",
+
+    "addressLocality": "Jersey City",
+
+    "addressRegion": "NJ",
+
+    "addressCountry": "US"
+
+  },
+
+  "sameAs": [
+
+    "https://orcid.org/0000-0003-3653-5739",
+
+    "https://scholar.google.com/citations?user=o2GdH2oAAAAJ&hl=en",
+
+    "https://www.linkedin.com/in/vahhab-piranfar/",
+
+    "https://www.researchgate.net/profile/Vahhab-Piranfar",
+
+    "https://github.com/piranfar",
+
+    "https://ssrn.com/abstract=7533152"
+
+  ],
+
+  "knowsAbout": [
+
+    "Antimicrobial resistance",
+
+    "Antibiotic PK/PD",
+
+    "Pharmacometrics",
+
+    "Bacterial modeling",
+
+    "Clinical microbiology",
+
+    "Monte Carlo simulation",
+
+    "Reproducible research"
+
+  ]
+
+}
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;family=Outfit:wght@400;600;700;800;900&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="MB 4. Genetic code and translation – Vahhab Piranfar">
+<meta property="og:description" content="Codons and wobble, tRNA charging, bacterial and eukaryotic ribosomes, translation initiation, elongation, termination, fidelity, and variant interpretation.">
+<meta property="og:image" content="https://vahhabpiranfar.com/mb-ascp/profile.jpg">
+<meta property="og:site_name" content="Vahhab Piranfar">
+<meta name="twitter:title" content="MB 4. Genetic code and translation – Vahhab Piranfar">
+<meta name="twitter:description" content="Codons and wobble, tRNA charging, bacterial and eukaryotic ribosomes, translation initiation, elongation, termination, fidelity, and variant interpretation.">
+<meta name="twitter:image" content="https://vahhabpiranfar.com/mb-ascp/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Vahhab Piranfar</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../learning.html"> 
+<span class="menu-text">Learning</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Discuss &amp; Review</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-genetic-code" id="toc-the-genetic-code" class="nav-link active" data-scroll-target="#the-genetic-code">The genetic code</a></li>
+  <li><a href="#codon-anticodon-and-wobble" id="toc-codon-anticodon-and-wobble" class="nav-link" data-scroll-target="#codon-anticodon-and-wobble">Codon, anticodon, and wobble</a></li>
+  <li><a href="#charging-the-trna" id="toc-charging-the-trna" class="nav-link" data-scroll-target="#charging-the-trna">Charging the tRNA</a></li>
+  <li><a href="#ribosomes-and-the-a-p-and-e-sites" id="toc-ribosomes-and-the-a-p-and-e-sites" class="nav-link" data-scroll-target="#ribosomes-and-the-a-p-and-e-sites">Ribosomes and the A, P, and E sites</a></li>
+  <li><a href="#initiation-fixes-the-reading-frame" id="toc-initiation-fixes-the-reading-frame" class="nav-link" data-scroll-target="#initiation-fixes-the-reading-frame">Initiation fixes the reading frame</a>
+  <ul class="collapse">
+  <li><a href="#bacteria" id="toc-bacteria" class="nav-link" data-scroll-target="#bacteria">Bacteria</a></li>
+  <li><a href="#eukaryotic-cytoplasm" id="toc-eukaryotic-cytoplasm" class="nav-link" data-scroll-target="#eukaryotic-cytoplasm">Eukaryotic cytoplasm</a></li>
+  </ul></li>
+  <li><a href="#elongation-delivery-bond-movement" id="toc-elongation-delivery-bond-movement" class="nav-link" data-scroll-target="#elongation-delivery-bond-movement">Elongation: delivery, bond, movement</a></li>
+  <li><a href="#termination-and-recycling" id="toc-termination-and-recycling" class="nav-link" data-scroll-target="#termination-and-recycling">Termination and recycling</a></li>
+  <li><a href="#translation-errors-variants-and-laboratory-evidence" id="toc-translation-errors-variants-and-laboratory-evidence" class="nav-link" data-scroll-target="#translation-errors-variants-and-laboratory-evidence">Translation errors, variants, and laboratory evidence</a></li>
+  <li><a href="#say-these-without-looking" id="toc-say-these-without-looking" class="nav-link" data-scroll-target="#say-these-without-looking">Say these without looking</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
+  <li><a href="#sources-and-figure-note" id="toc-sources-and-figure-note" class="nav-link" data-scroll-target="#sources-and-figure-note">Sources and figure note</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MB 4. Genetic code and translation</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">MB-ASCP</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Codons and wobble, tRNA charging, bacterial and eukaryotic ribosomes, translation initiation, elongation, termination, fidelity, and variant interpretation.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vahhab Piranfar </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 11, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 4</p>
+<p>Translation converts the nucleotide sequence of an mRNA into the amino-acid sequence of a polypeptide. For the exam, keep four directions straight: the ribosome reads mRNA <strong>5′→3′</strong>, codon and anticodon pair antiparallel, the protein grows <strong>N-terminus→C-terminus</strong>, and new aminoacyl-tRNAs normally enter the <strong>A site</strong>. The initiator tRNA is the exception: it starts in the <strong>P site</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation, reconstructed from the supplied Lesson 4 guide. The diagrams and questions are original. This is not an official ASCP publication and does not reproduce examination questions.</p>
+</div>
+</div>
+<section id="the-genetic-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-genetic-code">The genetic code</h2>
+<p>A codon is a group of three nucleotides in mRNA. Four bases can make (4^3 = 64) codons: 61 sense codons specify the 20 standard amino acids, and three are stop signals.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>What it means</th>
+<th>Exam consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Triplet</td>
+<td>Three bases form one codon</td>
+<td>Read the mRNA in groups of three</td>
+</tr>
+<tr class="even">
+<td>Degenerate</td>
+<td>Several codons can specify one amino acid</td>
+<td>UUU and UUC both mean phenylalanine</td>
+</tr>
+<tr class="odd">
+<td>Nearly universal</td>
+<td>Most organisms use the same assignments</td>
+<td>Mitochondrial and specialized exceptions exist</td>
+</tr>
+<tr class="even">
+<td>Non-overlapping</td>
+<td>A base belongs to one codon in a reading frame</td>
+<td>A frameshift changes every downstream triplet</td>
+</tr>
+<tr class="odd">
+<td>Commaless</td>
+<td>Codons are read continuously</td>
+<td>The start point determines the frame</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AUG</strong> is the usual start codon. It specifies methionine; bacterial initiation uses <strong>N-formylmethionine (fMet)</strong>. The stop codons are <strong>UAA, UAG, and UGA</strong>. A stop codon does not add an amino acid. A release factor recognizes it.</p>
+<p>Example:</p>
+<p><code>5′-AUG UUU GGC UAA-3′</code> → Met–Phe–Gly–STOP</p>
+<p>The product contains three amino acids. UGA can be recoded as selenocysteine in the correct sequence context with specialized machinery, so “universal” and “always stop” are useful rules, not exception-free laws.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 780 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An mRNA divided into start, amino-acid, and stop codons and translated from N terminus to C terminus">
+  <rect width="780" height="270" fill="#F8FAFC"></rect>
+  <text x="32" y="42" fill="#334155" font-family="Outfit, sans-serif" font-size="16" font-weight="700">mRNA is read 5′ → 3′</text>
+  <text x="32" y="91" fill="#475569" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
+  <rect x="66" y="64" width="120" height="48" rx="8" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></rect>
+  <text x="126" y="94" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="19" font-weight="700">AUG</text>
+  <rect x="194" y="64" width="120" height="48" rx="8" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="254" y="94" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="19" font-weight="700">UUU</text>
+  <rect x="322" y="64" width="120" height="48" rx="8" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="382" y="94" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="19" font-weight="700">GGC</text>
+  <rect x="450" y="64" width="120" height="48" rx="8" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2"></rect>
+  <text x="510" y="94" text-anchor="middle" fill="#991B1B" font-family="Outfit, sans-serif" font-size="19" font-weight="700">UAA</text>
+  <text x="590" y="91" fill="#475569" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
+  <text x="126" y="139" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">start · Met</text>
+  <text x="254" y="139" text-anchor="middle" fill="#4338CA" font-family="IBM Plex Sans, sans-serif" font-size="13">Phe</text>
+  <text x="382" y="139" text-anchor="middle" fill="#4338CA" font-family="IBM Plex Sans, sans-serif" font-size="13">Gly</text>
+  <text x="510" y="139" text-anchor="middle" fill="#B91C1C" font-family="IBM Plex Sans, sans-serif" font-size="13">stop · no amino acid</text>
+  <line x1="126" y1="184" x2="382" y2="184" stroke="#0F766E" stroke-width="4" stroke-linecap="round"></line>
+  <circle cx="126" cy="184" r="8" fill="#0F766E"></circle>
+  <circle cx="254" cy="184" r="8" fill="#0F766E"></circle>
+  <circle cx="382" cy="184" r="8" fill="#0F766E"></circle>
+  <text x="110" y="218" fill="#334155" font-family="Outfit, sans-serif" font-size="15" font-weight="700">N</text>
+  <text x="394" y="218" fill="#334155" font-family="Outfit, sans-serif" font-size="15" font-weight="700">C</text>
+  <text x="254" y="249" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Polypeptide grows N-terminus → C-terminus</text>
+</svg>
+<p class="learn-caption">Original schematic. A four-codon message produces a three-amino-acid peptide because stop is a signal, not a residue.</p>
+</div>
+</section>
+<section id="codon-anticodon-and-wobble" class="level2">
+<h2 class="anchored" data-anchor-id="codon-anticodon-and-wobble">Codon, anticodon, and wobble</h2>
+<p>tRNA is the adaptor between nucleic acid and protein. Its anticodon recognizes the mRNA codon. Its conserved <strong>3′-CCA</strong> end carries the amino acid on the terminal adenosine.</p>
+<p>Codon and anticodon pair antiparallel:</p>
+<ul>
+<li>mRNA codon: <code>5′-AUG-3′</code></li>
+<li>Paired anticodon: <code>3′-UAC-5′</code></li>
+<li>The same anticodon written conventionally 5′→3′: <code>5′-CAU-3′</code></li>
+</ul>
+<p>Always inspect the printed direction before choosing an anticodon. Complementing AUG to UAC without checking direction is the common trap.</p>
+<p>The first two codon positions usually demand standard Watson–Crick geometry. The <strong>third codon base</strong> is more flexible. This is wobble, corresponding to the <strong>first base at the 5′ end of the anticodon</strong>. Wobble lets one tRNA recognize several synonymous codons and reduces the number of distinct tRNAs a cell needs.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>5′ base of anticodon</th>
+<th>Possible 3′ base(s) of codon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C</td>
+<td>G</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>U</td>
+</tr>
+<tr class="odd">
+<td>U</td>
+<td>A or G</td>
+</tr>
+<tr class="even">
+<td>G</td>
+<td>C or U</td>
+</tr>
+<tr class="odd">
+<td>Inosine (I)</td>
+<td>U, C, or A</td>
+</tr>
+</tbody>
+</table>
+<p>An anticodon <code>5′-IGC-3′</code> can recognize <code>5′-GCU-3′</code>, <code>5′-GCC-3′</code>, and <code>5′-GCA-3′</code>. The code has not changed; the pairing mechanism is flexible.</p>
+<p><strong>Degeneracy and wobble are not synonyms.</strong> Degeneracy is the fact that several codons encode the same amino acid. Wobble is how one anticodon can physically recognize several of those codons.</p>
+</section>
+<section id="charging-the-trna" class="level2">
+<h2 class="anchored" data-anchor-id="charging-the-trna">Charging the tRNA</h2>
+<p>Before a tRNA enters translation, an <strong>aminoacyl-tRNA synthetase (aaRS)</strong> attaches the correct amino acid. Charging is a separate accuracy checkpoint from ribosomal decoding.</p>
+<ol type="1">
+<li>Amino acid + ATP → aminoacyl-AMP + PPi</li>
+<li>Aminoacyl-AMP + tRNA → aminoacyl-tRNA + AMP</li>
+</ol>
+<p>ATP is converted to AMP, and PPi is hydrolyzed. That costs the equivalent of <strong>two high-energy phosphate bonds</strong>. The amino acid’s carboxyl group forms an ester bond to a hydroxyl on the terminal A of the 3′-CCA end. Its amino group remains free for peptide-bond formation.</p>
+<p>Many synthetases have an editing site that removes an incorrectly activated amino acid or hydrolyzes a mischarged tRNA. This matters because the ribosome mainly checks codon–anticodon pairing. If the correct anticodon carries the wrong amino acid, the ribosome may accept it and put the wrong residue into the protein.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Checkpoint</th>
+<th>What it verifies</th>
+<th>Error if it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aminoacyl-tRNA synthetase</td>
+<td>Correct amino acid on its cognate tRNA</td>
+<td>Correct anticodon delivers the wrong amino acid</td>
+</tr>
+<tr class="even">
+<td>Ribosomal decoding center</td>
+<td>Correct codon–anticodon geometry</td>
+<td>Near-cognate tRNA enters the chain</td>
+</tr>
+</tbody>
+</table>
+<div class="learn-figure">
+<svg viewbox="0 0 780 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-step aminoacyl tRNA charging reaction with ATP to AMP and proofreading">
+  <rect width="780" height="310" fill="#F8FAFC"></rect>
+  <text x="32" y="38" fill="#334155" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Aminoacyl-tRNA synthetase: select, activate, transfer, edit</text>
+  <rect x="32" y="65" width="182" height="84" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"></rect>
+  <text x="123" y="96" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Amino acid + ATP</text>
+  <text x="123" y="122" text-anchor="middle" fill="#92400E" font-family="IBM Plex Sans, sans-serif" font-size="13">substrate selection</text>
+  <line x1="214" y1="107" x2="280" y2="107" stroke="#64748B" stroke-width="3"></line>
+  <polygon points="280,107 268,101 268,113" fill="#64748B"></polygon>
+  <rect x="280" y="65" width="205" height="84" rx="12" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="382" y="96" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Aminoacyl-AMP</text>
+  <text x="382" y="122" text-anchor="middle" fill="#312E81" font-family="IBM Plex Sans, sans-serif" font-size="13">PPi leaves · activated intermediate</text>
+  <line x1="485" y1="107" x2="550" y2="107" stroke="#64748B" stroke-width="3"></line>
+  <polygon points="550,107 538,101 538,113" fill="#64748B"></polygon>
+  <rect x="550" y="65" width="198" height="84" rx="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></rect>
+  <text x="649" y="96" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Aminoacyl-tRNA</text>
+  <text x="649" y="122" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">amino acid on terminal 3′-A</text>
+  <text x="382" y="183" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans, sans-serif" font-size="14">ATP → AMP + PPi = two high-energy phosphate-bond equivalents</text>
+  <rect x="115" y="214" width="550" height="58" rx="12" fill="#FEE2E2" stroke="#B91C1C" stroke-width="1.5"></rect>
+  <text x="390" y="239" text-anchor="middle" fill="#991B1B" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Editing site</text>
+  <text x="390" y="259" text-anchor="middle" fill="#991B1B" font-family="IBM Plex Sans, sans-serif" font-size="13">hydrolyzes the wrong activated amino acid or a mischarged tRNA</text>
+  <text x="32" y="298" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Original schematic. Charging determines amino-acid identity; the ribosome cannot reliably re-check it.</text>
+</svg>
+<p class="learn-caption">Charging prepares the adaptor. Decoding later checks the anticodon. Those are different fidelity checkpoints.</p>
+</div>
+</section>
+<section id="ribosomes-and-the-a-p-and-e-sites" class="level2">
+<h2 class="anchored" data-anchor-id="ribosomes-and-the-a-p-and-e-sites">Ribosomes and the A, P, and E sites</h2>
+<p>The small subunit decodes mRNA. The large subunit contains the peptidyl-transferase center.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Bacterial</th>
+<th>Eukaryotic cytoplasmic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Complete ribosome</td>
+<td>70S</td>
+<td>80S</td>
+</tr>
+<tr class="even">
+<td>Small subunit</td>
+<td>30S: 16S rRNA</td>
+<td>40S: 18S rRNA</td>
+</tr>
+<tr class="odd">
+<td>Large subunit</td>
+<td>50S: 23S + 5S rRNA</td>
+<td>60S: 28S + 5.8S + 5S rRNA</td>
+</tr>
+</tbody>
+</table>
+<p>S means Svedberg sedimentation coefficient. It depends on size, shape, and density and is not additive: 30S + 50S makes 70S, not 80S.</p>
+<p>The three sites are easiest as one sentence: <strong>A accepts, P carries the peptide, E exits.</strong></p>
+<ul>
+<li><strong>A site:</strong> incoming aminoacyl-tRNA</li>
+<li><strong>P site:</strong> tRNA carrying the growing polypeptide</li>
+<li><strong>E site:</strong> deacylated tRNA before departure</li>
+</ul>
+<p>In bacteria, <strong>16S rRNA</strong> belongs to the 30S decoding subunit. <strong>23S rRNA</strong> belongs to the 50S subunit and performs the central peptidyl-transferase chemistry. The ribosome is therefore a ribozyme.</p>
+</section>
+<section id="initiation-fixes-the-reading-frame" class="level2">
+<h2 class="anchored" data-anchor-id="initiation-fixes-the-reading-frame">Initiation fixes the reading frame</h2>
+<p>Initiation puts the start codon in the correct position and places the special initiator tRNA directly in the P site.</p>
+<section id="bacteria" class="level3">
+<h3 class="anchored" data-anchor-id="bacteria">Bacteria</h3>
+<ol type="1">
+<li>The 30S subunit binds initiation factors.</li>
+<li>The mRNA <strong>Shine–Dalgarno</strong> sequence base-pairs with 16S rRNA and positions AUG.</li>
+<li><strong>IF-2–GTP</strong> delivers fMet-tRNA to the P site.</li>
+<li>IF-1 organizes the complex; IF-3 prevents premature 50S joining.</li>
+<li>The 50S subunit joins, GTP is hydrolyzed, and a 70S initiation complex remains.</li>
+</ol>
+</section>
+<section id="eukaryotic-cytoplasm" class="level3">
+<h3 class="anchored" data-anchor-id="eukaryotic-cytoplasm">Eukaryotic cytoplasm</h3>
+<p>The 40S complex is recruited to the 5′ cap through initiation factors including eIF4E in eIF4F. eIF2–GTP helps load non-formylated initiator Met-tRNA. The complex scans 5′→3′ for an AUG in a favorable <strong>Kozak context</strong>, then the 60S subunit joins to form an 80S ribosome.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Bacteria</th>
+<th>Eukaryotes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Start positioning</td>
+<td>Shine–Dalgarno pairs with 16S rRNA</td>
+<td>5′ cap recruitment, scanning, Kozak sequence</td>
+</tr>
+<tr class="even">
+<td>Initiator amino acid</td>
+<td>fMet</td>
+<td>Met, not formylated</td>
+</tr>
+<tr class="odd">
+<td>Initiator delivery</td>
+<td>IF-2–GTP</td>
+<td>eIF2–GTP</td>
+</tr>
+<tr class="even">
+<td>Completed ribosome</td>
+<td>70S</td>
+<td>80S</td>
+</tr>
+</tbody>
+</table>
+<p>“All tRNAs enter the A site” is false. Elongator tRNAs do. The initiator tRNA starts in P.</p>
+</section>
+</section>
+<section id="elongation-delivery-bond-movement" class="level2">
+<h2 class="anchored" data-anchor-id="elongation-delivery-bond-movement">Elongation: delivery, bond, movement</h2>
+<p>The cycle must stay in this order:</p>
+<ol type="1">
+<li><strong>Delivery and decoding.</strong> Bacterial EF-Tu–GTP carries an aminoacyl-tRNA to A. Correct pairing triggers GTP hydrolysis and accommodation. EF-Ts regenerates EF-Tu–GTP.</li>
+<li><strong>Peptide-bond formation.</strong> The amino group on the A-site amino acid attacks the ester-linked peptide on the P-site tRNA. The peptide transfers to the A-site tRNA. Bacterial 23S rRNA catalyzes the reaction.</li>
+<li><strong>Translocation.</strong> EF-G–GTP moves the ribosome one codon. Peptidyl-tRNA moves A→P; empty tRNA moves P→E and exits. A is free again.</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bacterial factor</th>
+<th>Role</th>
+<th>Eukaryotic counterpart</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EF-Tu</td>
+<td>Delivers aminoacyl-tRNA to A</td>
+<td>eEF1A</td>
+</tr>
+<tr class="even">
+<td>EF-Ts</td>
+<td>Exchanges GDP for GTP on EF-Tu</td>
+<td>eEF1B complex</td>
+</tr>
+<tr class="odd">
+<td>EF-G</td>
+<td>Translocation</td>
+<td>eEF2</td>
+</tr>
+</tbody>
+</table>
+<p>Each elongation cycle uses two GTP in this simplified accounting: one for EF-Tu selection and one for EF-G translocation. This is in addition to the ATP→AMP cost of charging.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Translation elongation cycle showing A P and E sites, peptide transfer, and translocation">
+  <rect width="800" height="360" fill="#F8FAFC"></rect>
+  <text x="30" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Elongation repeats in this order</text>
+  <g transform="translate(30 62)">
+    <rect width="220" height="210" rx="16" fill="#fff" stroke="#CBD5E1" stroke-width="2"></rect>
+    <text x="110" y="28" text-anchor="middle" fill="#4338CA" font-family="Outfit, sans-serif" font-size="14" font-weight="700">1 · DELIVERY</text>
+    <rect x="30" y="60" width="48" height="55" rx="6" fill="#F1F5F9"></rect><text x="54" y="91" text-anchor="middle" fill="#64748B" font-family="Outfit" font-size="16">E</text>
+    <rect x="86" y="60" width="48" height="55" rx="6" fill="#CCFBF1"></rect><text x="110" y="91" text-anchor="middle" fill="#115E59" font-family="Outfit" font-size="16">P</text>
+    <rect x="142" y="60" width="48" height="55" rx="6" fill="#E0E7FF"></rect><text x="166" y="91" text-anchor="middle" fill="#312E81" font-family="Outfit" font-size="16">A</text>
+    <line x1="166" y1="52" x2="166" y2="20" stroke="#4338CA" stroke-width="3"></line><circle cx="166" cy="16" r="9" fill="#4338CA"></circle>
+    <line x1="110" y1="60" x2="110" y2="33" stroke="#0F766E" stroke-width="3"></line><circle cx="110" cy="27" r="9" fill="#0F766E"></circle>
+    <text x="110" y="147" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">EF-Tu–GTP brings</text>
+    <text x="110" y="165" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">charged tRNA to A</text>
+  </g>
+  <g transform="translate(290 62)">
+    <rect width="220" height="210" rx="16" fill="#fff" stroke="#CBD5E1" stroke-width="2"></rect>
+    <text x="110" y="28" text-anchor="middle" fill="#C2410C" font-family="Outfit, sans-serif" font-size="14" font-weight="700">2 · PEPTIDE BOND</text>
+    <rect x="30" y="60" width="48" height="55" rx="6" fill="#F1F5F9"></rect><text x="54" y="91" text-anchor="middle" fill="#64748B" font-family="Outfit" font-size="16">E</text>
+    <rect x="86" y="60" width="48" height="55" rx="6" fill="#CCFBF1"></rect><text x="110" y="91" text-anchor="middle" fill="#115E59" font-family="Outfit" font-size="16">P</text>
+    <rect x="142" y="60" width="48" height="55" rx="6" fill="#E0E7FF"></rect><text x="166" y="91" text-anchor="middle" fill="#312E81" font-family="Outfit" font-size="16">A</text>
+    <path d="M110 56 C125 25,150 25,166 49" fill="none" stroke="#C2410C" stroke-width="4"></path>
+    <polygon points="166,49 154,44 159,58" fill="#C2410C"></polygon>
+    <circle cx="166" cy="43" r="9" fill="#C2410C"></circle>
+    <text x="110" y="147" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">23S rRNA transfers</text>
+    <text x="110" y="165" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">the peptide P → A</text>
+  </g>
+  <g transform="translate(550 62)">
+    <rect width="220" height="210" rx="16" fill="#fff" stroke="#CBD5E1" stroke-width="2"></rect>
+    <text x="110" y="28" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">3 · TRANSLOCATION</text>
+    <rect x="30" y="60" width="48" height="55" rx="6" fill="#F1F5F9"></rect><text x="54" y="91" text-anchor="middle" fill="#64748B" font-family="Outfit" font-size="16">E</text>
+    <rect x="86" y="60" width="48" height="55" rx="6" fill="#CCFBF1"></rect><text x="110" y="91" text-anchor="middle" fill="#115E59" font-family="Outfit" font-size="16">P</text>
+    <rect x="142" y="60" width="48" height="55" rx="6" fill="#E0E7FF"></rect><text x="166" y="91" text-anchor="middle" fill="#312E81" font-family="Outfit" font-size="16">A</text>
+    <line x1="166" y1="45" x2="110" y2="45" stroke="#0F766E" stroke-width="4"></line><polygon points="110,45 122,39 122,51" fill="#0F766E"></polygon>
+    <line x1="110" y1="126" x2="54" y2="126" stroke="#64748B" stroke-width="3"></line><polygon points="54,126 66,120 66,132" fill="#64748B"></polygon>
+    <text x="110" y="157" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">EF-G–GTP:</text>
+    <text x="110" y="175" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">A→P and P→E</text>
+  </g>
+  <line x1="78" y1="310" x2="718" y2="310" stroke="#334155" stroke-width="3"></line>
+  <polygon points="718,310 706,304 706,316" fill="#334155"></polygon>
+  <text x="30" y="316" fill="#334155" font-family="Outfit" font-size="14" font-weight="700">5′</text>
+  <text x="734" y="316" fill="#334155" font-family="Outfit" font-size="14" font-weight="700">3′</text>
+  <text x="400" y="343" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans" font-size="13">Original schematic. Peptide transfer occurs before translocation.</text>
+</svg>
+<p class="learn-caption">After bond formation the peptide is briefly on the A-site tRNA. EF-G then moves that tRNA into P.</p>
+</div>
+</section>
+<section id="termination-and-recycling" class="level2">
+<h2 class="anchored" data-anchor-id="termination-and-recycling">Termination and recycling</h2>
+<p>Termination begins when UAA, UAG, or UGA reaches A. There is no ordinary charged tRNA for stop. A release factor enters, and water hydrolyzes the ester bond between the completed chain and the P-site tRNA.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Factor</th>
+<th>Recognition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bacterial RF1</td>
+<td>UAA and UAG</td>
+</tr>
+<tr class="even">
+<td>Bacterial RF2</td>
+<td>UAA and UGA</td>
+</tr>
+<tr class="odd">
+<td>Bacterial RF3</td>
+<td>GTPase assisting release-factor turnover</td>
+</tr>
+<tr class="even">
+<td>Eukaryotic eRF1</td>
+<td>All three stop codons</td>
+</tr>
+<tr class="odd">
+<td>Eukaryotic eRF3</td>
+<td>GTPase assisting termination</td>
+</tr>
+</tbody>
+</table>
+<p>After release, bacterial RRF, EF-G, and IF-3 recycle the complex. Eukaryotes use ABCE1 and additional factors.</p>
+<p>A premature termination codon can trigger <strong>nonsense-mediated mRNA decay (NMD)</strong>. NMD lowers the amount of an mRNA that could produce a truncated protein. It is context-dependent and is an mRNA surveillance pathway, not ordinary termination.</p>
+</section>
+<section id="translation-errors-variants-and-laboratory-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="translation-errors-variants-and-laboratory-evidence">Translation errors, variants, and laboratory evidence</h2>
+<p>A translation error affects a particular protein molecule without necessarily changing DNA or mRNA. A genetic variant changes the encoded sequence and can recur in every transcript or protein produced from that allele.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>Sequence effect</th>
+<th>Likely protein consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Missense variant</td>
+<td>One sense codon becomes another</td>
+<td>One amino-acid substitution</td>
+</tr>
+<tr class="even">
+<td>Nonsense variant</td>
+<td>Sense codon becomes stop</td>
+<td>Truncation and possibly NMD</td>
+</tr>
+<tr class="odd">
+<td>Frameshift</td>
+<td>Insertion/deletion not divisible by three</td>
+<td>New downstream frame, often early stop</td>
+</tr>
+<tr class="even">
+<td>In-frame indel</td>
+<td>Insertion/deletion divisible by three</td>
+<td>Residues added or removed; frame preserved</td>
+</tr>
+<tr class="odd">
+<td>Translation error</td>
+<td>DNA may be unchanged</td>
+<td>Wrong residue in an individual protein molecule</td>
+</tr>
+</tbody>
+</table>
+<p>One method rarely answers every clinical question:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Best question</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sanger sequencing</td>
+<td>Is a targeted DNA variant present?</td>
+<td>Does not prove protein dysfunction</td>
+</tr>
+<tr class="even">
+<td>NGS</td>
+<td>Which variants are present across many regions?</td>
+<td>Coverage and interpretation limits remain</td>
+</tr>
+<tr class="odd">
+<td>RT-PCR/RNA analysis</td>
+<td>Is transcript structure or splicing altered?</td>
+<td>Requires suitable RNA and assay design</td>
+</tr>
+<tr class="even">
+<td>qPCR</td>
+<td>Is nucleic-acid abundance changed?</td>
+<td>Abundance does not prove protein function</td>
+</tr>
+<tr class="odd">
+<td>Western blot</td>
+<td>Is protein abundance or apparent size altered?</td>
+<td>Does not establish activity</td>
+</tr>
+<tr class="even">
+<td>Enzyme assay</td>
+<td>Is function impaired?</td>
+<td>May not identify the causal DNA change</td>
+</tr>
+</tbody>
+</table>
+<p>For a premature stop, separate three questions: confirm the DNA variant; test whether the RNA is spliced differently or degraded by NMD; then determine whether protein is absent, shortened, unstable, or inactive.</p>
+</section>
+<section id="say-these-without-looking" class="level2">
+<h2 class="anchored" data-anchor-id="say-these-without-looking">Say these without looking</h2>
+<ul>
+<li>The ribosome reads mRNA 5′→3′; protein grows N→C.</li>
+<li>AUG starts. UAA, UAG, and UGA stop. Bacterial initiator amino acid is fMet.</li>
+<li>Wobble is the third codon base and first 5′ anticodon base. Degeneracy is not wobble.</li>
+<li>Aminoacyl-tRNA synthetase charges 3′-CCA. ATP→AMP costs two high-energy bond equivalents.</li>
+<li>70S = 30S + 50S; 80S = 40S + 60S. S values are not additive.</li>
+<li>16S decodes; 23S catalyzes peptide-bond formation.</li>
+<li>A accepts, P holds peptide, E exits. The initiator tRNA starts in P.</li>
+<li>Shine–Dalgarno is bacterial. Cap scanning and Kozak context are eukaryotic.</li>
+<li>EF-Tu delivers, EF-Ts reloads EF-Tu, EF-G translocates.</li>
+<li>Peptide bond first, translocation second.</li>
+<li>RF1 recognizes UAA/UAG; RF2 recognizes UAA/UGA; eRF1 recognizes all three.</li>
+<li>Missense substitutes, nonsense stops, frameshift changes the downstream frame.</li>
+</ul>
+<p>Previous: <a href="../mb-ascp/03-transcription-rna-processing.html">Transcription and RNA processing</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<p>Ten original questions. Answer all of them before checking; the explanation appears with the key.</p>
+<div class="mb-quiz" data-mb-quiz="">
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">1. Which statement correctly describes translation directionality?</p>
+    <label><input type="radio" name="d4q1" value="a"> mRNA is read 3′→5′ and protein grows C→N</label>
+    <label><input type="radio" name="d4q1" value="b"> mRNA is read 3′→5′ and protein grows N→C</label>
+    <label><input type="radio" name="d4q1" value="c"> mRNA is read 5′→3′ and protein grows N→C</label>
+    <label><input type="radio" name="d4q1" value="d"> Both are synthesized 3′→5′</label>
+    <p class="mb-q-why" hidden="">The ribosome advances along mRNA 5′→3′. Each new residue is added to the C end, so the polypeptide grows from N terminus to C terminus.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">2. The mRNA codon is 5′-AUG-3′. Which anticodon is correctly written 5′→3′?</p>
+    <label><input type="radio" name="d4q2" value="a"> 5′-UAC-3′</label>
+    <label><input type="radio" name="d4q2" value="b"> 5′-CAU-3′</label>
+    <label><input type="radio" name="d4q2" value="c"> 5′-AUG-3′</label>
+    <label><input type="radio" name="d4q2" value="d"> 5′-GUA-3′</label>
+    <p class="mb-q-why" hidden="">The paired anticodon is 3′-UAC-5′. Reverse it when writing 5′→3′: 5′-CAU-3′.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">3. Wobble occurs between which positions?</p>
+    <label><input type="radio" name="d4q3" value="a"> First codon base and first anticodon base</label>
+    <label><input type="radio" name="d4q3" value="b"> Second codon base and terminal CCA</label>
+    <label><input type="radio" name="d4q3" value="c"> Third codon base and first 5′ anticodon base</label>
+    <label><input type="radio" name="d4q3" value="d"> The start codon and poly-A tail</label>
+    <p class="mb-q-why" hidden="">Codon and anticodon are antiparallel. Flexibility at codon position 3 corresponds to the 5′-most anticodon base.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">4. Why can a mischarged tRNA cause an incorrect amino acid to be incorporated despite correct codon pairing?</p>
+    <label><input type="radio" name="d4q4" value="a"> The ribosome rewrites the anticodon</label>
+    <label><input type="radio" name="d4q4" value="b"> The ribosome mainly checks codon–anticodon geometry, not amino-acid identity</label>
+    <label><input type="radio" name="d4q4" value="c"> Stop codons charge tRNAs</label>
+    <label><input type="radio" name="d4q4" value="d"> EF-G attaches amino acids to tRNA</label>
+    <p class="mb-q-why" hidden="">Aminoacyl-tRNA synthetase establishes amino-acid identity. The ribosome can accept a correctly pairing anticodon even when the attached amino acid is wrong.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">5. Which bacterial rRNA contains the principal peptidyl-transferase catalytic activity?</p>
+    <label><input type="radio" name="d4q5" value="a"> 5S rRNA</label>
+    <label><input type="radio" name="d4q5" value="b"> 16S rRNA</label>
+    <label><input type="radio" name="d4q5" value="c"> 23S rRNA</label>
+    <label><input type="radio" name="d4q5" value="d"> 18S rRNA</label>
+    <p class="mb-q-why" hidden="">23S rRNA is in the 50S large subunit and catalyzes peptide transfer. The 16S rRNA belongs to the 30S decoding subunit.</p>
+  </div>
+  <div class="mb-q" data-answer="a">
+    <p class="mb-q-stem">6. During normal initiation, the initiator tRNA first occupies which site?</p>
+    <label><input type="radio" name="d4q6" value="a"> P site</label>
+    <label><input type="radio" name="d4q6" value="b"> A site</label>
+    <label><input type="radio" name="d4q6" value="c"> E site</label>
+    <label><input type="radio" name="d4q6" value="d"> Editing site of aaRS</label>
+    <p class="mb-q-why" hidden="">The special initiator tRNA starts in P. Later aminoacyl-tRNAs enter through A.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">7. Which bacterial factor delivers an aminoacyl-tRNA to the A site?</p>
+    <label><input type="radio" name="d4q7" value="a"> EF-G–GTP</label>
+    <label><input type="radio" name="d4q7" value="b"> EF-Tu–GTP</label>
+    <label><input type="radio" name="d4q7" value="c"> RF1</label>
+    <label><input type="radio" name="d4q7" value="d"> IF-3</label>
+    <p class="mb-q-why" hidden="">EF-Tu–GTP delivers and helps select the charged tRNA. EF-G translocates after peptide-bond formation.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">8. Immediately after peptide-bond formation but before translocation, the growing peptide is attached to the tRNA in which site?</p>
+    <label><input type="radio" name="d4q8" value="a"> E site</label>
+    <label><input type="radio" name="d4q8" value="b"> P site</label>
+    <label><input type="radio" name="d4q8" value="c"> A site</label>
+    <label><input type="radio" name="d4q8" value="d"> It has already been released</label>
+    <p class="mb-q-why" hidden="">Peptide transfer moves the chain from P-site tRNA to A-site tRNA. EF-G then translocates that peptidyl-tRNA A→P.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Which bacterial release factor recognizes UAA and UGA?</p>
+    <label><input type="radio" name="d4q9" value="a"> RF1</label>
+    <label><input type="radio" name="d4q9" value="b"> RF2</label>
+    <label><input type="radio" name="d4q9" value="c"> RF3</label>
+    <label><input type="radio" name="d4q9" value="d"> eRF1</label>
+    <p class="mb-q-why" hidden="">RF2 recognizes UAA and UGA. RF1 recognizes UAA and UAG. Eukaryotic eRF1 recognizes all three stops.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">10. A one-nucleotide deletion in a coding region most directly causes which variant class?</p>
+    <label><input type="radio" name="d4q10" value="a"> Synonymous</label>
+    <label><input type="radio" name="d4q10" value="b"> In-frame deletion</label>
+    <label><input type="radio" name="d4q10" value="c"> Frameshift</label>
+    <label><input type="radio" name="d4q10" value="d"> Translation error without a DNA change</label>
+    <p class="mb-q-why" hidden="">An indel not divisible by three shifts the downstream reading frame. A three-base deletion would be in-frame.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+</section>
+<section id="sources-and-figure-note" class="level2">
+<h2 class="anchored" data-anchor-id="sources-and-figure-note">Sources and figure note</h2>
+<p>All three figures are original SVG study schematics created for this page. The primary lesson source is the supplied <em>MB(ASCP) Lesson 4 — Genetic Code and Translation</em> PDF, which identifies Lela Buckingham’s <em>Molecular Diagnostics: Fundamentals, Methods, and Clinical Applications</em>, Chapter 1 (especially printed pp.&nbsp;45–51 and Figures 1.38–1.41), as its main textbook basis. Eukaryotic initiation, factor equivalents, NMD, and diagnostic-method comparisons are supplementary exam context. Use the current ASCP Board of Certification content guideline to confirm the scope for your examination date.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vahhabpiranfar\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Vahhab Piranfar — Molecular Microbiologist · Antimicrobial Resistance &amp; Computational Modeling</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/vahhab-piranfar/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=o2GdH2oAAAAJ&amp;hl=en">
+      <i class="bi bi-google" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/piranfar">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

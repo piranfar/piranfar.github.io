@@ -57,6 +57,7 @@ MB(ASCP) exam track:
 - Nucleic acid chemistry — https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html
 - DNA replication — https://vahhabpiranfar.com/mb-ascp/02-dna-replication.html
 - Transcription and RNA processing — https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html
+- Genetic code and translation — https://vahhabpiranfar.com/mb-ascp/04-genetic-code-and-translation.html
 
 ## Selected research (sole author unless noted)
 

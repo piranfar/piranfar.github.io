@@ -3,6 +3,7 @@ title: "MB 2. DNA replication"
 description: "Semiconservative copying, the fork, leading versus lagging strand, bacterial and eukaryotic polymerases, proofreading, and the PCR version of the same rules."
 author: "Vahhab Piranfar"
 date: "2026-11-10"
+lesson: 2
 categories: [MB-ASCP]
 ---
 

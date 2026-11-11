@@ -3,6 +3,7 @@ title: "MB 1. Nucleic acid chemistry"
 description: "Purines and pyrimidines, nucleosides versus nucleotides, DNA versus RNA, base pairing, and what actually moves melting temperature."
 author: "Vahhab Piranfar"
 date: "2026-11-10"
+lesson: 1
 categories: [MB-ASCP]
 ---
 

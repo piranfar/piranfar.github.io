@@ -16,7 +16,7 @@ listing:
     page-size: 20
   - id: mb-latest
     contents: mb-ascp
-    sort: "date desc"
+    sort: "lesson desc"
     type: default
     categories: false
     feed: false

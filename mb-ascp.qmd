@@ -1,15 +1,15 @@
 ---
 title: "MB(ASCP) study notes"
 pagetitle: "MB(ASCP) Molecular Biology Study Notes | Vahhab Piranfar"
-description: "Original MB(ASCP) and MB(ASCPi) study notes for molecular biology board prep: nucleic acid chemistry, DNA replication, transcription, RNA processing, and end-of-lesson quizzes."
-keywords: "MB ASCP, MB ASCPi, molecular biology board exam, ASCP molecular biology, nucleic acid chemistry, DNA replication, transcription, RNA processing, molecular diagnostics study notes"
+description: "Original MB(ASCP) and MB(ASCPi) study notes for molecular biology board prep: nucleic acids, replication, transcription, translation, genetic code, and end-of-lesson quizzes."
+keywords: "MB ASCP, MB ASCPi, molecular biology board exam, ASCP molecular biology, nucleic acid chemistry, DNA replication, transcription, RNA processing, genetic code, translation, molecular diagnostics study notes"
 author: "Vahhab Piranfar"
 date: "2026-11-10"
 toc: false
 listing:
   id: mb-ascp-lessons
   contents: mb-ascp
-  sort: "date desc"
+  sort: "lesson desc"
   type: default
   categories: false
   feed: true

@@ -28,17 +28,19 @@
       "/learning/03-resistance-tolerance-persistence.html",
       "/learning/02-pta-cfr-virtual-populations.html",
       "/learning/01-pkpd-targets-and-mic.html",
-      "/mb-ascp/01-nucleic-acid-chemistry.html",
+      "/mb-ascp/04-genetic-code-and-translation.html",
+      "/mb-ascp/03-transcription-rna-processing.html",
       "/mb-ascp/02-dna-replication.html",
-      "/mb-ascp/03-transcription-rna-processing.html"
+      "/mb-ascp/01-nucleic-acid-chemistry.html"
     ]
   },
   {
     "listing": "/mb-ascp.html",
     "items": [
-      "/mb-ascp/01-nucleic-acid-chemistry.html",
+      "/mb-ascp/04-genetic-code-and-translation.html",
+      "/mb-ascp/03-transcription-rna-processing.html",
       "/mb-ascp/02-dna-replication.html",
-      "/mb-ascp/03-transcription-rna-processing.html"
+      "/mb-ascp/01-nucleic-acid-chemistry.html"
     ]
   }
 ]

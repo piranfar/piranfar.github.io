@@ -8,25 +8,25 @@
 <title>Vahhab Piranfar</title>
 <link>https://vahhabpiranfar.com/mb-ascp.html</link>
 <atom:link href="https://vahhabpiranfar.com/mb-ascp.xml" rel="self" type="application/rss+xml"/>
-<description>Original MB(ASCP) and MB(ASCPi) study notes for molecular biology board prep: nucleic acid chemistry, DNA replication, transcription, RNA processing, and end-of-lesson quizzes.</description>
+<description>Original MB(ASCP) and MB(ASCPi) study notes for molecular biology board prep: nucleic acids, replication, transcription, translation, genetic code, and end-of-lesson quizzes.</description>
 <image>
 <url>https://vahhabpiranfar.com/profile.jpg</url>
 <title>Vahhab Piranfar</title>
 <link>https://vahhabpiranfar.com/mb-ascp.html</link>
 </image>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Tue, 10 Nov 2026 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 11 Nov 2026 05:00:00 GMT</lastBuildDate>
 <item>
-  <title>MB 1. Nucleic acid chemistry</title>
+  <title>MB 4. Genetic code and translation</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html</link>
+  <link>https://vahhabpiranfar.com/mb-ascp/04-genetic-code-and-translation.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p class="mb-kicker">MB(ASCP) study notes · Lesson 1</p>
-<p>DNA and RNA are polymers. The exam mostly asks you to name the parts, the bonds, and the one chemical difference that makes RNA fall apart in alkali. This lesson is that map.</p>
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 4</p>
+<p>Translation converts the nucleotide sequence of an mRNA into the amino-acid sequence of a polypeptide. For the exam, keep four directions straight: the ribosome reads mRNA <strong>5′→3′</strong>, codon and anticodon pair antiparallel, the protein grows <strong>N-terminus→C-terminus</strong>, and new aminoacyl-tRNAs normally enter the <strong>A site</strong>. The initiator tRNA is the exception: it starts in the <strong>P site</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -37,12 +37,12 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication, not a dosing or lab procedure, and not a set of real examination items. Confirm the current content outline before you register.</p>
+<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation, reconstructed from the supplied Lesson 4 guide. The diagrams and questions are original. This is not an official ASCP publication and does not reproduce examination questions.</p>
 </div>
 </div>
-<section id="three-pieces-two-names" class="level2">
-<h2 class="anchored" data-anchor-id="three-pieces-two-names">Three pieces, two names</h2>
-<p>Every nucleotide has a nitrogenous base, a five-carbon sugar, and at least one phosphate. The sugar–phosphate chain is the backbone. The order of the bases is the information.</p>
+<section id="the-genetic-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-genetic-code">The genetic code</h2>
+<p>A codon is a group of three nucleotides in mRNA. Four bases can make (4^3 = 64) codons: 61 sense codons specify the 20 standard amino acids, and three are stop signals.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -51,98 +51,231 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th>Molecule</th>
-<th>What it contains</th>
-<th>Examples</th>
+<th>Property</th>
+<th>What it means</th>
+<th>Exam consequence</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Base</td>
-<td>The ring only</td>
-<td>Adenine, guanine, cytosine, thymine, uracil</td>
+<td>Triplet</td>
+<td>Three bases form one codon</td>
+<td>Read the mRNA in groups of three</td>
 </tr>
 <tr class="even">
-<td>Nucleoside</td>
-<td>Base + sugar</td>
-<td>Adenosine, deoxyadenosine, thymidine, uridine</td>
+<td>Degenerate</td>
+<td>Several codons can specify one amino acid</td>
+<td>UUU and UUC both mean phenylalanine</td>
 </tr>
 <tr class="odd">
-<td>Nucleotide</td>
-<td>Base + sugar + phosphate</td>
-<td>AMP, ATP, dATP, dTTP</td>
+<td>Nearly universal</td>
+<td>Most organisms use the same assignments</td>
+<td>Mitochondrial and specialized exceptions exist</td>
+</tr>
+<tr class="even">
+<td>Non-overlapping</td>
+<td>A base belongs to one codon in a reading frame</td>
+<td>A frameshift changes every downstream triplet</td>
+</tr>
+<tr class="odd">
+<td>Commaless</td>
+<td>Codons are read continuously</td>
+<td>The start point determines the frame</td>
 </tr>
 </tbody>
 </table>
-<p>The base is tied to carbon 1′ of the sugar by a glycosidic bond. Purines use nitrogen N9. Pyrimidines use nitrogen N1. The phosphate sits on carbon 5′. The next nucleotide will be attached to the free OH on carbon 3′.</p>
+<p><strong>AUG</strong> is the usual start codon. It specifies methionine; bacterial initiation uses <strong>N-formylmethionine (fMet)</strong>. The stop codons are <strong>UAA, UAG, and UGA</strong>. A stop codon does not add an amino acid. A release factor recognizes it.</p>
+<p>Example:</p>
+<p><code>5′-AUG UUU GGC UAA-3′</code> → Met–Phe–Gly–STOP</p>
+<p>The product contains three amino acids. UGA can be recoded as selenocysteine in the correct sequence context with specialized machinery, so “universal” and “always stop” are useful rules, not exception-free laws.</p>
 <div class="learn-figure">
-<svg viewbox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" aria-label="A nucleotide drawn as phosphate, sugar, and base, with the carbons that exams ask about">
-  <rect width="760" height="280" fill="#F8FAFC"></rect>
-  <rect x="36" y="78" width="150" height="78" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"></rect>
-  <text x="111" y="112" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Phosphate</text>
-  <text x="111" y="134" text-anchor="middle" fill="#92400E" font-family="IBM Plex Sans, sans-serif" font-size="13">on carbon 5′</text>
-  <line x1="186" y1="117" x2="230" y2="117" stroke="#94A3B8" stroke-width="3"></line>
-  <rect x="230" y="62" width="170" height="110" rx="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></rect>
-  <text x="315" y="104" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Pentose sugar</text>
-  <text x="315" y="126" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">1′ holds the base</text>
-  <text x="315" y="146" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">3′ holds the next link</text>
-  <line x1="400" y1="117" x2="444" y2="117" stroke="#94A3B8" stroke-width="3"></line>
-  <text x="422" y="108" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">glycosidic</text>
-  <rect x="444" y="70" width="160" height="94" rx="12" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
-  <text x="524" y="112" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Base</text>
-  <text x="524" y="134" text-anchor="middle" fill="#312E81" font-family="IBM Plex Sans, sans-serif" font-size="13">A, G, C, T, or U</text>
-  <text x="36" y="230" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">Nucleoside = sugar + base. Add phosphate and the same molecule is a nucleotide.</text>
-  <text x="36" y="254" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Purines attach through N9. Pyrimidines attach through N1.</text>
+<svg viewbox="0 0 780 270" xmlns="http://www.w3.org/2000/svg" aria-label="An mRNA divided into start, amino-acid, and stop codons and translated from N terminus to C terminus">
+  <rect width="780" height="270" fill="#F8FAFC"></rect>
+  <text x="32" y="42" fill="#334155" font-family="Outfit, sans-serif" font-size="16" font-weight="700">mRNA is read 5′ → 3′</text>
+  <text x="32" y="91" fill="#475569" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
+  <rect x="66" y="64" width="120" height="48" rx="8" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></rect>
+  <text x="126" y="94" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="19" font-weight="700">AUG</text>
+  <rect x="194" y="64" width="120" height="48" rx="8" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="254" y="94" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="19" font-weight="700">UUU</text>
+  <rect x="322" y="64" width="120" height="48" rx="8" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="382" y="94" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="19" font-weight="700">GGC</text>
+  <rect x="450" y="64" width="120" height="48" rx="8" fill="#FEE2E2" stroke="#B91C1C" stroke-width="2"></rect>
+  <text x="510" y="94" text-anchor="middle" fill="#991B1B" font-family="Outfit, sans-serif" font-size="19" font-weight="700">UAA</text>
+  <text x="590" y="91" fill="#475569" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
+  <text x="126" y="139" text-anchor="middle" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="13">start · Met</text>
+  <text x="254" y="139" text-anchor="middle" fill="#4338CA" font-family="IBM Plex Sans, sans-serif" font-size="13">Phe</text>
+  <text x="382" y="139" text-anchor="middle" fill="#4338CA" font-family="IBM Plex Sans, sans-serif" font-size="13">Gly</text>
+  <text x="510" y="139" text-anchor="middle" fill="#B91C1C" font-family="IBM Plex Sans, sans-serif" font-size="13">stop · no amino acid</text>
+  <line x1="126" y1="184" x2="382" y2="184" stroke="#0F766E" stroke-width="4" stroke-linecap="round"></line>
+  <circle cx="126" cy="184" r="8" fill="#0F766E"></circle>
+  <circle cx="254" cy="184" r="8" fill="#0F766E"></circle>
+  <circle cx="382" cy="184" r="8" fill="#0F766E"></circle>
+  <text x="110" y="218" fill="#334155" font-family="Outfit, sans-serif" font-size="15" font-weight="700">N</text>
+  <text x="394" y="218" fill="#334155" font-family="Outfit, sans-serif" font-size="15" font-weight="700">C</text>
+  <text x="254" y="249" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Polypeptide grows N-terminus → C-terminus</text>
 </svg>
-<p class="learn-caption">Original study schematic. Carbon numbers, not artistic ring drawings, are what the items test.</p>
+<p class="learn-caption">Original schematic. A four-codon message produces a three-amino-acid peptide because stop is a signal, not a residue.</p>
 </div>
-<p>Naming is part of the question. Adenine is the base, adenosine is the ribonucleoside, and AMP is the nucleotide. The prefix <strong>deoxy-</strong> means the sugar is 2′-deoxyribose, so dATP is a DNA building block. Thymidine is the usual name for the deoxyribonucleoside of thymine. Uridine is the ribonucleoside of uracil.</p>
 </section>
-<section id="purines-and-pyrimidines" class="level2">
-<h2 class="anchored" data-anchor-id="purines-and-pyrimidines">Purines and pyrimidines</h2>
-<p>Purines have two fused rings. Pyrimidines have one ring.</p>
+<section id="codon-anticodon-and-wobble" class="level2">
+<h2 class="anchored" data-anchor-id="codon-anticodon-and-wobble">Codon, anticodon, and wobble</h2>
+<p>tRNA is the adaptor between nucleic acid and protein. Its anticodon recognizes the mRNA codon. Its conserved <strong>3′-CCA</strong> end carries the amino acid on the terminal adenosine.</p>
+<p>Codon and anticodon pair antiparallel:</p>
+<ul>
+<li>mRNA codon: <code>5′-AUG-3′</code></li>
+<li>Paired anticodon: <code>3′-UAC-5′</code></li>
+<li>The same anticodon written conventionally 5′→3′: <code>5′-CAU-3′</code></li>
+</ul>
+<p>Always inspect the printed direction before choosing an anticodon. Complementing AUG to UAC without checking direction is the common trap.</p>
+<p>The first two codon positions usually demand standard Watson–Crick geometry. The <strong>third codon base</strong> is more flexible. This is wobble, corresponding to the <strong>first base at the 5′ end of the anticodon</strong>. Wobble lets one tRNA recognize several synonymous codons and reduces the number of distinct tRNAs a cell needs.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>5′ base of anticodon</th>
+<th>Possible 3′ base(s) of codon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C</td>
+<td>G</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>U</td>
+</tr>
+<tr class="odd">
+<td>U</td>
+<td>A or G</td>
+</tr>
+<tr class="even">
+<td>G</td>
+<td>C or U</td>
+</tr>
+<tr class="odd">
+<td>Inosine (I)</td>
+<td>U, C, or A</td>
+</tr>
+</tbody>
+</table>
+<p>An anticodon <code>5′-IGC-3′</code> can recognize <code>5′-GCU-3′</code>, <code>5′-GCC-3′</code>, and <code>5′-GCA-3′</code>. The code has not changed; the pairing mechanism is flexible.</p>
+<p><strong>Degeneracy and wobble are not synonyms.</strong> Degeneracy is the fact that several codons encode the same amino acid. Wobble is how one anticodon can physically recognize several of those codons.</p>
+</section>
+<section id="charging-the-trna" class="level2">
+<h2 class="anchored" data-anchor-id="charging-the-trna">Charging the tRNA</h2>
+<p>Before a tRNA enters translation, an <strong>aminoacyl-tRNA synthetase (aaRS)</strong> attaches the correct amino acid. Charging is a separate accuracy checkpoint from ribosomal decoding.</p>
+<ol type="1">
+<li>Amino acid + ATP → aminoacyl-AMP + PPi</li>
+<li>Aminoacyl-AMP + tRNA → aminoacyl-tRNA + AMP</li>
+</ol>
+<p>ATP is converted to AMP, and PPi is hydrolyzed. That costs the equivalent of <strong>two high-energy phosphate bonds</strong>. The amino acid’s carboxyl group forms an ester bond to a hydroxyl on the terminal A of the 3′-CCA end. Its amino group remains free for peptide-bond formation.</p>
+<p>Many synthetases have an editing site that removes an incorrectly activated amino acid or hydrolyzes a mischarged tRNA. This matters because the ribosome mainly checks codon–anticodon pairing. If the correct anticodon carries the wrong amino acid, the ribosome may accept it and put the wrong residue into the protein.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
 <col style="width: 33%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>Checkpoint</th>
+<th>What it verifies</th>
+<th>Error if it fails</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aminoacyl-tRNA synthetase</td>
+<td>Correct amino acid on its cognate tRNA</td>
+<td>Correct anticodon delivers the wrong amino acid</td>
+</tr>
+<tr class="even">
+<td>Ribosomal decoding center</td>
+<td>Correct codon–anticodon geometry</td>
+<td>Near-cognate tRNA enters the chain</td>
+</tr>
+</tbody>
+</table>
+<div class="learn-figure">
+<svg viewbox="0 0 780 310" xmlns="http://www.w3.org/2000/svg" aria-label="Two-step aminoacyl tRNA charging reaction with ATP to AMP and proofreading">
+  <rect width="780" height="310" fill="#F8FAFC"></rect>
+  <text x="32" y="38" fill="#334155" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Aminoacyl-tRNA synthetase: select, activate, transfer, edit</text>
+  <rect x="32" y="65" width="182" height="84" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"></rect>
+  <text x="123" y="96" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Amino acid + ATP</text>
+  <text x="123" y="122" text-anchor="middle" fill="#92400E" font-family="IBM Plex Sans, sans-serif" font-size="13">substrate selection</text>
+  <line x1="214" y1="107" x2="280" y2="107" stroke="#64748B" stroke-width="3"></line>
+  <polygon points="280,107 268,101 268,113" fill="#64748B"></polygon>
+  <rect x="280" y="65" width="205" height="84" rx="12" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="382" y="96" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Aminoacyl-AMP</text>
+  <text x="382" y="122" text-anchor="middle" fill="#312E81" font-family="IBM Plex Sans, sans-serif" font-size="13">PPi leaves · activated intermediate</text>
+  <line x1="485" y1="107" x2="550" y2="107" stroke="#64748B" stroke-width="3"></line>
+  <polygon points="550,107 538,101 538,113" fill="#64748B"></polygon>
+  <rect x="550" y="65" width="198" height="84" rx="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></rect>
+  <text x="649" y="96" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="15" font-weight="700">Aminoacyl-tRNA</text>
+  <text x="649" y="122" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">amino acid on terminal 3′-A</text>
+  <text x="382" y="183" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans, sans-serif" font-size="14">ATP → AMP + PPi = two high-energy phosphate-bond equivalents</text>
+  <rect x="115" y="214" width="550" height="58" rx="12" fill="#FEE2E2" stroke="#B91C1C" stroke-width="1.5"></rect>
+  <text x="390" y="239" text-anchor="middle" fill="#991B1B" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Editing site</text>
+  <text x="390" y="259" text-anchor="middle" fill="#991B1B" font-family="IBM Plex Sans, sans-serif" font-size="13">hydrolyzes the wrong activated amino acid or a mischarged tRNA</text>
+  <text x="32" y="298" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="13">Original schematic. Charging determines amino-acid identity; the ribosome cannot reliably re-check it.</text>
+</svg>
+<p class="learn-caption">Charging prepares the adaptor. Decoding later checks the anticodon. Those are different fidelity checkpoints.</p>
+</div>
+</section>
+<section id="ribosomes-and-the-a-p-and-e-sites" class="level2">
+<h2 class="anchored" data-anchor-id="ribosomes-and-the-a-p-and-e-sites">Ribosomes and the A, P, and E sites</h2>
+<p>The small subunit decodes mRNA. The large subunit contains the peptidyl-transferase center.</p>
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
-<th>Purines</th>
-<th>Pyrimidines</th>
+<th>Bacterial</th>
+<th>Eukaryotic cytoplasmic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Shape</td>
-<td>Six-membered ring fused to a five-membered ring</td>
-<td>One six-membered ring</td>
+<td>Complete ribosome</td>
+<td>70S</td>
+<td>80S</td>
 </tr>
 <tr class="even">
-<td>Members</td>
-<td>Adenine (A), guanine (G)</td>
-<td>Cytosine (C), thymine (T), uracil (U)</td>
+<td>Small subunit</td>
+<td>30S: 16S rRNA</td>
+<td>40S: 18S rRNA</td>
 </tr>
 <tr class="odd">
-<td>Where</td>
-<td>A and G are in DNA and RNA</td>
-<td>C is in both. T is the DNA base. U is the RNA base.</td>
+<td>Large subunit</td>
+<td>50S: 23S + 5S rRNA</td>
+<td>60S: 28S + 5.8S + 5S rRNA</td>
 </tr>
 </tbody>
 </table>
-<p>The memory line is enough: <strong>purines are A and G</strong> (“pure As gold”). Everything else in this family — C, T, and U — is a pyrimidine.</p>
-<p>A few substituents are worth being able to picture. Adenine carries an amino group. Guanine carries an amino group and a carbonyl. Thymine is uracil with a methyl group on carbon 5, which is why thymine is also called 5-methyluracil. That methyl group is the only difference the exam wants between T and U.</p>
-<details class="learn-think">
-<summary>
-If the item shows rings and asks which atom bonds to the sugar
-</summary>
-Count the rings first. Two rings means a purine, and the glycosidic nitrogen is N9. One ring means a pyrimidine, and the glycosidic nitrogen is N1. A choice that swaps those two numbers is the usual distractor.
-</details>
+<p>S means Svedberg sedimentation coefficient. It depends on size, shape, and density and is not additive: 30S + 50S makes 70S, not 80S.</p>
+<p>The three sites are easiest as one sentence: <strong>A accepts, P carries the peptide, E exits.</strong></p>
+<ul>
+<li><strong>A site:</strong> incoming aminoacyl-tRNA</li>
+<li><strong>P site:</strong> tRNA carrying the growing polypeptide</li>
+<li><strong>E site:</strong> deacylated tRNA before departure</li>
+</ul>
+<p>In bacteria, <strong>16S rRNA</strong> belongs to the 30S decoding subunit. <strong>23S rRNA</strong> belongs to the 50S subunit and performs the central peptidyl-transferase chemistry. The ribosome is therefore a ribozyme.</p>
 </section>
-<section id="dna-and-rna" class="level2">
-<h2 class="anchored" data-anchor-id="dna-and-rna">DNA and RNA</h2>
+<section id="initiation-fixes-the-reading-frame" class="level2">
+<h2 class="anchored" data-anchor-id="initiation-fixes-the-reading-frame">Initiation fixes the reading frame</h2>
+<p>Initiation puts the start codon in the correct position and places the special initiator tRNA directly in the P site.</p>
+<section id="bacteria" class="level3">
+<h3 class="anchored" data-anchor-id="bacteria">Bacteria</h3>
+<ol type="1">
+<li>The 30S subunit binds initiation factors.</li>
+<li>The mRNA <strong>Shine–Dalgarno</strong> sequence base-pairs with 16S rRNA and positions AUG.</li>
+<li><strong>IF-2–GTP</strong> delivers fMet-tRNA to the P site.</li>
+<li>IF-1 organizes the complex; IF-3 prevents premature 50S joining.</li>
+<li>The 50S subunit joins, GTP is hydrolyzed, and a 70S initiation complex remains.</li>
+</ol>
+</section>
+<section id="eukaryotic-cytoplasm" class="level3">
+<h3 class="anchored" data-anchor-id="eukaryotic-cytoplasm">Eukaryotic cytoplasm</h3>
+<p>The 40S complex is recruited to the 5′ cap through initiation factors including eIF4E in eIF4F. eIF2–GTP helps load non-formylated initiator Met-tRNA. The complex scans 5′→3′ for an AUG in a favorable <strong>Kozak context</strong>, then the 60S subunit joins to form an 80S ribosome.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -151,222 +284,754 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>DNA</th>
-<th>RNA</th>
+<th>Feature</th>
+<th>Bacteria</th>
+<th>Eukaryotes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Sugar</td>
-<td>2′-deoxyribose (2′ carbon carries H)</td>
-<td>Ribose (2′ carbon carries OH)</td>
+<td>Start positioning</td>
+<td>Shine–Dalgarno pairs with 16S rRNA</td>
+<td>5′ cap recruitment, scanning, Kozak sequence</td>
 </tr>
 <tr class="even">
-<td>Bases</td>
-<td>A, G, C, T</td>
-<td>A, G, C, U</td>
+<td>Initiator amino acid</td>
+<td>fMet</td>
+<td>Met, not formylated</td>
 </tr>
 <tr class="odd">
-<td>Usual form</td>
-<td>Double-stranded</td>
-<td>Single-stranded, often folded</td>
+<td>Initiator delivery</td>
+<td>IF-2–GTP</td>
+<td>eIF2–GTP</td>
 </tr>
 <tr class="even">
-<td>Alkali</td>
-<td>The backbone resists this particular attack</td>
-<td>The 2′-OH can cleave the backbone</td>
+<td>Completed ribosome</td>
+<td>70S</td>
+<td>80S</td>
 </tr>
 </tbody>
 </table>
-<p>The 2′-OH is the whole stability story the board wants. Under alkaline conditions that hydroxyl can attack the neighboring phosphate and cut the chain. DNA has no 2′-OH, so it does not have this path. Folding, proteins, and RNases still decide how long an RNA actually lasts in a tube. The chemical point remains: <strong>RNA is the alkali-labile nucleic acid because of the 2′-OH.</strong></p>
-<p>DNA polymerases are given dNTPs. RNA polymerases are given NTPs. ATP is both an energy cofactor and an RNA building block. If a stem says “the polymerase incorporates ATP,” check whether the product is RNA before you call it a trick.</p>
+<p>“All tRNAs enter the A site” is false. Elongator tRNAs do. The initiator tRNA starts in P.</p>
 </section>
-<section id="two-bonds-and-which-direction-the-strands-run" class="level2">
-<h2 class="anchored" data-anchor-id="two-bonds-and-which-direction-the-strands-run">Two bonds, and which direction the strands run</h2>
-<p>Hydrogen bonds pair bases <strong>across</strong> the two strands. A phosphodiester bond links nucleotides <strong>along</strong> one strand, from the 3′ carbon of one sugar to the 5′ phosphate of the next.</p>
+</section>
+<section id="elongation-delivery-bond-movement" class="level2">
+<h2 class="anchored" data-anchor-id="elongation-delivery-bond-movement">Elongation: delivery, bond, movement</h2>
+<p>The cycle must stay in this order:</p>
+<ol type="1">
+<li><strong>Delivery and decoding.</strong> Bacterial EF-Tu–GTP carries an aminoacyl-tRNA to A. Correct pairing triggers GTP hydrolysis and accommodation. EF-Ts regenerates EF-Tu–GTP.</li>
+<li><strong>Peptide-bond formation.</strong> The amino group on the A-site amino acid attacks the ester-linked peptide on the P-site tRNA. The peptide transfers to the A-site tRNA. Bacterial 23S rRNA catalyzes the reaction.</li>
+<li><strong>Translocation.</strong> EF-G–GTP moves the ribosome one codon. Peptidyl-tRNA moves A→P; empty tRNA moves P→E and exits. A is free again.</li>
+</ol>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Pair</th>
-<th>Hydrogen bonds</th>
-<th>Where you meet it</th>
+<th>Bacterial factor</th>
+<th>Role</th>
+<th>Eukaryotic counterpart</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>A–T</td>
-<td>2</td>
-<td>DNA</td>
+<td>EF-Tu</td>
+<td>Delivers aminoacyl-tRNA to A</td>
+<td>eEF1A</td>
 </tr>
 <tr class="even">
-<td>A–U</td>
-<td>2</td>
-<td>RNA duplexes and DNA–RNA hybrids</td>
+<td>EF-Ts</td>
+<td>Exchanges GDP for GTP on EF-Tu</td>
+<td>eEF1B complex</td>
 </tr>
 <tr class="odd">
-<td>G–C</td>
-<td>3</td>
-<td>DNA and RNA</td>
+<td>EF-G</td>
+<td>Translocation</td>
+<td>eEF2</td>
 </tr>
 </tbody>
 </table>
-<p>G–C is the stronger pair because it has three hydrogen bonds. Base stacking along the strand stabilizes the duplex as well. The exam still treats “three versus two” as the short answer.</p>
-<p>The strands of a duplex are antiparallel. One runs 5′→3′. Its partner runs 3′→5′. Sequence is written 5′ to 3′ unless the item says otherwise.</p>
-<p>In double-stranded DNA, Chargaff’s rules follow from that pairing: the amount of A equals T, and the amount of G equals C. A single strand does not have to obey that equality. An item that applies Chargaff to one RNA strand is using the rule in the wrong place.</p>
+<p>Each elongation cycle uses two GTP in this simplified accounting: one for EF-Tu selection and one for EF-G translocation. This is in addition to the ATP→AMP cost of charging.</p>
 <div class="learn-figure">
-<svg viewbox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" aria-label="Antiparallel DNA strands with hydrogen bonds between bases and phosphodiester links along each strand">
-  <rect width="760" height="300" fill="#F8FAFC"></rect>
-  <text x="48" y="42" fill="#0F766E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
-  <text x="520" y="42" fill="#0F766E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
-  <line x1="78" y1="36" x2="500" y2="36" stroke="#0F766E" stroke-width="4" stroke-linecap="round"></line>
-  <text x="48" y="168" fill="#C2410C" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
-  <text x="520" y="168" fill="#C2410C" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
-  <line x1="78" y1="162" x2="500" y2="162" stroke="#C2410C" stroke-width="4" stroke-linecap="round"></line>
-  <g font-family="Outfit, sans-serif" font-size="18" font-weight="700">
-    <text x="140" y="78" text-anchor="middle" fill="#312E81">A</text>
-    <text x="250" y="78" text-anchor="middle" fill="#312E81">G</text>
-    <text x="360" y="78" text-anchor="middle" fill="#312E81">C</text>
-    <text x="470" y="78" text-anchor="middle" fill="#312E81">T</text>
-    <text x="140" y="148" text-anchor="middle" fill="#312E81">T</text>
-    <text x="250" y="148" text-anchor="middle" fill="#312E81">C</text>
-    <text x="360" y="148" text-anchor="middle" fill="#312E81">G</text>
-    <text x="470" y="148" text-anchor="middle" fill="#312E81">A</text>
+<svg viewbox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" aria-label="Translation elongation cycle showing A P and E sites, peptide transfer, and translocation">
+  <rect width="800" height="360" fill="#F8FAFC"></rect>
+  <text x="30" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Elongation repeats in this order</text>
+  <g transform="translate(30 62)">
+    <rect width="220" height="210" rx="16" fill="#fff" stroke="#CBD5E1" stroke-width="2"></rect>
+    <text x="110" y="28" text-anchor="middle" fill="#4338CA" font-family="Outfit, sans-serif" font-size="14" font-weight="700">1 · DELIVERY</text>
+    <rect x="30" y="60" width="48" height="55" rx="6" fill="#F1F5F9"></rect><text x="54" y="91" text-anchor="middle" fill="#64748B" font-family="Outfit" font-size="16">E</text>
+    <rect x="86" y="60" width="48" height="55" rx="6" fill="#CCFBF1"></rect><text x="110" y="91" text-anchor="middle" fill="#115E59" font-family="Outfit" font-size="16">P</text>
+    <rect x="142" y="60" width="48" height="55" rx="6" fill="#E0E7FF"></rect><text x="166" y="91" text-anchor="middle" fill="#312E81" font-family="Outfit" font-size="16">A</text>
+    <line x1="166" y1="52" x2="166" y2="20" stroke="#4338CA" stroke-width="3"></line><circle cx="166" cy="16" r="9" fill="#4338CA"></circle>
+    <line x1="110" y1="60" x2="110" y2="33" stroke="#0F766E" stroke-width="3"></line><circle cx="110" cy="27" r="9" fill="#0F766E"></circle>
+    <text x="110" y="147" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">EF-Tu–GTP brings</text>
+    <text x="110" y="165" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">charged tRNA to A</text>
   </g>
-  <g stroke="#4338CA" stroke-width="2">
-    <line x1="140" y1="86" x2="140" y2="128"></line>
-    <line x1="146" y1="86" x2="146" y2="128"></line>
-    <line x1="244" y1="86" x2="244" y2="128"></line>
-    <line x1="250" y1="86" x2="250" y2="128"></line>
-    <line x1="256" y1="86" x2="256" y2="128"></line>
-    <line x1="354" y1="86" x2="354" y2="128"></line>
-    <line x1="360" y1="86" x2="360" y2="128"></line>
-    <line x1="366" y1="86" x2="366" y2="128"></line>
-    <line x1="470" y1="86" x2="470" y2="128"></line>
-    <line x1="476" y1="86" x2="476" y2="128"></line>
+  <g transform="translate(290 62)">
+    <rect width="220" height="210" rx="16" fill="#fff" stroke="#CBD5E1" stroke-width="2"></rect>
+    <text x="110" y="28" text-anchor="middle" fill="#C2410C" font-family="Outfit, sans-serif" font-size="14" font-weight="700">2 · PEPTIDE BOND</text>
+    <rect x="30" y="60" width="48" height="55" rx="6" fill="#F1F5F9"></rect><text x="54" y="91" text-anchor="middle" fill="#64748B" font-family="Outfit" font-size="16">E</text>
+    <rect x="86" y="60" width="48" height="55" rx="6" fill="#CCFBF1"></rect><text x="110" y="91" text-anchor="middle" fill="#115E59" font-family="Outfit" font-size="16">P</text>
+    <rect x="142" y="60" width="48" height="55" rx="6" fill="#E0E7FF"></rect><text x="166" y="91" text-anchor="middle" fill="#312E81" font-family="Outfit" font-size="16">A</text>
+    <path d="M110 56 C125 25,150 25,166 49" fill="none" stroke="#C2410C" stroke-width="4"></path>
+    <polygon points="166,49 154,44 159,58" fill="#C2410C"></polygon>
+    <circle cx="166" cy="43" r="9" fill="#C2410C"></circle>
+    <text x="110" y="147" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">23S rRNA transfers</text>
+    <text x="110" y="165" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">the peptide P → A</text>
   </g>
-  <text x="48" y="220" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">Blue ticks are hydrogen bonds: two for A–T, three for G–C.</text>
-  <text x="48" y="246" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">The colored rails are phosphodiester backbones. They run in opposite directions.</text>
-  <text x="48" y="272" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic.</text>
+  <g transform="translate(550 62)">
+    <rect width="220" height="210" rx="16" fill="#fff" stroke="#CBD5E1" stroke-width="2"></rect>
+    <text x="110" y="28" text-anchor="middle" fill="#0F766E" font-family="Outfit, sans-serif" font-size="14" font-weight="700">3 · TRANSLOCATION</text>
+    <rect x="30" y="60" width="48" height="55" rx="6" fill="#F1F5F9"></rect><text x="54" y="91" text-anchor="middle" fill="#64748B" font-family="Outfit" font-size="16">E</text>
+    <rect x="86" y="60" width="48" height="55" rx="6" fill="#CCFBF1"></rect><text x="110" y="91" text-anchor="middle" fill="#115E59" font-family="Outfit" font-size="16">P</text>
+    <rect x="142" y="60" width="48" height="55" rx="6" fill="#E0E7FF"></rect><text x="166" y="91" text-anchor="middle" fill="#312E81" font-family="Outfit" font-size="16">A</text>
+    <line x1="166" y1="45" x2="110" y2="45" stroke="#0F766E" stroke-width="4"></line><polygon points="110,45 122,39 122,51" fill="#0F766E"></polygon>
+    <line x1="110" y1="126" x2="54" y2="126" stroke="#64748B" stroke-width="3"></line><polygon points="54,126 66,120 66,132" fill="#64748B"></polygon>
+    <text x="110" y="157" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">EF-G–GTP:</text>
+    <text x="110" y="175" text-anchor="middle" fill="#475569" font-family="IBM Plex Sans" font-size="12">A→P and P→E</text>
+  </g>
+  <line x1="78" y1="310" x2="718" y2="310" stroke="#334155" stroke-width="3"></line>
+  <polygon points="718,310 706,304 706,316" fill="#334155"></polygon>
+  <text x="30" y="316" fill="#334155" font-family="Outfit" font-size="14" font-weight="700">5′</text>
+  <text x="734" y="316" fill="#334155" font-family="Outfit" font-size="14" font-weight="700">3′</text>
+  <text x="400" y="343" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans" font-size="13">Original schematic. Peptide transfer occurs before translocation.</text>
 </svg>
-<p class="learn-caption">Hydrogen bonds are the cross-links. Phosphodiester bonds are the rails. Antiparallel means the 5′ ends are at opposite corners.</p>
+<p class="learn-caption">After bond formation the peptide is briefly on the A-site tRNA. EF-G then moves that tRNA into P.</p>
 </div>
 </section>
-<section id="melting-temperature" class="level2">
-<h2 class="anchored" data-anchor-id="melting-temperature">Melting temperature</h2>
-<p>Tm is the temperature at which half of the duplexes in a population are denatured, under the conditions you actually used. As the strands separate, absorbance at 260 nm rises. That rise is the hyperchromic effect, and it is how a melting curve is read.</p>
-<p>What pushes Tm up, when the other variables stay put:</p>
-<ul>
-<li>More G–C pairs, because each contributes three hydrogen bonds and favorable stacking.</li>
-<li>A longer perfectly matched duplex.</li>
-<li>Higher salt. Monovalent cations shield the repulsion between the phosphate backbones.</li>
-</ul>
-<p>What pushes Tm down:</p>
-<ul>
-<li>Mismatches.</li>
-<li>A shorter duplex.</li>
-<li>Denaturants such as formamide or urea, which is why hybridization buffers use them when the goal is a more stringent, or a more controlled, melt.</li>
-</ul>
-<p>GC percent is a first estimate. Primer-design software uses nearest-neighbor parameters, because the neighbors of a pair change the stability of that pair. Two oligos with the same GC percent can still have different Tm values. For a board item that only gives GC percent, length, and “otherwise identical conditions,” choose the higher GC.</p>
-<p>In the lab this shows up as soon as you set an annealing temperature. Primers that melt far apart, or an annealing step set far below the primer Tm, are the usual reasons a PCR becomes either weak or nonspecific. The chemistry lesson and the amplification lesson are the same fact seen from two sides.</p>
+<section id="termination-and-recycling" class="level2">
+<h2 class="anchored" data-anchor-id="termination-and-recycling">Termination and recycling</h2>
+<p>Termination begins when UAA, UAG, or UGA reaches A. There is no ordinary charged tRNA for stop. A release factor enters, and water hydrolyzes the ester bond between the completed chain and the P-site tRNA.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Factor</th>
+<th>Recognition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bacterial RF1</td>
+<td>UAA and UAG</td>
+</tr>
+<tr class="even">
+<td>Bacterial RF2</td>
+<td>UAA and UGA</td>
+</tr>
+<tr class="odd">
+<td>Bacterial RF3</td>
+<td>GTPase assisting release-factor turnover</td>
+</tr>
+<tr class="even">
+<td>Eukaryotic eRF1</td>
+<td>All three stop codons</td>
+</tr>
+<tr class="odd">
+<td>Eukaryotic eRF3</td>
+<td>GTPase assisting termination</td>
+</tr>
+</tbody>
+</table>
+<p>After release, bacterial RRF, EF-G, and IF-3 recycle the complex. Eukaryotes use ABCE1 and additional factors.</p>
+<p>A premature termination codon can trigger <strong>nonsense-mediated mRNA decay (NMD)</strong>. NMD lowers the amount of an mRNA that could produce a truncated protein. It is context-dependent and is an mRNA surveillance pathway, not ordinary termination.</p>
+</section>
+<section id="translation-errors-variants-and-laboratory-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="translation-errors-variants-and-laboratory-evidence">Translation errors, variants, and laboratory evidence</h2>
+<p>A translation error affects a particular protein molecule without necessarily changing DNA or mRNA. A genetic variant changes the encoded sequence and can recur in every transcript or protein produced from that allele.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>Sequence effect</th>
+<th>Likely protein consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Missense variant</td>
+<td>One sense codon becomes another</td>
+<td>One amino-acid substitution</td>
+</tr>
+<tr class="even">
+<td>Nonsense variant</td>
+<td>Sense codon becomes stop</td>
+<td>Truncation and possibly NMD</td>
+</tr>
+<tr class="odd">
+<td>Frameshift</td>
+<td>Insertion/deletion not divisible by three</td>
+<td>New downstream frame, often early stop</td>
+</tr>
+<tr class="even">
+<td>In-frame indel</td>
+<td>Insertion/deletion divisible by three</td>
+<td>Residues added or removed; frame preserved</td>
+</tr>
+<tr class="odd">
+<td>Translation error</td>
+<td>DNA may be unchanged</td>
+<td>Wrong residue in an individual protein molecule</td>
+</tr>
+</tbody>
+</table>
+<p>One method rarely answers every clinical question:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Best question</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sanger sequencing</td>
+<td>Is a targeted DNA variant present?</td>
+<td>Does not prove protein dysfunction</td>
+</tr>
+<tr class="even">
+<td>NGS</td>
+<td>Which variants are present across many regions?</td>
+<td>Coverage and interpretation limits remain</td>
+</tr>
+<tr class="odd">
+<td>RT-PCR/RNA analysis</td>
+<td>Is transcript structure or splicing altered?</td>
+<td>Requires suitable RNA and assay design</td>
+</tr>
+<tr class="even">
+<td>qPCR</td>
+<td>Is nucleic-acid abundance changed?</td>
+<td>Abundance does not prove protein function</td>
+</tr>
+<tr class="odd">
+<td>Western blot</td>
+<td>Is protein abundance or apparent size altered?</td>
+<td>Does not establish activity</td>
+</tr>
+<tr class="even">
+<td>Enzyme assay</td>
+<td>Is function impaired?</td>
+<td>May not identify the causal DNA change</td>
+</tr>
+</tbody>
+</table>
+<p>For a premature stop, separate three questions: confirm the DNA variant; test whether the RNA is spliced differently or degraded by NMD; then determine whether protein is absent, shortened, unstable, or inactive.</p>
 </section>
 <section id="say-these-without-looking" class="level2">
 <h2 class="anchored" data-anchor-id="say-these-without-looking">Say these without looking</h2>
 <ul>
-<li>Purines: A and G, two rings, glycosidic bond through N9.</li>
-<li>Pyrimidines: C, T, and U, one ring, glycosidic bond through N1.</li>
-<li>Nucleoside = base + sugar. Nucleotide = nucleoside + phosphate.</li>
-<li>DNA sugar is 2′-deoxyribose and the unique base is T. RNA sugar is ribose and the unique base is U.</li>
-<li>The 2′-OH makes RNA alkali-labile.</li>
-<li>A–T and A–U have two hydrogen bonds. G–C has three.</li>
-<li>Phosphodiester bonds run along a strand. Hydrogen bonds pair the strands. The strands are antiparallel.</li>
-<li>Tm is 50% denaturation. Higher GC, greater length, and higher salt raise it. Mismatches and formamide lower it.</li>
+<li>The ribosome reads mRNA 5′→3′; protein grows N→C.</li>
+<li>AUG starts. UAA, UAG, and UGA stop. Bacterial initiator amino acid is fMet.</li>
+<li>Wobble is the third codon base and first 5′ anticodon base. Degeneracy is not wobble.</li>
+<li>Aminoacyl-tRNA synthetase charges 3′-CCA. ATP→AMP costs two high-energy bond equivalents.</li>
+<li>70S = 30S + 50S; 80S = 40S + 60S. S values are not additive.</li>
+<li>16S decodes; 23S catalyzes peptide-bond formation.</li>
+<li>A accepts, P holds peptide, E exits. The initiator tRNA starts in P.</li>
+<li>Shine–Dalgarno is bacterial. Cap scanning and Kozak context are eukaryotic.</li>
+<li>EF-Tu delivers, EF-Ts reloads EF-Tu, EF-G translocates.</li>
+<li>Peptide bond first, translocation second.</li>
+<li>RF1 recognizes UAA/UAG; RF2 recognizes UAA/UGA; eRF1 recognizes all three.</li>
+<li>Missense substitutes, nonsense stops, frameshift changes the downstream frame.</li>
 </ul>
-<p>Next: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
+<p>Previous: <a href="../mb-ascp/03-transcription-rna-processing.html">Transcription and RNA processing</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
 </section>
 <section id="check-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
-<p>Ten original questions. Answer all of them, then check. A miss opens a one-line reason.</p>
+<p>Ten original questions. Answer all of them before checking; the explanation appears with the key.</p>
+<div class="mb-quiz" data-mb-quiz="">
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">1. Which statement correctly describes translation directionality?</p>
+    <label><input type="radio" name="d4q1" value="a"> mRNA is read 3′→5′ and protein grows C→N</label>
+    <label><input type="radio" name="d4q1" value="b"> mRNA is read 3′→5′ and protein grows N→C</label>
+    <label><input type="radio" name="d4q1" value="c"> mRNA is read 5′→3′ and protein grows N→C</label>
+    <label><input type="radio" name="d4q1" value="d"> Both are synthesized 3′→5′</label>
+    <p class="mb-q-why" hidden="">The ribosome advances along mRNA 5′→3′. Each new residue is added to the C end, so the polypeptide grows from N terminus to C terminus.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">2. The mRNA codon is 5′-AUG-3′. Which anticodon is correctly written 5′→3′?</p>
+    <label><input type="radio" name="d4q2" value="a"> 5′-UAC-3′</label>
+    <label><input type="radio" name="d4q2" value="b"> 5′-CAU-3′</label>
+    <label><input type="radio" name="d4q2" value="c"> 5′-AUG-3′</label>
+    <label><input type="radio" name="d4q2" value="d"> 5′-GUA-3′</label>
+    <p class="mb-q-why" hidden="">The paired anticodon is 3′-UAC-5′. Reverse it when writing 5′→3′: 5′-CAU-3′.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">3. Wobble occurs between which positions?</p>
+    <label><input type="radio" name="d4q3" value="a"> First codon base and first anticodon base</label>
+    <label><input type="radio" name="d4q3" value="b"> Second codon base and terminal CCA</label>
+    <label><input type="radio" name="d4q3" value="c"> Third codon base and first 5′ anticodon base</label>
+    <label><input type="radio" name="d4q3" value="d"> The start codon and poly-A tail</label>
+    <p class="mb-q-why" hidden="">Codon and anticodon are antiparallel. Flexibility at codon position 3 corresponds to the 5′-most anticodon base.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">4. Why can a mischarged tRNA cause an incorrect amino acid to be incorporated despite correct codon pairing?</p>
+    <label><input type="radio" name="d4q4" value="a"> The ribosome rewrites the anticodon</label>
+    <label><input type="radio" name="d4q4" value="b"> The ribosome mainly checks codon–anticodon geometry, not amino-acid identity</label>
+    <label><input type="radio" name="d4q4" value="c"> Stop codons charge tRNAs</label>
+    <label><input type="radio" name="d4q4" value="d"> EF-G attaches amino acids to tRNA</label>
+    <p class="mb-q-why" hidden="">Aminoacyl-tRNA synthetase establishes amino-acid identity. The ribosome can accept a correctly pairing anticodon even when the attached amino acid is wrong.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">5. Which bacterial rRNA contains the principal peptidyl-transferase catalytic activity?</p>
+    <label><input type="radio" name="d4q5" value="a"> 5S rRNA</label>
+    <label><input type="radio" name="d4q5" value="b"> 16S rRNA</label>
+    <label><input type="radio" name="d4q5" value="c"> 23S rRNA</label>
+    <label><input type="radio" name="d4q5" value="d"> 18S rRNA</label>
+    <p class="mb-q-why" hidden="">23S rRNA is in the 50S large subunit and catalyzes peptide transfer. The 16S rRNA belongs to the 30S decoding subunit.</p>
+  </div>
+  <div class="mb-q" data-answer="a">
+    <p class="mb-q-stem">6. During normal initiation, the initiator tRNA first occupies which site?</p>
+    <label><input type="radio" name="d4q6" value="a"> P site</label>
+    <label><input type="radio" name="d4q6" value="b"> A site</label>
+    <label><input type="radio" name="d4q6" value="c"> E site</label>
+    <label><input type="radio" name="d4q6" value="d"> Editing site of aaRS</label>
+    <p class="mb-q-why" hidden="">The special initiator tRNA starts in P. Later aminoacyl-tRNAs enter through A.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">7. Which bacterial factor delivers an aminoacyl-tRNA to the A site?</p>
+    <label><input type="radio" name="d4q7" value="a"> EF-G–GTP</label>
+    <label><input type="radio" name="d4q7" value="b"> EF-Tu–GTP</label>
+    <label><input type="radio" name="d4q7" value="c"> RF1</label>
+    <label><input type="radio" name="d4q7" value="d"> IF-3</label>
+    <p class="mb-q-why" hidden="">EF-Tu–GTP delivers and helps select the charged tRNA. EF-G translocates after peptide-bond formation.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">8. Immediately after peptide-bond formation but before translocation, the growing peptide is attached to the tRNA in which site?</p>
+    <label><input type="radio" name="d4q8" value="a"> E site</label>
+    <label><input type="radio" name="d4q8" value="b"> P site</label>
+    <label><input type="radio" name="d4q8" value="c"> A site</label>
+    <label><input type="radio" name="d4q8" value="d"> It has already been released</label>
+    <p class="mb-q-why" hidden="">Peptide transfer moves the chain from P-site tRNA to A-site tRNA. EF-G then translocates that peptidyl-tRNA A→P.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Which bacterial release factor recognizes UAA and UGA?</p>
+    <label><input type="radio" name="d4q9" value="a"> RF1</label>
+    <label><input type="radio" name="d4q9" value="b"> RF2</label>
+    <label><input type="radio" name="d4q9" value="c"> RF3</label>
+    <label><input type="radio" name="d4q9" value="d"> eRF1</label>
+    <p class="mb-q-why" hidden="">RF2 recognizes UAA and UGA. RF1 recognizes UAA and UAG. Eukaryotic eRF1 recognizes all three stops.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">10. A one-nucleotide deletion in a coding region most directly causes which variant class?</p>
+    <label><input type="radio" name="d4q10" value="a"> Synonymous</label>
+    <label><input type="radio" name="d4q10" value="b"> In-frame deletion</label>
+    <label><input type="radio" name="d4q10" value="c"> Frameshift</label>
+    <label><input type="radio" name="d4q10" value="d"> Translation error without a DNA change</label>
+    <p class="mb-q-why" hidden="">An indel not divisible by three shifts the downstream reading frame. A three-base deletion would be in-frame.</p>
+  </div>
+  <div class="mb-quiz-actions">
+    <button type="button" class="mb-quiz-check">Check answers</button>
+    <button type="button" class="mb-quiz-reset">Try again</button>
+  </div>
+  <p class="mb-quiz-score" aria-live="polite"></p>
+</div>
+<script src="mb-quiz.js"></script>
+</section>
+<section id="sources-and-figure-note" class="level2">
+<h2 class="anchored" data-anchor-id="sources-and-figure-note">Sources and figure note</h2>
+<p>All three figures are original SVG study schematics created for this page. The primary lesson source is the supplied <em>MB(ASCP) Lesson 4 — Genetic Code and Translation</em> PDF, which identifies Lela Buckingham’s <em>Molecular Diagnostics: Fundamentals, Methods, and Clinical Applications</em>, Chapter 1 (especially printed pp.&nbsp;45–51 and Figures 1.38–1.41), as its main textbook basis. Eukaryotic initiation, factor equivalents, NMD, and diagnostic-method comparisons are supplementary exam context. Use the current ASCP Board of Certification content guideline to confirm the scope for your examination date.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>MB-ASCP</category>
+  <guid>https://vahhabpiranfar.com/mb-ascp/04-genetic-code-and-translation.html</guid>
+  <pubDate>Wed, 11 Nov 2026 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>MB 3. Transcription and RNA processing</title>
+  <dc:creator>Vahhab Piranfar</dc:creator>
+  <link>https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 3</p>
+<p>Transcription copies DNA into RNA. The exam then asks which strand was read, which polymerase did the job, and what eukaryotes do to a pre-mRNA before it can be translated. Processing is three events: a 5′ cap, splicing, and a poly-A tail.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication and not real examination items.</p>
+</div>
+</div>
+<section id="what-the-polymerase-reads" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-polymerase-reads">What the polymerase reads</h2>
+<p>RNA polymerase reads the template strand 3′→5′ and writes RNA 5′→3′. It does not need a primer. The new RNA uses uracil where DNA would have used thymine.</p>
+<p>The other DNA strand is the coding strand, also called the sense strand. Its sequence matches the RNA, with T standing where the RNA has U. The polymerase does not copy the coding strand. People get this backward because the coding strand “looks like” the product. It looks like the product because the template was its complement.</p>
+<p>Read a short example as a habit:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Coding DNA</td>
+<td>5′-ATG CCA TTT-3′</td>
+</tr>
+<tr class="even">
+<td>Template DNA</td>
+<td>3′-TAC GGT AAA-5′</td>
+</tr>
+<tr class="odd">
+<td>RNA</td>
+<td>5′-AUG CCA UUU-3′</td>
+</tr>
+</tbody>
+</table>
+<p>The RNA is complementary to the template and identical to the coding strand except at U. If an item gives you the template and asks for the RNA, write the complement and flip the direction so the answer runs 5′→3′.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" aria-label="Coding strand, template strand, and the RNA copied from the template">
+  <rect width="760" height="230" fill="#F8FAFC"></rect>
+  <text x="28" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Coding</text>
+  <text x="150" y="48" fill="#334155" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-ATG CCA TTT-3′</text>
+  <text x="430" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">same letters as the RNA, T for U</text>
+  <text x="28" y="108" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Template</text>
+  <text x="150" y="108" fill="#C2410C" font-family="Outfit, sans-serif" font-size="18" font-weight="700">3′-TAC GGT AAA-5′</text>
+  <text x="430" y="108" fill="#C2410C" font-family="IBM Plex Sans, sans-serif" font-size="15">this strand is read</text>
+  <text x="28" y="168" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">RNA</text>
+  <text x="150" y="168" fill="#0F766E" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-AUG CCA UUU-3′</text>
+  <text x="430" y="168" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="15">written 5′→3′</text>
+  <text x="28" y="210" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic. The polymerase never uses the coding strand as the template for this transcript.</text>
+</svg>
+<p class="learn-caption">Template equals antisense. Coding equals sense. Report both sequences 5′ to 3′ unless the question prints the template in the 3′→5′ direction it is read.</p>
+</div>
+</section>
+<section id="three-stages-and-where-bacteria-and-eukaryotes-differ" class="level2">
+<h2 class="anchored" data-anchor-id="three-stages-and-where-bacteria-and-eukaryotes-differ">Three stages, and where bacteria and eukaryotes differ</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stage</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Initiation</td>
+<td>Polymerase and its helper proteins find a promoter and start at the +1 nucleotide.</td>
+</tr>
+<tr class="even">
+<td>Elongation</td>
+<td>The polymerase walks the template and lengthens the RNA 5′→3′.</td>
+</tr>
+<tr class="odd">
+<td>Termination</td>
+<td>A signal ends the transcript. The signal is not the same in bacteria and eukaryotes.</td>
+</tr>
+</tbody>
+</table>
+<p>A promoter decides where transcription starts and how eager the start is. It is DNA. It is not transcribed into the body of a bacterial mRNA as a coding sequence, and it is not the same thing as the start codon.</p>
+<p>In bacteria the core RNA polymerase is α2ββ′ω. The sigma subunit is what recognizes the promoter, principally the −10 box (TATAAT) and the −35 box (TTGACA). Sigma leaves after initiation. The core enzyme elongates without it.</p>
+<p>Bacterial termination comes in two versions. Intrinsic, or rho-independent, termination is an RNA hairpin rich in G–C, followed by a run of U. The weak A–U hybrid lets the chain fall off. Rho-dependent termination uses the rho protein, which loads on a C-rich rut site in the RNA and catches the polymerase.</p>
+<p>Eukaryotes split the work among three nuclear polymerases:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Polymerase</th>
+<th>What to answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RNA polymerase I</td>
+<td>The major ribosomal RNAs: 28S, 18S, and 5.8S, cut from one precursor</td>
+</tr>
+<tr class="even">
+<td>RNA polymerase II</td>
+<td>Pre-mRNA, and also most snRNA and miRNA</td>
+</tr>
+<tr class="odd">
+<td>RNA polymerase III</td>
+<td>tRNA, 5S rRNA, and U6 snRNA</td>
+</tr>
+</tbody>
+</table>
+<p>The memory line is Pol I for most rRNA, Pol II for pre-mRNA, Pol III for tRNA and 5S. The item that catches people is 5S rRNA. It is ribosomal, but it is a Pol III product. U6 is the snRNA exception in the other direction: most snRNAs are Pol II, and U6 is Pol III.</p>
+<p>Eukaryotic promoters are more varied. Many Pol II promoters have a TATA box near −25, recognized by TBP within TFIID. Others rely on an initiator, a CAAT box, or GC boxes. “Every eukaryotic gene has a TATA box” is false.</p>
+</section>
+<section id="the-rna-types-worth-naming" class="level2">
+<h2 class="anchored" data-anchor-id="the-rna-types-worth-naming">The RNA types worth naming</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>RNA</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mRNA</td>
+<td>Carries codons to the ribosome</td>
+</tr>
+<tr class="even">
+<td>tRNA</td>
+<td>Brings the amino acid. Its anticodon pairs with the codon.</td>
+</tr>
+<tr class="odd">
+<td>rRNA</td>
+<td>Builds the ribosome and takes part in peptide-bond formation</td>
+</tr>
+<tr class="even">
+<td>snRNA</td>
+<td>Works inside snRNPs during splicing</td>
+</tr>
+<tr class="odd">
+<td>miRNA and siRNA</td>
+<td>Short RNAs that regulate other RNAs</td>
+</tr>
+<tr class="even">
+<td>lncRNA</td>
+<td>Long noncoding RNAs with regulatory roles</td>
+</tr>
+</tbody>
+</table>
+<p>You do not need a catalog of every lncRNA. You need to know that a transcript can be functional without becoming a protein, and that mRNA, tRNA, and rRNA are three different answers.</p>
+</section>
+<section id="what-happens-to-eukaryotic-pre-mrna" class="level2">
+<h2 class="anchored" data-anchor-id="what-happens-to-eukaryotic-pre-mrna">What happens to eukaryotic pre-mRNA</h2>
+<p>Bacteria often translate an mRNA while it is still being made, and a bacterial mRNA does not receive a 5′ cap or a long poly-A tail of the eukaryotic kind. Eukaryotic protein-coding genes produce a pre-mRNA that is processed, mostly while polymerase II is still elongating. Phosphorylation of the Pol II C-terminal domain is what couples the polymerase to the processing machinery. The three events are the cap, splicing, and cleavage plus polyadenylation.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" aria-label="Pre-mRNA with cap site, exons, introns, and a polyadenylation signal, then the mature mRNA">
+  <rect width="780" height="250" fill="#F8FAFC"></rect>
+  <text x="28" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Pre-mRNA</text>
+  <rect x="28" y="52" width="70" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"></rect>
+  <text x="63" y="73" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">5′ cap</text>
+  <rect x="106" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
+  <text x="151" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
+  <rect x="196" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"></rect>
+  <text x="251" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
+  <rect x="306" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
+  <text x="351" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
+  <rect x="396" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"></rect>
+  <text x="451" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
+  <rect x="506" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
+  <text x="551" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
+  <rect x="604" y="52" width="78" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"></rect>
+  <text x="643" y="73" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="12" font-weight="700">AAUAAA</text>
+  <text x="360" y="124" text-anchor="middle" fill="#64748B" font-family="Outfit, sans-serif" font-size="18">↓ splicing, keep the exons</text>
+  <text x="28" y="168" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Mature mRNA</text>
+  <rect x="28" y="184" width="78" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"></rect>
+  <text x="67" y="205" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">m7G</text>
+  <rect x="114" y="184" width="80" height="32" fill="#0F766E"></rect>
+  <text x="154" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
+  <rect x="194" y="184" width="80" height="32" fill="#0F766E"></rect>
+  <text x="234" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
+  <rect x="274" y="184" width="80" height="32" fill="#0F766E"></rect>
+  <text x="314" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
+  <rect x="362" y="184" width="110" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"></rect>
+  <text x="417" y="205" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="13" font-weight="700">AAAAA…</text>
+  <text x="490" y="205" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">tail added, not copied</text>
+</svg>
+<p class="learn-caption">Original schematic. Introns leave. The poly-A tail is added by an enzyme after the RNA is cut downstream of AAUAAA.</p>
+</div>
+<section id="the-cap" class="level3">
+<h3 class="anchored" data-anchor-id="the-cap">The cap</h3>
+<p>A 7-methylguanosine is attached to the 5′ end through an unusual 5′–5′ triphosphate bridge. The cap protects the mRNA from exonucleases, helps export it from the nucleus, and helps the ribosome find the message. It is added early, co-transcriptionally.</p>
+</section>
+<section id="the-tail" class="level3">
+<h3 class="anchored" data-anchor-id="the-tail">The tail</h3>
+<p>A polyadenylation signal, commonly AAUAAA in mammals, sits near the 3′ end of the pre-mRNA. The transcript is cleaved downstream of that signal. Poly-A polymerase then adds a string of adenines to the new 3′ end. Those adenines are not copied from a long run of T in the gene. The tail contributes to stability, export, and translation. A shorter tail is one way a cell retires an mRNA.</p>
+</section>
+<section id="splicing" class="level3">
+<h3 class="anchored" data-anchor-id="splicing">Splicing</h3>
+<p>Introns are removed. Exons are joined and stay in the mature mRNA. Many nuclear pre-mRNA introns begin with GU and end with AG. An adenine at the branch point, upstream of the 3′ splice site, attacks the 5′ splice site. The intron comes out as a lariat, and the exons are ligated.</p>
+<p>The spliceosome is the RNA–protein machine that does this. Its snRNPs include U1, U2, U4, U5, and U6. U1 recognizes the 5′ splice site. U2 recognizes the branch point. The chemistry itself is RNA-catalyzed. A few introns, the group I and group II types, can splice without a spliceosome. If the stem says “spliceosome,” it means the GU–AG nuclear pre-mRNA pathway, not those self-splicing exceptions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Word</th>
+<th>Meaning on an item</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exon</td>
+<td>Kept in the mature RNA</td>
+</tr>
+<tr class="even">
+<td>Intron</td>
+<td>Removed</td>
+</tr>
+<tr class="odd">
+<td>Spliceosome</td>
+<td>The complex that removes nuclear pre-mRNA introns</td>
+</tr>
+<tr class="even">
+<td>snRNP</td>
+<td>An RNA–protein subunit of that complex</td>
+</tr>
+</tbody>
+</table>
+<p>Alternative splicing lets one gene produce more than one mature mRNA. A transcript with exons 1–2–3–4 might be processed as 1–2–4 or as 1–3–4. Exon skipping is the common human pattern. Other patterns are an alternative 5′ or 3′ splice site, mutually exclusive exons, and intron retention. The result is more than one protein, or a different untranslated region, from one locus. A splicing mutation can cause disease without changing a single codon inside an exon. RNA sequencing is one way a lab sees the abnormal junction.</p>
+</section>
+</section>
+<section id="reverse-transcription-said-so-the-abbreviations-stop-colliding" class="level2">
+<h2 class="anchored" data-anchor-id="reverse-transcription-said-so-the-abbreviations-stop-colliding">Reverse transcription, said so the abbreviations stop colliding</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Process</th>
+<th>Direction</th>
+<th>Primer?</th>
+<th>Enzyme</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Replication</td>
+<td>DNA → DNA</td>
+<td>Yes</td>
+<td>DNA polymerase</td>
+</tr>
+<tr class="even">
+<td>Transcription</td>
+<td>DNA → RNA</td>
+<td>No</td>
+<td>RNA polymerase</td>
+</tr>
+<tr class="odd">
+<td>Reverse transcription</td>
+<td>RNA → DNA</td>
+<td>Yes</td>
+<td>Reverse transcriptase</td>
+</tr>
+</tbody>
+</table>
+<p>Reverse transcriptase reads RNA 3′→5′ and writes DNA 5′→3′. Unlike RNA polymerase, it needs a primer. For mRNA the primer is often oligo(dT), which pairs with the poly-A tail. Random primers are used when the RNA has no tail, or when the goal is to copy more than the 3′ end. Retroviral reverse transcriptase also has an RNase H activity that degrades the RNA half of the hybrid.</p>
+<p>In the clinical lab:</p>
+<ul>
+<li>PCR starts from DNA.</li>
+<li>RT-PCR starts from RNA, makes complementary DNA with reverse transcriptase, and then runs PCR.</li>
+<li>qPCR, or real-time PCR, is a way of watching product accumulate, with a dye or a probe. It says nothing by itself about whether the input was RNA.</li>
+<li>RT-qPCR is both: reverse transcription, then real-time detection.</li>
+</ul>
+<p>“RT” in a method name is the abbreviation that causes the miss. On these notes, RT means reverse transcription. Real-time is written out, or written as qPCR.</p>
+</section>
+<section id="say-these-without-looking" class="level2">
+<h2 class="anchored" data-anchor-id="say-these-without-looking">Say these without looking</h2>
+<ul>
+<li>RNA polymerase reads the template 3′→5′ and writes 5′→3′. It does not need a primer.</li>
+<li>The coding strand matches the RNA, with T where RNA has U.</li>
+<li>Bacteria: sigma reads −10 and −35. Intrinsic termination is a hairpin plus a U run. Rho termination uses the rho protein.</li>
+<li>Pol I: 28S, 18S, 5.8S. Pol II: pre-mRNA. Pol III: tRNA, 5S rRNA, U6.</li>
+<li>The cap is 7-methylguanosine on a 5′–5′ link.</li>
+<li>AAUAAA is the common polyadenylation signal. The tail is added, not transcribed.</li>
+<li>Introns leave through the spliceosome. GU–AG and a branch-point adenine define the usual nuclear intron. Exons stay.</li>
+<li>Reverse transcriptase copies RNA into DNA and needs a primer. RT-PCR is that step plus PCR. qPCR is the detection format.</li>
+</ul>
+<p>Previous: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. Next: <a href="../mb-ascp/04-genetic-code-and-translation.html">Genetic code and translation</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
 <div class="mb-quiz" data-mb-quiz="">
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">1. Which bases are purines?</p>
-    <label><input type="radio" name="d1q1" value="a"> Cytosine, thymine, and uracil</label>
-    <label><input type="radio" name="d1q1" value="b"> Adenine and guanine</label>
-    <label><input type="radio" name="d1q1" value="c"> Adenine, thymine, and uracil</label>
-    <label><input type="radio" name="d1q1" value="d"> Only the bases found in RNA</label>
-    <p class="mb-q-why" hidden="">Adenine and guanine have two fused rings. C, T, and U are the pyrimidines.</p>
-  </div>
-  <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">2. A nucleoside contains which parts?</p>
-    <label><input type="radio" name="d1q2" value="a"> Base, sugar, and phosphate</label>
-    <label><input type="radio" name="d1q2" value="b"> Phosphate only</label>
-    <label><input type="radio" name="d1q2" value="c"> Base and sugar</label>
-    <label><input type="radio" name="d1q2" value="d"> Two paired strands</label>
-    <p class="mb-q-why" hidden="">Base plus sugar is the nucleoside. Phosphate is what turns it into a nucleotide. dATP is a nucleotide, not a nucleoside.</p>
-  </div>
-  <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">3. Which bond covalently links neighboring nucleotides in one strand?</p>
-    <label><input type="radio" name="d1q3" value="a"> Hydrogen bond</label>
-    <label><input type="radio" name="d1q3" value="b"> Glycosidic bond</label>
-    <label><input type="radio" name="d1q3" value="c"> Phosphodiester bond</label>
-    <label><input type="radio" name="d1q3" value="d"> Peptide bond</label>
-    <p class="mb-q-why" hidden="">The phosphodiester bond is the backbone link, from 3′ of one sugar to 5′ of the next. Hydrogen bonds pair bases. The glycosidic bond holds a base on its own sugar.</p>
+    <p class="mb-q-stem">1. Which strand does RNA polymerase read, and in which direction?</p>
+    <label><input type="radio" name="d3q1" value="a"> The coding strand, 5′→3′</label>
+    <label><input type="radio" name="d3q1" value="b"> The template strand, 3′→5′</label>
+    <label><input type="radio" name="d3q1" value="c"> The template strand, 5′→3′</label>
+    <label><input type="radio" name="d3q1" value="d"> Both strands of one gene at the same time</label>
+    <p class="mb-q-why" hidden="">The template, or antisense, strand is read 3′→5′. The coding strand matches the RNA and is not the template.</p>
   </div>
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">4. Why is RNA more susceptible than DNA to alkaline hydrolysis?</p>
-    <label><input type="radio" name="d1q4" value="a"> RNA contains thymine</label>
-    <label><input type="radio" name="d1q4" value="b"> Ribose has a 2′-OH</label>
-    <label><input type="radio" name="d1q4" value="c"> RNA has a 5′ phosphate and DNA does not</label>
-    <label><input type="radio" name="d1q4" value="d"> RNA strands are antiparallel</label>
-    <p class="mb-q-why" hidden="">The 2′-OH can attack the adjacent phosphate and cut the chain. DNA carries hydrogen at the 2′ carbon, so this path does not exist.</p>
-  </div>
-  <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">5. How many hydrogen bonds hold a G–C pair?</p>
-    <label><input type="radio" name="d1q5" value="a"> One</label>
-    <label><input type="radio" name="d1q5" value="b"> Two</label>
-    <label><input type="radio" name="d1q5" value="c"> Three</label>
-    <label><input type="radio" name="d1q5" value="d"> None. G–C is a covalent pair</label>
-    <p class="mb-q-why" hidden="">G–C has three hydrogen bonds. A–T and A–U have two. The bonds are not covalent.</p>
-  </div>
-  <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">6. Which duplex should have the highest Tm?</p>
-    <label><input type="radio" name="d1q6" value="a"> A short oligo with 40% GC</label>
-    <label><input type="radio" name="d1q6" value="b"> A long duplex with 40% GC</label>
-    <label><input type="radio" name="d1q6" value="c"> A long, perfectly matched duplex with 70% GC</label>
-    <label><input type="radio" name="d1q6" value="d"> A long 70% GC duplex with several mismatches</label>
-    <p class="mb-q-why" hidden="">Length and GC content both raise Tm. Mismatches lower it. The long matched 70% GC duplex has all three factors on its side.</p>
+    <p class="mb-q-stem">2. How does a mature mRNA sequence compare with the coding strand of its gene?</p>
+    <label><input type="radio" name="d3q2" value="a"> A in DNA is written as G in RNA</label>
+    <label><input type="radio" name="d3q2" value="b"> The sequences match, except T in DNA is U in RNA</label>
+    <label><input type="radio" name="d3q2" value="c"> The RNA is the reverse of the coding strand and still uses T</label>
+    <label><input type="radio" name="d3q2" value="d"> They match only inside introns</label>
+    <p class="mb-q-why" hidden="">Coding-strand sequence and RNA sequence are the same letters, with U replacing T, and with introns already removed from the mature mRNA.</p>
   </div>
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">7. A purine is attached to C1′ of the sugar through which atom?</p>
-    <label><input type="radio" name="d1q7" value="a"> N1</label>
-    <label><input type="radio" name="d1q7" value="b"> N9</label>
-    <label><input type="radio" name="d1q7" value="c"> The 3′-OH</label>
-    <label><input type="radio" name="d1q7" value="d"> The 5′ phosphate</label>
-    <p class="mb-q-why" hidden="">Purines use N9. Pyrimidines use N1. Both bonds land on C1′ of the sugar.</p>
+    <p class="mb-q-stem">3. Which eukaryotic polymerase synthesizes pre-mRNA?</p>
+    <label><input type="radio" name="d3q3" value="a"> RNA polymerase I</label>
+    <label><input type="radio" name="d3q3" value="b"> RNA polymerase II</label>
+    <label><input type="radio" name="d3q3" value="c"> RNA polymerase III</label>
+    <label><input type="radio" name="d3q3" value="d"> Reverse transcriptase</label>
+    <p class="mb-q-why" hidden="">Pol II makes pre-mRNA. Pol I makes the major rRNAs. Pol III makes tRNA, 5S rRNA, and U6.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">4. tRNA and 5S rRNA are products of which polymerase?</p>
+    <label><input type="radio" name="d3q4" value="a"> RNA polymerase I</label>
+    <label><input type="radio" name="d3q4" value="b"> RNA polymerase II</label>
+    <label><input type="radio" name="d3q4" value="c"> RNA polymerase III</label>
+    <label><input type="radio" name="d3q4" value="d"> DNA polymerase γ</label>
+    <p class="mb-q-why" hidden="">Both are Pol III products. 5S is the ribosomal RNA that does not come from Pol I. The other rRNAs, 28S, 18S, and 5.8S, do.</p>
   </div>
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">8. Chargaff's rules, A = T and G = C, apply directly to which molecule?</p>
-    <label><input type="radio" name="d1q8" value="a"> Any single-stranded RNA</label>
-    <label><input type="radio" name="d1q8" value="b"> Double-stranded DNA</label>
-    <label><input type="radio" name="d1q8" value="c"> A free nucleotide</label>
-    <label><input type="radio" name="d1q8" value="d"> The peptide backbone</label>
-    <p class="mb-q-why" hidden="">The equalities come from base pairing across two DNA strands. A single RNA strand has no partner forcing A to equal U.</p>
+    <p class="mb-q-stem">5. The 5′ cap on eukaryotic mRNA is which structure?</p>
+    <label><input type="radio" name="d3q5" value="a"> A run of adenines copied from the template</label>
+    <label><input type="radio" name="d3q5" value="b"> 7-methylguanosine joined by a 5′–5′ linkage</label>
+    <label><input type="radio" name="d3q5" value="c"> The first intron, left in place for export</label>
+    <label><input type="radio" name="d3q5" value="d"> The RNA primer from transcription</label>
+    <p class="mb-q-why" hidden="">The cap is a modified guanine on an unusual 5′–5′ triphosphate bridge. RNA polymerase does not use a primer, and the poly-A tail is a separate 3′ modification.</p>
   </div>
-  <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">9. What does Tm represent?</p>
-    <label><input type="radio" name="d1q9" value="a"> The temperature that destroys every phosphodiester bond</label>
-    <label><input type="radio" name="d1q9" value="b"> The temperature at which ligase is most active</label>
-    <label><input type="radio" name="d1q9" value="c"> The temperature at which half of the duplexes are denatured</label>
-    <label><input type="radio" name="d1q9" value="d"> The annealing temperature printed on a primer tube</label>
-    <p class="mb-q-why" hidden="">Tm is the midpoint of the melting transition under stated conditions: 50% of the duplex population is single-stranded. It is measured, often from the rise in A260, not assumed from a reagent label.</p>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">6. Which sequence is the common mammalian polyadenylation signal?</p>
+    <label><input type="radio" name="d3q6" value="a"> TATAAT</label>
+    <label><input type="radio" name="d3q6" value="b"> AAUAAA</label>
+    <label><input type="radio" name="d3q6" value="c"> GU … AG</label>
+    <label><input type="radio" name="d3q6" value="d"> TTGACA</label>
+    <p class="mb-q-why" hidden="">AAUAAA marks the cleavage and polyadenylation region. TATAAT and TTGACA are bacterial promoter boxes. GU–AG marks splice sites.</p>
   </div>
-  <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">10. Which change tends to lower Tm?</p>
-    <label><input type="radio" name="d1q10" value="a"> Raising the GC content</label>
-    <label><input type="radio" name="d1q10" value="b"> Raising the salt concentration</label>
-    <label><input type="radio" name="d1q10" value="c"> Adding formamide</label>
-    <label><input type="radio" name="d1q10" value="d"> Lengthening a perfectly matched duplex</label>
-    <p class="mb-q-why" hidden="">Formamide destabilizes the duplex and lowers Tm. GC content, salt, and length of a matched duplex move Tm the other way.</p>
+  <div class="mb-q" data-answer="a">
+    <p class="mb-q-stem">7. During splicing of a typical nuclear pre-mRNA intron, the branch-point adenine</p>
+    <label><input type="radio" name="d3q7" value="a"> attacks the 5′ splice site and the intron is released as a lariat</label>
+    <label><input type="radio" name="d3q7" value="b"> is the polyadenylation signal</label>
+    <label><input type="radio" name="d3q7" value="c"> base-pairs with the TATA box</label>
+    <label><input type="radio" name="d3q7" value="d"> becomes the start codon</label>
+    <p class="mb-q-why" hidden="">The branch-point A makes the lariat. U1 marks the 5′ splice site and U2 marks the branch point. The exons are then joined.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">8. What is alternative splicing?</p>
+    <label><input type="radio" name="d3q8" value="a"> Copying one mRNA into several unrelated genes</label>
+    <label><input type="radio" name="d3q8" value="b"> Joining different combinations of exons from one pre-mRNA</label>
+    <label><input type="radio" name="d3q8" value="c"> Adding the poly-A tail at the 5′ end</label>
+    <label><input type="radio" name="d3q8" value="d"> Proofreading by RNA polymerase</label>
+    <p class="mb-q-why" hidden="">One primary transcript can yield more than one mature mRNA, for example by skipping an exon. That is a source of protein diversity and of disease when a splice site is mutated.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">9. Reverse transcriptase differs from RNA polymerase because it</p>
+    <label><input type="radio" name="d3q9" value="a"> copies DNA into RNA and needs no primer</label>
+    <label><input type="radio" name="d3q9" value="b"> copies RNA into DNA and needs a primer</label>
+    <label><input type="radio" name="d3q9" value="c"> seals nicks between Okazaki fragments</label>
+    <label><input type="radio" name="d3q9" value="d"> removes introns from pre-mRNA</label>
+    <p class="mb-q-why" hidden="">Reverse transcriptase writes DNA from an RNA template and, unlike RNA polymerase, requires a primer such as oligo(dT) or a random hexamer.</p>
+  </div>
+  <div class="mb-q" data-answer="b">
+    <p class="mb-q-stem">10. A run that starts with RNA, makes cDNA, and then amplifies that cDNA is called</p>
+    <label><input type="radio" name="d3q10" value="a"> PCR from genomic DNA</label>
+    <label><input type="radio" name="d3q10" value="b"> RT-PCR</label>
+    <label><input type="radio" name="d3q10" value="c"> a Southern blot</label>
+    <label><input type="radio" name="d3q10" value="d"> nick translation</label>
+    <p class="mb-q-why" hidden="">RT-PCR means reverse transcription followed by PCR. qPCR only describes real-time detection. Doing both is RT-qPCR. A Southern blot starts from DNA and does not amplify it this way.</p>
   </div>
   <div class="mb-quiz-actions">
     <button type="button" class="mb-quiz-check">Check answers</button>
@@ -378,14 +1043,14 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </section>
 <section id="where-this-sits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-sits">Where this sits</h2>
-<p>Figures on this page are original schematics. The chemistry is the standard account used for clinical molecular boards: nucleotide structure, pairing, and melting behavior as treated in Alberts and colleagues, <em>Molecular Biology of the Cell</em>, and in the nucleic-acid chapters of Buckingham, <em>Molecular Diagnostics</em>. Use the current ASCP Board of Certification content guideline for MB(ASCP) and MB(ASCPi) to decide what else is in scope for your sitting.</p>
+<p>Both figures are original schematics. Promoters, the three nuclear polymerases, the cap, the spliceosome, and polyadenylation follow the account in Alberts and colleagues, <em>Molecular Biology of the Cell</em>. The clinical reading of RT-PCR versus real-time PCR follows Buckingham, <em>Molecular Diagnostics</em>. Polymerase product lists are the standard board assignments, including the two exceptions worth memorizing: 5S rRNA and U6 snRNA are RNA polymerase III products.</p>
 
 
 </section>
 
  ]]></description>
   <category>MB-ASCP</category>
-  <guid>https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html</guid>
+  <guid>https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html</guid>
   <pubDate>Tue, 10 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 <item>
@@ -773,16 +1438,16 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
   <pubDate>Tue, 10 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>MB 3. Transcription and RNA processing</title>
+  <title>MB 1. Nucleic acid chemistry</title>
   <dc:creator>Vahhab Piranfar</dc:creator>
-  <link>https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html</link>
+  <link>https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p class="mb-kicker">MB(ASCP) study notes · Lesson 3</p>
-<p>Transcription copies DNA into RNA. The exam then asks which strand was read, which polymerase did the job, and what eukaryotes do to a pre-mRNA before it can be translated. Processing is three events: a 5′ cap, splicing, and a poly-A tail.</p>
+<p class="mb-kicker">MB(ASCP) study notes · Lesson 1</p>
+<p>DNA and RNA are polymers. The exam mostly asks you to name the parts, the bonds, and the one chemical difference that makes RNA fall apart in alkali. This lesson is that map.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -793,369 +1458,336 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication and not real examination items.</p>
+<p>Original study notes for MB(ASCP) and MB(ASCPi) preparation. Not an official ASCP publication, not a dosing or lab procedure, and not a set of real examination items. Confirm the current content outline before you register.</p>
 </div>
 </div>
-<section id="what-the-polymerase-reads" class="level2">
-<h2 class="anchored" data-anchor-id="what-the-polymerase-reads">What the polymerase reads</h2>
-<p>RNA polymerase reads the template strand 3′→5′ and writes RNA 5′→3′. It does not need a primer. The new RNA uses uracil where DNA would have used thymine.</p>
-<p>The other DNA strand is the coding strand, also called the sense strand. Its sequence matches the RNA, with T standing where the RNA has U. The polymerase does not copy the coding strand. People get this backward because the coding strand “looks like” the product. It looks like the product because the template was its complement.</p>
-<p>Read a short example as a habit:</p>
+<section id="three-pieces-two-names" class="level2">
+<h2 class="anchored" data-anchor-id="three-pieces-two-names">Three pieces, two names</h2>
+<p>Every nucleotide has a nitrogenous base, a five-carbon sugar, and at least one phosphate. The sugar–phosphate chain is the backbone. The order of the bases is the information.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Molecule</th>
+<th>What it contains</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Base</td>
+<td>The ring only</td>
+<td>Adenine, guanine, cytosine, thymine, uracil</td>
+</tr>
+<tr class="even">
+<td>Nucleoside</td>
+<td>Base + sugar</td>
+<td>Adenosine, deoxyadenosine, thymidine, uridine</td>
+</tr>
+<tr class="odd">
+<td>Nucleotide</td>
+<td>Base + sugar + phosphate</td>
+<td>AMP, ATP, dATP, dTTP</td>
+</tr>
+</tbody>
+</table>
+<p>The base is tied to carbon 1′ of the sugar by a glycosidic bond. Purines use nitrogen N9. Pyrimidines use nitrogen N1. The phosphate sits on carbon 5′. The next nucleotide will be attached to the free OH on carbon 3′.</p>
+<div class="learn-figure">
+<svg viewbox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" aria-label="A nucleotide drawn as phosphate, sugar, and base, with the carbons that exams ask about">
+  <rect width="760" height="280" fill="#F8FAFC"></rect>
+  <rect x="36" y="78" width="150" height="78" rx="12" fill="#FEF3C7" stroke="#D97706" stroke-width="2"></rect>
+  <text x="111" y="112" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Phosphate</text>
+  <text x="111" y="134" text-anchor="middle" fill="#92400E" font-family="IBM Plex Sans, sans-serif" font-size="13">on carbon 5′</text>
+  <line x1="186" y1="117" x2="230" y2="117" stroke="#94A3B8" stroke-width="3"></line>
+  <rect x="230" y="62" width="170" height="110" rx="12" fill="#CCFBF1" stroke="#0F766E" stroke-width="2"></rect>
+  <text x="315" y="104" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Pentose sugar</text>
+  <text x="315" y="126" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">1′ holds the base</text>
+  <text x="315" y="146" text-anchor="middle" fill="#115E59" font-family="IBM Plex Sans, sans-serif" font-size="13">3′ holds the next link</text>
+  <line x1="400" y1="117" x2="444" y2="117" stroke="#94A3B8" stroke-width="3"></line>
+  <text x="422" y="108" text-anchor="middle" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="12">glycosidic</text>
+  <rect x="444" y="70" width="160" height="94" rx="12" fill="#E0E7FF" stroke="#4338CA" stroke-width="2"></rect>
+  <text x="524" y="112" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="16" font-weight="700">Base</text>
+  <text x="524" y="134" text-anchor="middle" fill="#312E81" font-family="IBM Plex Sans, sans-serif" font-size="13">A, G, C, T, or U</text>
+  <text x="36" y="230" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">Nucleoside = sugar + base. Add phosphate and the same molecule is a nucleotide.</text>
+  <text x="36" y="254" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Purines attach through N9. Pyrimidines attach through N1.</text>
+</svg>
+<p class="learn-caption">Original study schematic. Carbon numbers, not artistic ring drawings, are what the items test.</p>
+</div>
+<p>Naming is part of the question. Adenine is the base, adenosine is the ribonucleoside, and AMP is the nucleotide. The prefix <strong>deoxy-</strong> means the sugar is 2′-deoxyribose, so dATP is a DNA building block. Thymidine is the usual name for the deoxyribonucleoside of thymine. Uridine is the ribonucleoside of uracil.</p>
+</section>
+<section id="purines-and-pyrimidines" class="level2">
+<h2 class="anchored" data-anchor-id="purines-and-pyrimidines">Purines and pyrimidines</h2>
+<p>Purines have two fused rings. Pyrimidines have one ring.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
-<th>Sequence</th>
+<th>Purines</th>
+<th>Pyrimidines</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Coding DNA</td>
-<td>5′-ATG CCA TTT-3′</td>
+<td>Shape</td>
+<td>Six-membered ring fused to a five-membered ring</td>
+<td>One six-membered ring</td>
 </tr>
 <tr class="even">
-<td>Template DNA</td>
-<td>3′-TAC GGT AAA-5′</td>
+<td>Members</td>
+<td>Adenine (A), guanine (G)</td>
+<td>Cytosine (C), thymine (T), uracil (U)</td>
 </tr>
 <tr class="odd">
-<td>RNA</td>
-<td>5′-AUG CCA UUU-3′</td>
+<td>Where</td>
+<td>A and G are in DNA and RNA</td>
+<td>C is in both. T is the DNA base. U is the RNA base.</td>
 </tr>
 </tbody>
 </table>
-<p>The RNA is complementary to the template and identical to the coding strand except at U. If an item gives you the template and asks for the RNA, write the complement and flip the direction so the answer runs 5′→3′.</p>
-<div class="learn-figure">
-<svg viewbox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" aria-label="Coding strand, template strand, and the RNA copied from the template">
-  <rect width="760" height="230" fill="#F8FAFC"></rect>
-  <text x="28" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Coding</text>
-  <text x="150" y="48" fill="#334155" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-ATG CCA TTT-3′</text>
-  <text x="430" y="48" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">same letters as the RNA, T for U</text>
-  <text x="28" y="108" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">Template</text>
-  <text x="150" y="108" fill="#C2410C" font-family="Outfit, sans-serif" font-size="18" font-weight="700">3′-TAC GGT AAA-5′</text>
-  <text x="430" y="108" fill="#C2410C" font-family="IBM Plex Sans, sans-serif" font-size="15">this strand is read</text>
-  <text x="28" y="168" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="15">RNA</text>
-  <text x="150" y="168" fill="#0F766E" font-family="Outfit, sans-serif" font-size="18" font-weight="700">5′-AUG CCA UUU-3′</text>
-  <text x="430" y="168" fill="#0F766E" font-family="IBM Plex Sans, sans-serif" font-size="15">written 5′→3′</text>
-  <text x="28" y="210" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic. The polymerase never uses the coding strand as the template for this transcript.</text>
-</svg>
-<p class="learn-caption">Template equals antisense. Coding equals sense. Report both sequences 5′ to 3′ unless the question prints the template in the 3′→5′ direction it is read.</p>
-</div>
+<p>The memory line is enough: <strong>purines are A and G</strong> (“pure As gold”). Everything else in this family — C, T, and U — is a pyrimidine.</p>
+<p>A few substituents are worth being able to picture. Adenine carries an amino group. Guanine carries an amino group and a carbonyl. Thymine is uracil with a methyl group on carbon 5, which is why thymine is also called 5-methyluracil. That methyl group is the only difference the exam wants between T and U.</p>
+<details class="learn-think">
+<summary>
+If the item shows rings and asks which atom bonds to the sugar
+</summary>
+Count the rings first. Two rings means a purine, and the glycosidic nitrogen is N9. One ring means a pyrimidine, and the glycosidic nitrogen is N1. A choice that swaps those two numbers is the usual distractor.
+</details>
 </section>
-<section id="three-stages-and-where-bacteria-and-eukaryotes-differ" class="level2">
-<h2 class="anchored" data-anchor-id="three-stages-and-where-bacteria-and-eukaryotes-differ">Three stages, and where bacteria and eukaryotes differ</h2>
+<section id="dna-and-rna" class="level2">
+<h2 class="anchored" data-anchor-id="dna-and-rna">DNA and RNA</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Stage</th>
-<th>What happens</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Initiation</td>
-<td>Polymerase and its helper proteins find a promoter and start at the +1 nucleotide.</td>
-</tr>
-<tr class="even">
-<td>Elongation</td>
-<td>The polymerase walks the template and lengthens the RNA 5′→3′.</td>
-</tr>
-<tr class="odd">
-<td>Termination</td>
-<td>A signal ends the transcript. The signal is not the same in bacteria and eukaryotes.</td>
-</tr>
-</tbody>
-</table>
-<p>A promoter decides where transcription starts and how eager the start is. It is DNA. It is not transcribed into the body of a bacterial mRNA as a coding sequence, and it is not the same thing as the start codon.</p>
-<p>In bacteria the core RNA polymerase is α2ββ′ω. The sigma subunit is what recognizes the promoter, principally the −10 box (TATAAT) and the −35 box (TTGACA). Sigma leaves after initiation. The core enzyme elongates without it.</p>
-<p>Bacterial termination comes in two versions. Intrinsic, or rho-independent, termination is an RNA hairpin rich in G–C, followed by a run of U. The weak A–U hybrid lets the chain fall off. Rho-dependent termination uses the rho protein, which loads on a C-rich rut site in the RNA and catches the polymerase.</p>
-<p>Eukaryotes split the work among three nuclear polymerases:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Polymerase</th>
-<th>What to answer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>RNA polymerase I</td>
-<td>The major ribosomal RNAs: 28S, 18S, and 5.8S, cut from one precursor</td>
-</tr>
-<tr class="even">
-<td>RNA polymerase II</td>
-<td>Pre-mRNA, and also most snRNA and miRNA</td>
-</tr>
-<tr class="odd">
-<td>RNA polymerase III</td>
-<td>tRNA, 5S rRNA, and U6 snRNA</td>
-</tr>
-</tbody>
-</table>
-<p>The memory line is Pol I for most rRNA, Pol II for pre-mRNA, Pol III for tRNA and 5S. The item that catches people is 5S rRNA. It is ribosomal, but it is a Pol III product. U6 is the snRNA exception in the other direction: most snRNAs are Pol II, and U6 is Pol III.</p>
-<p>Eukaryotic promoters are more varied. Many Pol II promoters have a TATA box near −25, recognized by TBP within TFIID. Others rely on an initiator, a CAAT box, or GC boxes. “Every eukaryotic gene has a TATA box” is false.</p>
-</section>
-<section id="the-rna-types-worth-naming" class="level2">
-<h2 class="anchored" data-anchor-id="the-rna-types-worth-naming">The RNA types worth naming</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
+<th></th>
+<th>DNA</th>
 <th>RNA</th>
-<th>Job</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>mRNA</td>
-<td>Carries codons to the ribosome</td>
+<td>Sugar</td>
+<td>2′-deoxyribose (2′ carbon carries H)</td>
+<td>Ribose (2′ carbon carries OH)</td>
 </tr>
 <tr class="even">
-<td>tRNA</td>
-<td>Brings the amino acid. Its anticodon pairs with the codon.</td>
+<td>Bases</td>
+<td>A, G, C, T</td>
+<td>A, G, C, U</td>
 </tr>
 <tr class="odd">
-<td>rRNA</td>
-<td>Builds the ribosome and takes part in peptide-bond formation</td>
+<td>Usual form</td>
+<td>Double-stranded</td>
+<td>Single-stranded, often folded</td>
 </tr>
 <tr class="even">
-<td>snRNA</td>
-<td>Works inside snRNPs during splicing</td>
-</tr>
-<tr class="odd">
-<td>miRNA and siRNA</td>
-<td>Short RNAs that regulate other RNAs</td>
-</tr>
-<tr class="even">
-<td>lncRNA</td>
-<td>Long noncoding RNAs with regulatory roles</td>
+<td>Alkali</td>
+<td>The backbone resists this particular attack</td>
+<td>The 2′-OH can cleave the backbone</td>
 </tr>
 </tbody>
 </table>
-<p>You do not need a catalog of every lncRNA. You need to know that a transcript can be functional without becoming a protein, and that mRNA, tRNA, and rRNA are three different answers.</p>
+<p>The 2′-OH is the whole stability story the board wants. Under alkaline conditions that hydroxyl can attack the neighboring phosphate and cut the chain. DNA has no 2′-OH, so it does not have this path. Folding, proteins, and RNases still decide how long an RNA actually lasts in a tube. The chemical point remains: <strong>RNA is the alkali-labile nucleic acid because of the 2′-OH.</strong></p>
+<p>DNA polymerases are given dNTPs. RNA polymerases are given NTPs. ATP is both an energy cofactor and an RNA building block. If a stem says “the polymerase incorporates ATP,” check whether the product is RNA before you call it a trick.</p>
 </section>
-<section id="what-happens-to-eukaryotic-pre-mrna" class="level2">
-<h2 class="anchored" data-anchor-id="what-happens-to-eukaryotic-pre-mrna">What happens to eukaryotic pre-mRNA</h2>
-<p>Bacteria often translate an mRNA while it is still being made, and a bacterial mRNA does not receive a 5′ cap or a long poly-A tail of the eukaryotic kind. Eukaryotic protein-coding genes produce a pre-mRNA that is processed, mostly while polymerase II is still elongating. Phosphorylation of the Pol II C-terminal domain is what couples the polymerase to the processing machinery. The three events are the cap, splicing, and cleavage plus polyadenylation.</p>
+<section id="two-bonds-and-which-direction-the-strands-run" class="level2">
+<h2 class="anchored" data-anchor-id="two-bonds-and-which-direction-the-strands-run">Two bonds, and which direction the strands run</h2>
+<p>Hydrogen bonds pair bases <strong>across</strong> the two strands. A phosphodiester bond links nucleotides <strong>along</strong> one strand, from the 3′ carbon of one sugar to the 5′ phosphate of the next.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pair</th>
+<th>Hydrogen bonds</th>
+<th>Where you meet it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A–T</td>
+<td>2</td>
+<td>DNA</td>
+</tr>
+<tr class="even">
+<td>A–U</td>
+<td>2</td>
+<td>RNA duplexes and DNA–RNA hybrids</td>
+</tr>
+<tr class="odd">
+<td>G–C</td>
+<td>3</td>
+<td>DNA and RNA</td>
+</tr>
+</tbody>
+</table>
+<p>G–C is the stronger pair because it has three hydrogen bonds. Base stacking along the strand stabilizes the duplex as well. The exam still treats “three versus two” as the short answer.</p>
+<p>The strands of a duplex are antiparallel. One runs 5′→3′. Its partner runs 3′→5′. Sequence is written 5′ to 3′ unless the item says otherwise.</p>
+<p>In double-stranded DNA, Chargaff’s rules follow from that pairing: the amount of A equals T, and the amount of G equals C. A single strand does not have to obey that equality. An item that applies Chargaff to one RNA strand is using the rule in the wrong place.</p>
 <div class="learn-figure">
-<svg viewbox="0 0 780 250" xmlns="http://www.w3.org/2000/svg" aria-label="Pre-mRNA with cap site, exons, introns, and a polyadenylation signal, then the mature mRNA">
-  <rect width="780" height="250" fill="#F8FAFC"></rect>
-  <text x="28" y="36" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Pre-mRNA</text>
-  <rect x="28" y="52" width="70" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"></rect>
-  <text x="63" y="73" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">5′ cap</text>
-  <rect x="106" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
-  <text x="151" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
-  <rect x="196" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"></rect>
-  <text x="251" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
-  <rect x="306" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
-  <text x="351" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
-  <rect x="396" y="52" width="110" height="32" fill="#F1F5F9" stroke="#94A3B8"></rect>
-  <text x="451" y="73" text-anchor="middle" fill="#475569" font-family="Outfit, sans-serif" font-size="13">Intron</text>
-  <rect x="506" y="52" width="90" height="32" fill="#CCFBF1" stroke="#0F766E"></rect>
-  <text x="551" y="73" text-anchor="middle" fill="#115E59" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
-  <rect x="604" y="52" width="78" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"></rect>
-  <text x="643" y="73" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="12" font-weight="700">AAUAAA</text>
-  <text x="360" y="124" text-anchor="middle" fill="#64748B" font-family="Outfit, sans-serif" font-size="18">↓ splicing, keep the exons</text>
-  <text x="28" y="168" fill="#334155" font-family="Outfit, sans-serif" font-size="14" font-weight="700">Mature mRNA</text>
-  <rect x="28" y="184" width="78" height="32" rx="6" fill="#FEF3C7" stroke="#D97706"></rect>
-  <text x="67" y="205" text-anchor="middle" fill="#92400E" font-family="Outfit, sans-serif" font-size="13" font-weight="700">m7G</text>
-  <rect x="114" y="184" width="80" height="32" fill="#0F766E"></rect>
-  <text x="154" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 1</text>
-  <rect x="194" y="184" width="80" height="32" fill="#0F766E"></rect>
-  <text x="234" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 2</text>
-  <rect x="274" y="184" width="80" height="32" fill="#0F766E"></rect>
-  <text x="314" y="205" text-anchor="middle" fill="#fff" font-family="Outfit, sans-serif" font-size="13" font-weight="700">Exon 3</text>
-  <rect x="362" y="184" width="110" height="32" rx="6" fill="#E0E7FF" stroke="#4338CA"></rect>
-  <text x="417" y="205" text-anchor="middle" fill="#312E81" font-family="Outfit, sans-serif" font-size="13" font-weight="700">AAAAA…</text>
-  <text x="490" y="205" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">tail added, not copied</text>
+<svg viewbox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" aria-label="Antiparallel DNA strands with hydrogen bonds between bases and phosphodiester links along each strand">
+  <rect width="760" height="300" fill="#F8FAFC"></rect>
+  <text x="48" y="42" fill="#0F766E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
+  <text x="520" y="42" fill="#0F766E" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
+  <line x1="78" y1="36" x2="500" y2="36" stroke="#0F766E" stroke-width="4" stroke-linecap="round"></line>
+  <text x="48" y="168" fill="#C2410C" font-family="Outfit, sans-serif" font-size="15" font-weight="700">3′</text>
+  <text x="520" y="168" fill="#C2410C" font-family="Outfit, sans-serif" font-size="15" font-weight="700">5′</text>
+  <line x1="78" y1="162" x2="500" y2="162" stroke="#C2410C" stroke-width="4" stroke-linecap="round"></line>
+  <g font-family="Outfit, sans-serif" font-size="18" font-weight="700">
+    <text x="140" y="78" text-anchor="middle" fill="#312E81">A</text>
+    <text x="250" y="78" text-anchor="middle" fill="#312E81">G</text>
+    <text x="360" y="78" text-anchor="middle" fill="#312E81">C</text>
+    <text x="470" y="78" text-anchor="middle" fill="#312E81">T</text>
+    <text x="140" y="148" text-anchor="middle" fill="#312E81">T</text>
+    <text x="250" y="148" text-anchor="middle" fill="#312E81">C</text>
+    <text x="360" y="148" text-anchor="middle" fill="#312E81">G</text>
+    <text x="470" y="148" text-anchor="middle" fill="#312E81">A</text>
+  </g>
+  <g stroke="#4338CA" stroke-width="2">
+    <line x1="140" y1="86" x2="140" y2="128"></line>
+    <line x1="146" y1="86" x2="146" y2="128"></line>
+    <line x1="244" y1="86" x2="244" y2="128"></line>
+    <line x1="250" y1="86" x2="250" y2="128"></line>
+    <line x1="256" y1="86" x2="256" y2="128"></line>
+    <line x1="354" y1="86" x2="354" y2="128"></line>
+    <line x1="360" y1="86" x2="360" y2="128"></line>
+    <line x1="366" y1="86" x2="366" y2="128"></line>
+    <line x1="470" y1="86" x2="470" y2="128"></line>
+    <line x1="476" y1="86" x2="476" y2="128"></line>
+  </g>
+  <text x="48" y="220" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">Blue ticks are hydrogen bonds: two for A–T, three for G–C.</text>
+  <text x="48" y="246" fill="#334155" font-family="IBM Plex Sans, sans-serif" font-size="15">The colored rails are phosphodiester backbones. They run in opposite directions.</text>
+  <text x="48" y="272" fill="#64748B" font-family="IBM Plex Sans, sans-serif" font-size="14">Original schematic.</text>
 </svg>
-<p class="learn-caption">Original schematic. Introns leave. The poly-A tail is added by an enzyme after the RNA is cut downstream of AAUAAA.</p>
+<p class="learn-caption">Hydrogen bonds are the cross-links. Phosphodiester bonds are the rails. Antiparallel means the 5′ ends are at opposite corners.</p>
 </div>
-<section id="the-cap" class="level3">
-<h3 class="anchored" data-anchor-id="the-cap">The cap</h3>
-<p>A 7-methylguanosine is attached to the 5′ end through an unusual 5′–5′ triphosphate bridge. The cap protects the mRNA from exonucleases, helps export it from the nucleus, and helps the ribosome find the message. It is added early, co-transcriptionally.</p>
 </section>
-<section id="the-tail" class="level3">
-<h3 class="anchored" data-anchor-id="the-tail">The tail</h3>
-<p>A polyadenylation signal, commonly AAUAAA in mammals, sits near the 3′ end of the pre-mRNA. The transcript is cleaved downstream of that signal. Poly-A polymerase then adds a string of adenines to the new 3′ end. Those adenines are not copied from a long run of T in the gene. The tail contributes to stability, export, and translation. A shorter tail is one way a cell retires an mRNA.</p>
-</section>
-<section id="splicing" class="level3">
-<h3 class="anchored" data-anchor-id="splicing">Splicing</h3>
-<p>Introns are removed. Exons are joined and stay in the mature mRNA. Many nuclear pre-mRNA introns begin with GU and end with AG. An adenine at the branch point, upstream of the 3′ splice site, attacks the 5′ splice site. The intron comes out as a lariat, and the exons are ligated.</p>
-<p>The spliceosome is the RNA–protein machine that does this. Its snRNPs include U1, U2, U4, U5, and U6. U1 recognizes the 5′ splice site. U2 recognizes the branch point. The chemistry itself is RNA-catalyzed. A few introns, the group I and group II types, can splice without a spliceosome. If the stem says “spliceosome,” it means the GU–AG nuclear pre-mRNA pathway, not those self-splicing exceptions.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Word</th>
-<th>Meaning on an item</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Exon</td>
-<td>Kept in the mature RNA</td>
-</tr>
-<tr class="even">
-<td>Intron</td>
-<td>Removed</td>
-</tr>
-<tr class="odd">
-<td>Spliceosome</td>
-<td>The complex that removes nuclear pre-mRNA introns</td>
-</tr>
-<tr class="even">
-<td>snRNP</td>
-<td>An RNA–protein subunit of that complex</td>
-</tr>
-</tbody>
-</table>
-<p>Alternative splicing lets one gene produce more than one mature mRNA. A transcript with exons 1–2–3–4 might be processed as 1–2–4 or as 1–3–4. Exon skipping is the common human pattern. Other patterns are an alternative 5′ or 3′ splice site, mutually exclusive exons, and intron retention. The result is more than one protein, or a different untranslated region, from one locus. A splicing mutation can cause disease without changing a single codon inside an exon. RNA sequencing is one way a lab sees the abnormal junction.</p>
-</section>
-</section>
-<section id="reverse-transcription-said-so-the-abbreviations-stop-colliding" class="level2">
-<h2 class="anchored" data-anchor-id="reverse-transcription-said-so-the-abbreviations-stop-colliding">Reverse transcription, said so the abbreviations stop colliding</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Process</th>
-<th>Direction</th>
-<th>Primer?</th>
-<th>Enzyme</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Replication</td>
-<td>DNA → DNA</td>
-<td>Yes</td>
-<td>DNA polymerase</td>
-</tr>
-<tr class="even">
-<td>Transcription</td>
-<td>DNA → RNA</td>
-<td>No</td>
-<td>RNA polymerase</td>
-</tr>
-<tr class="odd">
-<td>Reverse transcription</td>
-<td>RNA → DNA</td>
-<td>Yes</td>
-<td>Reverse transcriptase</td>
-</tr>
-</tbody>
-</table>
-<p>Reverse transcriptase reads RNA 3′→5′ and writes DNA 5′→3′. Unlike RNA polymerase, it needs a primer. For mRNA the primer is often oligo(dT), which pairs with the poly-A tail. Random primers are used when the RNA has no tail, or when the goal is to copy more than the 3′ end. Retroviral reverse transcriptase also has an RNase H activity that degrades the RNA half of the hybrid.</p>
-<p>In the clinical lab:</p>
+<section id="melting-temperature" class="level2">
+<h2 class="anchored" data-anchor-id="melting-temperature">Melting temperature</h2>
+<p>Tm is the temperature at which half of the duplexes in a population are denatured, under the conditions you actually used. As the strands separate, absorbance at 260 nm rises. That rise is the hyperchromic effect, and it is how a melting curve is read.</p>
+<p>What pushes Tm up, when the other variables stay put:</p>
 <ul>
-<li>PCR starts from DNA.</li>
-<li>RT-PCR starts from RNA, makes complementary DNA with reverse transcriptase, and then runs PCR.</li>
-<li>qPCR, or real-time PCR, is a way of watching product accumulate, with a dye or a probe. It says nothing by itself about whether the input was RNA.</li>
-<li>RT-qPCR is both: reverse transcription, then real-time detection.</li>
+<li>More G–C pairs, because each contributes three hydrogen bonds and favorable stacking.</li>
+<li>A longer perfectly matched duplex.</li>
+<li>Higher salt. Monovalent cations shield the repulsion between the phosphate backbones.</li>
 </ul>
-<p>“RT” in a method name is the abbreviation that causes the miss. On these notes, RT means reverse transcription. Real-time is written out, or written as qPCR.</p>
+<p>What pushes Tm down:</p>
+<ul>
+<li>Mismatches.</li>
+<li>A shorter duplex.</li>
+<li>Denaturants such as formamide or urea, which is why hybridization buffers use them when the goal is a more stringent, or a more controlled, melt.</li>
+</ul>
+<p>GC percent is a first estimate. Primer-design software uses nearest-neighbor parameters, because the neighbors of a pair change the stability of that pair. Two oligos with the same GC percent can still have different Tm values. For a board item that only gives GC percent, length, and “otherwise identical conditions,” choose the higher GC.</p>
+<p>In the lab this shows up as soon as you set an annealing temperature. Primers that melt far apart, or an annealing step set far below the primer Tm, are the usual reasons a PCR becomes either weak or nonspecific. The chemistry lesson and the amplification lesson are the same fact seen from two sides.</p>
 </section>
 <section id="say-these-without-looking" class="level2">
 <h2 class="anchored" data-anchor-id="say-these-without-looking">Say these without looking</h2>
 <ul>
-<li>RNA polymerase reads the template 3′→5′ and writes 5′→3′. It does not need a primer.</li>
-<li>The coding strand matches the RNA, with T where RNA has U.</li>
-<li>Bacteria: sigma reads −10 and −35. Intrinsic termination is a hairpin plus a U run. Rho termination uses the rho protein.</li>
-<li>Pol I: 28S, 18S, 5.8S. Pol II: pre-mRNA. Pol III: tRNA, 5S rRNA, U6.</li>
-<li>The cap is 7-methylguanosine on a 5′–5′ link.</li>
-<li>AAUAAA is the common polyadenylation signal. The tail is added, not transcribed.</li>
-<li>Introns leave through the spliceosome. GU–AG and a branch-point adenine define the usual nuclear intron. Exons stay.</li>
-<li>Reverse transcriptase copies RNA into DNA and needs a primer. RT-PCR is that step plus PCR. qPCR is the detection format.</li>
+<li>Purines: A and G, two rings, glycosidic bond through N9.</li>
+<li>Pyrimidines: C, T, and U, one ring, glycosidic bond through N1.</li>
+<li>Nucleoside = base + sugar. Nucleotide = nucleoside + phosphate.</li>
+<li>DNA sugar is 2′-deoxyribose and the unique base is T. RNA sugar is ribose and the unique base is U.</li>
+<li>The 2′-OH makes RNA alkali-labile.</li>
+<li>A–T and A–U have two hydrogen bonds. G–C has three.</li>
+<li>Phosphodiester bonds run along a strand. Hydrogen bonds pair the strands. The strands are antiparallel.</li>
+<li>Tm is 50% denaturation. Higher GC, greater length, and higher salt raise it. Mismatches and formamide lower it.</li>
 </ul>
-<p>Previous: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>. The usual next block after these three days is translation and the genetic code. That lesson is not on the site yet.</p>
+<p>Next: <a href="../mb-ascp/02-dna-replication.html">DNA replication</a>. All lessons: <a href="../mb-ascp.html">MB(ASCP) study notes</a>.</p>
 </section>
 <section id="check-yourself" class="level2">
 <h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<p>Ten original questions. Answer all of them, then check. A miss opens a one-line reason.</p>
 <div class="mb-quiz" data-mb-quiz="">
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">1. Which strand does RNA polymerase read, and in which direction?</p>
-    <label><input type="radio" name="d3q1" value="a"> The coding strand, 5′→3′</label>
-    <label><input type="radio" name="d3q1" value="b"> The template strand, 3′→5′</label>
-    <label><input type="radio" name="d3q1" value="c"> The template strand, 5′→3′</label>
-    <label><input type="radio" name="d3q1" value="d"> Both strands of one gene at the same time</label>
-    <p class="mb-q-why" hidden="">The template, or antisense, strand is read 3′→5′. The coding strand matches the RNA and is not the template.</p>
-  </div>
-  <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">2. How does a mature mRNA sequence compare with the coding strand of its gene?</p>
-    <label><input type="radio" name="d3q2" value="a"> A in DNA is written as G in RNA</label>
-    <label><input type="radio" name="d3q2" value="b"> The sequences match, except T in DNA is U in RNA</label>
-    <label><input type="radio" name="d3q2" value="c"> The RNA is the reverse of the coding strand and still uses T</label>
-    <label><input type="radio" name="d3q2" value="d"> They match only inside introns</label>
-    <p class="mb-q-why" hidden="">Coding-strand sequence and RNA sequence are the same letters, with U replacing T, and with introns already removed from the mature mRNA.</p>
-  </div>
-  <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">3. Which eukaryotic polymerase synthesizes pre-mRNA?</p>
-    <label><input type="radio" name="d3q3" value="a"> RNA polymerase I</label>
-    <label><input type="radio" name="d3q3" value="b"> RNA polymerase II</label>
-    <label><input type="radio" name="d3q3" value="c"> RNA polymerase III</label>
-    <label><input type="radio" name="d3q3" value="d"> Reverse transcriptase</label>
-    <p class="mb-q-why" hidden="">Pol II makes pre-mRNA. Pol I makes the major rRNAs. Pol III makes tRNA, 5S rRNA, and U6.</p>
+    <p class="mb-q-stem">1. Which bases are purines?</p>
+    <label><input type="radio" name="d1q1" value="a"> Cytosine, thymine, and uracil</label>
+    <label><input type="radio" name="d1q1" value="b"> Adenine and guanine</label>
+    <label><input type="radio" name="d1q1" value="c"> Adenine, thymine, and uracil</label>
+    <label><input type="radio" name="d1q1" value="d"> Only the bases found in RNA</label>
+    <p class="mb-q-why" hidden="">Adenine and guanine have two fused rings. C, T, and U are the pyrimidines.</p>
   </div>
   <div class="mb-q" data-answer="c">
-    <p class="mb-q-stem">4. tRNA and 5S rRNA are products of which polymerase?</p>
-    <label><input type="radio" name="d3q4" value="a"> RNA polymerase I</label>
-    <label><input type="radio" name="d3q4" value="b"> RNA polymerase II</label>
-    <label><input type="radio" name="d3q4" value="c"> RNA polymerase III</label>
-    <label><input type="radio" name="d3q4" value="d"> DNA polymerase γ</label>
-    <p class="mb-q-why" hidden="">Both are Pol III products. 5S is the ribosomal RNA that does not come from Pol I. The other rRNAs, 28S, 18S, and 5.8S, do.</p>
+    <p class="mb-q-stem">2. A nucleoside contains which parts?</p>
+    <label><input type="radio" name="d1q2" value="a"> Base, sugar, and phosphate</label>
+    <label><input type="radio" name="d1q2" value="b"> Phosphate only</label>
+    <label><input type="radio" name="d1q2" value="c"> Base and sugar</label>
+    <label><input type="radio" name="d1q2" value="d"> Two paired strands</label>
+    <p class="mb-q-why" hidden="">Base plus sugar is the nucleoside. Phosphate is what turns it into a nucleotide. dATP is a nucleotide, not a nucleoside.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">3. Which bond covalently links neighboring nucleotides in one strand?</p>
+    <label><input type="radio" name="d1q3" value="a"> Hydrogen bond</label>
+    <label><input type="radio" name="d1q3" value="b"> Glycosidic bond</label>
+    <label><input type="radio" name="d1q3" value="c"> Phosphodiester bond</label>
+    <label><input type="radio" name="d1q3" value="d"> Peptide bond</label>
+    <p class="mb-q-why" hidden="">The phosphodiester bond is the backbone link, from 3′ of one sugar to 5′ of the next. Hydrogen bonds pair bases. The glycosidic bond holds a base on its own sugar.</p>
   </div>
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">5. The 5′ cap on eukaryotic mRNA is which structure?</p>
-    <label><input type="radio" name="d3q5" value="a"> A run of adenines copied from the template</label>
-    <label><input type="radio" name="d3q5" value="b"> 7-methylguanosine joined by a 5′–5′ linkage</label>
-    <label><input type="radio" name="d3q5" value="c"> The first intron, left in place for export</label>
-    <label><input type="radio" name="d3q5" value="d"> The RNA primer from transcription</label>
-    <p class="mb-q-why" hidden="">The cap is a modified guanine on an unusual 5′–5′ triphosphate bridge. RNA polymerase does not use a primer, and the poly-A tail is a separate 3′ modification.</p>
+    <p class="mb-q-stem">4. Why is RNA more susceptible than DNA to alkaline hydrolysis?</p>
+    <label><input type="radio" name="d1q4" value="a"> RNA contains thymine</label>
+    <label><input type="radio" name="d1q4" value="b"> Ribose has a 2′-OH</label>
+    <label><input type="radio" name="d1q4" value="c"> RNA has a 5′ phosphate and DNA does not</label>
+    <label><input type="radio" name="d1q4" value="d"> RNA strands are antiparallel</label>
+    <p class="mb-q-why" hidden="">The 2′-OH can attack the adjacent phosphate and cut the chain. DNA carries hydrogen at the 2′ carbon, so this path does not exist.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">5. How many hydrogen bonds hold a G–C pair?</p>
+    <label><input type="radio" name="d1q5" value="a"> One</label>
+    <label><input type="radio" name="d1q5" value="b"> Two</label>
+    <label><input type="radio" name="d1q5" value="c"> Three</label>
+    <label><input type="radio" name="d1q5" value="d"> None. G–C is a covalent pair</label>
+    <p class="mb-q-why" hidden="">G–C has three hydrogen bonds. A–T and A–U have two. The bonds are not covalent.</p>
+  </div>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">6. Which duplex should have the highest Tm?</p>
+    <label><input type="radio" name="d1q6" value="a"> A short oligo with 40% GC</label>
+    <label><input type="radio" name="d1q6" value="b"> A long duplex with 40% GC</label>
+    <label><input type="radio" name="d1q6" value="c"> A long, perfectly matched duplex with 70% GC</label>
+    <label><input type="radio" name="d1q6" value="d"> A long 70% GC duplex with several mismatches</label>
+    <p class="mb-q-why" hidden="">Length and GC content both raise Tm. Mismatches lower it. The long matched 70% GC duplex has all three factors on its side.</p>
   </div>
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">6. Which sequence is the common mammalian polyadenylation signal?</p>
-    <label><input type="radio" name="d3q6" value="a"> TATAAT</label>
-    <label><input type="radio" name="d3q6" value="b"> AAUAAA</label>
-    <label><input type="radio" name="d3q6" value="c"> GU … AG</label>
-    <label><input type="radio" name="d3q6" value="d"> TTGACA</label>
-    <p class="mb-q-why" hidden="">AAUAAA marks the cleavage and polyadenylation region. TATAAT and TTGACA are bacterial promoter boxes. GU–AG marks splice sites.</p>
-  </div>
-  <div class="mb-q" data-answer="a">
-    <p class="mb-q-stem">7. During splicing of a typical nuclear pre-mRNA intron, the branch-point adenine</p>
-    <label><input type="radio" name="d3q7" value="a"> attacks the 5′ splice site and the intron is released as a lariat</label>
-    <label><input type="radio" name="d3q7" value="b"> is the polyadenylation signal</label>
-    <label><input type="radio" name="d3q7" value="c"> base-pairs with the TATA box</label>
-    <label><input type="radio" name="d3q7" value="d"> becomes the start codon</label>
-    <p class="mb-q-why" hidden="">The branch-point A makes the lariat. U1 marks the 5′ splice site and U2 marks the branch point. The exons are then joined.</p>
+    <p class="mb-q-stem">7. A purine is attached to C1′ of the sugar through which atom?</p>
+    <label><input type="radio" name="d1q7" value="a"> N1</label>
+    <label><input type="radio" name="d1q7" value="b"> N9</label>
+    <label><input type="radio" name="d1q7" value="c"> The 3′-OH</label>
+    <label><input type="radio" name="d1q7" value="d"> The 5′ phosphate</label>
+    <p class="mb-q-why" hidden="">Purines use N9. Pyrimidines use N1. Both bonds land on C1′ of the sugar.</p>
   </div>
   <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">8. What is alternative splicing?</p>
-    <label><input type="radio" name="d3q8" value="a"> Copying one mRNA into several unrelated genes</label>
-    <label><input type="radio" name="d3q8" value="b"> Joining different combinations of exons from one pre-mRNA</label>
-    <label><input type="radio" name="d3q8" value="c"> Adding the poly-A tail at the 5′ end</label>
-    <label><input type="radio" name="d3q8" value="d"> Proofreading by RNA polymerase</label>
-    <p class="mb-q-why" hidden="">One primary transcript can yield more than one mature mRNA, for example by skipping an exon. That is a source of protein diversity and of disease when a splice site is mutated.</p>
+    <p class="mb-q-stem">8. Chargaff's rules, A = T and G = C, apply directly to which molecule?</p>
+    <label><input type="radio" name="d1q8" value="a"> Any single-stranded RNA</label>
+    <label><input type="radio" name="d1q8" value="b"> Double-stranded DNA</label>
+    <label><input type="radio" name="d1q8" value="c"> A free nucleotide</label>
+    <label><input type="radio" name="d1q8" value="d"> The peptide backbone</label>
+    <p class="mb-q-why" hidden="">The equalities come from base pairing across two DNA strands. A single RNA strand has no partner forcing A to equal U.</p>
   </div>
-  <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">9. Reverse transcriptase differs from RNA polymerase because it</p>
-    <label><input type="radio" name="d3q9" value="a"> copies DNA into RNA and needs no primer</label>
-    <label><input type="radio" name="d3q9" value="b"> copies RNA into DNA and needs a primer</label>
-    <label><input type="radio" name="d3q9" value="c"> seals nicks between Okazaki fragments</label>
-    <label><input type="radio" name="d3q9" value="d"> removes introns from pre-mRNA</label>
-    <p class="mb-q-why" hidden="">Reverse transcriptase writes DNA from an RNA template and, unlike RNA polymerase, requires a primer such as oligo(dT) or a random hexamer.</p>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">9. What does Tm represent?</p>
+    <label><input type="radio" name="d1q9" value="a"> The temperature that destroys every phosphodiester bond</label>
+    <label><input type="radio" name="d1q9" value="b"> The temperature at which ligase is most active</label>
+    <label><input type="radio" name="d1q9" value="c"> The temperature at which half of the duplexes are denatured</label>
+    <label><input type="radio" name="d1q9" value="d"> The annealing temperature printed on a primer tube</label>
+    <p class="mb-q-why" hidden="">Tm is the midpoint of the melting transition under stated conditions: 50% of the duplex population is single-stranded. It is measured, often from the rise in A260, not assumed from a reagent label.</p>
   </div>
-  <div class="mb-q" data-answer="b">
-    <p class="mb-q-stem">10. A run that starts with RNA, makes cDNA, and then amplifies that cDNA is called</p>
-    <label><input type="radio" name="d3q10" value="a"> PCR from genomic DNA</label>
-    <label><input type="radio" name="d3q10" value="b"> RT-PCR</label>
-    <label><input type="radio" name="d3q10" value="c"> a Southern blot</label>
-    <label><input type="radio" name="d3q10" value="d"> nick translation</label>
-    <p class="mb-q-why" hidden="">RT-PCR means reverse transcription followed by PCR. qPCR only describes real-time detection. Doing both is RT-qPCR. A Southern blot starts from DNA and does not amplify it this way.</p>
+  <div class="mb-q" data-answer="c">
+    <p class="mb-q-stem">10. Which change tends to lower Tm?</p>
+    <label><input type="radio" name="d1q10" value="a"> Raising the GC content</label>
+    <label><input type="radio" name="d1q10" value="b"> Raising the salt concentration</label>
+    <label><input type="radio" name="d1q10" value="c"> Adding formamide</label>
+    <label><input type="radio" name="d1q10" value="d"> Lengthening a perfectly matched duplex</label>
+    <p class="mb-q-why" hidden="">Formamide destabilizes the duplex and lowers Tm. GC content, salt, and length of a matched duplex move Tm the other way.</p>
   </div>
   <div class="mb-quiz-actions">
     <button type="button" class="mb-quiz-check">Check answers</button>
@@ -1167,14 +1799,14 @@ Count the rings first. Two rings means a purine, and the glycosidic nitrogen is 
 </section>
 <section id="where-this-sits" class="level2">
 <h2 class="anchored" data-anchor-id="where-this-sits">Where this sits</h2>
-<p>Both figures are original schematics. Promoters, the three nuclear polymerases, the cap, the spliceosome, and polyadenylation follow the account in Alberts and colleagues, <em>Molecular Biology of the Cell</em>. The clinical reading of RT-PCR versus real-time PCR follows Buckingham, <em>Molecular Diagnostics</em>. Polymerase product lists are the standard board assignments, including the two exceptions worth memorizing: 5S rRNA and U6 snRNA are RNA polymerase III products.</p>
+<p>Figures on this page are original schematics. The chemistry is the standard account used for clinical molecular boards: nucleotide structure, pairing, and melting behavior as treated in Alberts and colleagues, <em>Molecular Biology of the Cell</em>, and in the nucleic-acid chapters of Buckingham, <em>Molecular Diagnostics</em>. Use the current ASCP Board of Certification content guideline for MB(ASCP) and MB(ASCPi) to decide what else is in scope for your sitting.</p>
 
 
 </section>
 
  ]]></description>
   <category>MB-ASCP</category>
-  <guid>https://vahhabpiranfar.com/mb-ascp/03-transcription-rna-processing.html</guid>
+  <guid>https://vahhabpiranfar.com/mb-ascp/01-nucleic-acid-chemistry.html</guid>
   <pubDate>Tue, 10 Nov 2026 05:00:00 GMT</pubDate>
 </item>
 </channel>

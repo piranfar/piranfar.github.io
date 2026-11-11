@@ -3,6 +3,7 @@ title: "MB 3. Transcription and RNA processing"
 description: "Template versus coding strand, bacterial and eukaryotic polymerases, the cap, splicing, polyadenylation, and why RT-PCR is not the same phrase as real-time PCR."
 author: "Vahhab Piranfar"
 date: "2026-11-10"
+lesson: 3
 categories: [MB-ASCP]
 ---
 
@@ -185,7 +186,7 @@ In the clinical lab:
 - Introns leave through the spliceosome. GU–AG and a branch-point adenine define the usual nuclear intron. Exons stay.
 - Reverse transcriptase copies RNA into DNA and needs a primer. RT-PCR is that step plus PCR. qPCR is the detection format.
 
-Previous: [DNA replication](02-dna-replication.qmd). All lessons: [MB(ASCP) study notes](../mb-ascp.qmd). The usual next block after these three days is translation and the genetic code. That lesson is not on the site yet.
+Previous: [DNA replication](02-dna-replication.qmd). Next: [Genetic code and translation](04-genetic-code-and-translation.qmd). All lessons: [MB(ASCP) study notes](../mb-ascp.qmd).
 
 ## Check yourself
 
